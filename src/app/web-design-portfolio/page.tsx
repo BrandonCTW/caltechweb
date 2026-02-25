@@ -164,146 +164,135 @@ type PortfolioItem = {
   name: string;
   category: string;
   tagline: string;
-  gradient: string;
+  screenshot: string;
+  website: string;
   accentColor: string;
-  result?: string;
   featured?: boolean;
 };
 
 const portfolioItems: PortfolioItem[] = [
   {
-    name: "Dr. Arjun Kanuri",
+    name: "Arjun Kanuri, MD",
     category: "Medical",
-    tagline: "Plastic surgery practice site with patient booking",
-    gradient: "from-teal-600 to-cyan-500",
+    tagline: "Plastic & reconstructive surgery practice",
+    screenshot: "/portfolio/arjun-kanuri.png",
+    website: "https://arjunkanurimd.com",
     accentColor: "bg-teal-50 text-teal-700",
-    result: "+40% traffic increase, 2x conversions",
     featured: true,
   },
   {
-    name: "Calvary Chapel Los Alamitos",
-    category: "Church",
-    tagline: "Church & ministry site with sermon uploads",
-    gradient: "from-indigo-600 to-purple-600",
-    accentColor: "bg-indigo-50 text-indigo-700",
-    result: "Saves pastor 3+ hours/week",
-  },
-  {
-    name: "Fuentes Concrete, Inc.",
-    category: "Contractor",
-    tagline: "Lead-generating contractor site with project gallery",
-    gradient: "from-orange-500 to-red-500",
-    accentColor: "bg-orange-50 text-orange-700",
-    result: "Steady stream of new leads monthly",
-  },
-  {
-    name: "Origami Owl / Chrissy Weems",
+    name: "Blacke House Co.",
     category: "Small Business",
-    tagline: "E-commerce jewelry site with product catalog",
-    gradient: "from-pink-500 to-fuchsia-500",
-    accentColor: "bg-pink-50 text-pink-700",
-    result: "Online sales increased after launch",
-  },
-  {
-    name: "Madera County Farm Bureau",
-    category: "Non-Profit",
-    tagline: "Membership management with scholarship system",
-    gradient: "from-green-500 to-emerald-500",
-    accentColor: "bg-green-50 text-green-700",
-    result: "+55% traffic increase, 1,000+ pages",
-  },
-  {
-    name: "ALV Floors",
-    category: "Contractor",
-    tagline: "Local SEO-optimized home services site",
-    gradient: "from-blue-600 to-blue-500",
-    accentColor: "bg-blue-50 text-blue-700",
-    result: "Ranks on first page of Google locally",
-  },
-  {
-    name: "Kingdom International",
-    category: "Church",
-    tagline: "Ministry site with outreach & event calendar",
-    gradient: "from-violet-600 to-purple-500",
-    accentColor: "bg-violet-50 text-violet-700",
-  },
-  {
-    name: "TurboThao Nails",
-    category: "Small Business",
-    tagline: "Beauty salon site with service menu & booking",
-    gradient: "from-amber-500 to-yellow-400",
+    tagline: "Luxury event & rental services",
+    screenshot: "/portfolio/blacke-house-co.png",
+    website: "https://blackehouseco.com",
     accentColor: "bg-amber-50 text-amber-700",
-    result: "New client bookings up after relaunch",
+  },
+  {
+    name: "Revival Grace Ministry",
+    category: "Church",
+    tagline: "Ministry site with devotionals & community",
+    screenshot: "/portfolio/revival-grace-ministry.png",
+    website: "https://revivalgrace.com",
+    accentColor: "bg-indigo-50 text-indigo-700",
+  },
+  {
+    name: "Luana Wellness",
+    category: "Small Business",
+    tagline: "Wellness coaching with online booking",
+    screenshot: "/portfolio/luana-wellness.png",
+    website: "https://luanawellness.com",
+    accentColor: "bg-green-50 text-green-700",
   },
   {
     name: "Specialized Plastic Surgery",
     category: "Medical",
-    tagline: "Procedure showcase with before/after gallery",
-    gradient: "from-sky-500 to-blue-500",
+    tagline: "Multi-location surgical practice in NY & NJ",
+    screenshot: "/portfolio/specialized-plastic-surgery.png",
+    website: "https://specializedplasticsurgery.com",
     accentColor: "bg-sky-50 text-sky-700",
-    result: "Consistent new patient inquiries from web",
   },
   {
-    name: "California Women for Agriculture",
-    category: "Non-Profit",
-    tagline: "Advocacy site with events, membership & resources",
-    gradient: "from-rose-500 to-pink-500",
-    accentColor: "bg-rose-50 text-rose-700",
-    result: "Membership engagement up since relaunch",
+    name: "Modolith",
+    category: "Small Business",
+    tagline: "Construction & structural services",
+    screenshot: "/portfolio/modolith.png",
+    website: "https://modolith.com",
+    accentColor: "bg-slate-50 text-slate-700",
+  },
+  {
+    name: "Meritus Solutions Group",
+    category: "Small Business",
+    tagline: "Protective security services",
+    screenshot: "/portfolio/meritus-solutions-group.png",
+    website: "https://meritussolutions.com",
+    accentColor: "bg-blue-50 text-blue-700",
+  },
+  {
+    name: "Shepherd's Voice Evangelism",
+    category: "Church",
+    tagline: "Ministry training & outreach resources",
+    screenshot: "/portfolio/shepherds-voice-evangelism.png",
+    website: "https://shepherdsvoice.com",
+    accentColor: "bg-violet-50 text-violet-700",
+  },
+  {
+    name: "Nutrinae",
+    category: "Small Business",
+    tagline: "Animal health nutritional solutions",
+    screenshot: "/portfolio/nutrinae.png",
+    website: "https://nutrinae.com",
+    accentColor: "bg-emerald-50 text-emerald-700",
+  },
+  {
+    name: "ALV Floors & Cabinets",
+    category: "Contractor",
+    tagline: "Flooring & cabinetry in Tennessee",
+    screenshot: "/portfolio/alv-floors.png",
+    website: "https://alvfloors.com",
+    accentColor: "bg-orange-50 text-orange-700",
   },
   {
     name: "Longhorn Fire Alarm Design",
     category: "Small Business",
-    tagline: "Professional services site with quote request",
-    gradient: "from-slate-600 to-gray-600",
-    accentColor: "bg-slate-50 text-slate-700",
+    tagline: "Fire alarm design & engineering services",
+    screenshot: "/portfolio/longhorn-fire-alarm-design.png",
+    website: "https://longhornfirealarmdesign.com",
+    accentColor: "bg-red-50 text-red-700",
   },
   {
     name: "Central Baptist Church",
     category: "Church",
-    tagline: "Church site with sermon archive & online giving",
-    gradient: "from-teal-600 to-green-500",
+    tagline: "Church community in Port Saint Lucie, FL",
+    screenshot: "/portfolio/central-baptist-church.png",
+    website: "https://centralbaptistpsl.com",
     accentColor: "bg-teal-50 text-teal-700",
-    result: "Online giving adoption grew steadily",
   },
 ];
 
 function PortfolioCard({ item }: { item: PortfolioItem }) {
   return (
-    <div
-      className={`group relative bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 ${
+    <a
+      href={item.website}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`group relative bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 block ${
         item.featured ? "md:col-span-2" : ""
       }`}
     >
-      {/* Mock browser preview */}
-      <div className={`relative h-48 sm:h-56 bg-gradient-to-br ${item.gradient} overflow-hidden`}>
-        {/* Browser chrome */}
-        <div className="absolute top-0 left-0 right-0 bg-black/20 backdrop-blur-sm px-3 py-2 flex items-center gap-1.5">
-          <span className="w-2.5 h-2.5 rounded-full bg-white/40" />
-          <span className="w-2.5 h-2.5 rounded-full bg-white/40" />
-          <span className="w-2.5 h-2.5 rounded-full bg-white/40" />
-          <span className="mx-2 flex-1 bg-white/20 rounded px-2 py-0.5 text-white/70 text-xs truncate">
-            caltechweb.com/portfolio/{item.name.toLowerCase().replace(/[^a-z0-9]/g, "-")}
-          </span>
-        </div>
-
-        {/* Mock site layout */}
-        <div className="absolute inset-0 top-9 flex flex-col items-center justify-center px-6 text-center">
-          <div className="text-white font-extrabold text-xl sm:text-2xl mb-1 drop-shadow">{item.name}</div>
-          <div className="text-white/80 text-sm">{item.tagline}</div>
-          {item.result && (
-            <div className="mt-3 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/20 border border-white/30 text-white text-xs font-semibold">
-              <TrendingUp className="w-3 h-3" />
-              {item.result}
-            </div>
-          )}
-        </div>
+      {/* Website screenshot */}
+      <div className="relative h-48 sm:h-56 bg-gray-100 overflow-hidden">
+        <img
+          src={item.screenshot}
+          alt={`${item.name} website designed by CalTech Web`}
+          className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+        />
 
         {/* Hover overlay */}
-        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
-        <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <div className="p-1.5 rounded-lg bg-white/90 shadow text-gray-600">
-            <ExternalLink className="w-4 h-4" />
+        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
+          <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 px-4 py-2 rounded-full bg-white/90 shadow-lg text-gray-800 text-sm font-semibold flex items-center gap-1.5">
+            <ExternalLink className="w-3.5 h-3.5" />
+            Visit Site
           </div>
         </div>
       </div>
@@ -317,14 +306,8 @@ function PortfolioCard({ item }: { item: PortfolioItem }) {
           </span>
         </div>
         <p className="text-sm text-gray-500 leading-relaxed">{item.tagline}</p>
-        {item.result && (
-          <div className="mt-3 flex items-center gap-1.5 text-xs font-semibold text-green-700">
-            <TrendingUp className="w-3.5 h-3.5 text-green-600" />
-            {item.result}
-          </div>
-        )}
       </div>
-    </div>
+    </a>
   );
 }
 
@@ -378,39 +361,16 @@ function CaseStudy() {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Mock site preview */}
+          {/* Real site screenshot */}
           <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-            <div className="bg-gradient-to-br from-teal-700 to-cyan-600 h-80 flex flex-col">
-              {/* Browser chrome */}
-              <div className="bg-black/20 px-4 py-2.5 flex items-center gap-1.5">
-                <span className="w-2.5 h-2.5 rounded-full bg-white/40" />
-                <span className="w-2.5 h-2.5 rounded-full bg-white/40" />
-                <span className="w-2.5 h-2.5 rounded-full bg-white/40" />
-                <span className="ml-2 flex-1 bg-white/20 rounded px-2 py-0.5 text-white/70 text-xs">
-                  drkanuri.com
-                </span>
-              </div>
-
-              {/* Mock site content */}
-              <div className="flex-1 flex flex-col items-center justify-center text-center px-8">
-                <div className="w-16 h-16 rounded-full bg-white/20 border-2 border-white/30 flex items-center justify-center mb-4">
-                  <Stethoscope className="w-8 h-8 text-white" />
-                </div>
-                <div className="text-white font-extrabold text-xl mb-1">Dr. Arjun Kanuri</div>
-                <div className="text-white/80 text-sm mb-4">Plastic &amp; Reconstructive Surgery</div>
-                <div className="flex gap-3">
-                  <span className="px-3 py-1 rounded-full bg-white/20 text-white text-xs font-medium">
-                    Book Appointment →
-                  </span>
-                  <span className="px-3 py-1 rounded-full bg-white/20 text-white text-xs font-medium">
-                    New Patients Welcome
-                  </span>
-                </div>
-              </div>
-            </div>
+            <img
+              src="/portfolio/arjun-kanuri.png"
+              alt="Dr. Arjun Kanuri website designed by CalTech Web"
+              className="w-full h-80 object-cover object-top"
+            />
 
             {/* Floating badge */}
-            <div className="absolute top-14 right-4 bg-green-500 text-white rounded-xl px-3 py-2 shadow-lg text-center">
+            <div className="absolute top-4 right-4 bg-green-500 text-white rounded-xl px-3 py-2 shadow-lg text-center">
               <div className="text-2xl font-extrabold leading-none">+40%</div>
               <div className="text-xs font-medium opacity-90">Traffic</div>
             </div>
