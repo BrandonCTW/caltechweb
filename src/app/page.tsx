@@ -1425,7 +1425,7 @@ function WhoWeServe() {
       title: "Small Businesses",
       desc: "Restaurants, contractors, retail shops, service providers - if you need customers to find you online, we build sites that deliver.",
       icon: Building2,
-      href: "/quote",
+      href: "/get-a-free-instant-quote",
     },
     {
       title: "Churches & Non-Profits",
@@ -1437,7 +1437,7 @@ function WhoWeServe() {
       title: "Professionals",
       desc: "Doctors, lawyers, consultants, real estate agents - a polished site builds trust and brings in more referrals and leads.",
       icon: Briefcase,
-      href: "/quote",
+      href: "/get-a-free-instant-quote",
     },
   ];
 
@@ -2164,8 +2164,8 @@ function Footer() {
         <div className="border-t border-gray-800 pt-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs">
           <p>© {new Date().getFullYear()} CalTech Web. All rights reserved. California-based, serving clients nationwide.</p>
           <div className="flex gap-4">
-            <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
+            <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <Link href="/terms-and-conditions" className="hover:text-white transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>
