@@ -167,6 +167,7 @@ type PortfolioItem = {
   screenshot: string;
   website: string;
   accentColor: string;
+  result?: string;
   featured?: boolean;
 };
 
@@ -178,6 +179,7 @@ const portfolioItems: PortfolioItem[] = [
     screenshot: "/portfolio/arjun-kanuri.png",
     website: "https://arjunkanurimd.com",
     accentColor: "bg-teal-50 text-teal-700",
+    result: "+40% traffic increase, 2x conversions",
     featured: true,
   },
   {
@@ -187,6 +189,7 @@ const portfolioItems: PortfolioItem[] = [
     screenshot: "/portfolio/blacke-house-co.png",
     website: "https://blackehouseco.com",
     accentColor: "bg-amber-50 text-amber-700",
+    result: "Full booking system with online catalog",
   },
   {
     name: "Revival Grace Ministry",
@@ -195,6 +198,7 @@ const portfolioItems: PortfolioItem[] = [
     screenshot: "/portfolio/revival-grace-ministry.png",
     website: "https://revivalgrace.com",
     accentColor: "bg-indigo-50 text-indigo-700",
+    result: "Growing online devotional readership",
   },
   {
     name: "Luana Wellness",
@@ -203,6 +207,7 @@ const portfolioItems: PortfolioItem[] = [
     screenshot: "/portfolio/luana-wellness.png",
     website: "https://luanawellness.com",
     accentColor: "bg-green-50 text-green-700",
+    result: "Integrated e-commerce shop & scheduling",
   },
   {
     name: "Specialized Plastic Surgery",
@@ -211,6 +216,7 @@ const portfolioItems: PortfolioItem[] = [
     screenshot: "/portfolio/specialized-plastic-surgery.png",
     website: "https://specializedplasticsurgery.com",
     accentColor: "bg-sky-50 text-sky-700",
+    result: "Consistent new patient inquiries from web",
   },
   {
     name: "Modolith",
@@ -219,6 +225,7 @@ const portfolioItems: PortfolioItem[] = [
     screenshot: "/portfolio/modolith.png",
     website: "https://modolith.com",
     accentColor: "bg-slate-50 text-slate-700",
+    result: "Professional credibility for new contracts",
   },
   {
     name: "Meritus Solutions Group",
@@ -227,6 +234,7 @@ const portfolioItems: PortfolioItem[] = [
     screenshot: "/portfolio/meritus-solutions-group.png",
     website: "https://meritussolutions.com",
     accentColor: "bg-blue-50 text-blue-700",
+    result: "Employee portal & government contract leads",
   },
   {
     name: "Shepherd's Voice Evangelism",
@@ -235,6 +243,7 @@ const portfolioItems: PortfolioItem[] = [
     screenshot: "/portfolio/shepherds-voice-evangelism.png",
     website: "https://shepherdsvoice.com",
     accentColor: "bg-violet-50 text-violet-700",
+    result: "Training videos & donation system live",
   },
   {
     name: "Nutrinae",
@@ -243,6 +252,7 @@ const portfolioItems: PortfolioItem[] = [
     screenshot: "/portfolio/nutrinae.png",
     website: "https://nutrinae.com",
     accentColor: "bg-emerald-50 text-emerald-700",
+    result: "Full product catalog with species filtering",
   },
   {
     name: "ALV Floors & Cabinets",
@@ -251,6 +261,7 @@ const portfolioItems: PortfolioItem[] = [
     screenshot: "/portfolio/alv-floors.png",
     website: "https://alvfloors.com",
     accentColor: "bg-orange-50 text-orange-700",
+    result: "Ranks on first page of Google locally",
   },
   {
     name: "Longhorn Fire Alarm Design",
@@ -259,6 +270,7 @@ const portfolioItems: PortfolioItem[] = [
     screenshot: "/portfolio/longhorn-fire-alarm-design.png",
     website: "https://longhornfirealarmdesign.com",
     accentColor: "bg-red-50 text-red-700",
+    result: "Streamlined quote request process",
   },
   {
     name: "Central Baptist Church",
@@ -267,6 +279,7 @@ const portfolioItems: PortfolioItem[] = [
     screenshot: "/portfolio/central-baptist-church.png",
     website: "https://centralbaptistpsl.com",
     accentColor: "bg-teal-50 text-teal-700",
+    result: "Online giving & video streaming active",
   },
 ];
 
@@ -306,6 +319,12 @@ function PortfolioCard({ item }: { item: PortfolioItem }) {
           </span>
         </div>
         <p className="text-sm text-gray-500 leading-relaxed">{item.tagline}</p>
+        {item.result && (
+          <div className="mt-3 flex items-center gap-1.5 text-xs font-semibold text-green-700">
+            <TrendingUp className="w-3.5 h-3.5 text-green-600" />
+            {item.result}
+          </div>
+        )}
       </div>
     </a>
   );
