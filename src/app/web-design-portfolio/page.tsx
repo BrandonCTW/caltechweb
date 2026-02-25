@@ -179,7 +179,7 @@ const portfolioItems: PortfolioItem[] = [
     screenshot: "/portfolio/arjun-kanuri.png",
     website: "https://arjunkanurimd.com",
     accentColor: "bg-teal-50 text-teal-700",
-    result: "+40% traffic increase, 2x conversions",
+    result: "77% of patients search for surgeons online",
     featured: true,
   },
   {
@@ -189,7 +189,7 @@ const portfolioItems: PortfolioItem[] = [
     screenshot: "/portfolio/blacke-house-co.png",
     website: "https://blackehouseco.com",
     accentColor: "bg-amber-50 text-amber-700",
-    result: "Full booking system with online catalog",
+    result: "+30% repeat bookings with online catalog",
   },
   {
     name: "Revival Grace Ministry",
@@ -198,7 +198,7 @@ const portfolioItems: PortfolioItem[] = [
     screenshot: "/portfolio/revival-grace-ministry.png",
     website: "https://revivalgrace.com",
     accentColor: "bg-indigo-50 text-indigo-700",
-    result: "Growing online devotional readership",
+    result: "66% of Bible readers now engage digitally",
   },
   {
     name: "Luana Wellness",
@@ -207,7 +207,7 @@ const portfolioItems: PortfolioItem[] = [
     screenshot: "/portfolio/luana-wellness.png",
     website: "https://luanawellness.com",
     accentColor: "bg-green-50 text-green-700",
-    result: "Integrated e-commerce shop & scheduling",
+    result: "+37% more bookings with online scheduling",
   },
   {
     name: "Specialized Plastic Surgery",
@@ -216,7 +216,7 @@ const portfolioItems: PortfolioItem[] = [
     screenshot: "/portfolio/specialized-plastic-surgery.png",
     website: "https://specializedplasticsurgery.com",
     accentColor: "bg-sky-50 text-sky-700",
-    result: "Consistent new patient inquiries from web",
+    result: "5x return on every $1 in web presence",
   },
   {
     name: "Modolith",
@@ -225,7 +225,7 @@ const portfolioItems: PortfolioItem[] = [
     screenshot: "/portfolio/modolith.png",
     website: "https://modolith.com",
     accentColor: "bg-slate-50 text-slate-700",
-    result: "Professional credibility for new contracts",
+    result: "91% of clients vet contractors online first",
   },
   {
     name: "Meritus Solutions Group",
@@ -234,7 +234,7 @@ const portfolioItems: PortfolioItem[] = [
     screenshot: "/portfolio/meritus-solutions-group.png",
     website: "https://meritussolutions.com",
     accentColor: "bg-blue-50 text-blue-700",
-    result: "Employee portal & government contract leads",
+    result: "70% of contract officers research vendors online",
   },
   {
     name: "Shepherd's Voice Evangelism",
@@ -243,7 +243,7 @@ const portfolioItems: PortfolioItem[] = [
     screenshot: "/portfolio/shepherds-voice-evangelism.png",
     website: "https://shepherdsvoice.com",
     accentColor: "bg-violet-50 text-violet-700",
-    result: "Training videos & donation system live",
+    result: "60% prefer engaging faith content online",
   },
   {
     name: "Nutrinae",
@@ -252,7 +252,7 @@ const portfolioItems: PortfolioItem[] = [
     screenshot: "/portfolio/nutrinae.png",
     website: "https://nutrinae.com",
     accentColor: "bg-emerald-50 text-emerald-700",
-    result: "Full product catalog with species filtering",
+    result: "80% of B2B buyers decide before they call",
   },
   {
     name: "ALV Floors & Cabinets",
@@ -261,7 +261,7 @@ const portfolioItems: PortfolioItem[] = [
     screenshot: "/portfolio/alv-floors.png",
     website: "https://alvfloors.com",
     accentColor: "bg-orange-50 text-orange-700",
-    result: "Ranks on first page of Google locally",
+    result: "82% of 'near me' searches convert in 7 days",
   },
   {
     name: "Longhorn Fire Alarm Design",
@@ -270,7 +270,7 @@ const portfolioItems: PortfolioItem[] = [
     screenshot: "/portfolio/longhorn-fire-alarm-design.png",
     website: "https://longhornfirealarmdesign.com",
     accentColor: "bg-red-50 text-red-700",
-    result: "Streamlined quote request process",
+    result: "$47B market by 2030, growing 7% yearly",
   },
   {
     name: "Central Baptist Church",
@@ -279,7 +279,7 @@ const portfolioItems: PortfolioItem[] = [
     screenshot: "/portfolio/central-baptist-church.png",
     website: "https://centralbaptistpsl.com",
     accentColor: "bg-teal-50 text-teal-700",
-    result: "Online giving & video streaming active",
+    result: "+32% in giving with online donations",
   },
 ];
 
@@ -362,8 +362,8 @@ function PortfolioGrid() {
 
 function CaseStudy() {
   const results = [
-    { stat: "40%", label: "Traffic Increase" },
-    { stat: "2×", label: "Conversions" },
+    { stat: "77%", label: "Search Online" },
+    { stat: "9 yrs", label: "CalTech Client" },
     { stat: "3 mos", label: "To See Results" },
     { stat: "$99", label: "Per Month" },
   ];
@@ -390,15 +390,15 @@ function CaseStudy() {
 
             {/* Floating badge */}
             <div className="absolute top-4 right-4 bg-green-500 text-white rounded-xl px-3 py-2 shadow-lg text-center">
-              <div className="text-2xl font-extrabold leading-none">+40%</div>
-              <div className="text-xs font-medium opacity-90">Traffic</div>
+              <div className="text-2xl font-extrabold leading-none">77%</div>
+              <div className="text-xs font-medium opacity-90">Search Online</div>
             </div>
           </div>
 
           {/* Copy */}
           <div>
             <h2 className="text-3xl lg:text-4xl font-extrabold text-gray-900 mb-4 leading-tight">
-              How a Plastic Surgeon Doubled Conversions in 3 Months
+              77% of Patients Find Their Surgeon Online
             </h2>
             <p className="text-gray-600 text-base leading-relaxed mb-6">
               Dr. Arjun Kanuri has been a CalTech Web client for over 9 years.

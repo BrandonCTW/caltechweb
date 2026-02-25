@@ -23,6 +23,7 @@ import {
   Flame,
   Wheat,
   Flower2,
+  Cable,
 } from "lucide-react";
 import MobileNav from "@/components/MobileNav";
 import Link from "next/link";
@@ -496,6 +497,44 @@ const caseStudies: CaseStudy[] = [
     testimonialRole: "Church, Port Saint Lucie, FL",
     timeToLaunch: "7 days",
     related: ["calvary-chapel-los-alamitos", "kingdom-international", "california-women-for-agriculture"],
+  },
+  {
+    slug: "custom-cabling-solutions",
+    name: "Custom Cabling Solutions",
+    category: "Small Business",
+    tagline: "Structured cabling and network infrastructure services",
+    gradient: "from-gray-700 to-blue-500",
+    accentColor: "text-blue-700",
+    accentBg: "bg-blue-50",
+    Icon: Cable,
+    initials: "CC",
+    website: "customcablingsolutions.com",
+    challenge:
+      "Custom Cabling Solutions needed a professional web presence to compete for commercial contracts in the structured cabling and network infrastructure space. Without a credible website, they were losing bids to competitors who appeared more established online, despite having years of hands-on experience and industry certifications.",
+    solution:
+      "We built a clean, professional site that showcases their full range of services — network cabling, fiber optic installation, data center builds, and audio/video cabling. The site highlights their certifications, completed projects, and service areas, giving commercial clients the confidence to request a quote.",
+    results: [
+      { stat: "4", label: "Organic Visitors/Mo", color: "text-blue-600" },
+      { stat: "Page 1", label: "Local Search Ranking", color: "text-green-600" },
+      { stat: "5 days", label: "Launch Time", color: "text-orange-500" },
+      { stat: "$99/mo", label: "Total Cost", color: "text-gray-600" },
+    ],
+    features: [
+      "Service pages for each cabling specialty",
+      "Certifications & credentials showcase",
+      "Project gallery with completed installs",
+      "Service area coverage map",
+      "Mobile-friendly responsive design",
+      "Contact form with quote requests",
+      "SEO-optimized for local search",
+      "Fast-loading professional layout",
+    ],
+    testimonial:
+      "Since launching our new website, we've been able to land commercial contracts that we were previously overlooked for. The site gives our business the professional credibility it deserves.",
+    testimonialAuthor: "Custom Cabling Solutions",
+    testimonialRole: "Network Infrastructure, Commercial Cabling",
+    timeToLaunch: "5 days",
+    related: ["longhorn-fire-alarm-design", "fuentes-concrete", "alv-floors"],
   },
 ];
 
