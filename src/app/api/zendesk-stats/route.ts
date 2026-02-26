@@ -54,11 +54,14 @@ async function fetchReplyStats(): Promise<{
 
   const metrics = data.ticket_metrics ?? [];
 
-  // Filter to tickets that have reply time data
+  // Filter to tickets that have reply time data.
+  // Exclude tickets with reply time > 48 hours — these are long-term
+  // tickets waiting on clients, not representative of support speed.
+  const MAX_REPLY_MINUTES = 48 * 60; // 2880 min
   const replyTimes: number[] = [];
   for (const m of metrics) {
     const calendar = m.reply_time_in_minutes?.calendar;
-    if (typeof calendar === "number" && calendar > 0) {
+    if (typeof calendar === "number" && calendar > 0 && calendar <= MAX_REPLY_MINUTES) {
       replyTimes.push(calendar);
     }
   }
