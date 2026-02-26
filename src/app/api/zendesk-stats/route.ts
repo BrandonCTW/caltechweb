@@ -1,23 +1,22 @@
 import { NextResponse } from "next/server";
 
 export const dynamic = "force-dynamic";
-export const revalidate = 3600; // ISR: revalidate every hour
 
 /* ===================================================================
    Zendesk Stats API — GET /api/zendesk-stats/
-   Returns ticket stats from the Zendesk API.
+   Returns ticket stats from the Zendesk API (all-time).
 
    - ticketsSolved: all-time count of solved/closed tickets
-   - avgReplyMinutes: avg first reply time (last 90 days, excl >48h)
-   - percentUnder1Hour: % replied within 1 hour (same window)
+   - medianResolutionMinutes: median full resolution time (excl >48h)
+   - percentUnder24Hours: % fully resolved within 24 hours (excl >48h)
 
    Caches in memory for 1 hour + Vercel edge cache (s-maxage).
    =================================================================== */
 
 interface ZendeskStats {
   ticketsSolved: number;
-  avgReplyMinutes: number;
-  percentUnder1Hour: number;
+  medianResolutionMinutes: number;
+  percentUnder24Hours: number;
   sampleSize: number;
   fetchedAt: number;
 }
@@ -52,84 +51,67 @@ async function fetchTicketsSolved(): Promise<number> {
   return data.count ?? 0;
 }
 
-async function fetchReplyStats(): Promise<{
-  avgMinutes: number;
-  percentUnder1Hour: number;
+async function fetchResolutionStats(): Promise<{
+  medianMinutes: number;
+  percentUnder24Hours: number;
   sampleSize: number;
 }> {
-  // Rolling 90-day window
-  const cutoff = new Date();
-  cutoff.setDate(cutoff.getDate() - 90);
-  const cutoffMs = cutoff.getTime();
+  // Paginate all ticket_metrics for full_resolution_time
+  // Exclude tickets sitting >48h (waiting on clients, not support speed)
+  const MAX_REPLY_MINUTES = 48 * 60;
+  const resolutionTimes: number[] = [];
 
-  const MAX_REPLY_MINUTES = 48 * 60; // Exclude tickets waiting >48h on clients
-  const MAX_PAGES = 10; // Up to 1000 metrics, plenty for 90 days
-
-  const replyTimes: number[] = [];
-
-  for (let page = 1; page <= MAX_PAGES; page++) {
+  for (let page = 1; page <= 100; page++) {
     const data = await zendeskFetch(
       `/api/v2/ticket_metrics.json?per_page=100&page=${page}`
     );
     const metrics = data.ticket_metrics ?? [];
     if (metrics.length === 0) break;
 
-    let allBeforeCutoff = true;
-
     for (const m of metrics) {
-      // Skip metrics older than 90 days
-      const createdAt = new Date(m.created_at).getTime();
-      if (createdAt < cutoffMs) {
-        allBeforeCutoff = true;
-        continue;
-      }
-      allBeforeCutoff = false;
-
-      const calendar = m.reply_time_in_minutes?.calendar;
+      const calendar = m.full_resolution_time_in_minutes?.calendar;
       if (typeof calendar === "number" && calendar > 0 && calendar <= MAX_REPLY_MINUTES) {
-        replyTimes.push(calendar);
+        resolutionTimes.push(calendar);
       }
     }
 
-    // If every metric on this page was before the cutoff, stop paginating
-    if (allBeforeCutoff && metrics.length > 0) break;
-    // If Zendesk returned fewer than a full page, we've reached the end
     if (metrics.length < 100) break;
   }
 
-  if (replyTimes.length === 0) {
-    return { avgMinutes: 0, percentUnder1Hour: 0, sampleSize: 0 };
+  if (resolutionTimes.length === 0) {
+    return { medianMinutes: 0, percentUnder24Hours: 0, sampleSize: 0 };
   }
 
-  const total = replyTimes.reduce((sum, t) => sum + t, 0);
-  const under1Hour = replyTimes.filter((t) => t <= 60).length;
+  resolutionTimes.sort((a, b) => a - b);
+  const median = resolutionTimes[Math.floor(resolutionTimes.length / 2)];
+  const under24h = resolutionTimes.filter((t) => t <= 1440).length;
 
   return {
-    avgMinutes: Math.round(total / replyTimes.length),
-    percentUnder1Hour: Math.round((under1Hour / replyTimes.length) * 100),
-    sampleSize: replyTimes.length,
+    medianMinutes: median,
+    percentUnder24Hours: Math.round((under24h / resolutionTimes.length) * 100),
+    sampleSize: resolutionTimes.length,
   };
 }
 
 async function fetchStats(): Promise<ZendeskStats> {
-  const [ticketsSolved, replyStats] = await Promise.all([
+  const [ticketsSolved, resolutionStats] = await Promise.all([
     fetchTicketsSolved(),
-    fetchReplyStats(),
+    fetchResolutionStats(),
   ]);
 
   return {
     ticketsSolved,
-    avgReplyMinutes: replyStats.avgMinutes,
-    percentUnder1Hour: replyStats.percentUnder1Hour,
-    sampleSize: replyStats.sampleSize,
+    medianResolutionMinutes: resolutionStats.medianMinutes,
+    percentUnder24Hours: resolutionStats.percentUnder24Hours,
+    sampleSize: resolutionStats.sampleSize,
     fetchedAt: Date.now(),
   };
 }
 
 const FALLBACK: ZendeskStats = {
   ticketsSolved: 5000,
-  avgReplyMinutes: 42,
-  percentUnder1Hour: 93,
+  medianResolutionMinutes: 45,
+  percentUnder24Hours: 98,
   sampleSize: 0,
   fetchedAt: 0,
 };

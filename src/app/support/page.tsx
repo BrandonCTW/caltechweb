@@ -341,8 +341,8 @@ function Footer() {
 export default function SupportPage() {
   const [stats, setStats] = useState({
     ticketsSolved: 5000,
-    avgReplyMinutes: 42,
-    percentUnder1Hour: 93,
+    medianResolutionMinutes: 45,
+    percentUnder24Hours: 98,
   });
 
   useEffect(() => {
@@ -351,8 +351,8 @@ export default function SupportPage() {
       .then((data) => {
         setStats({
           ticketsSolved: data.ticketsSolved,
-          avgReplyMinutes: data.avgReplyMinutes,
-          percentUnder1Hour: data.percentUnder1Hour,
+          medianResolutionMinutes: data.medianResolutionMinutes,
+          percentUnder24Hours: data.percentUnder24Hours,
         });
       })
       .catch(() => {});
@@ -367,7 +367,7 @@ export default function SupportPage() {
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-sm font-medium text-blue-100 mb-6">
               <Zap className="w-4 h-4 text-yellow-400" />
-              {stats.percentUnder1Hour}% of requests completed in under 1 hour
+              {stats.percentUnder24Hours}% of requests resolved in under 24 hours
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-6">
@@ -469,10 +469,10 @@ export default function SupportPage() {
                       </div>
                       <div>
                         <p className="text-sm font-bold text-gray-900">
-                          {stats.percentUnder1Hour}% completed in under 1 hour
+                          {stats.percentUnder24Hours}% resolved in under 24 hours
                         </p>
                         <p className="text-xs text-gray-500">
-                          Avg. resolution: {stats.avgReplyMinutes} minutes
+                          Median resolution: {stats.medianResolutionMinutes} minutes
                         </p>
                       </div>
                     </div>
@@ -482,10 +482,10 @@ export default function SupportPage() {
                       </div>
                       <div>
                         <p className="text-sm font-bold text-gray-900">
-                          {stats.ticketsSolved.toLocaleString()} support tickets closed
+                          {stats.ticketsSolved.toLocaleString()}+ support tickets closed
                         </p>
                         <p className="text-xs text-gray-500">
-                          And counting
+                          All-time, live from Zendesk
                         </p>
                       </div>
                     </div>
