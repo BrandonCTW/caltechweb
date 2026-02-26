@@ -459,7 +459,7 @@ const caseStudies: CaseStudy[] = [
     testimonialAuthor: "Longhorn Fire Alarm Design",
     testimonialRole: "Fire Protection Services",
     timeToLaunch: "5 days",
-    related: ["fuentes-concrete", "alv-floors", "specialized-plastic-surgery"],
+    related: ["custom-cabling-solutions", "alv-floors", "specialized-plastic-surgery"],
   },
   {
     slug: "central-baptist-church",
@@ -896,7 +896,7 @@ function RelatedProjects({ cs }: { cs: CaseStudy }) {
             return (
               <Link
                 key={rel.slug}
-                href={`/portfolio/${rel.slug}`}
+                href={`/portfolio/${rel.slug}/`}
                 className="group bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
               >
                 <div className={`h-36 bg-gradient-to-br ${rel.gradient} flex flex-col items-center justify-center text-center px-4`}>
@@ -1054,6 +1054,14 @@ export default async function PortfolioDetailPage({
       "@type": "ProfessionalService",
       "name": "CalTech Web",
       "url": "https://caltechweb.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "26766 Greentree Ave.",
+        "addressLocality": "Madera",
+        "addressRegion": "CA",
+        "postalCode": "93638",
+        "addressCountry": "US",
+      },
     },
   };
 
