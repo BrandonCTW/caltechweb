@@ -1473,6 +1473,8 @@ function getRelatedPosts(slugs: string[]): BlogPost[] {
 
 // ─── Static Params ────────────────────────────────────────────────────────────
 
+export const dynamic = "force-static";
+
 export function generateStaticParams() {
   return blogPosts.map((post) => ({ slug: post.slug }));
 }
@@ -1504,6 +1506,9 @@ export async function generateMetadata({
       url: `https://caltechweb.com/${post.slug}/`,
       type: "article",
       publishedTime: new Date(post.date).toISOString(),
+      modifiedTime: new Date(post.date).toISOString(),
+      section: post.category,
+      tags: [post.category, "web design", "CalTech Web"],
       authors: ["Brandon Hopkins"],
       images: [
         {

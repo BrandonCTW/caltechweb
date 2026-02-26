@@ -83,6 +83,9 @@ const nextConfig: NextConfig = {
       { source: "/tag/web-hosting/", destination: "/blog/", permanent: true },
       { source: "/fulfillment", destination: "/terms-and-conditions/", permanent: true },
       { source: "/fulfillment/", destination: "/terms-and-conditions/", permanent: true },
+
+      // Old WordPress sitemap redirect
+      { source: "/sitemap_index.xml", destination: "/sitemap.xml", permanent: true },
     ];
   },
 };
