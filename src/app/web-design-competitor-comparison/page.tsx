@@ -14,6 +14,7 @@ import {
   DollarSign,
   Users,
   Palette,
+  ChevronDown,
 } from "lucide-react";
 import Image from "next/image";
 import MobileNav from "@/components/MobileNav";
@@ -125,7 +126,7 @@ function Nav() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 shrink-0">
-          <Image src="/logo.png" alt="CalTech Web" width={1520} height={512} className="h-7 w-auto" />
+          <Image src="/logo.png" alt="CalTech Web" width={1520} height={512} className="h-7 w-auto" priority />
         </Link>
 
         {/* Desktop nav */}
@@ -928,6 +929,107 @@ function Testimonials() {
   );
 }
 
+// ─── FAQ ──────────────────────────────────────────────────────────────────────
+
+const comparisonFaqs = [
+  {
+    q: "Is $99/month really cheaper than Wix or Squarespace?",
+    a: "When you factor in your time, it usually is. Wix and Squarespace charge $17–$65/month just for the platform — then you still have to design, build, and maintain the site yourself. First-timers typically spend 40–80 hours building their site. If your time is worth anything, that alone costs far more than $99. And the result is a template-based site you maintain indefinitely, vs. a custom design with someone handling everything for you.",
+  },
+  {
+    q: "What's the real difference between CalTech Web and a freelancer?",
+    a: "Three main things: ongoing support, predictable pricing, and reliability. A freelancer charges $2,000–$10,000 upfront, then bills hourly for any change. When they move on or get busy, you're left managing it alone. CalTech Web is $99/month with unlimited updates, and Brandon personally handles every request — often within the hour. You're not managing a vendor relationship; you're getting a dedicated service.",
+  },
+  {
+    q: "Can I switch to CalTech Web if I already have a Wix or Squarespace site?",
+    a: "Yes. Brandon will migrate your existing content — text, images, services, and any other pages — to your new site at no extra charge. You won't lose anything. Most clients are live on their new site within 5–7 business days of the switch.",
+  },
+  {
+    q: "How is $99/month different from what a web design agency charges?",
+    a: "Agencies typically charge $5,000–$50,000 upfront to build the site, then $500–$2,000/month for ongoing maintenance — often locked into multi-year contracts. CalTech Web is $99/month with no setup fee, no contract, and no minimum term. For a small business, church, or non-profit, the math is straightforward: you get comparable (or better) custom work without the agency overhead.",
+  },
+  {
+    q: "Are there hidden fees beyond $99/month?",
+    a: "Only one: your domain name (~$12–15/year), which you purchase and own separately. Everything else — hosting, SSL certificate, unlimited content updates, free redesigns, and priority support — is included in the $99. No surprise invoices.",
+  },
+  {
+    q: "What happens to my website if I cancel?",
+    a: "You keep it. CalTech Web will hand over your website files so you're never left with nothing. There's no cancellation fee and no penalty for leaving. Brandon built the service to earn business every month, not trap clients in contracts.",
+  },
+  {
+    q: "Do I need any technical skills to work with CalTech Web?",
+    a: "None. You tell Brandon what you need — in plain language, by email or text — and it gets done. No logins, no CMS training, no dealing with plugins or hosting dashboards. If something needs to change on your site, you just ask.",
+  },
+];
+
+const comparisonFaqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: comparisonFaqs.map(({ q, a }) => ({
+    "@type": "Question",
+    name: q,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: a,
+    },
+  })),
+};
+
+function ComparisonFAQ() {
+  return (
+    <section className="py-16 sm:py-24 bg-gray-50">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900">
+            Common questions about switching
+          </h2>
+          <p className="text-gray-500 mt-3 max-w-xl mx-auto">
+            Everything you&apos;re wondering before making a decision — answered honestly.
+          </p>
+        </div>
+
+        <div className="space-y-3">
+          {comparisonFaqs.map(({ q, a }) => (
+            <details
+              key={q}
+              className="group bg-white border border-gray-100 rounded-xl shadow-sm overflow-hidden"
+            >
+              <summary className="flex items-center justify-between px-6 py-4 cursor-pointer list-none select-none">
+                <span className="font-semibold text-gray-900 pr-4">{q}</span>
+                <ChevronDown className="w-5 h-5 text-gray-400 shrink-0 transition-transform group-open:rotate-180" />
+              </summary>
+              <div className="px-6 pb-5 text-gray-600 text-sm leading-relaxed border-t border-gray-50 pt-4">
+                {a}
+              </div>
+            </details>
+          ))}
+        </div>
+
+        <div className="mt-10 text-center">
+          <p className="text-gray-500 text-sm mb-4">
+            Still have questions? Call or email Brandon directly.
+          </p>
+          <div className="flex flex-wrap justify-center gap-4">
+            <a
+              href="tel:5592823075"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-gray-200 text-gray-700 text-sm font-semibold hover:border-blue-300 hover:bg-blue-50 transition-colors"
+            >
+              <Phone className="w-4 h-4 text-blue-600" />
+              (559) 282-3075
+            </a>
+            <a
+              href="mailto:Brandon@CalTechWeb.com"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-gray-200 text-gray-700 text-sm font-semibold hover:border-blue-300 hover:bg-blue-50 transition-colors"
+            >
+              Brandon@CalTechWeb.com
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 // ─── Final CTA ───────────────────────────────────────────────────────────────
 
 function FinalCTA() {
@@ -1149,6 +1251,10 @@ export default function CompetitorComparisonPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(comparisonFaqJsonLd) }}
+      />
       <Nav />
       <main className="pb-[76px] md:pb-0">
         <Hero />
@@ -1158,6 +1264,7 @@ export default function CompetitorComparisonPage() {
         <CostComparison />
         <WhyCalTechWins />
         <Testimonials />
+        <ComparisonFAQ />
         <FinalCTA />
       </main>
       <Footer />

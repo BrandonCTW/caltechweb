@@ -58,7 +58,7 @@ function Nav() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
-            <Image src="/logo.png" alt="CalTech Web" width={1520} height={512} className="h-8 w-auto" />
+            <Image src="/logo.png" alt="CalTech Web" width={1520} height={512} className="h-8 w-auto" priority />
           </Link>
 
           {/* Desktop Nav */}
@@ -185,6 +185,7 @@ type PortfolioItem = {
   accentColor: string;
   result?: string;
   featured?: boolean;
+  caseStudySlug?: string;
 };
 
 const portfolioItems: PortfolioItem[] = [
@@ -197,6 +198,7 @@ const portfolioItems: PortfolioItem[] = [
     accentColor: "bg-teal-50 text-teal-700",
     result: "77% of patients search for surgeons online",
     featured: true,
+    caseStudySlug: "dr-arjun-kanuri",
   },
   {
     name: "Blacke House Co.",
@@ -233,6 +235,7 @@ const portfolioItems: PortfolioItem[] = [
     website: "https://specializedplasticsurgery.com",
     accentColor: "bg-sky-50 text-sky-700",
     result: "5x return on every $1 in web presence",
+    caseStudySlug: "specialized-plastic-surgery",
   },
   {
     name: "Modolith",
@@ -278,6 +281,7 @@ const portfolioItems: PortfolioItem[] = [
     website: "https://alvfloors.com",
     accentColor: "bg-orange-50 text-orange-700",
     result: "82% of 'near me' searches convert in 7 days",
+    caseStudySlug: "alv-floors",
   },
   {
     name: "Longhorn Fire Alarm Design",
@@ -287,6 +291,7 @@ const portfolioItems: PortfolioItem[] = [
     website: "https://longhornfirealarmdesign.com",
     accentColor: "bg-red-50 text-red-700",
     result: "$47B market by 2030, growing 7% yearly",
+    caseStudySlug: "longhorn-fire-alarm-design",
   },
   {
     name: "Central Baptist Church",
@@ -296,21 +301,24 @@ const portfolioItems: PortfolioItem[] = [
     website: "https://centralbaptistpsl.com",
     accentColor: "bg-teal-50 text-teal-700",
     result: "+32% in giving with online donations",
+    caseStudySlug: "central-baptist-church",
   },
 ];
 
 function PortfolioCard({ item }: { item: PortfolioItem }) {
   return (
-    <a
-      href={item.website}
-      target="_blank"
-      rel="noopener noreferrer"
-      className={`group relative bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 block ${
+    <div
+      className={`group relative bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 ${
         item.featured ? "md:col-span-2" : ""
       }`}
     >
-      {/* Website screenshot */}
-      <div className="relative h-48 sm:h-56 bg-gray-100 overflow-hidden">
+      {/* Website screenshot — links to external client site */}
+      <a
+        href={item.website}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block relative h-48 sm:h-56 bg-gray-100 overflow-hidden"
+      >
         <Image
           src={item.screenshot}
           alt={`${item.name} website designed by CalTech Web`}
@@ -326,7 +334,7 @@ function PortfolioCard({ item }: { item: PortfolioItem }) {
             Visit Site
           </div>
         </div>
-      </div>
+      </a>
 
       {/* Card body */}
       <div className="p-5">
@@ -343,8 +351,17 @@ function PortfolioCard({ item }: { item: PortfolioItem }) {
             {item.result}
           </div>
         )}
+        {item.caseStudySlug && (
+          <Link
+            href={`/portfolio/${item.caseStudySlug}/`}
+            className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-blue-600 hover:text-blue-800 transition-colors"
+          >
+            View Case Study
+            <ChevronRight className="w-3 h-3" />
+          </Link>
+        )}
       </div>
-    </a>
+    </div>
   );
 }
 
@@ -611,7 +628,9 @@ const portfolioItemListJsonLd = {
     position: index + 1,
     name: item.name,
     description: item.tagline,
-    url: item.website,
+    url: item.caseStudySlug
+      ? `https://caltechweb.com/portfolio/${item.caseStudySlug}/`
+      : "https://caltechweb.com/web-design-portfolio/",
   })),
 };
 

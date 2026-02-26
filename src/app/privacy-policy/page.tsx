@@ -32,7 +32,7 @@ function Nav() {
     <header className="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-gray-100 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 shrink-0">
-          <Image src="/logo.png" alt="CalTech Web" width={1520} height={512} className="h-7 w-auto" />
+          <Image src="/logo.png" alt="CalTech Web" width={1520} height={512} className="h-7 w-auto" priority />
         </Link>
 
         <nav className="hidden md:flex items-center gap-6">

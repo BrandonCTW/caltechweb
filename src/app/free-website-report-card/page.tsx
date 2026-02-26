@@ -35,6 +35,7 @@ function Nav() {
             width={1520}
             height={512}
             className="h-7 w-auto"
+            priority
           />
         </Link>
 

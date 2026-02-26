@@ -15,6 +15,7 @@ import {
   Video,
   Globe,
   Users,
+  ChevronDown,
 } from "lucide-react";
 import Image from "next/image";
 import MobileNav from "@/components/MobileNav";
@@ -23,7 +24,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Affordable Church Websites | $99/month | CalTech Web",
   description:
-    "Professional church website design for just $99/month. Online giving, sermon streaming, event calendars, and unlimited updates included. 800+ sites designed. No contracts.",
+    "Professional church website design for $99/month. Online giving, sermon streaming, event calendars, and unlimited updates. No contracts.",
   keywords:
     "affordable church websites, church website design, church web design, church website builder, church website hosting",
   alternates: { canonical: "https://caltechweb.com/affordable-church-websites/" },
@@ -145,7 +146,7 @@ function Nav() {
     <header className="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-gray-100 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 shrink-0">
-          <Image src="/logo.png" alt="CalTech Web" width={1520} height={512} className="h-7 w-auto" />
+          <Image src="/logo.png" alt="CalTech Web" width={1520} height={512} className="h-7 w-auto" priority />
         </Link>
 
         <nav className="hidden md:flex items-center gap-6">
@@ -482,6 +483,153 @@ function Testimonial() {
   );
 }
 
+// --- FAQ ---
+
+const churchFaqs = [
+  {
+    q: "How much does a church website cost?",
+    a: "$99/month includes everything — custom design, hosting, SSL, unlimited updates, and free redesigns. There is no setup fee, no design fee, and no contract. Your church pays $99 the first month and every month after.",
+  },
+  {
+    q: "Does the church website include online giving?",
+    a: "Yes. We integrate with popular giving platforms (Planning Center Giving, Tithe.ly, PayPal, and others) so your congregation can give securely from any device. Setup is included at no extra cost.",
+  },
+  {
+    q: "How long does it take to build a church website?",
+    a: "Most church websites are live within 5–7 business days of receiving your content — logo, photos, service times, and any text you'd like us to use. We've launched same-week sites when churches needed them quickly.",
+  },
+  {
+    q: "Can we update the website ourselves?",
+    a: "You don't have to. Unlimited updates are included in your $99/month. Just email or call Brandon — new sermon content, event changes, staff photos, announcement banners — all handled for you, typically within the hour.",
+  },
+  {
+    q: "Do you work with small or rural churches?",
+    a: "Absolutely. We've built websites for churches of every size, from small rural congregations of 30 to growing multi-site ministries. The $99/month price is the same regardless of your church's size or location.",
+  },
+  {
+    q: "What if we need a redesign later?",
+    a: "Free redesigns are included for life. If your church rebrands, gets a new pastor, or just wants a fresh look, we'll redesign your website at no extra charge. Most agencies charge $3,000–$5,000 for a redesign.",
+  },
+  {
+    q: "Is there a contract or long-term commitment?",
+    a: "No contracts, ever. CalTech Web is month-to-month. If your church needs to cancel, you keep your website files. We believe you should stay because the service is worth it — not because you're locked in.",
+  },
+  {
+    q: "Can you help with sermon streaming and podcast setup?",
+    a: "Yes. We embed your sermon videos from YouTube or Vimeo, and can help you set up a podcast feed so your messages are accessible on Spotify, Apple Podcasts, and more — all included in your plan.",
+  },
+];
+
+const churchFaqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: churchFaqs.map(({ q, a }) => ({
+    "@type": "Question",
+    name: q,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: a,
+    },
+  })),
+};
+
+function ChurchFAQ() {
+  return (
+    <section className="py-16 sm:py-24 bg-gray-50">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900">
+            Church Website Questions, Answered
+          </h2>
+          <p className="text-gray-500 mt-3 max-w-xl mx-auto">
+            Common questions from pastors and church administrators before getting started.
+          </p>
+        </div>
+
+        <div className="space-y-3">
+          {churchFaqs.map(({ q, a }) => (
+            <details
+              key={q}
+              className="group bg-white border border-gray-100 rounded-xl shadow-sm overflow-hidden"
+            >
+              <summary className="flex items-center justify-between px-6 py-4 cursor-pointer list-none select-none">
+                <span className="font-semibold text-gray-900 pr-4">{q}</span>
+                <ChevronDown className="w-5 h-5 text-gray-400 shrink-0 transition-transform group-open:rotate-180" />
+              </summary>
+              <div className="px-6 pb-5 text-gray-600 leading-relaxed text-sm">
+                {a}
+              </div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// --- Church Resources Section ---
+
+function ChurchResources() {
+  const articles = [
+    {
+      href: "/church-website-design-essentials/",
+      title: "Church Website Design: 7 Things Every Church Website Needs",
+      excerpt:
+        "Your church website is often the first thing a visitor sees before they ever walk through your doors. Here's what it needs to say — and do.",
+    },
+    {
+      href: "/ultimate-guide-christian-ministry-websites/",
+      title: "The Ultimate Guide to Christian Ministry Websites",
+      excerpt:
+        "A comprehensive guide to building ministry websites that grow your reach — covering devotional content, donation systems, and outreach tools.",
+    },
+    {
+      href: "/post-sermons-online/",
+      title: "How to Post Sermons Online: A Complete Guide for Churches",
+      excerpt:
+        "60% of people prefer engaging with faith content online. Here's how to get your sermons on your website with YouTube, podcasts, and searchable archives.",
+    },
+    {
+      href: "/church-website-support/",
+      title: "Church Website Support: Why Your Ministry Needs More Than a Template",
+      excerpt:
+        "Church websites have unique needs — online giving, sermon streaming, event management. Here's why a template won't cut it.",
+    },
+  ];
+
+  return (
+    <section className="py-16 sm:py-20 bg-white">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-10">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900">
+            Church Website Resources
+          </h2>
+          <p className="text-gray-500 mt-3 max-w-xl mx-auto">
+            Practical guides written for pastors and church administrators.
+          </p>
+        </div>
+        <div className="grid sm:grid-cols-2 gap-5">
+          {articles.map(({ href, title, excerpt }) => (
+            <Link
+              key={href}
+              href={href}
+              className="group flex flex-col gap-3 bg-gray-50 border border-gray-100 rounded-2xl p-6 hover:bg-blue-50/50 hover:border-blue-100 transition-all"
+            >
+              <h3 className="font-bold text-gray-900 text-base leading-snug group-hover:text-blue-700 transition-colors">
+                {title}
+              </h3>
+              <p className="text-sm text-gray-500 leading-relaxed flex-1">{excerpt}</p>
+              <span className="inline-flex items-center gap-1.5 text-blue-600 text-sm font-semibold">
+                Read article <ArrowRight className="w-4 h-4" />
+              </span>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 // --- CTA Section ---
 
 function CTASection() {
@@ -693,6 +841,10 @@ export default function AffordableChurchWebsitesPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(churchFaqJsonLd) }}
+      />
       <Nav />
       <main className="pb-[76px] md:pb-0">
         <Hero />
@@ -700,6 +852,8 @@ export default function AffordableChurchWebsitesPage() {
         <ChurchFeatures />
         <WhyCalTechWeb />
         <Testimonial />
+        <ChurchFAQ />
+        <ChurchResources />
         <CTASection />
       </main>
       <Footer />

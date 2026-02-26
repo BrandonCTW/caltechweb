@@ -21,7 +21,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Web Design Pricing - $99/month All-Inclusive | CalTech Web",
   description:
-    "Simple, transparent web design pricing. $99/month includes custom design, unlimited updates, free redesigns, hosting, SSL, and priority support. No hidden fees, no contracts.",
+    "Transparent web design pricing at $99/month. Custom design, unlimited updates, hosting, SSL, and priority support included. No contracts.",
   alternates: { canonical: "https://caltechweb.com/web-design-pricing/" },
   openGraph: {
     title: "Web Design Pricing - $99/month All-Inclusive | CalTech Web",
@@ -156,7 +156,7 @@ function Nav() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 shrink-0">
-          <Image src="/logo.png" alt="CalTech Web" width={1520} height={512} className="h-7 w-auto" />
+          <Image src="/logo.png" alt="CalTech Web" width={1520} height={512} className="h-7 w-auto" priority />
         </Link>
 
         {/* Desktop nav */}
