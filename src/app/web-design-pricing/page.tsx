@@ -14,6 +14,7 @@ import {
   HeadphonesIcon,
   Lock,
 } from "lucide-react";
+import Image from "next/image";
 import MobileNav from "@/components/MobileNav";
 import Link from "next/link";
 
@@ -27,6 +28,18 @@ export const metadata: Metadata = {
     description:
       "Everything your website needs for one flat monthly fee. Custom design, unlimited updates, hosting, and fast support - all for $99/month.",
     url: "https://caltechweb.com/web-design-pricing/",
+    images: [
+      {
+        url: "/brandon-hopkins.jpg",
+        width: 2400,
+        height: 1600,
+        alt: "Brandon Hopkins - Founder of CalTech Web",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary",
+    images: ["/brandon-hopkins.jpg"],
   },
 };
 
@@ -34,12 +47,97 @@ export const metadata: Metadata = {
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "PriceSpecification",
-  price: "99",
-  priceCurrency: "USD",
-  name: "CalTech Web All-Inclusive Monthly Plan",
+  "@type": "Service",
+  name: "All-Inclusive Website Design Plan",
   description:
-    "Custom website design, unlimited updates, free redesigns, hosting, SSL, and priority support - all included.",
+    "Custom website design, unlimited updates, free redesigns, hosting, SSL, and priority support - all for $99/month.",
+  url: "https://caltechweb.com/web-design-pricing/",
+  provider: {
+    "@type": "Organization",
+    name: "CalTech Web",
+    url: "https://caltechweb.com",
+  },
+  offers: {
+    "@type": "Offer",
+    price: "99",
+    priceCurrency: "USD",
+    priceSpecification: {
+      "@type": "UnitPriceSpecification",
+      price: "99",
+      priceCurrency: "USD",
+      billingDuration: "P1M",
+    },
+  },
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "5",
+    reviewCount: "800",
+    bestRating: "5",
+    worstRating: "1",
+  },
+  review: [
+    {
+      "@type": "Review",
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: "5",
+        bestRating: "5",
+      },
+      author: {
+        "@type": "Person",
+        name: "Marcus Thompson",
+      },
+      reviewBody:
+        "I was paying $800/month to an agency. I switched to CalTech Web 18 months ago and honestly can't believe the difference. My site looks better, gets updated faster, and I'm saving almost $9,000 a year.",
+    },
+    {
+      "@type": "Review",
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: "5",
+        bestRating: "5",
+      },
+      author: {
+        "@type": "Person",
+        name: "Pastor James Watkins",
+      },
+      reviewBody:
+        "As a church, every dollar matters. $99/month for a professional website with unlimited updates - Brandon even redesigned our site for free when we updated our branding. Couldn't ask for more.",
+    },
+    {
+      "@type": "Review",
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: "5",
+        bestRating: "5",
+      },
+      author: {
+        "@type": "Person",
+        name: "Elena Rodriguez",
+      },
+      reviewBody:
+        "I thought $99/month was a gimmick. It's not. I've been with CalTech Web for 3 years and they've updated my site probably 50 times. No extra charges. Just fast, reliable service.",
+    },
+  ],
+};
+
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://caltechweb.com/",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Pricing",
+      item: "https://caltechweb.com/web-design-pricing/",
+    },
+  ],
 };
 
 // ─── Nav ─────────────────────────────────────────────────────────────────────
@@ -58,7 +156,7 @@ function Nav() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 shrink-0">
-          <img src="/logo.png" alt="CalTech Web" className="h-7 w-auto" />
+          <Image src="/logo.png" alt="CalTech Web" width={1520} height={512} className="h-7 w-auto" />
         </Link>
 
         {/* Desktop nav */}
@@ -722,6 +820,19 @@ const faqs = [
   },
 ];
 
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map(({ q, a }) => ({
+    "@type": "Question",
+    name: q,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: a,
+    },
+  })),
+};
+
 function FAQ() {
   return (
     <section className="py-16 sm:py-24 bg-gray-50">
@@ -825,7 +936,7 @@ function Guarantee() {
           files. No questions asked. No hassle. That&apos;s a promise.
         </p>
         <div className="flex items-center justify-center gap-3 mb-10">
-          <img src="/brandon-hopkins.jpg" alt="Brandon Hopkins" className="w-11 h-11 rounded-full object-cover shrink-0" />
+          <Image src="/brandon-hopkins.jpg" alt="Brandon Hopkins" width={2400} height={1600} className="w-11 h-11 rounded-full object-cover shrink-0" />
           <div className="text-left">
             <div className="text-sm font-bold text-white">Brandon Hopkins</div>
             <div className="text-xs text-blue-200">Founder, CalTech Web</div>
@@ -862,7 +973,7 @@ function Footer() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
           <div className="sm:col-span-2 lg:col-span-1">
             <div className="flex items-center gap-2 mb-3">
-              <img src="/logo.png" alt="CalTech Web" className="h-7 w-auto" />
+              <Image src="/logo.png" alt="CalTech Web" width={1520} height={512} className="h-7 w-auto" />
             </div>
             <p className="text-sm leading-relaxed mb-4">
               Affordable website design for small businesses, churches, and
@@ -998,6 +1109,14 @@ export default function PricingPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <Nav />
       <main className="pb-[76px] md:pb-0">

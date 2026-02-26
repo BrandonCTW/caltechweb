@@ -24,6 +24,7 @@ import SocialProofToast from "@/components/SocialProofToast";
 import StickyPricingCTA from "@/components/StickyPricingCTA";
 import TrustBar from "@/components/TrustBar";
 import AnimatedChat from "@/components/AnimatedChat";
+import Image from "next/image";
 import Link from "next/link";
 
 // ─── Structured Data (JSON-LD) ───────────────────────────────────────────────
@@ -34,6 +35,14 @@ const jsonLd = {
   "name": "CalTech Web",
   "description":
     "Affordable website design for small businesses, churches, and non-profits. $99/month includes a custom site, unlimited updates, free redesigns, hosting, SSL, and priority support.",
+  "url": "https://caltechweb.com",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://caltechweb.com/logo.png",
+    "width": 1520,
+    "height": 512,
+  },
+  "image": "https://caltechweb.com/brandon-hopkins.jpg",
   "telephone": "+15592823075",
   "email": "Brandon@CalTechWeb.com",
   "founder": {
@@ -42,7 +51,10 @@ const jsonLd = {
   },
   "address": {
     "@type": "PostalAddress",
+    "streetAddress": "26766 Greentree Ave.",
+    "addressLocality": "Madera",
     "addressRegion": "CA",
+    "postalCode": "93638",
     "addressCountry": "US",
   },
   "areaServed": {
@@ -119,6 +131,69 @@ const jsonLd = {
   ],
 };
 
+const homepageFaqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Is there a setup fee or long-term contract?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "No setup fee, ever. And no contracts - your service is month-to-month. If you decide to leave, just let us know and we'll cancel without penalty. We'd rather earn your business every month than lock you in.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: 'What does "unlimited updates" actually mean?',
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "It means exactly that - unlimited. Need new photos added? Update your hours or menu? Add a page for a new service? Just send us a message and we'll handle it, usually within the hour. There's no cap on how many requests you can make.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How fast will my website be live?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Most new websites are designed, built, and live within 5–7 business days. You'll have a chance to review and approve everything before it goes live. If you need something faster, reach out and we'll do our best.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "I already have a website. Can you switch me over?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Absolutely. We can migrate your existing site, do a complete redesign, or start fresh - whatever makes the most sense for your business. Your domain stays yours. We'll handle the technical side of the move.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Do you work with clients outside of California?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes - we serve clients nationwide. While CalTech Web is based in California, we work with small businesses, churches, and non-profits across the country. Everything is handled remotely so location is never a barrier.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What if I'm not happy with the design?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Brandon personally guarantees your satisfaction. If you're not happy, you get a full refund - and you keep your website. No questions asked. We've maintained this guarantee since day one because we stand behind our work.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Does $99/month include hosting?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. Hosting, SSL certificate, backups, and security are all included in the $99/month. You won't get a separate bill for hosting. The only other cost you'd have is your domain name (usually $15–20/year from a registrar of your choice).",
+      },
+    },
+  ],
+};
+
 // ─── Announcement Bar ────────────────────────────────────────────────────────
 
 function AnnouncementBar() {
@@ -130,7 +205,7 @@ function AnnouncementBar() {
       <span>Unlimited updates, hosting &amp; support all included.</span>
       <span className="opacity-60 mx-1.5 hidden sm:inline">·</span>
       <Link
-        href="/web-design-pricing"
+        href="/web-design-pricing/"
         className="hidden sm:inline underline font-semibold hover:text-blue-100 transition-colors ml-0.5"
       >
         Schedule a Call →
@@ -148,17 +223,17 @@ function Nav() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
-            <img src="/logo.png" alt="CalTech Web" className="h-8 w-auto" />
+            <Image src="/logo.png" alt="CalTech Web" width={1520} height={512} className="h-8 w-auto" />
           </Link>
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-gray-600">
             <Link href="/" className="hover:text-blue-600 transition-colors">Home</Link>
-            <Link href="/web-design-portfolio" className="hover:text-blue-600 transition-colors">Portfolio</Link>
-            <Link href="/web-design-pricing" className="hover:text-blue-600 transition-colors">Pricing</Link>
-            <Link href="/blog" className="hover:text-blue-600 transition-colors">Blog</Link>
-            <Link href="/brandon-hopkins" className="hover:text-blue-600 transition-colors">About</Link>
-            <Link href="/affordable-church-websites" className="hover:text-blue-600 transition-colors">Church Websites</Link>
+            <Link href="/web-design-portfolio/" className="hover:text-blue-600 transition-colors">Portfolio</Link>
+            <Link href="/web-design-pricing/" className="hover:text-blue-600 transition-colors">Pricing</Link>
+            <Link href="/blog/" className="hover:text-blue-600 transition-colors">Blog</Link>
+            <Link href="/brandon-hopkins/" className="hover:text-blue-600 transition-colors">About</Link>
+            <Link href="/affordable-church-websites/" className="hover:text-blue-600 transition-colors">Church Websites</Link>
           </nav>
 
           {/* Phone + CTA (desktop) */}
@@ -407,7 +482,7 @@ function Hero() {
 
             {/* Brandon attribution */}
             <div className="flex items-center gap-3 bg-white/5 border border-white/10 rounded-2xl px-5 py-3">
-              <img src="/brandon-hopkins.jpg" alt="Brandon Hopkins" className="w-9 h-9 rounded-full object-cover shrink-0" />
+              <Image src="/brandon-hopkins.jpg" alt="Brandon Hopkins" width={2400} height={1600} className="w-9 h-9 rounded-full object-cover shrink-0" />
               <div>
                 <div className="text-sm font-semibold text-white">Brandon Hopkins, Founder</div>
                 <div className="text-xs text-blue-300">Personally guarantees every website</div>
@@ -608,7 +683,7 @@ function Comparison() {
                   <td key={name} className="pt-6 text-center px-1">
                     {highlight ? (
                       <Link
-                        href="/web-design-pricing"
+                        href="/web-design-pricing/"
                         className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-orange-500 text-white text-sm font-bold hover:bg-orange-600 transition-all shadow-md"
                       >
                         Get My Website
@@ -803,7 +878,7 @@ function HowItWorks() {
 
         <div className="text-center mt-12">
           <Link
-            href="/web-design-pricing"
+            href="/web-design-pricing/"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-blue-600 text-white text-lg font-bold hover:bg-blue-700 transition-all shadow-md hover:-translate-y-0.5"
           >
             Get My Website
@@ -1072,7 +1147,7 @@ function Transformation() {
             Ready to make the switch? Your new website can be live in 5–7 days.
           </p>
           <Link
-            href="/web-design-pricing"
+            href="/web-design-pricing/"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-orange-500 text-white text-lg font-bold hover:bg-orange-600 transition-all shadow-md hover:-translate-y-0.5"
           >
             Get My Website
@@ -1226,7 +1301,7 @@ function PortfolioPreview() {
 
         <div className="text-center">
           <Link
-            href="/web-design-portfolio"
+            href="/web-design-portfolio/"
             className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border-2 border-blue-600 text-blue-700 font-bold text-sm hover:bg-blue-600 hover:text-white transition-all"
           >
             View Full Portfolio
@@ -1407,7 +1482,7 @@ function Testimonials() {
         <div className="mt-10 text-center">
           <p className="text-sm text-gray-400">
             Join 800+ businesses who trust CalTech Web.{" "}
-            <Link href="/web-design-pricing" className="text-blue-600 font-semibold hover:underline">
+            <Link href="/web-design-pricing/" className="text-blue-600 font-semibold hover:underline">
               Get started today →
             </Link>
           </p>
@@ -1490,7 +1565,7 @@ function MeetBrandon() {
             {/* Left: Brandon card */}
             <div className="lg:col-span-2 bg-blue-600 p-10 flex flex-col items-center justify-center text-center text-white">
               {/* Avatar */}
-              <img src="/brandon-hopkins.jpg" alt="Brandon Hopkins" className="w-24 h-24 rounded-full object-cover border-4 border-white/30 mb-5 shadow-lg" />
+              <Image src="/brandon-hopkins.jpg" alt="Brandon Hopkins" width={2400} height={1600} className="w-24 h-24 rounded-full object-cover border-4 border-white/30 mb-5 shadow-lg" />
               <div className="text-xl font-extrabold text-white mb-1">Brandon Hopkins</div>
               <div className="text-sm text-blue-200 mb-6">Founder &amp; Owner, CalTech Web</div>
 
@@ -1527,7 +1602,7 @@ function MeetBrandon() {
 
               <div className="flex flex-col sm:flex-row gap-4 items-start">
                 <Link
-                  href="/web-design-pricing"
+                  href="/web-design-pricing/"
                   className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-orange-500 text-white font-bold text-sm hover:bg-orange-600 transition-all shadow-md hover:-translate-y-0.5"
                 >
                   Get My Website
@@ -1825,7 +1900,7 @@ function Guarantee() {
               website. No questions asked.
             </p>
             <div className="flex items-center justify-center gap-3 mb-8">
-              <img src="/brandon-hopkins.jpg" alt="Brandon Hopkins" className="w-12 h-12 rounded-full object-cover" />
+              <Image src="/brandon-hopkins.jpg" alt="Brandon Hopkins" width={2400} height={1600} className="w-12 h-12 rounded-full object-cover" />
               <div className="text-left">
                 <div className="font-bold text-white">Brandon Hopkins</div>
                 <div className="text-sm text-blue-200">Founder, CalTech Web</div>
@@ -1834,7 +1909,7 @@ function Guarantee() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                href="/web-design-pricing"
+                href="/web-design-pricing/"
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white text-blue-700 text-lg font-bold hover:bg-blue-50 transition-all shadow-md"
               >
                 Get My Website
@@ -1946,7 +2021,7 @@ function Pricing() {
               </ul>
 
               <Link
-                href="/web-design-pricing"
+                href="/web-design-pricing/"
                 className="flex items-center justify-center gap-2 w-full px-8 py-4 rounded-full bg-orange-500 text-white text-lg font-bold hover:bg-orange-600 transition-all shadow-lg hover:shadow-orange-500/25 hover:-translate-y-0.5"
               >
                 Get My Website
@@ -2055,7 +2130,7 @@ function FinalCTA() {
         {/* CTA buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
           <Link
-            href="/web-design-pricing"
+            href="/web-design-pricing/"
             className="inline-flex items-center justify-center gap-2 px-10 py-4 rounded-full bg-orange-500 text-white text-lg font-bold hover:bg-orange-600 transition-all shadow-lg hover:-translate-y-0.5"
           >
             Get My Website
@@ -2072,7 +2147,7 @@ function FinalCTA() {
 
         {/* Brandon's personal close */}
         <div className="flex flex-col sm:flex-row items-center gap-4 bg-white border border-gray-100 rounded-2xl px-6 py-5 max-w-2xl mx-auto shadow-sm">
-          <img src="/brandon-hopkins.jpg" alt="Brandon Hopkins" className="w-11 h-11 rounded-full object-cover shrink-0" />
+          <Image src="/brandon-hopkins.jpg" alt="Brandon Hopkins" width={2400} height={1600} className="w-11 h-11 rounded-full object-cover shrink-0" />
           <p className="text-sm text-gray-600 italic leading-relaxed text-center sm:text-left">
             &ldquo;I personally review every new project and stand behind every
             website we build.{" "}
@@ -2102,7 +2177,7 @@ function Footer() {
           {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
             <div className="flex items-center gap-2 mb-3">
-              <img src="/logo.png" alt="CalTech Web" className="h-7 w-auto" />
+              <Image src="/logo.png" alt="CalTech Web" width={1520} height={512} className="h-7 w-auto" />
             </div>
             <p className="text-sm leading-relaxed mb-4">
               Affordable website design for small businesses, churches, and
@@ -2124,7 +2199,7 @@ function Footer() {
             <ul className="space-y-2 text-sm">
               {["Web Design", "Website Hosting", "Monthly Updates", "Free Redesigns", "SEO Basics"].map((s) => (
                 <li key={s}>
-                  <Link href="/web-design-pricing" className="hover:text-white transition-colors">{s}</Link>
+                  <Link href="/web-design-pricing/" className="hover:text-white transition-colors">{s}</Link>
                 </li>
               ))}
             </ul>
@@ -2136,7 +2211,7 @@ function Footer() {
             <ul className="space-y-2 text-sm">
               {["Small Businesses", "Church Websites", "Non-Profits", "Healthcare", "Real Estate"].map((s) => (
                 <li key={s}>
-                  <Link href="/web-design-portfolio" className="hover:text-white transition-colors">{s}</Link>
+                  <Link href="/web-design-portfolio/" className="hover:text-white transition-colors">{s}</Link>
                 </li>
               ))}
             </ul>
@@ -2164,8 +2239,8 @@ function Footer() {
         <div className="border-t border-gray-800 pt-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs">
           <p>© {new Date().getFullYear()} CalTech Web. All rights reserved. California-based, serving clients nationwide.</p>
           <div className="flex gap-4">
-            <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <Link href="/terms-and-conditions" className="hover:text-white transition-colors">Terms of Service</Link>
+            <Link href="/privacy-policy/" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <Link href="/terms-and-conditions/" className="hover:text-white transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>
@@ -2209,6 +2284,10 @@ export default function HomePage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(homepageFaqJsonLd) }}
       />
       <AnnouncementBar />
       <Nav />

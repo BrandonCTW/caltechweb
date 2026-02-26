@@ -544,6 +544,16 @@ export function generateStaticParams() {
   return caseStudies.map((cs) => ({ slug: cs.slug }));
 }
 
+const caseStudyImages: Record<string, string> = {
+  "dr-arjun-kanuri": "/portfolio/arjun-kanuri.png",
+  "alv-floors": "/portfolio/alv-floors.png",
+  "kingdom-international": "/portfolio/kingdom-international.png",
+  "turbothao-nails": "/portfolio/turbothao-nails.png",
+  "specialized-plastic-surgery": "/portfolio/specialized-plastic-surgery.png",
+  "longhorn-fire-alarm-design": "/portfolio/longhorn-fire-alarm-design.png",
+  "central-baptist-church": "/portfolio/central-baptist-church.png",
+};
+
 export async function generateMetadata({
   params,
 }: {
@@ -552,16 +562,27 @@ export async function generateMetadata({
   const { slug } = await params;
   const cs = caseStudies.find((c) => c.slug === slug);
   if (!cs) return {};
+  const ogImage = caseStudyImages[cs.slug];
   return {
     title: `${cs.name} - Web Design Case Study | CalTech Web`,
     description: `See how CalTech Web helped ${cs.name} grow online for just $99/month. Custom design, fast launch, real results.`,
-    alternates: { canonical: `https://caltechweb.com/portfolio/${cs.slug}` },
+    alternates: { canonical: `https://caltechweb.com/portfolio/${cs.slug}/` },
     openGraph: {
       type: "website",
-      url: `https://caltechweb.com/portfolio/${cs.slug}`,
+      url: `https://caltechweb.com/portfolio/${cs.slug}/`,
       siteName: "CalTech Web",
       title: `${cs.name} - Web Design Case Study | CalTech Web`,
       description: `See how CalTech Web helped ${cs.name} grow online for just $99/month.`,
+      ...(ogImage && {
+        images: [
+          {
+            url: ogImage,
+            width: 1200,
+            height: 800,
+            alt: `${cs.name} website designed by CalTech Web`,
+          },
+        ],
+      }),
     },
   };
 }
@@ -584,11 +605,11 @@ function Nav() {
 
           <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-gray-600">
             <Link href="/" className="hover:text-blue-600 transition-colors">Home</Link>
-            <Link href="/web-design-portfolio" className="text-blue-600 font-semibold">Portfolio</Link>
-            <Link href="/web-design-pricing" className="hover:text-blue-600 transition-colors">Pricing</Link>
-            <Link href="/blog" className="hover:text-blue-600 transition-colors">Blog</Link>
-            <Link href="/brandon-hopkins" className="hover:text-blue-600 transition-colors">About</Link>
-            <Link href="/affordable-church-websites" className="hover:text-blue-600 transition-colors">Church Websites</Link>
+            <Link href="/web-design-portfolio/" className="text-blue-600 font-semibold">Portfolio</Link>
+            <Link href="/web-design-pricing/" className="hover:text-blue-600 transition-colors">Pricing</Link>
+            <Link href="/blog/" className="hover:text-blue-600 transition-colors">Blog</Link>
+            <Link href="/brandon-hopkins/" className="hover:text-blue-600 transition-colors">About</Link>
+            <Link href="/affordable-church-websites/" className="hover:text-blue-600 transition-colors">Church Websites</Link>
           </nav>
 
           <div className="hidden md:flex items-center gap-3">
@@ -600,7 +621,7 @@ function Nav() {
               (559) 282-3075
             </a>
             <Link
-              href="/web-design-pricing"
+              href="/web-design-pricing/"
               className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-orange-500 text-white text-sm font-semibold hover:bg-orange-600 transition-colors shadow-sm"
             >
               Schedule a Call
@@ -626,7 +647,7 @@ function Hero({ cs }: { cs: CaseStudy }) {
         <nav className="flex items-center gap-2 text-sm text-white/70 mb-8">
           <Link href="/" className="hover:text-white transition-colors">Home</Link>
           <ChevronRight className="w-3.5 h-3.5" />
-          <Link href="/web-design-portfolio" className="hover:text-white transition-colors">Portfolio</Link>
+          <Link href="/web-design-portfolio/" className="hover:text-white transition-colors">Portfolio</Link>
           <ChevronRight className="w-3.5 h-3.5" />
           <span className="text-white/90">{cs.name}</span>
         </nav>
@@ -805,7 +826,7 @@ function WhatWeBuilt({ cs }: { cs: CaseStudy }) {
               ))}
             </div>
             <Link
-              href="/web-design-pricing"
+              href="/web-design-pricing/"
               className="inline-flex items-center gap-2 w-full justify-center px-6 py-3.5 rounded-full bg-orange-500 text-white font-bold hover:bg-orange-600 transition-colors shadow-md"
             >
               Get My Website
@@ -861,7 +882,7 @@ function RelatedProjects({ cs }: { cs: CaseStudy }) {
         <div className="flex items-center justify-between mb-10">
           <h2 className="text-2xl font-extrabold text-gray-900">More Success Stories</h2>
           <Link
-            href="/web-design-portfolio"
+            href="/web-design-portfolio/"
             className="inline-flex items-center gap-1.5 text-blue-600 font-semibold text-sm hover:text-blue-700 transition-colors"
           >
             View all
@@ -923,7 +944,7 @@ function FinalCTA({ cs }: { cs: CaseStudy }) {
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
           <Link
-            href="/web-design-pricing"
+            href="/web-design-pricing/"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-orange-500 text-white font-bold text-base hover:bg-orange-600 transition-colors shadow-lg"
           >
             Get My Website
@@ -938,7 +959,7 @@ function FinalCTA({ cs }: { cs: CaseStudy }) {
           </a>
         </div>
         <Link
-          href="/web-design-portfolio"
+          href="/web-design-portfolio/"
           className="inline-flex items-center gap-1.5 text-blue-400 hover:text-blue-300 transition-colors text-sm font-medium"
         >
           <ArrowLeft className="w-3.5 h-3.5" />
@@ -968,8 +989,8 @@ function Footer() {
             © {new Date().getFullYear()} CalTech Web. Affordable website design at $99/month.
           </p>
           <div className="flex items-center gap-4 text-sm">
-            <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy</Link>
-            <Link href="/terms-and-conditions" className="hover:text-white transition-colors">Terms</Link>
+            <Link href="/privacy-policy/" className="hover:text-white transition-colors">Privacy</Link>
+            <Link href="/terms-and-conditions/" className="hover:text-white transition-colors">Terms</Link>
             <a href="mailto:Brandon@CalTechWeb.com" className="hover:text-white transition-colors">
               Brandon@CalTechWeb.com
             </a>
@@ -991,8 +1012,61 @@ export default async function PortfolioDetailPage({
   const cs = caseStudies.find((c) => c.slug === slug);
   if (!cs) notFound();
 
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://caltechweb.com/",
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Web Design Portfolio",
+        "item": "https://caltechweb.com/web-design-portfolio/",
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": cs.name,
+        "item": `https://caltechweb.com/portfolio/${cs.slug}/`,
+      },
+    ],
+  };
+
+  const reviewJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Review",
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": "5",
+      "bestRating": "5",
+    },
+    "author": {
+      "@type": "Person",
+      "name": cs.testimonialAuthor,
+    },
+    "reviewBody": cs.testimonial,
+    "itemReviewed": {
+      "@type": "ProfessionalService",
+      "name": "CalTech Web",
+      "url": "https://caltechweb.com",
+    },
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewJsonLd) }}
+      />
       <Nav />
       <Hero cs={cs} />
       <TheStory cs={cs} />

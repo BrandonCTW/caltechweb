@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Phone, Mail, Shield } from "lucide-react";
+import Image from "next/image";
 import MobileNav from "@/components/MobileNav";
 import Link from "next/link";
 
@@ -31,7 +32,7 @@ function Nav() {
     <header className="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-gray-100 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 shrink-0">
-          <img src="/logo.png" alt="CalTech Web" className="h-7 w-auto" />
+          <Image src="/logo.png" alt="CalTech Web" width={1520} height={512} className="h-7 w-auto" />
         </Link>
 
         <nav className="hidden md:flex items-center gap-6">
@@ -77,7 +78,7 @@ function Footer() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
           <div className="sm:col-span-2 lg:col-span-1">
             <div className="flex items-center gap-2 mb-3">
-              <img src="/logo.png" alt="CalTech Web" className="h-7 w-auto" />
+              <Image src="/logo.png" alt="CalTech Web" width={1520} height={512} className="h-7 w-auto" />
             </div>
             <p className="text-sm leading-relaxed mb-4">
               Affordable website design for small businesses, churches, and

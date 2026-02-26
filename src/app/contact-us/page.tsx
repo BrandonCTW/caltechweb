@@ -59,7 +59,7 @@ function Nav() {
             (559) 282-3075
           </a>
           <Link
-            href="/web-design-pricing"
+            href="/web-design-pricing/"
             className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-orange-500 text-white text-sm font-bold hover:bg-orange-600 transition-colors"
           >
             Schedule a Call

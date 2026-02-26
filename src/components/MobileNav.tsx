@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Menu, X, ArrowRight, Phone, Mail } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
 const navLinks = [
@@ -61,7 +62,7 @@ export default function MobileNav() {
         {/* Drawer header */}
         <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100 shrink-0">
           <Link href="/" className="flex items-center gap-2" onClick={() => setOpen(false)}>
-            <img src="/logo.png" alt="CalTech Web" className="h-7 w-auto" />
+            <Image src="/logo.png" alt="CalTech Web" width={1520} height={512} className="h-7 w-auto" />
           </Link>
           <button
             onClick={() => setOpen(false)}
@@ -117,7 +118,7 @@ export default function MobileNav() {
             Call Now
           </a>
           <Link
-            href="/web-design-pricing"
+            href="/web-design-pricing/"
             onClick={() => setOpen(false)}
             className="flex items-center justify-center gap-2 w-full px-4 py-3 rounded-full bg-orange-500 text-white font-bold text-sm hover:bg-orange-600 transition-colors shadow-md"
           >

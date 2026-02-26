@@ -13,19 +13,32 @@ import {
   MessageSquare,
   Zap,
 } from "lucide-react";
+import Image from "next/image";
 import MobileNav from "@/components/MobileNav";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "About Brandon Hopkins - Founder of CalTech Web | $99/month Web Design",
+  title: "About Brandon Hopkins | Founder of CalTech Web",
   description:
-    "Meet Brandon Hopkins, founder of CalTech Web. Helping small businesses, churches, and non-profits get professional websites for just $99/month - with fast support and a personal guarantee.",
+    "Meet Brandon Hopkins, founder of CalTech Web. Professional websites for small businesses at $99/month with fast support and a personal guarantee.",
   alternates: { canonical: "https://caltechweb.com/brandon-hopkins/" },
   openGraph: {
     title: "About Brandon Hopkins - Founder of CalTech Web",
     description:
       "Brandon Hopkins built CalTech Web to give small businesses access to professional web design without the big-agency price tag. $99/month, 800+ sites, and counting.",
     url: "https://caltechweb.com/brandon-hopkins/",
+    images: [
+      {
+        url: "/brandon-hopkins.jpg",
+        width: 2400,
+        height: 1600,
+        alt: "Brandon Hopkins - Founder of CalTech Web",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary",
+    images: ["/brandon-hopkins.jpg"],
   },
 };
 
@@ -35,6 +48,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Brandon Hopkins",
+  url: "https://caltechweb.com/brandon-hopkins/",
   jobTitle: "Founder & Web Designer",
   worksFor: {
     "@type": "Organization",
@@ -60,6 +74,25 @@ const jsonLd = {
   ],
 };
 
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://caltechweb.com/",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "About Brandon Hopkins",
+      item: "https://caltechweb.com/brandon-hopkins/",
+    },
+  ],
+};
+
 // ─── Nav ──────────────────────────────────────────────────────────────────────
 
 function Nav() {
@@ -76,7 +109,7 @@ function Nav() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 shrink-0">
-          <img src="/logo.png" alt="CalTech Web" className="h-7 w-auto" />
+          <Image src="/logo.png" alt="CalTech Web" width={1520} height={512} className="h-7 w-auto" />
         </Link>
 
         {/* Desktop nav */}
@@ -106,7 +139,7 @@ function Nav() {
             (559) 282-3075
           </a>
           <Link
-            href="/web-design-pricing"
+            href="/web-design-pricing/"
             className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-orange-500 text-white text-sm font-bold hover:bg-orange-600 transition-colors"
           >
             Schedule a Call
@@ -129,7 +162,7 @@ function Hero() {
         <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
           {/* Avatar / photo placeholder */}
           <div className="shrink-0">
-            <img src="/brandon-hopkins.jpg" alt="Brandon Hopkins" className="w-44 h-44 sm:w-52 sm:h-52 rounded-full object-cover border-4 border-blue-400/40 shadow-2xl" />
+            <Image src="/brandon-hopkins.jpg" alt="Brandon Hopkins" width={2400} height={1600} className="w-44 h-44 sm:w-52 sm:h-52 rounded-full object-cover border-4 border-blue-400/40 shadow-2xl" priority />
           </div>
 
           {/* Copy */}
@@ -153,7 +186,7 @@ function Hero() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <Link
-                href="/web-design-pricing"
+                href="/web-design-pricing/"
                 className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-orange-500 text-white font-bold hover:bg-orange-600 transition-all shadow-lg hover:shadow-orange-500/30 hover:-translate-y-0.5"
               >
                 Get My Website
@@ -442,7 +475,7 @@ function Guarantee() {
         </div>
 
         <Link
-          href="/web-design-pricing"
+          href="/web-design-pricing/"
           className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-orange-500 text-white text-lg font-bold hover:bg-orange-600 transition-all shadow-lg hover:shadow-orange-500/30 hover:-translate-y-0.5"
         >
           Get My Website
@@ -473,7 +506,7 @@ function Footer() {
           {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
             <div className="flex items-center gap-2 mb-3">
-              <img src="/logo.png" alt="CalTech Web" className="h-7 w-auto" />
+              <Image src="/logo.png" alt="CalTech Web" width={1520} height={512} className="h-7 w-auto" />
             </div>
             <p className="text-sm leading-relaxed mb-4">
               Affordable website design for small businesses, churches, and
@@ -614,7 +647,7 @@ function StickyMobileCTA() {
             Call Brandon
           </a>
           <Link
-            href="/web-design-pricing"
+            href="/web-design-pricing/"
             className="flex-1 flex items-center justify-center gap-2 py-3 rounded-full bg-orange-500 text-white font-bold text-sm hover:bg-orange-600 transition-colors"
           >
             Get My Website
@@ -633,6 +666,10 @@ export default function AboutPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <Nav />
       <main className="pb-[76px] md:pb-0">

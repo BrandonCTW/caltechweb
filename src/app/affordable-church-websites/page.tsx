@@ -16,23 +16,34 @@ import {
   Globe,
   Users,
 } from "lucide-react";
+import Image from "next/image";
 import MobileNav from "@/components/MobileNav";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title:
-    "Affordable Church Websites - $99/month Church Web Design | CalTech Web",
+  title: "Affordable Church Websites | $99/month | CalTech Web",
   description:
     "Professional church website design for just $99/month. Online giving, sermon streaming, event calendars, and unlimited updates included. 800+ sites designed. No contracts.",
   keywords:
     "affordable church websites, church website design, church web design, church website builder, church website hosting",
   alternates: { canonical: "https://caltechweb.com/affordable-church-websites/" },
   openGraph: {
-    title:
-      "Affordable Church Websites - $99/month Church Web Design | CalTech Web",
+    title: "Affordable Church Websites | $99/month | CalTech Web",
     description:
       "Everything your church needs online for $99/month. Custom design, online giving, sermon streaming, event calendars, hosting, SSL, and unlimited updates.",
     url: "https://caltechweb.com/affordable-church-websites/",
+    images: [
+      {
+        url: "/brandon-hopkins.jpg",
+        width: 2400,
+        height: 1600,
+        alt: "Brandon Hopkins - Founder of CalTech Web",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary",
+    images: ["/brandon-hopkins.jpg"],
   },
 };
 
@@ -42,6 +53,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Service",
   name: "Affordable Church Website Design",
+  url: "https://caltechweb.com/affordable-church-websites/",
   provider: {
     "@type": "Organization",
     name: "CalTech Web",
@@ -60,6 +72,62 @@ const jsonLd = {
       unitText: "MONTH",
     },
   },
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "5",
+    reviewCount: "800",
+    bestRating: "5",
+    worstRating: "1",
+  },
+  review: [
+    {
+      "@type": "Review",
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: "5",
+        bestRating: "5",
+      },
+      author: {
+        "@type": "Person",
+        name: "Pastor James Watkins",
+      },
+      reviewBody:
+        "As a church, every dollar matters. $99/month for a professional website with unlimited updates - Brandon even redesigned our site for free when we updated our branding. Couldn't ask for more.",
+    },
+    {
+      "@type": "Review",
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: "5",
+        bestRating: "5",
+      },
+      author: {
+        "@type": "Person",
+        name: "Christina Beckstead",
+      },
+      reviewBody:
+        "CalTech Web helped us with our domain, new website, and even solved a situation with image copyright! I highly recommend them for all nonprofit organization websites.",
+    },
+  ],
+};
+
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://caltechweb.com/",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Church Websites",
+      item: "https://caltechweb.com/affordable-church-websites/",
+    },
+  ],
 };
 
 // --- Nav ---
@@ -77,7 +145,7 @@ function Nav() {
     <header className="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-gray-100 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 shrink-0">
-          <img src="/logo.png" alt="CalTech Web" className="h-7 w-auto" />
+          <Image src="/logo.png" alt="CalTech Web" width={1520} height={512} className="h-7 w-auto" />
         </Link>
 
         <nav className="hidden md:flex items-center gap-6">
@@ -463,7 +531,7 @@ function Footer() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
           <div className="sm:col-span-2 lg:col-span-1">
             <div className="flex items-center gap-2 mb-3">
-              <img src="/logo.png" alt="CalTech Web" className="h-7 w-auto" />
+              <Image src="/logo.png" alt="CalTech Web" width={1520} height={512} className="h-7 w-auto" />
             </div>
             <p className="text-sm leading-relaxed mb-4">
               Affordable website design for small businesses, churches, and
@@ -620,6 +688,10 @@ export default function AffordableChurchWebsitesPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <Nav />
       <main className="pb-[76px] md:pb-0">

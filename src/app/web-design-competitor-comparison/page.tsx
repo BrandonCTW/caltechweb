@@ -15,14 +15,14 @@ import {
   Users,
   Palette,
 } from "lucide-react";
+import Image from "next/image";
 import MobileNav from "@/components/MobileNav";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title:
-    "Web Design Company Comparison - CalTech Web vs Agencies, Freelancers & DIY | CalTech Web",
+  title: "Web Design Comparison: CalTech Web vs DIY & Agencies",
   description:
-    "Compare CalTech Web's $99/month all-inclusive web design to DIY builders, freelancers, and agencies. See why 800+ businesses chose affordable web design without sacrificing quality.",
+    "Compare CalTech Web's $99/month web design to DIY builders, freelancers, and agencies. See why 800+ businesses chose affordable web design.",
   alternates: {
     canonical: "https://caltechweb.com/web-design-competitor-comparison/",
   },
@@ -32,7 +32,81 @@ export const metadata: Metadata = {
     description:
       "Side-by-side comparison of CalTech Web ($99/mo) vs Wix, Squarespace, freelancers, and agencies. Custom design, hosting, unlimited updates - all included.",
     url: "https://caltechweb.com/web-design-competitor-comparison/",
+    images: [
+      {
+        url: "/brandon-hopkins.jpg",
+        width: 2400,
+        height: 1600,
+        alt: "Brandon Hopkins - Founder of CalTech Web",
+      },
+    ],
   },
+  twitter: {
+    card: "summary",
+    images: ["/brandon-hopkins.jpg"],
+  },
+};
+
+// ─── Structured Data ─────────────────────────────────────────────────────────
+
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://caltechweb.com/",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Web Design Comparison",
+      item: "https://caltechweb.com/web-design-competitor-comparison/",
+    },
+  ],
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Web Design Options Comparison",
+  description:
+    "Side-by-side comparison of web design options: CalTech Web vs DIY builders, freelancers, and traditional agencies.",
+  url: "https://caltechweb.com/web-design-competitor-comparison/",
+  numberOfItems: 4,
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "CalTech Web",
+      description:
+        "$99/month all-inclusive: custom design, hosting, SSL, unlimited updates, free redesigns, and priority support with 93% of requests done in under 1 hour.",
+      url: "https://caltechweb.com/web-design-pricing/",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "DIY Website Builders (Wix / Squarespace)",
+      description:
+        "$16-50/month. Template-based, self-service. You design and maintain the site yourself. No dedicated support, no custom design, limited SEO control.",
+    },
+    {
+      "@type": "ListItem",
+      position: 3,
+      name: "Freelancer",
+      description:
+        "$2,000-10,000 upfront plus $50-150/month. Custom design but large upfront cost, no guaranteed availability, and no hosting or support included.",
+    },
+    {
+      "@type": "ListItem",
+      position: 4,
+      name: "Traditional Web Design Agency",
+      description:
+        "$5,000-50,000+ upfront plus $500-2,000/month. Enterprise-grade work but prohibitive cost, long timelines, and multi-year contracts common.",
+    },
+  ],
 };
 
 // ─── Nav ─────────────────────────────────────────────────────────────────────
@@ -51,7 +125,7 @@ function Nav() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 shrink-0">
-          <img src="/logo.png" alt="CalTech Web" className="h-7 w-auto" />
+          <Image src="/logo.png" alt="CalTech Web" width={1520} height={512} className="h-7 w-auto" />
         </Link>
 
         {/* Desktop nav */}
@@ -861,9 +935,11 @@ function FinalCTA() {
     <section className="py-16 sm:py-20 bg-gradient-to-br from-blue-600 to-blue-700 text-white">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="flex items-center justify-center gap-3 mb-8">
-          <img
+          <Image
             src="/brandon-hopkins.jpg"
             alt="Brandon Hopkins"
+            width={2400}
+            height={1600}
             className="w-11 h-11 rounded-full object-cover shrink-0"
           />
           <div className="text-left">
@@ -911,7 +987,7 @@ function Footer() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
           <div className="sm:col-span-2 lg:col-span-1">
             <div className="flex items-center gap-2 mb-3">
-              <img src="/logo.png" alt="CalTech Web" className="h-7 w-auto" />
+              <Image src="/logo.png" alt="CalTech Web" width={1520} height={512} className="h-7 w-auto" />
             </div>
             <p className="text-sm leading-relaxed mb-4">
               Affordable website design for small businesses, churches, and
@@ -1065,6 +1141,14 @@ function StickyMobileCTA() {
 export default function CompetitorComparisonPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <Nav />
       <main className="pb-[76px] md:pb-0">
         <Hero />

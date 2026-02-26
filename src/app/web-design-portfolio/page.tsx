@@ -15,6 +15,7 @@ import {
   Stethoscope,
   ChevronRight,
 } from "lucide-react";
+import Image from "next/image";
 import MobileNav from "@/components/MobileNav";
 import Link from "next/link";
 
@@ -22,14 +23,29 @@ export const metadata: Metadata = {
   title: "Web Design Portfolio - 800+ Sites Built | CalTech Web",
   description:
     "Browse our portfolio of 800+ websites built for small businesses, churches, non-profits, restaurants, and medical practices - all for just $99/month.",
-  alternates: { canonical: "https://caltechweb.com/web-design-portfolio" },
+  alternates: { canonical: "https://caltechweb.com/web-design-portfolio/" },
   openGraph: {
     type: "website",
-    url: "https://caltechweb.com/web-design-portfolio",
+    url: "https://caltechweb.com/web-design-portfolio/",
     siteName: "CalTech Web",
     title: "Web Design Portfolio - 800+ Sites Built | CalTech Web",
     description:
       "Browse our portfolio of 800+ websites built for small businesses, churches, non-profits, restaurants, and medical practices - all for just $99/month.",
+    images: [
+      {
+        url: "/portfolio/arjun-kanuri.png",
+        width: 1200,
+        height: 630,
+        alt: "CalTech Web Portfolio - Professional websites for small businesses",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Web Design Portfolio - 800+ Sites Built | CalTech Web",
+    description:
+      "Browse our portfolio of 800+ websites built for small businesses, churches, non-profits, restaurants, and medical practices - all for just $99/month.",
+    images: ["/portfolio/arjun-kanuri.png"],
   },
 };
 
@@ -42,17 +58,17 @@ function Nav() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
-            <img src="/logo.png" alt="CalTech Web" className="h-8 w-auto" />
+            <Image src="/logo.png" alt="CalTech Web" width={1520} height={512} className="h-8 w-auto" />
           </Link>
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-gray-600">
             <Link href="/" className="hover:text-blue-600 transition-colors">Home</Link>
-            <Link href="/web-design-portfolio" className="text-blue-600 font-semibold">Portfolio</Link>
-            <Link href="/web-design-pricing" className="hover:text-blue-600 transition-colors">Pricing</Link>
-            <Link href="/blog" className="hover:text-blue-600 transition-colors">Blog</Link>
-            <Link href="/brandon-hopkins" className="hover:text-blue-600 transition-colors">About</Link>
-            <Link href="/affordable-church-websites" className="hover:text-blue-600 transition-colors">Church Websites</Link>
+            <Link href="/web-design-portfolio/" className="text-blue-600 font-semibold">Portfolio</Link>
+            <Link href="/web-design-pricing/" className="hover:text-blue-600 transition-colors">Pricing</Link>
+            <Link href="/blog/" className="hover:text-blue-600 transition-colors">Blog</Link>
+            <Link href="/brandon-hopkins/" className="hover:text-blue-600 transition-colors">About</Link>
+            <Link href="/affordable-church-websites/" className="hover:text-blue-600 transition-colors">Church Websites</Link>
           </nav>
 
           {/* Phone + CTA (desktop) */}
@@ -65,7 +81,7 @@ function Nav() {
               (559) 282-3075
             </a>
             <Link
-              href="/web-design-pricing"
+              href="/web-design-pricing/"
               className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-orange-500 text-white text-sm font-semibold hover:bg-orange-600 transition-colors shadow-sm"
             >
               Schedule a Call
@@ -103,7 +119,7 @@ function Hero() {
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Link
-            href="/web-design-pricing"
+            href="/web-design-pricing/"
             className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-orange-500 text-white font-bold text-base hover:bg-orange-600 transition-colors shadow-lg"
           >
             Get My Website
@@ -295,10 +311,12 @@ function PortfolioCard({ item }: { item: PortfolioItem }) {
     >
       {/* Website screenshot */}
       <div className="relative h-48 sm:h-56 bg-gray-100 overflow-hidden">
-        <img
+        <Image
           src={item.screenshot}
           alt={`${item.name} website designed by CalTech Web`}
-          className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+          fill
+          className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
         />
 
         {/* Hover overlay */}
@@ -346,7 +364,7 @@ function PortfolioGrid() {
             Showing 12 of <span className="font-semibold text-gray-700">800+</span> websites
           </p>
           <Link
-            href="/web-design-pricing"
+            href="/web-design-pricing/"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-blue-600 text-white font-semibold text-sm hover:bg-blue-700 transition-colors shadow-sm"
           >
             Want one like these? Get My Website
@@ -381,11 +399,14 @@ function CaseStudy() {
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Real site screenshot */}
-          <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-            <img
+          <div className="relative h-80 rounded-2xl overflow-hidden shadow-2xl">
+            <Image
               src="/portfolio/arjun-kanuri.png"
               alt="Dr. Arjun Kanuri website designed by CalTech Web"
-              className="w-full h-80 object-cover object-top"
+              fill
+              priority
+              className="object-cover object-top"
+              sizes="(max-width: 1024px) 100vw, 50vw"
             />
 
             {/* Floating badge */}
@@ -442,7 +463,7 @@ function CaseStudy() {
             </div>
 
             <Link
-              href="/web-design-pricing"
+              href="/web-design-pricing/"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-orange-500 text-white font-bold hover:bg-orange-600 transition-colors shadow-md"
             >
               I Want Results Like This
@@ -483,7 +504,7 @@ function WhatsIncluded() {
               professional and grow online - bundled into one flat monthly fee.
             </p>
             <Link
-              href="/web-design-pricing"
+              href="/web-design-pricing/"
               className="inline-flex items-center gap-2 text-blue-300 font-semibold hover:text-white transition-colors text-sm"
             >
               See full pricing details
@@ -527,7 +548,7 @@ function FinalCTA() {
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Link
-            href="/web-design-pricing"
+            href="/web-design-pricing/"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-orange-500 text-white font-bold text-base hover:bg-orange-600 transition-colors shadow-lg"
           >
             Get My Website
@@ -557,14 +578,14 @@ function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
-            <img src="/logo.png" alt="CalTech Web" className="h-7 w-auto" />
+            <Image src="/logo.png" alt="CalTech Web" width={1520} height={512} className="h-7 w-auto" />
           </div>
           <p className="text-sm text-center">
             © {new Date().getFullYear()} CalTech Web. Affordable website design at $99/month.
           </p>
           <div className="flex items-center gap-4 text-sm">
-            <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy</Link>
-            <Link href="/terms-and-conditions" className="hover:text-white transition-colors">Terms</Link>
+            <Link href="/privacy-policy/" className="hover:text-white transition-colors">Privacy</Link>
+            <Link href="/terms-and-conditions/" className="hover:text-white transition-colors">Terms</Link>
             <a href="mailto:Brandon@CalTechWeb.com" className="hover:text-white transition-colors">
               Brandon@CalTechWeb.com
             </a>
@@ -577,9 +598,53 @@ function Footer() {
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
+const portfolioItemListJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Web Design Portfolio - CalTech Web",
+  description:
+    "800+ websites built for small businesses, churches, non-profits, restaurants, and medical practices — all for $99/month.",
+  url: "https://caltechweb.com/web-design-portfolio/",
+  numberOfItems: portfolioItems.length,
+  itemListElement: portfolioItems.map((item, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    name: item.name,
+    description: item.tagline,
+    url: item.website,
+  })),
+};
+
+const portfolioBreadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://caltechweb.com/",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Web Design Portfolio",
+      item: "https://caltechweb.com/web-design-portfolio/",
+    },
+  ],
+};
+
 export default function PortfolioPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(portfolioItemListJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(portfolioBreadcrumbJsonLd) }}
+      />
       <Nav />
       <Hero />
       <CategoryBar />

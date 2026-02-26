@@ -20,6 +20,7 @@ import {
   Globe,
   MessageSquare,
 } from "lucide-react";
+import Image from "next/image";
 import MobileNav from "@/components/MobileNav";
 import Link from "next/link";
 import { useState, FormEvent } from "react";
@@ -40,7 +41,7 @@ function Nav() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 shrink-0">
-          <img src="/logo.png" alt="CalTech Web" className="h-7 w-auto" />
+          <Image src="/logo.png" alt="CalTech Web" width={1520} height={512} className="h-7 w-auto" />
         </Link>
 
         {/* Desktop nav */}
@@ -681,9 +682,11 @@ function FinalCTA() {
     <section className="py-16 sm:py-20 bg-gradient-to-br from-blue-600 to-blue-700 text-white">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="flex items-center justify-center gap-3 mb-8">
-          <img
+          <Image
             src="/brandon-hopkins.jpg"
             alt="Brandon Hopkins"
+            width={2400}
+            height={1600}
             className="w-11 h-11 rounded-full object-cover shrink-0"
           />
           <div className="text-left">
@@ -731,7 +734,7 @@ function Footer() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
           <div className="sm:col-span-2 lg:col-span-1">
             <div className="flex items-center gap-2 mb-3">
-              <img src="/logo.png" alt="CalTech Web" className="h-7 w-auto" />
+              <Image src="/logo.png" alt="CalTech Web" width={1520} height={512} className="h-7 w-auto" />
             </div>
             <p className="text-sm leading-relaxed mb-4">
               Affordable website design for small businesses, churches, and
@@ -885,29 +888,6 @@ function StickyMobileCTA() {
 export default function WebsiteDesignRFPPage() {
   return (
     <>
-      <title>
-        Website Design RFP &amp; RFQ - Flat $99/Month Proposals | CalTech Web
-      </title>
-      <meta
-        name="description"
-        content="Submit your website design RFP or RFQ to CalTech Web. Flat $99/month pricing simplifies procurement for government, non-profit, and business website projects. 800+ sites delivered."
-      />
-      <link
-        rel="canonical"
-        href="https://caltechweb.com/website-design-rfp-rfq/"
-      />
-      <meta
-        property="og:title"
-        content="Website Design RFP & RFQ - Flat $99/Month | CalTech Web"
-      />
-      <meta
-        property="og:description"
-        content="Simple, transparent website design proposals. $99/month all-inclusive. No large upfront costs. 800+ websites delivered for government, non-profit, and business clients."
-      />
-      <meta
-        property="og:url"
-        content="https://caltechweb.com/website-design-rfp-rfq/"
-      />
       <Nav />
       <main className="pb-[76px] md:pb-0">
         <Hero />

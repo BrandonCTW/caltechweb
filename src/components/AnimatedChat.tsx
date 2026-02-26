@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, useCallback } from "react";
+import Image from "next/image";
 import { Check } from "lucide-react";
 
 type Message = {
@@ -83,7 +84,7 @@ export default function AnimatedChat() {
     >
       {/* Chat header */}
       <div className="bg-blue-600 px-5 py-4 flex items-center gap-3">
-        <img src="/brandon-hopkins.jpg" alt="Brandon Hopkins" className="w-9 h-9 rounded-full object-cover border-2 border-white/30 shrink-0" />
+        <Image src="/brandon-hopkins.jpg" alt="Brandon Hopkins" width={2400} height={1600} className="w-9 h-9 rounded-full object-cover border-2 border-white/30 shrink-0" />
         <div>
           <div className="font-semibold text-white text-sm">
             Brandon &mdash; CalTech Web Support
@@ -117,7 +118,7 @@ export default function AnimatedChat() {
               key={i}
               className="flex items-end gap-2 animate-[fadeSlideUp_0.35s_ease-out]"
             >
-              <img src="/brandon-hopkins.jpg" alt="Brandon Hopkins" className="w-7 h-7 rounded-full object-cover shrink-0 mb-0.5" />
+              <Image src="/brandon-hopkins.jpg" alt="Brandon Hopkins" width={2400} height={1600} className="w-7 h-7 rounded-full object-cover shrink-0 mb-0.5" />
               <div className="bg-white border border-gray-200 rounded-2xl rounded-tl-sm px-4 py-3 shadow-sm max-w-[82%]">
                 <p className="text-sm text-gray-800">{msg.text}</p>
                 <p className="text-xs text-gray-400 mt-1">{msg.time}</p>
@@ -130,7 +131,7 @@ export default function AnimatedChat() {
         {typing && visibleCount < messages.length && (
           <div className="flex items-end gap-2 animate-[fadeSlideUp_0.2s_ease-out]">
             {messages[visibleCount].from === "brandon" && (
-              <img src="/brandon-hopkins.jpg" alt="Brandon Hopkins" className="w-7 h-7 rounded-full object-cover shrink-0 mb-0.5" />
+              <Image src="/brandon-hopkins.jpg" alt="Brandon Hopkins" width={2400} height={1600} className="w-7 h-7 rounded-full object-cover shrink-0 mb-0.5" />
             )}
             <div
               className={`${

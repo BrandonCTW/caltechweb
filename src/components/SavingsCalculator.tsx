@@ -138,7 +138,7 @@ export default function SavingsCalculator() {
           {/* CTA */}
           <div className="mt-7 flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
-              href="/web-design-pricing"
+              href="/web-design-pricing/"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-orange-500 text-white font-bold text-lg hover:bg-orange-600 transition-all shadow-md hover:-translate-y-0.5"
             >
               Get My Website

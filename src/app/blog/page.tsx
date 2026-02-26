@@ -16,13 +16,21 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Web Design Blog - Tips for Small Businesses | CalTech Web",
   description:
-    "Practical web design tips, case studies, and advice for small business owners, churches, and non-profits. From the team at CalTech Web - $99/month affordable web design.",
+    "Practical web design tips, case studies, and advice for small business owners, churches, and non-profits. From CalTech Web — $99/month.",
   alternates: { canonical: "https://caltechweb.com/blog/" },
   openGraph: {
     title: "Web Design Blog - Tips for Small Businesses | CalTech Web",
     description:
       "Practical web design tips, case studies, and affordable website advice from Brandon Hopkins at CalTech Web.",
     url: "https://caltechweb.com/blog/",
+    images: [
+      {
+        url: "/brandon-hopkins.jpg",
+        width: 2400,
+        height: 1600,
+        alt: "Brandon Hopkins - CalTech Web",
+      },
+    ],
   },
 };
 
@@ -146,17 +154,6 @@ const posts = [
       "Most small business owners treat their website and Google Business Profile as separate things. They're not - and linking them the right way can double your local visibility.",
     readTime: "5 min read",
     date: "November 10, 2025",
-    author: "Brandon Hopkins",
-    featured: false,
-  },
-  {
-    slug: "dr-kanuri-40-percent-traffic-increase",
-    category: "Case Studies",
-    categoryColor: "bg-green-100 text-green-700",
-    title: "How Dr. Arjun Kanuri Increased Website Traffic by 40% and Doubled Conversions in 3 Months",
-    excerpt: "A busy plastic surgery practice, an outdated website, and a $99/month plan. Here's exactly what we changed - and the measurable results that followed.",
-    readTime: "6 min read",
-    date: "January 28, 2026",
     author: "Brandon Hopkins",
     featured: false,
   },
@@ -288,6 +285,55 @@ const categories = [
   "Support & Reliability",
 ];
 
+// ─── Structured Data ──────────────────────────────────────────────────────────
+
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://caltechweb.com/",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Blog",
+      item: "https://caltechweb.com/blog/",
+    },
+  ],
+};
+
+const blogJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  name: "CalTech Web Blog",
+  description:
+    "Web design tips, case studies, and affordable website advice for small businesses, churches, and non-profits.",
+  url: "https://caltechweb.com/blog/",
+  publisher: {
+    "@type": "Organization",
+    name: "CalTech Web",
+    url: "https://caltechweb.com/",
+    logo: {
+      "@type": "ImageObject",
+      url: "https://caltechweb.com/logo.png",
+    },
+  },
+  blogPost: [featuredPost, ...posts.filter((p) => p.slug !== featuredPost.slug)].map((post) => ({
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.excerpt,
+    url: `https://caltechweb.com/${post.slug}/`,
+    author: {
+      "@type": "Person",
+      name: post.author,
+    },
+  })),
+};
+
 // ─── Nav ─────────────────────────────────────────────────────────────────────
 
 function Nav() {
@@ -336,7 +382,7 @@ function Nav() {
             (559) 282-3075
           </a>
           <Link
-            href="/web-design-pricing"
+            href="/web-design-pricing/"
             className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-orange-500 text-white text-sm font-bold hover:bg-orange-600 transition-colors"
           >
             Schedule a Call
@@ -597,7 +643,7 @@ function CTAStrip() {
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
-            href="/web-design-pricing"
+            href="/web-design-pricing/"
             className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-orange-500 text-white text-lg font-bold hover:bg-orange-600 transition-all shadow-lg hover:-translate-y-0.5"
           >
             Get My Website
@@ -757,7 +803,7 @@ function StickyMobileCTA() {
             Call Now
           </a>
           <Link
-            href="/web-design-pricing"
+            href="/web-design-pricing/"
             className="flex-1 flex items-center justify-center gap-2 py-3 rounded-full bg-orange-500 text-white font-bold text-sm hover:bg-orange-600 transition-colors"
           >
             Get My Website
@@ -773,6 +819,14 @@ function StickyMobileCTA() {
 export default function BlogPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <Nav />
       <main className="pb-[76px] md:pb-0">
         <Hero />

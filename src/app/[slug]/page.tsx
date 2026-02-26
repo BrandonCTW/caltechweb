@@ -13,6 +13,7 @@ import {
   Lightbulb,
   Quote,
 } from "lucide-react";
+import Image from "next/image";
 import MobileNav from "@/components/MobileNav";
 import Link from "next/link";
 
@@ -1476,6 +1477,12 @@ export function generateStaticParams() {
   return blogPosts.map((post) => ({ slug: post.slug }));
 }
 
+// ─── Helpers ─────────────────────────────────────────────────────────────────
+
+function toIsoDate(dateStr: string): string {
+  return new Date(dateStr).toISOString().split("T")[0];
+}
+
 // ─── Metadata ─────────────────────────────────────────────────────────────────
 
 export async function generateMetadata({
@@ -1496,6 +1503,20 @@ export async function generateMetadata({
       description: post.metaDescription,
       url: `https://caltechweb.com/${post.slug}/`,
       type: "article",
+      publishedTime: new Date(post.date).toISOString(),
+      authors: ["Brandon Hopkins"],
+      images: [
+        {
+          url: "/brandon-hopkins.jpg",
+          width: 2400,
+          height: 1600,
+          alt: "Brandon Hopkins - CalTech Web Founder",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      images: ["/brandon-hopkins.jpg"],
     },
   };
 }
@@ -1544,7 +1565,7 @@ function Nav() {
             (559) 282-3075
           </a>
           <Link
-            href="/web-design-pricing"
+            href="/web-design-pricing/"
             className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-orange-500 text-white text-sm font-bold hover:bg-orange-600 transition-colors"
           >
             Schedule a Call
@@ -1577,7 +1598,7 @@ function Sidebar() {
             support all included - for $99/month.
           </p>
           <Link
-            href="/web-design-pricing"
+            href="/web-design-pricing/"
             className="flex items-center justify-center gap-2 w-full py-3 rounded-full bg-orange-500 text-white text-sm font-bold hover:bg-orange-600 transition-colors"
           >
             Get My Website
@@ -1633,6 +1654,59 @@ function Sidebar() {
 }
 
 // ─── Article Content ──────────────────────────────────────────────────────────
+
+// Category-mapped contextual links — passes PageRank to key service pages and
+// gives Google descriptive anchor text signals per Google's internal linking guidance.
+const resourcesByCategory: Record<string, { href: string; label: string }[]> = {
+  "Church Websites": [
+    { href: "/affordable-church-websites/", label: "Affordable Church Website Design at $99/Month" },
+    { href: "/web-design-portfolio/", label: "View Our Church & Non-Profit Portfolio" },
+  ],
+  "SEO": [
+    { href: "/web-design-pricing/", label: "CalTech Web Pricing — $99/Month All-Inclusive" },
+    { href: "/web-design-portfolio/", label: "Real Client SEO & Traffic Results" },
+  ],
+  "Web Design Tips": [
+    { href: "/web-design-pricing/", label: "Professional Web Design at $99/Month" },
+    { href: "/web-design-portfolio/", label: "Browse Our Web Design Portfolio" },
+  ],
+  "Pricing & Value": [
+    { href: "/web-design-pricing/", label: "See What's Included at $99/Month" },
+    { href: "/web-design-competitor-comparison/", label: "How CalTech Web Compares to Other Agencies" },
+  ],
+  "Case Study": [
+    { href: "/web-design-portfolio/", label: "More Client Results — View Our Full Portfolio" },
+    { href: "/web-design-pricing/", label: "Start Your Website for $99/Month" },
+  ],
+  "Non-Profits": [
+    { href: "/affordable-church-websites/", label: "Church & Non-Profit Website Design" },
+    { href: "/web-design-pricing/", label: "$99/Month — Built for Mission-Driven Organizations" },
+  ],
+  "Small Business": [
+    { href: "/web-design-pricing/", label: "Small Business Web Design at $99/Month" },
+    { href: "/web-design-portfolio/", label: "View Our Small Business Portfolio" },
+  ],
+  "Industry": [
+    { href: "/web-design-portfolio/", label: "Industry Website Examples & Case Studies" },
+    { href: "/web-design-pricing/", label: "Get a Professional Website for $99/Month" },
+  ],
+  "Conversion": [
+    { href: "/get-a-free-instant-quote/", label: "Get a Free Instant Website Quote" },
+    { href: "/web-design-pricing/", label: "Conversion-Optimized Web Design at $99/Month" },
+  ],
+  "Local SEO": [
+    { href: "/web-design-pricing/", label: "SEO-Ready Websites Starting at $99/Month" },
+    { href: "/web-design-portfolio/", label: "Local Business Website Portfolio & Results" },
+  ],
+  "Support & Reliability": [
+    { href: "/web-design-pricing/", label: "$99/Month — Includes 1-Hour Support Response" },
+    { href: "/brandon-hopkins/", label: "Meet Brandon Hopkins — Founder of CalTech Web" },
+  ],
+  "Web Design": [
+    { href: "/web-design-pricing/", label: "Professional Web Design at $99/Month" },
+    { href: "/web-design-portfolio/", label: "Browse Our Web Design Portfolio" },
+  ],
+};
 
 function ArticleContent({ post }: { post: BlogPost }) {
   return (
@@ -1724,7 +1798,7 @@ function ArticleContent({ post }: { post: BlogPost }) {
 
       {/* Author bio */}
       <div className="mt-10 flex gap-4 p-5 rounded-2xl bg-gray-50 border border-gray-100">
-        <img src="/brandon-hopkins.jpg" alt="Brandon Hopkins" className="w-14 h-14 rounded-full object-cover shrink-0" />
+        <Image src="/brandon-hopkins.jpg" alt="Brandon Hopkins" width={2400} height={1600} className="w-14 h-14 rounded-full object-cover shrink-0" />
         <div>
           <div className="font-bold text-gray-900">Brandon Hopkins</div>
           <div className="text-sm text-gray-500 mb-2">
@@ -1737,6 +1811,23 @@ function ArticleContent({ post }: { post: BlogPost }) {
           </p>
         </div>
       </div>
+
+      {/* Contextual internal links — descriptive anchor text for Google */}
+      {resourcesByCategory[post.category] && (
+        <div className="mt-8 p-5 rounded-2xl border border-blue-100 bg-blue-50">
+          <h4 className="text-sm font-bold text-blue-900 mb-3">Explore CalTech Web</h4>
+          <ul className="space-y-2">
+            {resourcesByCategory[post.category].map(({ href, label }) => (
+              <li key={href} className="flex items-center gap-2">
+                <ArrowRight className="w-4 h-4 text-blue-500 shrink-0" />
+                <Link href={href} className="text-sm text-blue-700 hover:text-blue-900 font-medium hover:underline">
+                  {label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </article>
   );
 }
@@ -1825,7 +1916,7 @@ function CTAStrip() {
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
-            href="/web-design-pricing"
+            href="/web-design-pricing/"
             className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-orange-500 text-white text-lg font-bold hover:bg-orange-600 transition-all shadow-lg hover:-translate-y-0.5"
           >
             Get My Website
@@ -2008,7 +2099,7 @@ function StickyMobileCTA() {
             Call Now
           </a>
           <Link
-            href="/web-design-pricing"
+            href="/web-design-pricing/"
             className="flex-1 flex items-center justify-center gap-2 py-3 rounded-full bg-orange-500 text-white font-bold text-sm hover:bg-orange-600 transition-colors"
           >
             Get My Website
@@ -2035,8 +2126,77 @@ export default async function BlogPostPage({
 
   const relatedPosts = getRelatedPosts(post.related);
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": post.title,
+    "description": post.metaDescription,
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://caltechweb.com/brandon-hopkins.jpg",
+      "width": 2400,
+      "height": 1600,
+    },
+    "datePublished": toIsoDate(post.date),
+    "dateModified": toIsoDate(post.date),
+    "author": {
+      "@type": "Person",
+      "name": "Brandon Hopkins",
+      "url": "https://caltechweb.com/brandon-hopkins/",
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "CalTech Web",
+      "url": "https://caltechweb.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://caltechweb.com/logo.png",
+        "width": 1520,
+        "height": 512,
+      },
+    },
+    "url": `https://caltechweb.com/${post.slug}/`,
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `https://caltechweb.com/${post.slug}/`,
+    },
+  };
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://caltechweb.com/",
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://caltechweb.com/blog/",
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": post.title,
+        "item": `https://caltechweb.com/${post.slug}/`,
+      },
+    ],
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <Nav />
       <main className="pb-[76px] md:pb-0">
         {/* Article Header */}
