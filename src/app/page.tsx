@@ -279,7 +279,7 @@ function Hero() {
           <div className="hidden lg:flex flex-col gap-4">
             {/* Layered browser stack - 3 real-looking client sites */}
             <div className="relative h-[340px]">
-              {/* Card 3 (back) - Dr. Kanuri healthcare site */}
+              {/* Card 3 (back) - Dr. Arjun Kanuri */}
               <div
                 className="absolute top-0 right-0 w-[88%] rounded-2xl border border-white/15 shadow-xl overflow-hidden opacity-60"
                 style={{ transform: "rotate(3deg) translateY(8px)" }}
@@ -291,18 +291,18 @@ function Hero() {
                     <div className="w-2 h-2 rounded-full bg-green-400/70" />
                   </div>
                   <div className="flex-1 bg-white/60 rounded h-3.5 px-2 flex items-center">
-                    <span className="text-[7px] text-gray-500">drarjunkanuri.com</span>
+                    <span className="text-[7px] text-gray-500">arjunkanurimd.com</span>
                   </div>
                 </div>
                 <div className="bg-gradient-to-br from-blue-600 to-cyan-600 px-3 py-3">
-                  <div className="text-[9px] font-bold text-white">Plastic &amp; Reconstructive Surgery</div>
-                  <div className="text-[7px] text-blue-200 mt-0.5">Board certified · Serving DC/MD/VA</div>
+                  <div className="text-[9px] font-bold text-white">Arjun Kanuri, MD</div>
+                  <div className="text-[7px] text-blue-200 mt-0.5">Board-certified plastic surgeon · DC/MD/VA</div>
                   <div className="mt-2 bg-white text-blue-700 text-[7px] font-bold px-2 py-0.5 rounded-full inline-block">Book Consultation</div>
                 </div>
                 <div className="bg-white px-3 py-2 h-12" />
               </div>
 
-              {/* Card 2 (middle) - Calvary Chapel Los Alamitos */}
+              {/* Card 2 (middle) - Central Baptist Church */}
               <div
                 className="absolute top-6 left-0 w-[88%] rounded-2xl border border-white/20 shadow-xl overflow-hidden opacity-80"
                 style={{ transform: "rotate(-2deg) translateY(4px)" }}
@@ -314,30 +314,30 @@ function Hero() {
                     <div className="w-2 h-2 rounded-full bg-green-400/70" />
                   </div>
                   <div className="flex-1 bg-white/60 rounded h-3.5 px-2 flex items-center">
-                    <span className="text-[7px] text-gray-500">calvarychapella.com</span>
+                    <span className="text-[7px] text-gray-500">centralbaptistpsl.com</span>
                   </div>
                 </div>
-                <div className="bg-gradient-to-br from-purple-700 to-indigo-600 px-3 py-3">
-                  <div className="text-[9px] font-bold text-white">Calvary Chapel Los Alamitos</div>
-                  <div className="text-[7px] text-purple-200 mt-0.5">Sermons, events &amp; online giving</div>
-                  <div className="mt-2 bg-white text-purple-700 text-[7px] font-bold px-2 py-0.5 rounded-full inline-block">Watch Live</div>
+                <div className="bg-gradient-to-br from-teal-700 to-emerald-600 px-3 py-3">
+                  <div className="text-[9px] font-bold text-white">Central Baptist Church</div>
+                  <div className="text-[7px] text-teal-200 mt-0.5">One Family, Called by Christ, Sent to Serve</div>
+                  <div className="mt-2 bg-white text-teal-700 text-[7px] font-bold px-2 py-0.5 rounded-full inline-block">Watch Live</div>
                 </div>
                 <div className="bg-white px-3 py-2">
                   <div className="flex gap-1">
-                    <div className="flex-1 bg-purple-50 rounded-md py-1 text-center">
-                      <span className="text-[6px] text-purple-700 font-semibold">Sermons</span>
+                    <div className="flex-1 bg-teal-50 rounded-md py-1 text-center">
+                      <span className="text-[6px] text-teal-700 font-semibold">Watch</span>
                     </div>
-                    <div className="flex-1 bg-purple-50 rounded-md py-1 text-center">
-                      <span className="text-[6px] text-purple-700 font-semibold">Events</span>
+                    <div className="flex-1 bg-teal-50 rounded-md py-1 text-center">
+                      <span className="text-[6px] text-teal-700 font-semibold">Give</span>
                     </div>
-                    <div className="flex-1 bg-purple-50 rounded-md py-1 text-center">
-                      <span className="text-[6px] text-purple-700 font-semibold">Give</span>
+                    <div className="flex-1 bg-teal-50 rounded-md py-1 text-center">
+                      <span className="text-[6px] text-teal-700 font-semibold">Prayer</span>
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Card 1 (front) - Madera County Farm Bureau */}
+              {/* Card 1 (front) - Blacke House Co. */}
               <div
                 className="absolute top-14 left-[6%] w-[88%] rounded-2xl border border-white/25 shadow-2xl overflow-hidden"
                 style={{ transform: "rotate(0.5deg)" }}
@@ -351,38 +351,38 @@ function Hero() {
                   </div>
                   <div className="flex-1 bg-white rounded h-3.5 px-2 flex items-center gap-0.5">
                     <Shield className="w-2 h-2 text-green-500 shrink-0" />
-                    <span className="text-[7px] text-gray-600 font-medium">maderacountyfarmbureau.com</span>
+                    <span className="text-[7px] text-gray-600 font-medium">blackehouseco.com</span>
                   </div>
                 </div>
                 {/* Site nav */}
-                <div className="h-7 flex items-center justify-between px-3 bg-gradient-to-r from-green-600 to-emerald-600">
-                  <span className="text-white font-bold text-[8px] tracking-wide">Madera Farm Bureau</span>
+                <div className="h-7 flex items-center justify-between px-3 bg-gradient-to-r from-stone-900 to-stone-800">
+                  <span className="text-white font-bold text-[8px] tracking-wide">Blacke House Co.</span>
                   <div className="flex gap-2">
-                    <span className="text-white/80 text-[7px]">Members</span>
-                    <span className="text-white/80 text-[7px]">Scholarships</span>
-                    <span className="text-white/80 text-[7px]">Events</span>
+                    <span className="text-white/80 text-[7px]">About</span>
+                    <span className="text-white/80 text-[7px]">Services</span>
+                    <span className="text-white/80 text-[7px]">Portfolio</span>
                   </div>
                 </div>
                 {/* Hero */}
-                <div className="bg-gradient-to-br from-green-600 to-emerald-700 px-4 py-4">
-                  <div className="inline-flex items-center gap-1 bg-white/15 border border-white/20 px-1.5 py-0.5 rounded-full mb-1.5">
-                    <Star className="w-2 h-2 text-yellow-400 fill-yellow-400" />
-                    <span className="text-[7px] text-green-100 font-medium">Madera County, CA</span>
+                <div className="bg-gradient-to-br from-stone-900 to-stone-800 px-4 py-4">
+                  <div className="inline-flex items-center gap-1 bg-white/10 border border-white/15 px-1.5 py-0.5 rounded-full mb-1.5">
+                    <Star className="w-2 h-2 text-amber-400 fill-amber-400" />
+                    <span className="text-[7px] text-stone-300 font-medium">Charlotte, NC</span>
                   </div>
-                  <div className="text-[11px] font-extrabold text-white leading-tight mb-1">Madera County Farm Bureau</div>
-                  <div className="text-[8px] text-green-200 mb-2.5">Membership, scholarships, payments & agricultural advocacy</div>
+                  <div className="text-[11px] font-extrabold text-white leading-tight mb-1">Blacke House Co.</div>
+                  <div className="text-[8px] text-stone-400 mb-2.5">Because Luxury Isn&apos;t Loud</div>
                   <div className="flex items-center gap-2">
-                    <span className="bg-white text-green-600 text-[7px] font-bold px-2.5 py-1 rounded-full">Join Now</span>
-                    <span className="border border-white/30 text-white/80 text-[7px] px-2 py-1 rounded-full">Scholarships</span>
+                    <span className="bg-amber-500 text-white text-[7px] font-bold px-2.5 py-1 rounded-full">Book a Consultation</span>
+                    <span className="border border-white/30 text-white/80 text-[7px] px-2 py-1 rounded-full">Portfolio</span>
                   </div>
                 </div>
                 {/* Feature row */}
                 <div className="bg-white px-3 py-2.5">
                   <div className="grid grid-cols-3 gap-1.5">
                     {[
-                      { label: "Membership", color: "text-green-600 bg-green-50" },
-                      { label: "Scholarships", color: "text-emerald-600 bg-emerald-50" },
-                      { label: "Events", color: "text-teal-700 bg-teal-50" },
+                      { label: "Event Decor", color: "text-stone-700 bg-stone-50" },
+                      { label: "Event Planning", color: "text-amber-700 bg-amber-50" },
+                      { label: "Consultation", color: "text-stone-600 bg-stone-50" },
                     ].map(({ label, color }) => (
                       <div key={label} className={`${color} rounded-lg py-1.5 text-center`}>
                         <div className="text-[7px] font-semibold leading-tight">{label}</div>
@@ -392,9 +392,9 @@ function Hero() {
                 </div>
               </div>
 
-              {/* +62% reservations floating badge */}
-              <div className="absolute -bottom-1 right-2 bg-green-500 text-white rounded-full px-3 py-1.5 shadow-lg shadow-green-500/30 z-10">
-                <span className="text-xs font-bold">+62% reservations</span>
+              {/* +32% in giving floating badge */}
+              <div className="absolute -bottom-1 right-2 bg-amber-500 text-white rounded-full px-3 py-1.5 shadow-lg shadow-amber-500/30 z-10">
+                <span className="text-xs font-bold">+30% repeat bookings</span>
               </div>
             </div>
 
@@ -1098,40 +1098,40 @@ function Transformation() {
 function PortfolioPreview() {
   const sites = [
     {
-      category: "Non-Profit Organization",
-      name: "Madera County Farm Bureau",
-      domain: "maderacountyfarmbureau.com",
-      desc: "55% traffic increase with 1,000+ page site for membership & scholarships.",
-      colorFrom: "#16a34a",
-      colorTo: "#059669",
-      accentBg: "bg-green-600",
-      accentText: "text-green-600",
-      badge: "bg-green-50 text-green-700 border-green-100",
-      navItems: ["Members", "Scholarships", "Events"],
-      stat: "+55% traffic",
-      statColor: "text-green-600",
-      headline: "Madera County Farm Bureau",
-      subheadline: "Membership, scholarships, events & agricultural advocacy",
-      cta: "Join Now",
-      features: ["Membership", "Scholarships", "Events"],
+      category: "Luxury Events",
+      name: "Blacke House Co.",
+      domain: "blackehouseco.com",
+      desc: "30% more repeat bookings with an online catalog and inquiry system.",
+      colorFrom: "#1c1917",
+      colorTo: "#292524",
+      accentBg: "bg-amber-500",
+      accentText: "text-amber-600",
+      badge: "bg-amber-50 text-amber-700 border-amber-100",
+      navItems: ["About", "Services", "Portfolio"],
+      stat: "+30% bookings",
+      statColor: "text-amber-600",
+      headline: "Blacke House Co.",
+      subheadline: "Because Luxury Isn't Loud",
+      cta: "Book a Consultation",
+      features: ["Event Decor", "Planning", "Consultation"],
     },
     {
       category: "Church & Ministry",
-      name: "Calvary Chapel Los Alamitos",
-      domain: "calvarychapellosalamitos.com",
-      desc: "Pastor saves 3+ hours/week with fully managed church site.",
-      colorFrom: "#7c3aed",
-      colorTo: "#4f46e5",
-      accentBg: "bg-purple-600",
-      accentText: "text-purple-600",
-      badge: "bg-purple-50 text-purple-700 border-purple-100",
-      navItems: ["Sermons", "Events", "Give"],
-      stat: "3+ hrs saved/week",
-      statColor: "text-purple-600",
-      headline: "Welcome Home",
-      subheadline: "Sermons, events, and online giving - all managed by CalTech Web",
+      name: "Central Baptist Church",
+      domain: "centralbaptistpsl.com",
+      desc: "32% increase in online giving with integrated donation platform.",
+      colorFrom: "#0f766e",
+      colorTo: "#059669",
+      accentBg: "bg-teal-600",
+      accentText: "text-teal-600",
+      badge: "bg-teal-50 text-teal-700 border-teal-100",
+      navItems: ["Watch", "Give", "Prayer"],
+      stat: "+32% in giving",
+      statColor: "text-teal-600",
+      headline: "One Family, Called by Christ",
+      subheadline: "Sent to Serve - Port St. Lucie, FL",
       cta: "Watch Live",
-      features: ["Sermons", "Events", "Give"],
+      features: ["Watch", "Give", "Prayer"],
     },
     {
       category: "Healthcare Professional",
@@ -1143,13 +1143,13 @@ function PortfolioPreview() {
       accentBg: "bg-blue-600",
       accentText: "text-blue-600",
       badge: "bg-blue-50 text-blue-700 border-blue-100",
-      navItems: ["Procedures", "About", "Consult"],
+      navItems: ["About", "Reviews", "Contact"],
       stat: "+40% traffic",
       statColor: "text-blue-600",
-      headline: "Plastic & Reconstructive Surgery",
-      subheadline: "Board certified · Serving DC/MD/VA · 9-year CalTech Web client",
+      headline: "Arjun Kanuri, MD",
+      subheadline: "Board-certified plastic surgeon · Serving DC/MD/VA",
       cta: "Book Consultation",
-      features: ["Services", "Insurance", "Telehealth"],
+      features: ["About", "Reviews", "Gallery"],
     },
   ];
 
