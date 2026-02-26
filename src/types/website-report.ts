@@ -30,5 +30,5 @@ export interface WebsiteReport {
   topIssues: string[]
   strengths: string[]
   actions: ReportAction[]
-  estimatedRevenueLoss: number
+  estimatedVisitorLoss: number
 }

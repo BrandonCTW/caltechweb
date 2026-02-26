@@ -15,7 +15,7 @@ import {
   ChevronDown,
   ChevronUp,
   Phone,
-  DollarSign,
+
   Zap,
   Shield,
   Smartphone,
@@ -344,23 +344,24 @@ function CategoryCard({
   );
 }
 
-// ─── RevenueLoss ─────────────────────────────────────────────────────────────
+// ─── VisitorLoss ─────────────────────────────────────────────────────────────
 
-function RevenueLoss({ amount }: { amount: number }) {
+function VisitorLoss({ percent }: { percent: number }) {
   return (
     <div className="bg-gradient-to-r from-red-50 to-orange-50 border border-red-100 rounded-2xl p-6 text-center">
       <div className="w-12 h-12 rounded-full bg-red-100 flex items-center justify-center mx-auto mb-3">
-        <DollarSign className="w-6 h-6 text-red-600" />
+        <TrendingUp className="w-6 h-6 text-red-600" />
       </div>
       <div className="text-sm font-medium text-red-700 mb-1">
-        Estimated Monthly Revenue Loss
+        Estimated Visitors Lost
       </div>
       <div className="text-3xl font-extrabold text-red-600">
-        ${amount.toLocaleString()}/mo
+        ~{percent}%
       </div>
       <p className="text-xs text-red-500/80 mt-2 max-w-sm mx-auto">
-        Based on industry data for websites with this score. Slow, broken, or
-        hard-to-use sites lose customers to competitors every day.
+        Based on Google research, 53% of mobile users leave sites that load in
+        over 3 seconds. Poor UX, missing CTAs, and slow load times compound
+        visitor loss.
       </p>
     </div>
   );
@@ -573,7 +574,7 @@ export default function WebsiteReportCard() {
 
           {/* Revenue Loss */}
           {view === "before" && (
-            <RevenueLoss amount={report.estimatedRevenueLoss} />
+            <VisitorLoss percent={report.estimatedVisitorLoss} />
           )}
 
           {/* Issues & Strengths */}

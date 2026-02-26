@@ -506,13 +506,13 @@ function projectAfterScore(currentScore: number): number {
 
 // --------------- Revenue Loss Estimate ---------------
 
-function estimateRevenueLoss(score: number): number {
-  if (score >= 85) return 200
-  if (score >= 70) return 500
-  if (score >= 55) return 1000
-  if (score >= 40) return 1500
-  if (score >= 25) return 2000
-  return 2500
+function estimateVisitorLoss(score: number): number {
+  if (score >= 85) return 5
+  if (score >= 70) return 15
+  if (score >= 55) return 30
+  if (score >= 40) return 45
+  if (score >= 25) return 60
+  return 75
 }
 
 // --------------- Report Generation ---------------
@@ -698,7 +698,7 @@ function generateMockReport(url: string, domain: string, errorMessage: string): 
         impact: 'Medium',
       },
     ],
-    estimatedRevenueLoss: estimateRevenueLoss(overallScore),
+    estimatedVisitorLoss: estimateVisitorLoss(overallScore),
   }
 }
 
@@ -818,7 +818,7 @@ export async function POST(request: NextRequest) {
       topIssues: generateTopIssues(categories),
       strengths: generateStrengths(categories),
       actions: generateActions(categories),
-      estimatedRevenueLoss: estimateRevenueLoss(overallScore),
+      estimatedVisitorLoss: estimateVisitorLoss(overallScore),
     }
 
     return NextResponse.json(report)
