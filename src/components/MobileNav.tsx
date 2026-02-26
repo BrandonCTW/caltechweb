@@ -7,11 +7,12 @@ import Link from "next/link";
 
 const navLinks = [
   { label: "Home", href: "/" },
-  { label: "Portfolio", href: "/web-design-portfolio" },
-  { label: "Pricing", href: "/web-design-pricing" },
-  { label: "Blog", href: "/blog" },
-  { label: "About", href: "/brandon-hopkins" },
-  { label: "Church Websites", href: "/affordable-church-websites" },
+  { label: "Portfolio", href: "/web-design-portfolio/" },
+  { label: "Pricing", href: "/web-design-pricing/" },
+  { label: "Blog", href: "/blog/" },
+  { label: "About", href: "/brandon-hopkins/" },
+  { label: "Church Websites", href: "/affordable-church-websites/" },
+  { label: "Free Report Card", href: "/free-website-report-card/" },
 ];
 
 export default function MobileNav() {

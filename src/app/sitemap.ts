@@ -15,6 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/get-a-free-instant-quote/",
     "/video-website-audit/",
     "/website-design-rfp-rfq/",
+    "/free-website-report-card/",
   ];
 
   // Blog posts with actual publication dates so Google can trust lastmod
