@@ -234,6 +234,7 @@ function Nav() {
             <Link href="/brandon-hopkins/" className="hover:text-blue-600 transition-colors">About</Link>
             <Link href="/affordable-church-websites/" className="hover:text-blue-600 transition-colors">Church Websites</Link>
             <Link href="/free-website-report-card/" className="hover:text-blue-600 transition-colors">Free Report Card</Link>
+            <Link href="/support/" className="hover:text-blue-600 transition-colors">Support</Link>
           </nav>
 
           {/* Phone + CTA (desktop) */}
@@ -2229,6 +2230,7 @@ function Footer() {
                 { label: "Portfolio", href: "/web-design-portfolio/" },
                 { label: "Pricing", href: "/web-design-pricing/" },
                 { label: "Blog", href: "/blog/" },
+                { label: "Support", href: "/support/" },
                 { label: "Get My Website", href: "/web-design-pricing/" },
               ].map(({ label, href }) => (
                 <li key={label}>

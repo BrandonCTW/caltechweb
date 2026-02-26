@@ -13,6 +13,7 @@ const navLinks = [
   { label: "About", href: "/brandon-hopkins/" },
   { label: "Church Websites", href: "/affordable-church-websites/" },
   { label: "Free Report Card", href: "/free-website-report-card/" },
+  { label: "Support", href: "/support/" },
 ];
 
 export default function MobileNav() {
