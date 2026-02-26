@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 
+export const dynamic = "force-dynamic";
+
 /* ===================================================================
    Zendesk Stats API — GET /api/zendesk-stats/
    Returns cached ticket stats from the Zendesk API.
