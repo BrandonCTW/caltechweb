@@ -5,72 +5,15 @@ import {
   Phone,
   Mail,
   Clock,
-  Globe,
   ArrowRight,
   Check,
   ChevronDown,
   MessageSquare,
   Shield,
 } from "lucide-react";
-import MobileNav from "@/components/MobileNav";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import Link from "next/link";
-
-// ─── Nav ──────────────────────────────────────────────────────────────────────
-
-function Nav() {
-  const links = [
-    { label: "Portfolio", href: "/web-design-portfolio/" },
-    { label: "Pricing", href: "/web-design-pricing/" },
-    { label: "Blog", href: "/blog/" },
-    { label: "About", href: "/brandon-hopkins/" },
-    { label: "Church Websites", href: "/affordable-church-websites/" },
-  ];
-
-  return (
-    <header className="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-gray-100 shadow-sm">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2 shrink-0">
-          <div className="w-7 h-7 rounded-lg bg-blue-600 flex items-center justify-center">
-            <Globe className="w-4 h-4 text-white" />
-          </div>
-          <span className="font-bold text-gray-900 text-lg">
-            CalTech<span className="text-blue-600">Web</span>
-          </span>
-        </Link>
-
-        <nav className="hidden md:flex items-center gap-6">
-          {links.map(({ label, href }) => (
-            <Link
-              key={label}
-              href={href}
-              className="text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors"
-            >
-              {label}
-            </Link>
-          ))}
-        </nav>
-
-        <div className="hidden md:flex items-center gap-4">
-          <a
-            href="tel:5592823075"
-            className="flex items-center gap-1.5 text-sm text-gray-600 hover:text-blue-600 transition-colors"
-          >
-            <Phone className="w-4 h-4" />
-            (559) 282-3075
-          </a>
-          <Link
-            href="/web-design-pricing/"
-            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-orange-500 text-white text-sm font-bold hover:bg-orange-600 transition-colors"
-          >
-            Schedule a Call
-          </Link>
-        </div>
-
-        <MobileNav />
-      </div>
-    </header>
-  );
-}
 
 // ─── Contact Form ─────────────────────────────────────────────────────────────
 
@@ -325,34 +268,6 @@ function FAQ() {
   );
 }
 
-// ─── Footer ───────────────────────────────────────────────────────────────────
-
-function Footer() {
-  return (
-    <footer className="bg-gray-900 text-gray-400 py-10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-          <Link href="/" className="flex items-center gap-2">
-            <div className="w-6 h-6 rounded-md bg-blue-600 flex items-center justify-center">
-              <Globe className="w-3.5 h-3.5 text-white" />
-            </div>
-            <span className="text-white font-bold text-sm">
-              CalTech<span className="text-blue-400">Web</span>
-            </span>
-          </Link>
-          <p className="text-xs text-center">
-            © {new Date().getFullYear()} CalTech Web · California · 800+ websites managed
-          </p>
-          <div className="flex items-center gap-4 text-xs">
-            <Link href="/privacy-policy/" className="hover:text-white transition-colors">Privacy</Link>
-            <Link href="/terms-and-conditions/" className="hover:text-white transition-colors">Terms</Link>
-          </div>
-        </div>
-      </div>
-    </footer>
-  );
-}
-
 // ─── Page ──────────────────────────────────────────────────────────────────────
 
 export default function ContactPage() {
@@ -385,7 +300,7 @@ export default function ContactPage() {
         }}
       />
 
-      <Nav />
+      <Header />
 
       {/* Hero */}
       <section className="bg-gradient-to-br from-blue-950 via-blue-900 to-blue-800 text-white py-14 sm:py-20">

@@ -4,7 +4,6 @@ import {
   ArrowRight,
   ArrowLeft,
   Phone,
-  Globe,
   Star,
   TrendingUp,
   Check,
@@ -25,7 +24,8 @@ import {
   Flower2,
   Cable,
 } from "lucide-react";
-import MobileNav from "@/components/MobileNav";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import Link from "next/link";
 
 // ─── Portfolio Data ───────────────────────────────────────────────────────────
@@ -587,55 +587,6 @@ export async function generateMetadata({
   };
 }
 
-// ─── Nav ─────────────────────────────────────────────────────────────────────
-
-function Nav() {
-  return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-gray-100 shadow-sm">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <Link href="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center">
-              <Globe className="w-5 h-5 text-white" />
-            </div>
-            <span className="text-xl font-bold text-gray-900">
-              CalTech<span className="text-blue-600">Web</span>
-            </span>
-          </Link>
-
-          <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-gray-600">
-            <Link href="/" className="hover:text-blue-600 transition-colors">Home</Link>
-            <Link href="/web-design-portfolio/" className="text-blue-600 font-semibold">Portfolio</Link>
-            <Link href="/web-design-pricing/" className="hover:text-blue-600 transition-colors">Pricing</Link>
-            <Link href="/blog/" className="hover:text-blue-600 transition-colors">Blog</Link>
-            <Link href="/brandon-hopkins/" className="hover:text-blue-600 transition-colors">About</Link>
-            <Link href="/affordable-church-websites/" className="hover:text-blue-600 transition-colors">Church Websites</Link>
-          </nav>
-
-          <div className="hidden md:flex items-center gap-3">
-            <a
-              href="tel:5592823075"
-              className="inline-flex items-center gap-1.5 text-sm font-semibold text-gray-600 hover:text-blue-600 transition-colors"
-            >
-              <Phone className="w-4 h-4" />
-              (559) 282-3075
-            </a>
-            <Link
-              href="/web-design-pricing/"
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-orange-500 text-white text-sm font-semibold hover:bg-orange-600 transition-colors shadow-sm"
-            >
-              Schedule a Call
-              <ArrowRight className="w-3.5 h-3.5" />
-            </Link>
-          </div>
-
-          <MobileNav />
-        </div>
-      </div>
-    </header>
-  );
-}
-
 // ─── Hero ─────────────────────────────────────────────────────────────────────
 
 function Hero({ cs }: { cs: CaseStudy }) {
@@ -970,37 +921,6 @@ function FinalCTA({ cs }: { cs: CaseStudy }) {
   );
 }
 
-// ─── Footer ───────────────────────────────────────────────────────────────────
-
-function Footer() {
-  return (
-    <footer className="bg-gray-900 text-gray-400 py-10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-2">
-            <div className="w-7 h-7 rounded-lg bg-blue-600 flex items-center justify-center">
-              <Globe className="w-4 h-4 text-white" />
-            </div>
-            <span className="text-white font-bold">
-              CalTech<span className="text-blue-400">Web</span>
-            </span>
-          </div>
-          <p className="text-sm text-center">
-            © {new Date().getFullYear()} CalTech Web. Affordable website design at $99/month.
-          </p>
-          <div className="flex items-center gap-4 text-sm">
-            <Link href="/privacy-policy/" className="hover:text-white transition-colors">Privacy</Link>
-            <Link href="/terms-and-conditions/" className="hover:text-white transition-colors">Terms</Link>
-            <a href="mailto:Brandon@CalTechWeb.com" className="hover:text-white transition-colors">
-              Brandon@CalTechWeb.com
-            </a>
-          </div>
-        </div>
-      </div>
-    </footer>
-  );
-}
-
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default async function PortfolioDetailPage({
@@ -1067,7 +987,7 @@ export default async function PortfolioDetailPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewJsonLd) }}
       />
-      <Nav />
+      <Header />
       <Hero cs={cs} />
       <TheStory cs={cs} />
       <Results cs={cs} />

@@ -11,8 +11,7 @@ const navLinks = [
   { label: "Pricing", href: "/web-design-pricing/" },
   { label: "Blog", href: "/blog/" },
   { label: "About", href: "/brandon-hopkins/" },
-  { label: "Church Websites", href: "/affordable-church-websites/" },
-  { label: "Free Report Card", href: "/free-website-report-card/" },
+  { label: "Free Site Analysis", href: "/free-website-report-card/" },
   { label: "Support", href: "/support/" },
 ];
 
@@ -64,7 +63,7 @@ export default function MobileNav() {
         {/* Drawer header */}
         <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100 shrink-0">
           <Link href="/" className="flex items-center gap-2" onClick={() => setOpen(false)}>
-            <Image src="/logo.png" alt="CalTech Web" width={1520} height={512} className="h-7 w-auto" />
+            <Image src="/logo.png" alt="CalTech Web" width={166} height={56} sizes="166px" className="h-7 w-auto" />
           </Link>
           <button
             onClick={() => setOpen(false)}

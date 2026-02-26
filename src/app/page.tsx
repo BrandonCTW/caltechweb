@@ -17,14 +17,17 @@ import {
   Palette,
   Headphones,
 } from "lucide-react";
+import dynamic from "next/dynamic";
 import FAQ from "@/components/FAQ";
-import MobileNav from "@/components/MobileNav";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import SavingsCalculator from "@/components/SavingsCalculator";
-import SocialProofToast from "@/components/SocialProofToast";
 import TrustBar from "@/components/TrustBar";
-import AnimatedChat from "@/components/AnimatedChat";
 import Image from "next/image";
 import Link from "next/link";
+
+const SocialProofToast = dynamic(() => import("@/components/SocialProofToast"));
+const AnimatedChat = dynamic(() => import("@/components/AnimatedChat"));
 
 // ─── Structured Data (JSON-LD) ───────────────────────────────────────────────
 
@@ -192,76 +195,6 @@ const homepageFaqJsonLd = {
     },
   ],
 };
-
-// ─── Announcement Bar ────────────────────────────────────────────────────────
-
-function AnnouncementBar() {
-  return (
-    <div className="bg-blue-600 text-white text-center py-2.5 px-4 text-sm font-medium leading-snug">
-      <span className="hidden sm:inline">Professional websites for small businesses - </span>
-      <span className="font-extrabold">$99/month</span>
-      <span className="opacity-60 mx-1.5">·</span>
-      <span>Unlimited updates, hosting &amp; support all included.</span>
-      <span className="opacity-60 mx-1.5 hidden sm:inline">·</span>
-      <Link
-        href="/web-design-pricing/"
-        className="hidden sm:inline underline font-semibold hover:text-blue-100 transition-colors ml-0.5"
-      >
-        Schedule a Call →
-      </Link>
-    </div>
-  );
-}
-
-// ─── Nav ────────────────────────────────────────────────────────────────────
-
-function Nav() {
-  return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-gray-100 shadow-sm">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
-            <Image src="/logo.png" alt="CalTech Web" width={1520} height={512} className="h-8 w-auto" priority />
-          </Link>
-
-          {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-gray-600">
-            <Link href="/" className="hover:text-blue-600 transition-colors">Home</Link>
-            <Link href="/web-design-portfolio/" className="hover:text-blue-600 transition-colors">Portfolio</Link>
-            <Link href="/web-design-pricing/" className="hover:text-blue-600 transition-colors">Pricing</Link>
-            <Link href="/blog/" className="hover:text-blue-600 transition-colors">Blog</Link>
-            <Link href="/brandon-hopkins/" className="hover:text-blue-600 transition-colors">About</Link>
-            <Link href="/affordable-church-websites/" className="hover:text-blue-600 transition-colors">Church Websites</Link>
-            <Link href="/free-website-report-card/" className="hover:text-blue-600 transition-colors">Free Report Card</Link>
-            <Link href="/support/" className="hover:text-blue-600 transition-colors">Support</Link>
-          </nav>
-
-          {/* Phone + CTA (desktop) */}
-          <div className="hidden md:flex items-center gap-3">
-            <a
-              href="tel:5592823075"
-              className="inline-flex items-center gap-1.5 text-sm font-semibold text-gray-600 hover:text-blue-600 transition-colors"
-            >
-              <Phone className="w-4 h-4" />
-              (559) 282-3075
-            </a>
-            <Link
-              href="#get-started"
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-orange-500 text-white text-sm font-semibold hover:bg-orange-600 transition-colors shadow-sm"
-            >
-              Schedule a Call
-              <ArrowRight className="w-3.5 h-3.5" />
-            </Link>
-          </div>
-
-          {/* Mobile hamburger */}
-          <MobileNav />
-        </div>
-      </div>
-    </header>
-  );
-}
 
 // ─── Hero ────────────────────────────────────────────────────────────────────
 
@@ -483,7 +416,7 @@ function Hero() {
 
             {/* Brandon attribution */}
             <div className="flex items-center gap-3 bg-white/5 border border-white/10 rounded-2xl px-5 py-3">
-              <Image src="/brandon-hopkins.jpg" alt="Brandon Hopkins" width={2400} height={1600} className="w-9 h-9 rounded-full object-cover shrink-0" />
+              <Image src="/brandon-hopkins.jpg" alt="Brandon Hopkins" width={72} height={72} sizes="36px" className="w-9 h-9 rounded-full object-cover shrink-0" />
               <div>
                 <div className="text-sm font-semibold text-white">Brandon Hopkins, Founder</div>
                 <div className="text-xs text-blue-300">Personally guarantees every website</div>
@@ -1569,7 +1502,7 @@ function MeetBrandon() {
             {/* Left: Brandon card */}
             <div className="lg:col-span-2 bg-blue-600 p-10 flex flex-col items-center justify-center text-center text-white">
               {/* Avatar */}
-              <Image src="/brandon-hopkins.jpg" alt="Brandon Hopkins" width={2400} height={1600} className="w-24 h-24 rounded-full object-cover border-4 border-white/30 mb-5 shadow-lg" />
+              <Image src="/brandon-hopkins.jpg" alt="Brandon Hopkins" width={192} height={192} sizes="96px" className="w-24 h-24 rounded-full object-cover border-4 border-white/30 mb-5 shadow-lg" />
               <div className="text-xl font-extrabold text-white mb-1">Brandon Hopkins</div>
               <div className="text-sm text-blue-200 mb-6">Founder &amp; Owner, CalTech Web</div>
 
@@ -1904,7 +1837,7 @@ function Guarantee() {
               website. No questions asked.
             </p>
             <div className="flex items-center justify-center gap-3 mb-8">
-              <Image src="/brandon-hopkins.jpg" alt="Brandon Hopkins" width={2400} height={1600} className="w-12 h-12 rounded-full object-cover" />
+              <Image src="/brandon-hopkins.jpg" alt="Brandon Hopkins" width={96} height={96} sizes="48px" className="w-12 h-12 rounded-full object-cover" />
               <div className="text-left">
                 <div className="font-bold text-white">Brandon Hopkins</div>
                 <div className="text-sm text-blue-200">Founder, CalTech Web</div>
@@ -2151,7 +2084,7 @@ function FinalCTA() {
 
         {/* Brandon's personal close */}
         <div className="flex flex-col sm:flex-row items-center gap-4 bg-white border border-gray-100 rounded-2xl px-6 py-5 max-w-2xl mx-auto shadow-sm">
-          <Image src="/brandon-hopkins.jpg" alt="Brandon Hopkins" width={2400} height={1600} className="w-11 h-11 rounded-full object-cover shrink-0" />
+          <Image src="/brandon-hopkins.jpg" alt="Brandon Hopkins" width={88} height={88} sizes="44px" className="w-11 h-11 rounded-full object-cover shrink-0" />
           <p className="text-sm text-gray-600 italic leading-relaxed text-center sm:text-left">
             &ldquo;I personally review every new project and stand behind every
             website we build.{" "}
@@ -2168,94 +2101,6 @@ function FinalCTA() {
         </div>
       </div>
     </section>
-  );
-}
-
-// ─── Footer ──────────────────────────────────────────────────────────────────
-
-function Footer() {
-  return (
-    <footer className="bg-gray-900 text-gray-400 py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
-          {/* Brand */}
-          <div className="sm:col-span-2 lg:col-span-1">
-            <div className="flex items-center gap-2 mb-3">
-              <Image src="/logo.png" alt="CalTech Web" width={1520} height={512} className="h-7 w-auto" />
-            </div>
-            <p className="text-sm leading-relaxed mb-4">
-              Affordable website design for small businesses, churches, and
-              non-profits. $99/month all-inclusive.
-            </p>
-            <div className="flex flex-col gap-1 text-sm">
-              <a href="tel:5592823075" className="hover:text-white transition-colors">
-                (559) 282-3075
-              </a>
-              <a href="mailto:Brandon@CalTechWeb.com" className="hover:text-white transition-colors">
-                Brandon@CalTechWeb.com
-              </a>
-            </div>
-          </div>
-
-          {/* Services */}
-          <div>
-            <h4 className="text-white font-semibold mb-3 text-sm uppercase tracking-wider">Services</h4>
-            <ul className="space-y-2 text-sm">
-              {["Web Design", "Website Hosting", "Monthly Updates", "Free Redesigns", "SEO Basics"].map((s) => (
-                <li key={s}>
-                  <Link href="/web-design-pricing/" className="hover:text-white transition-colors">{s}</Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Industries */}
-          <div>
-            <h4 className="text-white font-semibold mb-3 text-sm uppercase tracking-wider">Industries</h4>
-            <ul className="space-y-2 text-sm">
-              {[
-                { label: "Small Businesses", href: "/affordable-web-design-company/" },
-                { label: "Church Websites", href: "/affordable-church-websites/" },
-                { label: "Non-Profits", href: "/nonprofit-website-design-tips/" },
-                { label: "Construction", href: "/affordable-construction-company-website/" },
-                { label: "Real Estate", href: "/affordable-real-estate-company-website/" },
-              ].map(({ label, href }) => (
-                <li key={label}>
-                  <Link href={href} className="hover:text-white transition-colors">{label}</Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Company */}
-          <div>
-            <h4 className="text-white font-semibold mb-3 text-sm uppercase tracking-wider">Company</h4>
-            <ul className="space-y-2 text-sm">
-              {[
-                { label: "About", href: "/brandon-hopkins/" },
-                { label: "Portfolio", href: "/web-design-portfolio/" },
-                { label: "Pricing", href: "/web-design-pricing/" },
-                { label: "Blog", href: "/blog/" },
-                { label: "Free Report Card", href: "/free-website-report-card/" },
-                { label: "Support", href: "/support/" },
-              ].map(({ label, href }) => (
-                <li key={label}>
-                  <Link href={href} className="hover:text-white transition-colors">{label}</Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-        <div className="border-t border-gray-800 pt-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs">
-          <p>© {new Date().getFullYear()} CalTech Web. All rights reserved. California-based, serving clients nationwide.</p>
-          <div className="flex gap-4">
-            <Link href="/privacy-policy/" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <Link href="/terms-and-conditions/" className="hover:text-white transition-colors">Terms of Service</Link>
-          </div>
-        </div>
-      </div>
-    </footer>
   );
 }
 
@@ -2300,8 +2145,7 @@ export default function HomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(homepageFaqJsonLd) }}
       />
-      <AnnouncementBar />
-      <Nav />
+      <Header />
       <main className="pb-[76px] md:pb-0">
         {/* ── Awareness: hook + credibility ── */}
         <Hero />

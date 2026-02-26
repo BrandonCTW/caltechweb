@@ -1,60 +1,12 @@
-import { Home, Search, ArrowRight, Phone } from "lucide-react";
-import Image from "next/image";
+import { Home, Search, ArrowRight } from "lucide-react";
 import Link from "next/link";
-import MobileNav from "@/components/MobileNav";
-
-function Nav() {
-  return (
-    <header className="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-gray-100 shadow-sm">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2 shrink-0">
-          <Image src="/logo.png" alt="CalTech Web" width={1520} height={512} className="h-7 w-auto" priority />
-        </Link>
-
-        <nav className="hidden md:flex items-center gap-6">
-          {[
-            { label: "Portfolio", href: "/web-design-portfolio/" },
-            { label: "Pricing", href: "/web-design-pricing/" },
-            { label: "Blog", href: "/blog/" },
-            { label: "About", href: "/brandon-hopkins/" },
-            { label: "Support", href: "/support/" },
-          ].map(({ label, href }) => (
-            <Link
-              key={label}
-              href={href}
-              className="text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors"
-            >
-              {label}
-            </Link>
-          ))}
-        </nav>
-
-        <div className="hidden md:flex items-center gap-4">
-          <a
-            href="tel:5592823075"
-            className="flex items-center gap-1.5 text-sm text-gray-600 hover:text-blue-600 transition-colors"
-          >
-            <Phone className="w-4 h-4" />
-            (559) 282-3075
-          </a>
-          <a
-            href="https://buy.stripe.com/eVa3eAfJRf6KfRe144"
-            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-orange-500 text-white text-sm font-bold hover:bg-orange-600 transition-colors"
-          >
-            Schedule a Call
-          </a>
-        </div>
-
-        <MobileNav />
-      </div>
-    </header>
-  );
-}
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 export default function NotFound() {
   return (
     <>
-      <Nav />
+      <Header />
       <main className="bg-gradient-to-br from-blue-950 via-blue-900 to-blue-800 text-white min-h-[calc(100vh-4rem)] flex items-center">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
           <p className="text-8xl sm:text-9xl font-extrabold text-white/20 mb-4 select-none">
@@ -118,6 +70,7 @@ export default function NotFound() {
           </div>
         </div>
       </main>
+      <Footer />
     </>
   );
 }

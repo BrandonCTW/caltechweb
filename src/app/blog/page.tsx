@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import {
   Phone,
-  Globe,
   ArrowRight,
   Clock,
   Tag,
@@ -10,7 +9,8 @@ import {
   Star,
   Zap,
 } from "lucide-react";
-import MobileNav from "@/components/MobileNav";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -334,67 +334,6 @@ const blogJsonLd = {
   })),
 };
 
-// ─── Nav ─────────────────────────────────────────────────────────────────────
-
-function Nav() {
-  const links = [
-    { label: "Portfolio", href: "/web-design-portfolio/" },
-    { label: "Pricing", href: "/web-design-pricing/" },
-    { label: "Blog", href: "/blog/" },
-    { label: "About", href: "/brandon-hopkins/" },
-    { label: "Church Websites", href: "/affordable-church-websites/" },
-  ];
-
-  return (
-    <header className="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-gray-100 shadow-sm">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2 shrink-0">
-          <div className="w-7 h-7 rounded-lg bg-blue-600 flex items-center justify-center">
-            <Globe className="w-4 h-4 text-white" />
-          </div>
-          <span className="font-bold text-gray-900 text-lg">
-            CalTech<span className="text-blue-600">Web</span>
-          </span>
-        </Link>
-
-        <nav className="hidden md:flex items-center gap-6">
-          {links.map(({ label, href }) => (
-            <Link
-              key={label}
-              href={href}
-              className={`text-sm font-medium transition-colors ${
-                href === "/blog/"
-                  ? "text-blue-600"
-                  : "text-gray-600 hover:text-blue-600"
-              }`}
-            >
-              {label}
-            </Link>
-          ))}
-        </nav>
-
-        <div className="hidden md:flex items-center gap-4">
-          <a
-            href="tel:5592823075"
-            className="flex items-center gap-1.5 text-sm text-gray-600 hover:text-blue-600 transition-colors"
-          >
-            <Phone className="w-4 h-4" />
-            (559) 282-3075
-          </a>
-          <Link
-            href="/web-design-pricing/"
-            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-orange-500 text-white text-sm font-bold hover:bg-orange-600 transition-colors"
-          >
-            Schedule a Call
-          </Link>
-        </div>
-
-        <MobileNav />
-      </div>
-    </header>
-  );
-}
-
 // ─── Hero ─────────────────────────────────────────────────────────────────────
 
 function Hero() {
@@ -672,117 +611,6 @@ function CTAStrip() {
   );
 }
 
-// ─── Footer ──────────────────────────────────────────────────────────────────
-
-function Footer() {
-  return (
-    <footer className="bg-gray-900 text-gray-400 py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
-          <div className="sm:col-span-2 lg:col-span-1">
-            <div className="flex items-center gap-2 mb-3">
-              <div className="w-7 h-7 rounded-lg bg-blue-600 flex items-center justify-center">
-                <Globe className="w-4 h-4 text-white" />
-              </div>
-              <span className="text-white font-bold text-lg">
-                CalTech<span className="text-blue-400">Web</span>
-              </span>
-            </div>
-            <p className="text-sm leading-relaxed mb-4">
-              Affordable website design for small businesses, churches, and
-              non-profits. $99/month all-inclusive.
-            </p>
-            <div className="flex flex-col gap-1 text-sm">
-              <a href="tel:5592823075" className="hover:text-white transition-colors">
-                (559) 282-3075
-              </a>
-              <a href="mailto:Brandon@CalTechWeb.com" className="hover:text-white transition-colors">
-                Brandon@CalTechWeb.com
-              </a>
-            </div>
-          </div>
-
-          <div>
-            <h4 className="text-white font-semibold mb-3 text-sm uppercase tracking-wider">
-              Services
-            </h4>
-            <ul className="space-y-2 text-sm">
-              {[
-                "Web Design",
-                "Website Hosting",
-                "Monthly Updates",
-                "Free Redesigns",
-                "SEO Basics",
-              ].map((s) => (
-                <li key={s}>
-                  <Link href="/web-design-pricing/" className="hover:text-white transition-colors">
-                    {s}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="text-white font-semibold mb-3 text-sm uppercase tracking-wider">
-              Industries
-            </h4>
-            <ul className="space-y-2 text-sm">
-              {[
-                { label: "Small Businesses", href: "/affordable-web-design-company/" },
-                { label: "Church Websites", href: "/affordable-church-websites/" },
-                { label: "Non-Profits", href: "/nonprofit-website-design-tips/" },
-                { label: "Construction", href: "/affordable-construction-company-website/" },
-                { label: "Real Estate", href: "/affordable-real-estate-company-website/" },
-              ].map(({ label, href }) => (
-                <li key={label}>
-                  <Link href={href} className="hover:text-white transition-colors">{label}</Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="text-white font-semibold mb-3 text-sm uppercase tracking-wider">
-              Company
-            </h4>
-            <ul className="space-y-2 text-sm">
-              {[
-                { label: "Home", href: "/" },
-                { label: "About Brandon", href: "/brandon-hopkins/" },
-                { label: "Portfolio", href: "/web-design-portfolio/" },
-                { label: "Blog", href: "/blog/" },
-                { label: "Free Report Card", href: "/free-website-report-card/" },
-              ].map(({ label, href }) => (
-                <li key={label}>
-                  <Link href={href} className="hover:text-white transition-colors">
-                    {label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-        <div className="border-t border-gray-800 pt-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs">
-          <p>
-            © {new Date().getFullYear()} CalTech Web. All rights reserved.
-            California-based, serving clients nationwide.
-          </p>
-          <div className="flex gap-4">
-            <Link href="/privacy-policy/" className="hover:text-white transition-colors">
-              Privacy Policy
-            </Link>
-            <Link href="/terms-and-conditions/" className="hover:text-white transition-colors">
-              Terms of Service
-            </Link>
-          </div>
-        </div>
-      </div>
-    </footer>
-  );
-}
-
 // ─── Sticky Mobile CTA ────────────────────────────────────────────────────────
 
 function StickyMobileCTA() {
@@ -825,7 +653,7 @@ export default function BlogPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
-      <Nav />
+      <Header />
       <main className="pb-[76px] md:pb-0">
         <Hero />
         <FeaturedPost />
