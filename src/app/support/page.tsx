@@ -13,7 +13,7 @@ import {
 import Image from "next/image";
 import MobileNav from "@/components/MobileNav";
 import Link from "next/link";
-import { useState, type FormEvent } from "react";
+import { useState, useEffect, type FormEvent } from "react";
 
 // --- Nav ---
 
@@ -30,7 +30,7 @@ function Nav() {
     <header className="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-gray-100 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 shrink-0">
-          <Image src="/logo.png" alt="CalTech Web" width={1520} height={512} className="h-7 w-auto" />
+          <Image src="/logo.png" alt="CalTech Web" width={1520} height={512} className="h-7 w-auto" priority />
         </Link>
 
         <nav className="hidden md:flex items-center gap-6">
@@ -344,6 +344,25 @@ function Footer() {
 // --- Page ---
 
 export default function SupportPage() {
+  const [stats, setStats] = useState({
+    ticketsSolved: 5000,
+    avgResolutionMinutes: 42,
+    percentUnder1Hour: 93,
+  });
+
+  useEffect(() => {
+    fetch("/api/zendesk-stats")
+      .then((res) => res.json())
+      .then((data) => {
+        setStats({
+          ticketsSolved: data.ticketsSolved,
+          avgResolutionMinutes: data.avgResolutionMinutes,
+          percentUnder1Hour: data.percentUnder1Hour,
+        });
+      })
+      .catch(() => {});
+  }, []);
+
   return (
     <>
       <Nav />
@@ -353,7 +372,7 @@ export default function SupportPage() {
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-sm font-medium text-blue-100 mb-6">
               <Zap className="w-4 h-4 text-yellow-400" />
-              93% of requests completed in under 1 hour
+              {stats.percentUnder1Hour}% of requests completed in under 1 hour
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-6">
@@ -455,10 +474,10 @@ export default function SupportPage() {
                       </div>
                       <div>
                         <p className="text-sm font-bold text-gray-900">
-                          93% completed in under 1 hour
+                          {stats.percentUnder1Hour}% completed in under 1 hour
                         </p>
                         <p className="text-xs text-gray-500">
-                          During business hours
+                          Avg. resolution: {stats.avgResolutionMinutes} minutes
                         </p>
                       </div>
                     </div>
@@ -468,7 +487,7 @@ export default function SupportPage() {
                       </div>
                       <div>
                         <p className="text-sm font-bold text-gray-900">
-                          5,000+ support tickets closed
+                          {stats.ticketsSolved.toLocaleString()} support tickets closed
                         </p>
                         <p className="text-xs text-gray-500">
                           And counting
