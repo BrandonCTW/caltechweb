@@ -21,7 +21,6 @@ import FAQ from "@/components/FAQ";
 import MobileNav from "@/components/MobileNav";
 import SavingsCalculator from "@/components/SavingsCalculator";
 import SocialProofToast from "@/components/SocialProofToast";
-import StickyPricingCTA from "@/components/StickyPricingCTA";
 import TrustBar from "@/components/TrustBar";
 import AnimatedChat from "@/components/AnimatedChat";
 import Image from "next/image";
@@ -234,6 +233,7 @@ function Nav() {
             <Link href="/blog/" className="hover:text-blue-600 transition-colors">Blog</Link>
             <Link href="/brandon-hopkins/" className="hover:text-blue-600 transition-colors">About</Link>
             <Link href="/affordable-church-websites/" className="hover:text-blue-600 transition-colors">Church Websites</Link>
+            <Link href="/free-website-report-card/" className="hover:text-blue-600 transition-colors">Free Report Card</Link>
           </nav>
 
           {/* Phone + CTA (desktop) */}
@@ -2330,7 +2330,6 @@ export default function HomePage() {
       <Footer />
       <StickyMobileCTA />
       <SocialProofToast />
-      <StickyPricingCTA />
     </>
   );
 }

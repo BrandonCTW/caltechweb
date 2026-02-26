@@ -7,7 +7,7 @@ const items = [
   {
     icon: "check" as const,
     title: "Sermon upload done for Calvary Chapel",
-    subtitle: "38 minutes ago · under 1 hour",
+    subtitle: "Completed in under 1 hour",
   },
   {
     icon: "star" as const,
@@ -17,12 +17,12 @@ const items = [
   {
     icon: "globe" as const,
     title: "New website live: Fuentes Concrete, Inc.",
-    subtitle: "6 days ago · launched in under a week",
+    subtitle: "Launched in under a week",
   },
   {
     icon: "check" as const,
     title: "Photo gallery updated for ALV Floors",
-    subtitle: "28 minutes ago · under 1 hour",
+    subtitle: "Completed in under 1 hour",
   },
   {
     icon: "star" as const,
@@ -32,7 +32,7 @@ const items = [
   {
     icon: "globe" as const,
     title: "TurboThao Nails website went live",
-    subtitle: "5 days ago · booking page included",
+    subtitle: "Booking page included",
   },
 ];
 
