@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const geist = Geist({ subsets: ["latin"] });
@@ -74,6 +75,11 @@ export default function RootLayout({
     <html lang="en" style={{ scrollBehavior: "smooth" }}>
       <body className={`${geist.className} antialiased bg-background text-foreground min-h-screen`}>
         {children}
+        <Script
+          id="ze-snippet"
+          src="https://static.zdassets.com/ekr/snippet.js?key=20e06cbb-5338-45fc-93ba-6e1621dc8d52"
+          strategy="lazyOnload"
+        />
       </body>
     </html>
   );

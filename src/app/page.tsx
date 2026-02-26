@@ -1166,6 +1166,7 @@ function PortfolioPreview() {
     {
       category: "Non-Profit Organization",
       name: "Madera County Farm Bureau",
+      domain: "maderacountyfarmbureau.com",
       desc: "55% traffic increase with 1,000+ page site for membership & scholarships.",
       colorFrom: "#16a34a",
       colorTo: "#059669",
@@ -1183,6 +1184,7 @@ function PortfolioPreview() {
     {
       category: "Church & Ministry",
       name: "Calvary Chapel Los Alamitos",
+      domain: "calvarychapellosalamitos.com",
       desc: "Pastor saves 3+ hours/week with fully managed church site.",
       colorFrom: "#7c3aed",
       colorTo: "#4f46e5",
@@ -1200,6 +1202,7 @@ function PortfolioPreview() {
     {
       category: "Healthcare Professional",
       name: "Dr. Arjun Kanuri",
+      domain: "arjunkanurimd.com",
       desc: "40% more traffic. Doubled new-patient conversions. 9-year client.",
       colorFrom: "#2563eb",
       colorTo: "#0891b2",
@@ -1235,7 +1238,7 @@ function PortfolioPreview() {
 
         {/* Site preview cards */}
         <div className="grid md:grid-cols-3 gap-6 mb-10">
-          {sites.map(({ category, name, desc, colorFrom, colorTo, accentBg, accentText, badge, navItems, stat, statColor, headline, subheadline, cta, features }) => (
+          {sites.map(({ category, name, domain, desc, colorFrom, colorTo, accentBg, accentText, badge, navItems, stat, statColor, headline, subheadline, cta, features }) => (
             <div
               key={name}
               className="group bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all overflow-hidden"
@@ -1248,7 +1251,7 @@ function PortfolioPreview() {
                   <div className="w-2.5 h-2.5 rounded-full bg-green-400/80" />
                 </div>
                 <div className="bg-white rounded-md h-4 w-2/3 flex items-center px-2">
-                  <span className="text-[8px] text-gray-400 truncate">{name.toLowerCase().replace(/\s+/g, "")}.com</span>
+                  <span className="text-[8px] text-gray-400 truncate">{domain}</span>
                 </div>
               </div>
 
@@ -1500,19 +1503,19 @@ function WhoWeServe() {
       title: "Small Businesses",
       desc: "Restaurants, contractors, retail shops, service providers - if you need customers to find you online, we build sites that deliver.",
       icon: Building2,
-      href: "/get-a-free-instant-quote",
+      href: "/get-a-free-instant-quote/",
     },
     {
       title: "Churches & Non-Profits",
       desc: "We have deep experience with church websites and non-profit organizations. We understand your mission matters more than your budget.",
       icon: Heart,
-      href: "/affordable-church-websites",
+      href: "/affordable-church-websites/",
     },
     {
       title: "Professionals",
       desc: "Doctors, lawyers, consultants, real estate agents - a polished site builds trust and brings in more referrals and leads.",
       icon: Briefcase,
-      href: "/get-a-free-instant-quote",
+      href: "/get-a-free-instant-quote/",
     },
   ];
 
@@ -2222,11 +2225,11 @@ function Footer() {
             <h4 className="text-white font-semibold mb-3 text-sm uppercase tracking-wider">Company</h4>
             <ul className="space-y-2 text-sm">
               {[
-                { label: "About", href: "/brandon-hopkins" },
-                { label: "Portfolio", href: "/web-design-portfolio" },
-                { label: "Pricing", href: "/web-design-pricing" },
-                { label: "Blog", href: "/blog" },
-                { label: "Get My Website", href: "/web-design-pricing" },
+                { label: "About", href: "/brandon-hopkins/" },
+                { label: "Portfolio", href: "/web-design-portfolio/" },
+                { label: "Pricing", href: "/web-design-pricing/" },
+                { label: "Blog", href: "/blog/" },
+                { label: "Get My Website", href: "/web-design-pricing/" },
               ].map(({ label, href }) => (
                 <li key={label}>
                   <Link href={href} className="hover:text-white transition-colors">{label}</Link>
