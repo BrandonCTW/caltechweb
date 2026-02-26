@@ -537,7 +537,7 @@ export default function WebsiteReportCard() {
 
       {/* Results */}
       {report && !scanning && (
-        <div className="space-y-6">
+        <div className="space-y-6 bg-white rounded-2xl p-6 sm:p-8 text-gray-900">
           {/* View Toggle */}
           <div className="flex justify-center">
             <ViewToggle view={view} setView={setView} />
@@ -581,7 +581,7 @@ export default function WebsiteReportCard() {
             <div className="grid sm:grid-cols-2 gap-4">
               {/* Issues */}
               {report.topIssues.length > 0 && (
-                <div className="bg-red-50/50 rounded-2xl border border-red-100 p-5">
+                <div className="bg-red-50 rounded-2xl border border-red-100 p-5">
                   <h3 className="font-bold text-red-700 text-sm mb-3 flex items-center gap-2">
                     <XCircle className="w-4 h-4" />
                     Top Issues
@@ -604,7 +604,7 @@ export default function WebsiteReportCard() {
 
               {/* Strengths */}
               {report.strengths.length > 0 && (
-                <div className="bg-green-50/50 rounded-2xl border border-green-100 p-5">
+                <div className="bg-green-50 rounded-2xl border border-green-100 p-5">
                   <h3 className="font-bold text-green-700 text-sm mb-3 flex items-center gap-2">
                     <CheckCircle className="w-4 h-4" />
                     Strengths
