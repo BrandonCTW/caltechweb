@@ -1051,17 +1051,9 @@ export default async function PortfolioDetailPage({
     },
     "reviewBody": cs.testimonial,
     "itemReviewed": {
-      "@type": "ProfessionalService",
+      "@type": "Organization",
       "name": "CalTech Web",
       "url": "https://caltechweb.com",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "26766 Greentree Ave.",
-        "addressLocality": "Madera",
-        "addressRegion": "CA",
-        "postalCode": "93638",
-        "addressCountry": "US",
-      },
     },
   };
 
