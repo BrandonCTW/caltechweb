@@ -346,7 +346,7 @@ function Footer() {
 export default function SupportPage() {
   const [stats, setStats] = useState({
     ticketsSolved: 5000,
-    avgResolutionMinutes: 42,
+    avgReplyMinutes: 42,
     percentUnder1Hour: 93,
   });
 
@@ -356,7 +356,7 @@ export default function SupportPage() {
       .then((data) => {
         setStats({
           ticketsSolved: data.ticketsSolved,
-          avgResolutionMinutes: data.avgResolutionMinutes,
+          avgReplyMinutes: data.avgReplyMinutes,
           percentUnder1Hour: data.percentUnder1Hour,
         });
       })
@@ -477,7 +477,7 @@ export default function SupportPage() {
                           {stats.percentUnder1Hour}% completed in under 1 hour
                         </p>
                         <p className="text-xs text-gray-500">
-                          Avg. resolution: {stats.avgResolutionMinutes} minutes
+                          Avg. resolution: {stats.avgReplyMinutes} minutes
                         </p>
                       </div>
                     </div>
