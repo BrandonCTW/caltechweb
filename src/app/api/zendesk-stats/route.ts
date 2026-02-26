@@ -22,7 +22,7 @@ interface ZendeskStats {
 }
 
 let cache: ZendeskStats | null = null;
-const CACHE_TTL = 60 * 60 * 1000; // 1 hour
+const CACHE_TTL = 24 * 60 * 60 * 1000; // 24 hours
 
 function zendeskHeaders(): HeadersInit {
   const email = process.env.ZENDESK_EMAIL;
@@ -117,7 +117,7 @@ const FALLBACK: ZendeskStats = {
 };
 
 const CACHE_HEADERS = {
-  "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=86400",
+  "Cache-Control": "public, s-maxage=86400, stale-while-revalidate=86400",
 };
 
 export async function GET() {
