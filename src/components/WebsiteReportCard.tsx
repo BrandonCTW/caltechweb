@@ -512,7 +512,7 @@ export default function WebsiteReportCard() {
           value={url}
           onChange={(e) => setUrl(e.target.value)}
           placeholder="Enter your website URL (e.g. mybusiness.com)"
-          className="flex-1 px-5 py-4 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent bg-white"
+          className="flex-1 px-5 py-4 rounded-xl border border-gray-200 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent bg-white"
           disabled={scanning}
         />
         <button
