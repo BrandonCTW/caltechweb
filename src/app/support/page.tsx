@@ -165,6 +165,7 @@ export default function SupportPage() {
     ticketsSolved: 5000,
     medianResolutionMinutes: 45,
     percentUnder24Hours: 98,
+    fetchedAt: 0,
   });
 
   useEffect(() => {
@@ -175,6 +176,7 @@ export default function SupportPage() {
           ticketsSolved: data.ticketsSolved,
           medianResolutionMinutes: data.medianResolutionMinutes,
           percentUnder24Hours: data.percentUnder24Hours,
+          fetchedAt: data.fetchedAt,
         });
       })
       .catch(() => {});
@@ -312,6 +314,18 @@ export default function SupportPage() {
                       </div>
                     </div>
                   </div>
+                  {stats.fetchedAt > 0 && (
+                    <p className="text-[11px] text-gray-400 mt-3 text-right">
+                      Last updated:{" "}
+                      {new Date(stats.fetchedAt).toLocaleDateString("en-US", {
+                        month: "short",
+                        day: "numeric",
+                        year: "numeric",
+                        hour: "numeric",
+                        minute: "2-digit",
+                      })}
+                    </p>
+                  )}
                 </div>
               </div>
             </div>
