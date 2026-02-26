@@ -505,7 +505,7 @@ export default function WebsiteReportCard() {
       {/* Input Form */}
       <form
         onSubmit={handleSubmit}
-        className="flex flex-col sm:flex-row gap-3 mb-8"
+        className="flex flex-col sm:flex-row gap-3 mb-8 max-w-3xl mx-auto"
       >
         <input
           type="text"
