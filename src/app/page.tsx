@@ -294,12 +294,7 @@ function Hero() {
                     <span className="text-[7px] text-gray-500">arjunkanurimd.com</span>
                   </div>
                 </div>
-                <div className="bg-gradient-to-br from-blue-600 to-cyan-600 px-3 py-3">
-                  <div className="text-[9px] font-bold text-white">Arjun Kanuri, MD</div>
-                  <div className="text-[7px] text-blue-200 mt-0.5">Board-certified plastic surgeon · DC/MD/VA</div>
-                  <div className="mt-2 bg-white text-blue-700 text-[7px] font-bold px-2 py-0.5 rounded-full inline-block">Book Consultation</div>
-                </div>
-                <div className="bg-white px-3 py-2 h-12" />
+                <Image src="/portfolio/arjun-kanuri.png" alt="Arjun Kanuri MD website by CalTech Web" width={600} height={375} className="w-full h-auto" />
               </div>
 
               {/* Card 2 (middle) - Central Baptist Church */}
@@ -317,24 +312,7 @@ function Hero() {
                     <span className="text-[7px] text-gray-500">centralbaptistpsl.com</span>
                   </div>
                 </div>
-                <div className="bg-gradient-to-br from-teal-700 to-emerald-600 px-3 py-3">
-                  <div className="text-[9px] font-bold text-white">Central Baptist Church</div>
-                  <div className="text-[7px] text-teal-200 mt-0.5">One Family, Called by Christ, Sent to Serve</div>
-                  <div className="mt-2 bg-white text-teal-700 text-[7px] font-bold px-2 py-0.5 rounded-full inline-block">Watch Live</div>
-                </div>
-                <div className="bg-white px-3 py-2">
-                  <div className="flex gap-1">
-                    <div className="flex-1 bg-teal-50 rounded-md py-1 text-center">
-                      <span className="text-[6px] text-teal-700 font-semibold">Watch</span>
-                    </div>
-                    <div className="flex-1 bg-teal-50 rounded-md py-1 text-center">
-                      <span className="text-[6px] text-teal-700 font-semibold">Give</span>
-                    </div>
-                    <div className="flex-1 bg-teal-50 rounded-md py-1 text-center">
-                      <span className="text-[6px] text-teal-700 font-semibold">Prayer</span>
-                    </div>
-                  </div>
-                </div>
+                <Image src="/portfolio/central-baptist-church.png" alt="Central Baptist Church website by CalTech Web" width={600} height={375} className="w-full h-auto" />
               </div>
 
               {/* Card 1 (front) - Blacke House Co. */}
@@ -342,7 +320,6 @@ function Hero() {
                 className="absolute top-14 left-[6%] w-[88%] rounded-2xl border border-white/25 shadow-2xl overflow-hidden"
                 style={{ transform: "rotate(0.5deg)" }}
               >
-                {/* Browser chrome */}
                 <div className="bg-gray-100 px-2.5 py-1.5 flex items-center gap-1.5">
                   <div className="flex gap-1">
                     <div className="w-2 h-2 rounded-full bg-red-400/80" />
@@ -354,45 +331,10 @@ function Hero() {
                     <span className="text-[7px] text-gray-600 font-medium">blackehouseco.com</span>
                   </div>
                 </div>
-                {/* Site nav */}
-                <div className="h-7 flex items-center justify-between px-3 bg-gradient-to-r from-stone-900 to-stone-800">
-                  <span className="text-white font-bold text-[8px] tracking-wide">Blacke House Co.</span>
-                  <div className="flex gap-2">
-                    <span className="text-white/80 text-[7px]">About</span>
-                    <span className="text-white/80 text-[7px]">Services</span>
-                    <span className="text-white/80 text-[7px]">Portfolio</span>
-                  </div>
-                </div>
-                {/* Hero */}
-                <div className="bg-gradient-to-br from-stone-900 to-stone-800 px-4 py-4">
-                  <div className="inline-flex items-center gap-1 bg-white/10 border border-white/15 px-1.5 py-0.5 rounded-full mb-1.5">
-                    <Star className="w-2 h-2 text-amber-400 fill-amber-400" />
-                    <span className="text-[7px] text-stone-300 font-medium">Charlotte, NC</span>
-                  </div>
-                  <div className="text-[11px] font-extrabold text-white leading-tight mb-1">Blacke House Co.</div>
-                  <div className="text-[8px] text-stone-400 mb-2.5">Because Luxury Isn&apos;t Loud</div>
-                  <div className="flex items-center gap-2">
-                    <span className="bg-amber-500 text-white text-[7px] font-bold px-2.5 py-1 rounded-full">Book a Consultation</span>
-                    <span className="border border-white/30 text-white/80 text-[7px] px-2 py-1 rounded-full">Portfolio</span>
-                  </div>
-                </div>
-                {/* Feature row */}
-                <div className="bg-white px-3 py-2.5">
-                  <div className="grid grid-cols-3 gap-1.5">
-                    {[
-                      { label: "Event Decor", color: "text-stone-700 bg-stone-50" },
-                      { label: "Event Planning", color: "text-amber-700 bg-amber-50" },
-                      { label: "Consultation", color: "text-stone-600 bg-stone-50" },
-                    ].map(({ label, color }) => (
-                      <div key={label} className={`${color} rounded-lg py-1.5 text-center`}>
-                        <div className="text-[7px] font-semibold leading-tight">{label}</div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+                <Image src="/portfolio/blacke-house-co.png" alt="Blacke House Co website by CalTech Web" width={600} height={375} className="w-full h-auto" />
               </div>
 
-              {/* +32% in giving floating badge */}
+              {/* +30% repeat bookings floating badge */}
               <div className="absolute -bottom-1 right-2 bg-amber-500 text-white rounded-full px-3 py-1.5 shadow-lg shadow-amber-500/30 z-10">
                 <span className="text-xs font-bold">+30% repeat bookings</span>
               </div>
@@ -1101,55 +1043,31 @@ function PortfolioPreview() {
       category: "Luxury Events",
       name: "Blacke House Co.",
       domain: "blackehouseco.com",
+      screenshot: "/portfolio/blacke-house-co.png",
       desc: "30% more repeat bookings with an online catalog and inquiry system.",
-      colorFrom: "#1c1917",
-      colorTo: "#292524",
-      accentBg: "bg-amber-500",
-      accentText: "text-amber-600",
       badge: "bg-amber-50 text-amber-700 border-amber-100",
-      navItems: ["About", "Services", "Portfolio"],
       stat: "+30% bookings",
       statColor: "text-amber-600",
-      headline: "Blacke House Co.",
-      subheadline: "Because Luxury Isn't Loud",
-      cta: "Book a Consultation",
-      features: ["Event Decor", "Planning", "Consultation"],
     },
     {
       category: "Church & Ministry",
       name: "Central Baptist Church",
       domain: "centralbaptistpsl.com",
+      screenshot: "/portfolio/central-baptist-church.png",
       desc: "32% increase in online giving with integrated donation platform.",
-      colorFrom: "#0f766e",
-      colorTo: "#059669",
-      accentBg: "bg-teal-600",
-      accentText: "text-teal-600",
       badge: "bg-teal-50 text-teal-700 border-teal-100",
-      navItems: ["Watch", "Give", "Prayer"],
       stat: "+32% in giving",
       statColor: "text-teal-600",
-      headline: "One Family, Called by Christ",
-      subheadline: "Sent to Serve - Port St. Lucie, FL",
-      cta: "Watch Live",
-      features: ["Watch", "Give", "Prayer"],
     },
     {
       category: "Healthcare Professional",
       name: "Dr. Arjun Kanuri",
       domain: "arjunkanurimd.com",
+      screenshot: "/portfolio/arjun-kanuri.png",
       desc: "40% more traffic. Doubled new-patient conversions. 9-year client.",
-      colorFrom: "#2563eb",
-      colorTo: "#0891b2",
-      accentBg: "bg-blue-600",
-      accentText: "text-blue-600",
       badge: "bg-blue-50 text-blue-700 border-blue-100",
-      navItems: ["About", "Reviews", "Contact"],
       stat: "+40% traffic",
       statColor: "text-blue-600",
-      headline: "Arjun Kanuri, MD",
-      subheadline: "Board-certified plastic surgeon · Serving DC/MD/VA",
-      cta: "Book Consultation",
-      features: ["About", "Reviews", "Gallery"],
     },
   ];
 
@@ -1172,7 +1090,7 @@ function PortfolioPreview() {
 
         {/* Site preview cards */}
         <div className="grid md:grid-cols-3 gap-6 mb-10">
-          {sites.map(({ category, name, domain, desc, colorFrom, colorTo, accentBg, accentText, badge, navItems, stat, statColor, headline, subheadline, cta, features }) => (
+          {sites.map(({ category, name, domain, screenshot, desc, badge, stat, statColor }) => (
             <div
               key={name}
               className="group bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all overflow-hidden"
@@ -1189,36 +1107,15 @@ function PortfolioPreview() {
                 </div>
               </div>
 
-              {/* Mock website preview */}
+              {/* Real website screenshot */}
               <div className="h-48 overflow-hidden">
-                {/* Site navbar */}
-                <div
-                  className="h-9 flex items-center justify-between px-3"
-                  style={{ background: `linear-gradient(to right, ${colorFrom}, ${colorTo})` }}
-                >
-                  <span className="text-white font-bold text-[9px] tracking-wide">{name}</span>
-                  <div className="flex gap-2.5">
-                    {navItems.map((item) => (
-                      <span key={item} className="text-white/80 text-[8px] font-medium">{item}</span>
-                    ))}
-                  </div>
-                </div>
-                {/* Hero content */}
-                <div className="bg-white px-3 pt-3 pb-2">
-                  <div className="text-[11px] font-extrabold text-gray-900 leading-tight mb-1">{headline}</div>
-                  <div className="text-[8.5px] text-gray-500 leading-snug mb-2.5">{subheadline}</div>
-                  <span className={`inline-block ${accentBg} text-white text-[8px] font-bold px-3 py-1 rounded-full`}>
-                    {cta}
-                  </span>
-                </div>
-                {/* Feature cards row */}
-                <div className="px-3 pt-1.5 flex gap-1.5">
-                  {features.map((feature) => (
-                    <div key={feature} className="flex-1 bg-gray-50 border border-gray-100 rounded-lg py-2 px-1 text-center">
-                      <div className={`text-[8px] font-semibold ${accentText} leading-tight`}>{feature}</div>
-                    </div>
-                  ))}
-                </div>
+                <Image
+                  src={screenshot}
+                  alt={`${name} website designed by CalTech Web`}
+                  width={600}
+                  height={375}
+                  className="w-full h-auto object-cover object-top"
+                />
               </div>
 
               {/* Card footer */}
