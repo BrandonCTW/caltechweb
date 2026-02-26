@@ -201,6 +201,34 @@ function analyzeFirstImpression(html: string, responseTimeMs: number): WebsiteCh
     }
   }
 
+  // Above-the-fold CTA — check hero/header area for an actionable button or link
+  const heroArea = html.match(/<(?:header|section|div)[^>]*(?:hero|banner|jumbotron)[^>]*>[\s\S]*?<\/(?:header|section|div)>/i)?.[0] ||
+    html.match(/<header[^>]*>[\s\S]*?<\/header>/i)?.[0] || ''
+  const heroCtas = matchAll(heroArea, /<(?:a|button)[^>]*>[\s\S]*?<\/(?:a|button)>/gi)
+    .map(tag => stripTags(tag).toLowerCase())
+  const ctaWords = ['get', 'start', 'contact', 'call', 'quote', 'free', 'schedule', 'book', 'learn', 'sign', 'try', 'buy', 'order', 'shop']
+  const heroCtaCount = heroCtas.filter(text => ctaWords.some(kw => text.includes(kw))).length
+  if (heroCtaCount >= 1) {
+    checks.push({ label: 'Above-the-Fold CTA', status: 'pass', detail: 'Call-to-action found in the hero area. Visitors immediately see what action to take.' })
+  } else if (heroCtas.length > 0) {
+    checks.push({ label: 'Above-the-Fold CTA', status: 'warning', detail: 'Buttons found above the fold but none have clear action text. Use phrases like "Get a Free Quote" or "Contact Us".' })
+  } else {
+    checks.push({ label: 'Above-the-Fold CTA', status: 'fail', detail: 'No call-to-action button in the hero area. Visitors see no clear next step when they land on your site.' })
+  }
+
+  // Render-blocking resources — count blocking scripts and stylesheets in <head>
+  const headHtml = html.match(/<head[^>]*>[\s\S]*?<\/head>/i)?.[0] || ''
+  const blockingScripts = matchAll(headHtml, /<script(?![^>]*(?:async|defer|type\s*=\s*["']module["']))[^>]*src\s*=[^>]*>/gi)
+  const blockingStyles = matchAll(headHtml, /<link[^>]*rel\s*=\s*["']stylesheet["'][^>]*>/gi)
+  const totalBlocking = blockingScripts.length + blockingStyles.length
+  if (totalBlocking <= 3) {
+    checks.push({ label: 'Render-Blocking Resources', status: 'pass', detail: `Only ${totalBlocking} render-blocking resource${totalBlocking !== 1 ? 's' : ''} in the head. Page can start rendering quickly.` })
+  } else if (totalBlocking <= 8) {
+    checks.push({ label: 'Render-Blocking Resources', status: 'warning', detail: `${totalBlocking} render-blocking resources found. The browser must download all of these before showing anything to visitors.` })
+  } else {
+    checks.push({ label: 'Render-Blocking Resources', status: 'fail', detail: `${totalBlocking} render-blocking resources found. This many blocking scripts and stylesheets can delay your page by several seconds.` })
+  }
+
   return checks
 }
 
@@ -267,6 +295,29 @@ function analyzeMobileExperience(html: string): WebsiteCheck[] {
     checks.push({ label: 'Touch-Friendly Targets', status: 'warning', detail: `${totalTouchTargets} interactive elements found but padding may be insufficient. Aim for 44x44px minimum tap targets.` })
   } else {
     checks.push({ label: 'Touch-Friendly Targets', status: 'warning', detail: 'Very few interactive elements detected. Mobile visitors need clear, tappable buttons and links.' })
+  }
+
+  // Horizontal overflow — check for fixed-width elements that could cause side-scrolling
+  const fixedWidthPatterns = /(?:width\s*:\s*(?:1[0-9]{3,}|[2-9]\d{3,})px)|(?:min-width\s*:\s*(?:1[0-9]{3,}|[2-9]\d{3,})px)/gi
+  const hasFixedWidthInline = fixedWidthPatterns.test(html)
+  const hasTable = /<table/i.test(html)
+  const hasTableResponsive = /overflow-x|table-responsive|overflow-auto/i.test(html)
+  if (hasTable && !hasTableResponsive) {
+    checks.push({ label: 'No Horizontal Overflow', status: 'fail', detail: 'HTML tables found without responsive wrapping. Tables cause horizontal scrolling on phones, frustrating visitors.' })
+  } else if (hasFixedWidthInline) {
+    checks.push({ label: 'No Horizontal Overflow', status: 'warning', detail: 'Fixed-width elements over 1000px detected. These can cause horizontal scrolling on mobile devices.' })
+  } else {
+    checks.push({ label: 'No Horizontal Overflow', status: 'pass', detail: 'No obvious horizontal overflow risks found. Content should fit within mobile screens.' })
+  }
+
+  // Mobile navigation — check for hamburger menu or mobile-friendly nav
+  const hasHamburger = /hamburger|menu-toggle|mobile-menu|nav-toggle|navbar-toggler|menu-btn/i.test(html)
+  const hasAriaExpanded = /<button[^>]*aria-expanded[^>]*>/i.test(html)
+  const hasResponsiveNav = /md:flex|lg:flex|sm:hidden|md:hidden|lg:hidden|hidden\s+(?:sm|md|lg):(?:flex|block)/i.test(html)
+  if (hasHamburger || hasAriaExpanded || hasResponsiveNav) {
+    checks.push({ label: 'Mobile Navigation', status: 'pass', detail: 'Mobile-friendly navigation detected. Visitors can easily browse your site on a phone.' })
+  } else {
+    checks.push({ label: 'Mobile Navigation', status: 'fail', detail: 'No mobile menu pattern detected. Desktop-only navigation is unusable on phones — visitors will leave immediately.' })
   }
 
   return checks
@@ -349,6 +400,30 @@ function analyzeTrustCredibility(html: string, url: string): WebsiteCheck[] {
       : 'No privacy policy link detected. Required by law for sites that collect any user data.',
   })
 
+  // Business hours
+  const hasHours = /hours|mon(?:day)?[\s\-–:]+|tue(?:sday)?[\s\-–:]+|wed(?:nesday)?[\s\-–:]+|thu(?:rsday)?[\s\-–:]+|fri(?:day)?[\s\-–:]+|sat(?:urday)?[\s\-–:]+|sun(?:day)?[\s\-–:]+|(?:\d{1,2}\s*(?:am|pm)\s*[-–]\s*\d{1,2}\s*(?:am|pm))|open\s*(?:daily|24)/i.test(html)
+  checks.push({
+    label: 'Business Hours',
+    status: hasHours ? 'pass' : 'fail',
+    detail: hasHours
+      ? 'Business hours found on the page. Visitors know when they can reach you.'
+      : 'No business hours listed. Customers want to know when you are open before calling or visiting.',
+  })
+
+  // Professional email — flag free providers like gmail, yahoo, hotmail
+  const emailMatch = html.match(/[\w.+-]+@([\w-]+\.[\w.]+)/i)
+  const freeProviders = ['gmail.com', 'yahoo.com', 'hotmail.com', 'outlook.com', 'aol.com', 'mail.com', 'icloud.com', 'live.com']
+  if (emailMatch) {
+    const emailDomain = emailMatch[1].toLowerCase()
+    if (freeProviders.includes(emailDomain)) {
+      checks.push({ label: 'Professional Email', status: 'fail', detail: `Email uses ${emailDomain}. A professional email (info@yourdomain.com) builds far more trust with potential customers.` })
+    } else {
+      checks.push({ label: 'Professional Email', status: 'pass', detail: 'Professional domain email address found. This looks credible and trustworthy to visitors.' })
+    }
+  } else {
+    checks.push({ label: 'Professional Email', status: 'warning', detail: 'No email address detected on the page. If you add one, use a professional domain email instead of Gmail or Yahoo.' })
+  }
+
   return checks
 }
 
@@ -407,6 +482,41 @@ function analyzeLeadCapture(html: string): WebsiteCheck[] {
       : 'No tel: links found. Mobile visitors cannot tap your phone number to call. This is a huge missed opportunity.',
   })
 
+  // Form usability — check for labels or placeholders on inputs
+  if (hasForms > 0 && hasInputs > 0) {
+    const formInputTags = matchAll(html, /<input[^>]*type\s*=\s*["'](?:text|email|tel|password)["'][^>]*>/gi)
+    const inputsWithContext = formInputTags.filter(tag =>
+      getAttr(tag, 'placeholder') !== null ||
+      getAttr(tag, 'aria-label') !== null ||
+      getAttr(tag, 'id') !== null
+    )
+    const contextPct = formInputTags.length > 0 ? Math.round((inputsWithContext.length / formInputTags.length) * 100) : 100
+    if (contextPct >= 80) {
+      checks.push({ label: 'Form Usability', status: 'pass', detail: `${contextPct}% of form inputs have labels or placeholders. Visitors know exactly what to fill in.` })
+    } else if (contextPct >= 50) {
+      checks.push({ label: 'Form Usability', status: 'warning', detail: `Only ${contextPct}% of form inputs have labels or placeholders. Unlabeled fields confuse visitors and reduce submissions.` })
+    } else {
+      checks.push({ label: 'Form Usability', status: 'fail', detail: `Only ${contextPct}% of form inputs have labels or placeholders. Visitors cannot tell what to type in bare input fields.` })
+    }
+  } else {
+    checks.push({ label: 'Form Usability', status: 'warning', detail: 'No form with input fields found to evaluate. A well-labeled contact form is essential for capturing leads.' })
+  }
+
+  // Multiple contact methods — check for phone + form/email (not just one)
+  const hasFormContact = hasForms > 0
+  const hasPhoneContact = /\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}/.test(html) || /tel:/i.test(html)
+  const hasEmailContact = /[\w.+-]+@[\w-]+\.[\w.]+/.test(html) || /mailto:/i.test(html)
+  const contactMethods = [hasFormContact, hasPhoneContact, hasEmailContact].filter(Boolean).length
+  if (contactMethods >= 3) {
+    checks.push({ label: 'Multiple Contact Methods', status: 'pass', detail: 'Phone, email, and form all available. Visitors can reach you however they prefer.' })
+  } else if (contactMethods === 2) {
+    checks.push({ label: 'Multiple Contact Methods', status: 'pass', detail: '2 contact methods found. Consider adding a third (phone, email, or form) for maximum accessibility.' })
+  } else if (contactMethods === 1) {
+    checks.push({ label: 'Multiple Contact Methods', status: 'warning', detail: 'Only 1 contact method found. Some visitors prefer phone, others prefer email or forms — offer at least 2.' })
+  } else {
+    checks.push({ label: 'Multiple Contact Methods', status: 'fail', detail: 'No clear contact methods found. Visitors have no way to reach you — you are losing every potential lead.' })
+  }
+
   // Action-oriented text
   const bodyText = stripTags(html).toLowerCase()
   const actionPhrases = ['get a quote', 'free estimate', 'call us', 'contact us', 'get started', 'schedule', 'book now', 'request', 'free consultation']
@@ -452,14 +562,21 @@ function analyzeSeoBasics(html: string): WebsiteCheck[] {
     checks.push({ label: 'Meta Description', status: 'pass', detail: `Meta description is well-optimized at ${metaDesc.length} characters.` })
   }
 
-  // H1 count
+  // Heading hierarchy — logical H1 → H2 → H3 structure
   const h1Tags = matchAll(html, /<h1[^>]*>/gi)
+  const h2Tags = matchAll(html, /<h2[^>]*>/gi)
+  const h3Tags = matchAll(html, /<h3[^>]*>/gi)
+  const hasSkippedLevels = (h1Tags.length > 0 && h2Tags.length === 0 && h3Tags.length > 0)
   if (h1Tags.length === 0) {
-    checks.push({ label: 'H1 Heading', status: 'fail', detail: 'No H1 heading found. Every page needs exactly one H1 that tells Google what the page is about.' })
+    checks.push({ label: 'Heading Hierarchy', status: 'fail', detail: 'No H1 heading found. Every page needs a clear H1 → H2 → H3 hierarchy for search engines to understand your content.' })
   } else if (h1Tags.length > 1) {
-    checks.push({ label: 'H1 Heading', status: 'warning', detail: `Found ${h1Tags.length} H1 tags. Best practice is exactly one H1 per page for clear topic hierarchy.` })
+    checks.push({ label: 'Heading Hierarchy', status: 'warning', detail: `Found ${h1Tags.length} H1 tags. Use exactly one H1, then H2s for sections and H3s for subsections.` })
+  } else if (hasSkippedLevels) {
+    checks.push({ label: 'Heading Hierarchy', status: 'warning', detail: 'Heading levels are skipped (H1 → H3 with no H2). Use a logical H1 → H2 → H3 sequence.' })
+  } else if (h2Tags.length === 0) {
+    checks.push({ label: 'Heading Hierarchy', status: 'warning', detail: 'Only one heading level found. Add H2 subheadings to break content into scannable sections.' })
   } else {
-    checks.push({ label: 'H1 Heading', status: 'pass', detail: 'Single H1 heading found. Clear topic signal for search engines.' })
+    checks.push({ label: 'Heading Hierarchy', status: 'pass', detail: `Clean heading structure: 1 H1, ${h2Tags.length} H2s${h3Tags.length > 0 ? `, ${h3Tags.length} H3s` : ''}. Search engines can easily parse your content.` })
   }
 
   // Image alt text
@@ -492,6 +609,29 @@ function analyzeSeoBasics(html: string): WebsiteCheck[] {
     checks.push({ label: 'Structured Data', status: 'warning', detail: 'No structured data (JSON-LD) found. Adding LocalBusiness schema can show your address and phone in search results.' })
   }
 
+  // Canonical URL
+  const hasCanonical = /<link[^>]*rel\s*=\s*["']canonical["'][^>]*>/i.test(html)
+  checks.push({
+    label: 'Canonical URL',
+    status: hasCanonical ? 'pass' : 'fail',
+    detail: hasCanonical
+      ? 'Canonical URL set. Search engines know which version of this page to index.'
+      : 'No canonical URL tag found. Without it, Google may index duplicate versions of your pages, diluting your rankings.',
+  })
+
+  // Social sharing tags (Open Graph)
+  const ogTitle = getMetaContent(html, 'og:title')
+  const ogDesc = getMetaContent(html, 'og:description')
+  const ogImage = getMetaContent(html, 'og:image')
+  const ogCount = [ogTitle, ogDesc, ogImage].filter(Boolean).length
+  if (ogCount >= 3) {
+    checks.push({ label: 'Social Sharing Tags', status: 'pass', detail: 'Open Graph title, description, and image all set. Links shared on social media will look polished and professional.' })
+  } else if (ogCount >= 1) {
+    checks.push({ label: 'Social Sharing Tags', status: 'warning', detail: `Only ${ogCount} of 3 Open Graph tags found. Missing tags mean ugly previews when someone shares your link on Facebook or LinkedIn.` })
+  } else {
+    checks.push({ label: 'Social Sharing Tags', status: 'fail', detail: 'No Open Graph tags found. When someone shares your link on social media, it shows a blank or ugly preview instead of your brand.' })
+  }
+
   return checks
 }
 
@@ -519,9 +659,11 @@ function estimateVisitorLoss(score: number): number {
 
 function generateTopIssues(categories: ReportCategory[]): string[] {
   const issues: string[] = []
+  const seen = new Set<string>()
   for (const cat of categories) {
     for (const check of cat.checks) {
-      if (check.status === 'fail') {
+      if (check.status === 'fail' && !seen.has(check.label)) {
+        seen.add(check.label)
         issues.push(`${check.label}: ${check.detail.split('.')[0]}.`)
       }
     }
@@ -622,11 +764,11 @@ function generateMockReport(url: string, domain: string, errorMessage: string): 
   ]
 
   const mockCheckSets: { name: string; checks: string[] }[] = [
-    { name: 'First Impression', checks: ['Response Time', 'Font Loading', 'Value Proposition (H1)', 'Favicon', 'Logo Visibility', 'Image Sizing'] },
-    { name: 'Mobile Experience', checks: ['Viewport Configuration', 'Responsive Design', 'Modern Layout', 'Readable Font Sizes', 'Touch-Friendly Targets'] },
-    { name: 'Trust & Credibility', checks: ['Secure Connection (HTTPS)', 'Phone Number Visible', 'Email Address', 'Physical Address', 'Social Media Presence', 'Testimonials / Reviews', 'Privacy Policy'] },
-    { name: 'Lead Capture', checks: ['Contact Form', 'Call-to-Action Buttons', 'Phone in Header', 'Click-to-Call Links', 'Action-Oriented Language'] },
-    { name: 'SEO Basics', checks: ['Title Tag', 'Meta Description', 'H1 Heading', 'Image Alt Text', 'Structured Data'] },
+    { name: 'First Impression', checks: ['Response Time', 'Font Loading', 'Value Proposition (H1)', 'Favicon', 'Logo Visibility', 'Image Sizing', 'Above-the-Fold CTA', 'Render-Blocking Resources'] },
+    { name: 'Mobile Experience', checks: ['Viewport Configuration', 'Responsive Design', 'Modern Layout', 'Readable Font Sizes', 'Touch-Friendly Targets', 'No Horizontal Overflow', 'Mobile Navigation'] },
+    { name: 'Trust & Credibility', checks: ['Secure Connection (HTTPS)', 'Phone Number Visible', 'Email Address', 'Physical Address', 'Social Media Presence', 'Testimonials / Reviews', 'Privacy Policy', 'Business Hours', 'Professional Email'] },
+    { name: 'Lead Capture', checks: ['Contact Form', 'Call-to-Action Buttons', 'Phone in Header', 'Click-to-Call Links', 'Action-Oriented Language', 'Form Usability', 'Multiple Contact Methods'] },
+    { name: 'SEO Basics', checks: ['Title Tag', 'Meta Description', 'Heading Hierarchy', 'Image Alt Text', 'Structured Data', 'Canonical URL', 'Social Sharing Tags'] },
   ]
 
   for (let i = 0; i < mockCategories.length; i++) {

@@ -32,7 +32,7 @@ function Hero() {
         </h1>
 
         <p className="text-lg sm:text-xl text-blue-100 mb-8 max-w-2xl mx-auto leading-relaxed">
-          We analyze 25+ factors across 5 categories and show you exactly where
+          We analyze 35+ factors across 5 categories and show you exactly where
           your site needs help — and what it would look like after CalTech Web
           fixes it.
         </p>
