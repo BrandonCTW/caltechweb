@@ -53,7 +53,7 @@ const blogPosts: BlogPost[] = [
     title:
       "How Dr. Arjun Kanuri Increased Website Traffic by 40% and Doubled Conversions in 3 Months",
     metaTitle:
-      "Case Study: 40% Traffic Increase & 2× Conversions in 3 Months | CalTech Web",
+      "40% Traffic Increase & 2× Conversions | CalTech Web",
     metaDescription:
       "See exactly how Dr. Arjun Kanuri's medical practice grew website traffic 40% and doubled patient conversions in 90 days - with a $99/month CalTech Web redesign.",
     excerpt:
@@ -132,7 +132,7 @@ const blogPosts: BlogPost[] = [
     categoryColor: "bg-blue-100 text-blue-700",
     title: "5 Signs Your Small Business Website Needs a Redesign (Right Now)",
     metaTitle:
-      "5 Signs Your Small Business Website Needs a Redesign | CalTech Web",
+      "5 Signs Your Website Needs a Redesign | CalTech Web",
     metaDescription:
       "Is your website hurting your business? Here are 5 clear signs it's time for a redesign - and what to do about it without spending a fortune.",
     excerpt:
@@ -199,7 +199,7 @@ const blogPosts: BlogPost[] = [
     categoryColor: "bg-orange-100 text-orange-700",
     title: "$99/Month vs. DIY Website Builders: Which Is Actually Cheaper?",
     metaTitle:
-      "$99/Month vs. DIY Website Builders: Which Is Cheaper? | CalTech Web",
+      "$99/Mo vs. DIY Website Builders | CalTech Web",
     metaDescription:
       "Wix, Squarespace, and GoDaddy look affordable - until you add up your time, add-ons, and missed conversions. Here's the honest cost comparison.",
     excerpt:
@@ -277,7 +277,7 @@ const blogPosts: BlogPost[] = [
     categoryColor: "bg-purple-100 text-purple-700",
     title: "Church Website Design: 7 Things Every Church Website Needs",
     metaTitle:
-      "Church Website Design: 7 Essentials Every Church Site Needs | CalTech Web",
+      "Church Website Design: 7 Essentials | CalTech Web",
     metaDescription:
       "Your church website is often a visitor's first impression. Here are the 7 things every church website needs to turn visitors into members.",
     excerpt:
@@ -425,7 +425,7 @@ const blogPosts: BlogPost[] = [
     categoryColor: "bg-pink-100 text-pink-700",
     title: "Non-Profit Website Design: How to Get More Donors and Volunteers Online",
     metaTitle:
-      "Non-Profit Website Design: Get More Donors & Volunteers | CalTech Web",
+      "Non-Profit Web Design: More Donors | CalTech Web",
     metaDescription:
       "A non-profit's website should build trust and make it easy to give. Most don't do either. Here's the blueprint for a site that grows your mission.",
     excerpt:
@@ -493,7 +493,7 @@ const blogPosts: BlogPost[] = [
     metaTitle:
       "93% of Website Updates Done in Under 1 Hour | CalTech Web",
     metaDescription:
-      "Your business doesn't wait. Neither should your website. Here's how CalTech Web completes 93% of support requests in under 1 hour - and why it matters for your business.",
+      "Your business doesn't wait. Neither should your website. See how CalTech Web completes 93% of support requests in under 1 hour.",
     excerpt:
       "Your business doesn't wait. Neither should your website. Here's how CalTech Web built a support process that gets most requests turned around in under an hour.",
     readTime: "3 min read",
@@ -559,7 +559,7 @@ const blogPosts: BlogPost[] = [
     title:
       "Mobile-First Website Design: Why 60% of Your Visitors Are Judging You on a Phone",
     metaTitle:
-      "Mobile-First Website Design for Small Businesses | CalTech Web",
+      "Mobile-First Web Design for Small Business | CalTech Web",
     metaDescription:
       "Over 60% of web traffic is mobile. If your site isn't built mobile-first, you're already losing customers. Here's what mobile-first design actually means.",
     excerpt:
@@ -630,7 +630,7 @@ const blogPosts: BlogPost[] = [
     categoryColor: "bg-red-100 text-red-700",
     title: "The Contact Page That Converts: 6 Elements Every Small Business Needs",
     metaTitle:
-      "Contact Page That Converts: 6 Elements Every Business Needs | CalTech Web",
+      "Contact Page That Converts: 6 Key Elements | CalTech Web",
     metaDescription:
       "Most contact pages are an afterthought - but it's the last step before a lead becomes a customer. Here are 6 elements your contact page must have.",
     excerpt:
@@ -700,7 +700,7 @@ const blogPosts: BlogPost[] = [
     title:
       "Your Google Business Profile and Website: How They Work Together to Get You Found",
     metaTitle:
-      "Google Business Profile + Website: Local SEO Strategy | CalTech Web",
+      "Google Business Profile + Website SEO | CalTech Web",
     metaDescription:
       "Most business owners treat their website and Google Business Profile as separate. They're not. Here's how to link them for double the local visibility.",
     excerpt:
@@ -770,9 +770,9 @@ const blogPosts: BlogPost[] = [
     title:
       "Why CalTech Web Is the Most Affordable Web Design Company That Doesn't Cut Corners",
     metaTitle:
-      "Most Affordable Web Design Company That Doesn't Cut Corners | CalTech Web",
+      "Most Affordable Web Design Company | CalTech Web",
     metaDescription:
-      "Looking for an affordable web design company? CalTech Web delivers custom websites at $99/mo with no templates, no contracts, and no compromises. 800+ sites built.",
+      "Looking for an affordable web design company? CalTech Web delivers custom websites at $99/mo. No templates, no contracts, no compromises.",
     excerpt:
       "Budget web designers cut corners. We don't. Here's what makes CalTech Web the most affordable web design company that actually delivers results.",
     readTime: "5 min read",
@@ -843,7 +843,7 @@ const blogPosts: BlogPost[] = [
     title:
       "Affordable Web Design for Small Businesses: What $99/Month Actually Gets You",
     metaTitle:
-      "Affordable Web Design for Small Businesses | $99/Mo | CalTech Web",
+      "Affordable Web Design for Small Businesses | CalTech Web",
     metaDescription:
       "Affordable web design for small businesses doesn't mean cheap. Here's exactly what $99/month gets you - custom design, hosting, updates, and support included.",
     excerpt:
@@ -915,9 +915,9 @@ const blogPosts: BlogPost[] = [
     title:
       "Website Maintenance Requirements: What Every Business Owner Needs to Know",
     metaTitle:
-      "Website Maintenance Requirements for Business Owners | CalTech Web",
+      "Website Maintenance Requirements | CalTech Web",
     metaDescription:
-      "Website maintenance requirements include hosting, SSL, security updates, backups, and content updates. Learn what's needed and how CalTech Web handles it all for $99/mo.",
+      "Website maintenance requirements include hosting, SSL, security updates, backups, and content updates. Learn what your business needs.",
     excerpt:
       "Your website doesn't stop needing attention after it launches. Here's what ongoing maintenance actually involves - and why ignoring it can cost your business.",
     readTime: "5 min read",
@@ -1050,7 +1050,7 @@ const blogPosts: BlogPost[] = [
     title:
       "Web Design vs Web Hosting: What's the Difference and Why It Matters",
     metaTitle:
-      "Web Design vs Web Hosting: What's the Difference? | CalTech Web",
+      "Web Design vs Web Hosting Explained | CalTech Web",
     metaDescription:
       "Web design and web hosting are two different things - but you need both. Learn the difference, why each matters, and how CalTech Web includes both for $99/mo.",
     excerpt:
@@ -1114,7 +1114,7 @@ const blogPosts: BlogPost[] = [
     categoryColor: "bg-blue-100 text-blue-700",
     title: "Who Updates a Website After the Web Designer Finishes?",
     metaTitle:
-      "Who Updates a Website After the Web Designer Finishes? | CalTech Web",
+      "Who Updates Your Website After Launch? | CalTech Web",
     metaDescription:
       "Your website is live - now who keeps it updated? Learn your options for ongoing website updates and why CalTech Web includes unlimited updates for $99/mo.",
     excerpt:
@@ -1182,9 +1182,9 @@ const blogPosts: BlogPost[] = [
     title:
       "Affordable Construction Company Website Design That Wins Contracts",
     metaTitle:
-      "Construction Company Website Design That Wins Contracts | CalTech Web",
+      "Construction Company Website Design | CalTech Web",
     metaDescription:
-      "A professional construction company website builds trust and wins contracts. Learn what contractors need on their site and get one built for $99/mo with CalTech Web.",
+      "A professional construction company website builds trust and wins contracts. Learn what contractors need and get one built for $99/mo.",
     excerpt:
       "Your construction work speaks for itself - but only if potential clients can see it. Here's why a professional website is the most cost-effective marketing tool a contractor can have.",
     readTime: "5 min read",
@@ -1252,7 +1252,7 @@ const blogPosts: BlogPost[] = [
     metaTitle:
       "Affordable Real Estate Website Design | CalTech Web",
     metaDescription:
-      "Stand out from other agents with a professional real estate website. Property listings, IDX integration, lead capture, and local SEO - all for $99/mo with CalTech Web.",
+      "Stand out from other agents with a professional real estate website. Property listings, IDX integration, lead capture, and local SEO for $99/mo.",
     excerpt:
       "Every real estate agent has the same brokerage template. Here's how a custom website helps you stand out, capture leads, and dominate local search in your market.",
     readTime: "5 min read",
@@ -1313,9 +1313,9 @@ const blogPosts: BlogPost[] = [
     categoryColor: "bg-purple-100 text-purple-700",
     title: "How to Post Sermons Online: A Complete Guide for Churches",
     metaTitle:
-      "How to Post Sermons Online: Complete Church Guide | CalTech Web",
+      "How to Post Sermons Online: Church Guide | CalTech Web",
     metaDescription:
-      "Learn how to post sermons online effectively. YouTube embedding, podcast feeds, sermon archives, and best practices for churches. CalTech Web sets this up for $99/mo.",
+      "Learn how to post sermons online. YouTube embedding, podcast feeds, sermon archives, and best practices for churches. Setup included at $99/mo.",
     excerpt:
       "Your sermons should reach more people than just who's in the room on Sunday. Here's exactly how to get your messages online and organized so people can find them.",
     readTime: "5 min read",
@@ -1382,7 +1382,7 @@ const blogPosts: BlogPost[] = [
     metaTitle:
       "Ultimate Guide to Christian Ministry Websites | CalTech Web",
     metaDescription:
-      "The complete guide to building a Christian ministry website. Devotional content, donation systems, volunteer portals, event registration, and outreach tools for churches and ministries.",
+      "The complete guide to building a Christian ministry website. Devotional content, donation systems, volunteer portals, and outreach tools.",
     excerpt:
       "Whether you're a church, a para-church organization, or a faith-based non-profit, this comprehensive guide covers everything your ministry website needs to effectively serve your community and grow your reach.",
     readTime: "8 min read",
@@ -2018,19 +2018,14 @@ function Footer() {
             </h4>
             <ul className="space-y-2 text-sm">
               {[
-                "Small Businesses",
-                "Church Websites",
-                "Non-Profits",
-                "Healthcare",
-                "Real Estate",
-              ].map((s) => (
-                <li key={s}>
-                  <Link
-                    href="/web-design-portfolio/"
-                    className="hover:text-white transition-colors"
-                  >
-                    {s}
-                  </Link>
+                { label: "Small Businesses", href: "/affordable-web-design-company/" },
+                { label: "Church Websites", href: "/affordable-church-websites/" },
+                { label: "Non-Profits", href: "/nonprofit-website-design-tips/" },
+                { label: "Construction", href: "/affordable-construction-company-website/" },
+                { label: "Real Estate", href: "/affordable-real-estate-company-website/" },
+              ].map(({ label, href }) => (
+                <li key={label}>
+                  <Link href={href} className="hover:text-white transition-colors">{label}</Link>
                 </li>
               ))}
             </ul>
@@ -2046,7 +2041,7 @@ function Footer() {
                 { label: "About Brandon", href: "/brandon-hopkins/" },
                 { label: "Portfolio", href: "/web-design-portfolio/" },
                 { label: "Blog", href: "/blog/" },
-                { label: "Get My Website", href: "/get-a-free-instant-quote/" },
+                { label: "Free Report Card", href: "/free-website-report-card/" },
               ].map(({ label, href }) => (
                 <li key={label}>
                   <Link

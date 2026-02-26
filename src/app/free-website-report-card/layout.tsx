@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Free Website Report Card | CalTech Web",
   description:
-    "Get an instant, free website report card. See how your site scores on first impression, mobile experience, trust signals, lead capture, and SEO — plus what CalTech Web would fix.",
+    "Get a free website report card. See how your site scores on first impression, mobile experience, trust signals, lead capture, and SEO.",
   alternates: { canonical: "https://caltechweb.com/free-website-report-card/" },
   openGraph: {
     title: "Free Website Report Card | CalTech Web",

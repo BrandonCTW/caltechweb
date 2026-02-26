@@ -92,6 +92,7 @@ const jsonLd = {
         "@type": "Person",
         name: "Pastor James Watkins",
       },
+      datePublished: "2024-03-22",
       reviewBody:
         "As a church, every dollar matters. $99/month for a professional website with unlimited updates - Brandon even redesigned our site for free when we updated our branding. Couldn't ask for more.",
     },
@@ -106,6 +107,7 @@ const jsonLd = {
         "@type": "Person",
         name: "Christina Beckstead",
       },
+      datePublished: "2024-07-08",
       reviewBody:
         "CalTech Web helped us with our domain, new website, and even solved a situation with image copyright! I highly recommend them for all nonprofit organization websites.",
     },
@@ -731,19 +733,14 @@ function Footer() {
             </h4>
             <ul className="space-y-2 text-sm">
               {[
-                "Small Businesses",
-                "Church Websites",
-                "Non-Profits",
-                "Healthcare",
-                "Real Estate",
-              ].map((s) => (
-                <li key={s}>
-                  <Link
-                    href="/web-design-portfolio/"
-                    className="hover:text-white transition-colors"
-                  >
-                    {s}
-                  </Link>
+                { label: "Small Businesses", href: "/affordable-web-design-company/" },
+                { label: "Church Websites", href: "/affordable-church-websites/" },
+                { label: "Non-Profits", href: "/nonprofit-website-design-tips/" },
+                { label: "Construction", href: "/affordable-construction-company-website/" },
+                { label: "Real Estate", href: "/affordable-real-estate-company-website/" },
+              ].map(({ label, href }) => (
+                <li key={label}>
+                  <Link href={href} className="hover:text-white transition-colors">{label}</Link>
                 </li>
               ))}
             </ul>
@@ -759,7 +756,7 @@ function Footer() {
                 { label: "About Brandon", href: "/brandon-hopkins/" },
                 { label: "Portfolio", href: "/web-design-portfolio/" },
                 { label: "Blog", href: "/blog/" },
-                { label: "Get My Website", href: "/get-a-free-instant-quote/" },
+                { label: "Free Report Card", href: "/free-website-report-card/" },
               ].map(({ label, href }) => (
                 <li key={label}>
                   <Link

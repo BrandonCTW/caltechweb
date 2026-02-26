@@ -2213,9 +2213,15 @@ function Footer() {
           <div>
             <h4 className="text-white font-semibold mb-3 text-sm uppercase tracking-wider">Industries</h4>
             <ul className="space-y-2 text-sm">
-              {["Small Businesses", "Church Websites", "Non-Profits", "Healthcare", "Real Estate"].map((s) => (
-                <li key={s}>
-                  <Link href="/web-design-portfolio/" className="hover:text-white transition-colors">{s}</Link>
+              {[
+                { label: "Small Businesses", href: "/affordable-web-design-company/" },
+                { label: "Church Websites", href: "/affordable-church-websites/" },
+                { label: "Non-Profits", href: "/nonprofit-website-design-tips/" },
+                { label: "Construction", href: "/affordable-construction-company-website/" },
+                { label: "Real Estate", href: "/affordable-real-estate-company-website/" },
+              ].map(({ label, href }) => (
+                <li key={label}>
+                  <Link href={href} className="hover:text-white transition-colors">{label}</Link>
                 </li>
               ))}
             </ul>
@@ -2230,8 +2236,8 @@ function Footer() {
                 { label: "Portfolio", href: "/web-design-portfolio/" },
                 { label: "Pricing", href: "/web-design-pricing/" },
                 { label: "Blog", href: "/blog/" },
+                { label: "Free Report Card", href: "/free-website-report-card/" },
                 { label: "Support", href: "/support/" },
-                { label: "Get My Website", href: "/web-design-pricing/" },
               ].map(({ label, href }) => (
                 <li key={label}>
                   <Link href={href} className="hover:text-white transition-colors">{label}</Link>
