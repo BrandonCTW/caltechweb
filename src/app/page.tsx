@@ -279,7 +279,7 @@ function Hero() {
           <div className="hidden lg:flex flex-col gap-4">
             {/* Layered browser stack - 3 real-looking client sites */}
             <div className="relative h-[340px]">
-              {/* Card 3 (back) - Dr. Arjun Kanuri */}
+              {/* Card 3 (back) - ALV Floors & Cabinets */}
               <div
                 className="absolute top-0 right-0 w-[88%] rounded-2xl border border-white/15 shadow-xl overflow-hidden opacity-60"
                 style={{ transform: "rotate(3deg) translateY(8px)" }}
@@ -291,13 +291,13 @@ function Hero() {
                     <div className="w-2 h-2 rounded-full bg-green-400/70" />
                   </div>
                   <div className="flex-1 bg-white/60 rounded h-3.5 px-2 flex items-center">
-                    <span className="text-[7px] text-gray-500">arjunkanurimd.com</span>
+                    <span className="text-[7px] text-gray-500">alvfloors.com</span>
                   </div>
                 </div>
-                <Image src="/portfolio/arjun-kanuri.png" alt="Arjun Kanuri MD website by CalTech Web" width={600} height={375} className="w-full h-auto" />
+                <Image src="/portfolio/alv-floors.png" alt="ALV Floors & Cabinets website by CalTech Web" width={600} height={375} className="w-full h-auto" />
               </div>
 
-              {/* Card 2 (middle) - Central Baptist Church */}
+              {/* Card 2 (middle) - Longhorn Fire Alarm Design */}
               <div
                 className="absolute top-6 left-0 w-[88%] rounded-2xl border border-white/20 shadow-xl overflow-hidden opacity-80"
                 style={{ transform: "rotate(-2deg) translateY(4px)" }}
@@ -309,13 +309,13 @@ function Hero() {
                     <div className="w-2 h-2 rounded-full bg-green-400/70" />
                   </div>
                   <div className="flex-1 bg-white/60 rounded h-3.5 px-2 flex items-center">
-                    <span className="text-[7px] text-gray-500">centralbaptistpsl.com</span>
+                    <span className="text-[7px] text-gray-500">longhornfirealarmdesign.com</span>
                   </div>
                 </div>
-                <Image src="/portfolio/central-baptist-church.png" alt="Central Baptist Church website by CalTech Web" width={600} height={375} className="w-full h-auto" />
+                <Image src="/portfolio/longhorn-fire-alarm-design.png" alt="Longhorn Fire Alarm Design website by CalTech Web" width={600} height={375} className="w-full h-auto" />
               </div>
 
-              {/* Card 1 (front) - Blacke House Co. */}
+              {/* Card 1 (front) - Specialized Plastic Surgery */}
               <div
                 className="absolute top-14 left-[6%] w-[88%] rounded-2xl border border-white/25 shadow-2xl overflow-hidden"
                 style={{ transform: "rotate(0.5deg)" }}
@@ -328,15 +328,15 @@ function Hero() {
                   </div>
                   <div className="flex-1 bg-white rounded h-3.5 px-2 flex items-center gap-0.5">
                     <Shield className="w-2 h-2 text-green-500 shrink-0" />
-                    <span className="text-[7px] text-gray-600 font-medium">blackehouseco.com</span>
+                    <span className="text-[7px] text-gray-600 font-medium">specializedplasticsurgery.com</span>
                   </div>
                 </div>
-                <Image src="/portfolio/blacke-house-co.png" alt="Blacke House Co website by CalTech Web" width={600} height={375} className="w-full h-auto" />
+                <Image src="/portfolio/specialized-plastic-surgery.png" alt="Specialized Plastic Surgery website by CalTech Web" width={600} height={375} className="w-full h-auto" />
               </div>
 
-              {/* +30% repeat bookings floating badge */}
-              <div className="absolute -bottom-1 right-2 bg-amber-500 text-white rounded-full px-3 py-1.5 shadow-lg shadow-amber-500/30 z-10">
-                <span className="text-xs font-bold">+30% repeat bookings</span>
+              {/* floating badge */}
+              <div className="absolute -bottom-1 right-2 bg-green-500 text-white rounded-full px-3 py-1.5 shadow-lg shadow-green-500/30 z-10">
+                <span className="text-xs font-bold">5x return on web presence</span>
               </div>
             </div>
 
