@@ -280,7 +280,7 @@ function Hero() {
           {/* Right: stacked client showcase */}
           <div className="hidden lg:flex flex-col gap-4">
             {/* Layered browser stack - 3 real-looking client sites */}
-            <div className="relative h-[340px]">
+            <div className="relative h-[420px] overflow-hidden">
               {/* Card 3 (back) - ALV Floors & Cabinets */}
               <div
                 className="absolute top-0 right-0 w-[88%] rounded-2xl border border-white/15 shadow-xl overflow-hidden opacity-60"
