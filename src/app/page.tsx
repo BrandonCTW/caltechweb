@@ -932,77 +932,19 @@ function Transformation() {
                 <div className="flex-1 bg-white rounded h-5 px-2 flex items-center gap-1">
                   <Shield className="w-2.5 h-2.5 text-green-500 shrink-0" />
                   <span className="text-[9px] text-gray-700 font-medium">
-                    mybusiness.com
+                    blackehouseco.com
                   </span>
                 </div>
               </div>
 
-              {/* New site mock */}
-              <div className="bg-white">
-                {/* Clean nav */}
-                <div className="bg-white border-b border-gray-100 px-3 py-2 flex items-center justify-between shadow-sm">
-                  <span className="text-[10px] font-extrabold text-gray-900">
-                    My<span className="text-blue-600">Business</span>
-                  </span>
-                  <div className="flex items-center gap-2.5">
-                    <span className="text-[8px] text-gray-500">Services</span>
-                    <span className="text-[8px] text-gray-500">About</span>
-                    <span className="bg-orange-500 text-white text-[8px] font-bold px-2 py-0.5 rounded-full">
-                      Free Quote
-                    </span>
-                  </div>
-                </div>
-
-                {/* Modern hero */}
-                <div className="bg-gradient-to-br from-blue-700 to-blue-900 px-4 py-5">
-                  <div className="inline-flex items-center gap-1 bg-white/15 border border-white/20 px-2 py-0.5 rounded-full mb-2">
-                    <Star className="w-2.5 h-2.5 text-yellow-400 fill-yellow-400" />
-                    <span className="text-[8px] text-blue-100 font-medium">
-                      800+ websites managed
-                    </span>
-                  </div>
-                  <div className="text-[12px] font-extrabold text-white mb-1 leading-tight">
-                    Professional Services
-                    <br />
-                    for Every Budget
-                  </div>
-                  <div className="text-[8.5px] text-blue-200 mb-3 leading-snug">
-                    Trusted by businesses across California &amp; nationwide
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="bg-orange-500 text-white text-[8px] font-bold px-3 py-1 rounded-full">
-                      Get Free Quote →
-                    </span>
-                    <span className="border border-white/30 text-white/80 text-[8px] px-2 py-1 rounded-full">
-                      (559) 282-3075
-                    </span>
-                  </div>
-                </div>
-
-                {/* Feature cards + mini stats */}
-                <div className="px-3 py-3 space-y-2">
-                  <div className="grid grid-cols-3 gap-1.5">
-                    {[
-                      { label: "Fast Response", bg: "bg-blue-50", text: "text-blue-700" },
-                      { label: "Mobile Ready", bg: "bg-green-50", text: "text-green-700" },
-                      { label: "SEO-Optimized", bg: "bg-purple-50", text: "text-purple-700" },
-                    ].map(({ label, bg, text }) => (
-                      <div
-                        key={label}
-                        className={`${bg} ${text} rounded-lg p-1.5 text-center`}
-                      >
-                        <div className="text-[8px] font-semibold leading-tight">{label}</div>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="flex items-center justify-between bg-green-50 border border-green-100 rounded-lg px-2 py-1.5">
-                    <span className="text-[8px] text-green-800 font-semibold">
-                      +40% traffic · 2× conversions
-                    </span>
-                    <span className="text-[8px] text-green-600 font-bold">↑</span>
-                  </div>
-                </div>
-              </div>
+              {/* Real client site screenshot */}
+              <Image
+                src="/after-screenshot.png"
+                alt="Professional website designed by CalTech Web - Blacke House Co."
+                width={1200}
+                height={800}
+                className="w-full h-auto"
+              />
             </div>
 
             {/* Benefit tags */}
