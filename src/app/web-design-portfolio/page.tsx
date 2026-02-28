@@ -4,7 +4,6 @@ import {
   Phone,
   Globe,
   Star,
-  TrendingUp,
   Check,
   ExternalLink,
   Quote,
@@ -138,12 +137,10 @@ function CategoryBar() {
 type PortfolioItem = {
   name: string;
   category: string;
-  tagline: string;
+  description: string;
+  highlights: string[];
   screenshot: string;
   website: string;
-  accentColor: string;
-  result?: string;
-  featured?: boolean;
   caseStudySlug?: string;
 };
 
@@ -151,115 +148,198 @@ const portfolioItems: PortfolioItem[] = [
   {
     name: "Arjun Kanuri, MD",
     category: "Medical",
-    tagline: "Plastic & reconstructive surgery practice",
+    description:
+      "A full redesign for a plastic & reconstructive surgery practice serving the DC, Maryland, and Virginia area. The site features a trust-building layout with before/after galleries, patient booking, and mobile-first design.",
+    highlights: [
+      "Before & after photo gallery",
+      "Online appointment booking",
+      "Mobile-optimized for patients on the go",
+      "SEO-optimized service pages",
+      "Fast-loading, hosted & secured by CalTech",
+      "Unlimited content updates included",
+    ],
     screenshot: "/portfolio/arjun-kanuri.png",
     website: "https://arjunkanurimd.com",
-    accentColor: "bg-teal-50 text-teal-700",
-    result: "77% of patients search for surgeons online",
-    featured: true,
     caseStudySlug: "dr-arjun-kanuri",
   },
   {
     name: "Blacke House Co.",
     category: "Small Business",
-    tagline: "Luxury event & rental services",
+    description:
+      "A luxury event and rental services company needed a site that felt as premium as their brand. We built a clean, elegant layout with an online catalog, inquiry forms, and a portfolio of past events.",
+    highlights: [
+      "Full-service catalog with categories",
+      "Contact & inquiry forms",
+      "Gallery showcasing past events",
+      "Mobile-responsive design",
+      "Custom branding & typography",
+      "Launched in under 7 days",
+    ],
     screenshot: "/portfolio/blacke-house-co.png",
     website: "https://blackehouseco.com",
-    accentColor: "bg-amber-50 text-amber-700",
-    result: "+30% repeat bookings with online catalog",
   },
   {
     name: "Revival Grace Ministry",
     category: "Church",
-    tagline: "Ministry site with devotionals & community",
+    description:
+      "A ministry site built to share devotionals, sermons, and community resources. The design centers on accessibility and engagement, making it easy for members to connect with content daily.",
+    highlights: [
+      "Devotional & sermon archive",
+      "Community resource pages",
+      "Mobile-friendly for on-the-go reading",
+      "Social media integration",
+      "Hosted & maintained by CalTech",
+      "Unlimited updates at no extra cost",
+    ],
     screenshot: "/portfolio/revival-grace-ministry.png",
     website: "https://revivalgrace.com",
-    accentColor: "bg-indigo-50 text-indigo-700",
-    result: "66% of Bible readers now engage digitally",
   },
   {
     name: "Luana Wellness",
     category: "Small Business",
-    tagline: "Wellness coaching with online booking",
+    description:
+      "A wellness coaching brand needed an online presence that matched their calming, professional approach. We delivered a booking-focused site with service breakdowns and client testimonials.",
+    highlights: [
+      "Online booking integration",
+      "Service & pricing pages",
+      "Client testimonials section",
+      "Mobile-optimized design",
+      "SSL & hosting included",
+      "Free redesign anytime",
+    ],
     screenshot: "/portfolio/luana-wellness.png",
     website: "https://luanawellness.com",
-    accentColor: "bg-green-50 text-green-700",
-    result: "+37% more bookings with online scheduling",
   },
   {
     name: "Specialized Plastic Surgery",
     category: "Medical",
-    tagline: "Multi-location surgical practice in NY & NJ",
+    description:
+      "A multi-location surgical practice across New York and New Jersey required a site that conveys expertise across multiple doctors and procedures, with easy-to-find location info and appointment scheduling.",
+    highlights: [
+      "Multi-location pages with maps",
+      "Doctor bios & credentials",
+      "Procedure detail pages",
+      "Online appointment requests",
+      "Mobile-first patient experience",
+      "Managed & updated by CalTech",
+    ],
     screenshot: "/portfolio/specialized-plastic-surgery.png",
     website: "https://specializedplasticsurgery.com",
-    accentColor: "bg-sky-50 text-sky-700",
-    result: "5x return on every $1 in web presence",
     caseStudySlug: "specialized-plastic-surgery",
   },
   {
     name: "Modolith",
     category: "Small Business",
-    tagline: "Construction & structural services",
+    description:
+      "A construction and structural services company needed a professional site that builds trust with commercial clients. We created a bold, industry-appropriate design with project showcases and service pages.",
+    highlights: [
+      "Project portfolio & showcases",
+      "Service area & capability pages",
+      "Contact & quote request forms",
+      "Professional, industry-appropriate design",
+      "Fast-loading & mobile-responsive",
+      "Hosted & secured by CalTech",
+    ],
     screenshot: "/portfolio/modolith.png",
     website: "https://modolith.com",
-    accentColor: "bg-slate-50 text-slate-700",
-    result: "91% of clients vet contractors online first",
   },
   {
     name: "Meritus Solutions Group",
     category: "Small Business",
-    tagline: "Protective security services",
+    description:
+      "A protective security services firm needed credibility online. We built a site that communicates professionalism and trust, with clear service breakdowns and a streamlined contact flow.",
+    highlights: [
+      "Service & capability breakdowns",
+      "Professional trust-building design",
+      "Contact & consultation forms",
+      "Mobile-responsive layout",
+      "SSL certificate & hosting included",
+      "Priority support from CalTech",
+    ],
     screenshot: "/portfolio/meritus-solutions-group.png",
     website: "https://meritussolutions.com",
-    accentColor: "bg-blue-50 text-blue-700",
-    result: "70% of contract officers research vendors online",
   },
   {
-    name: "Shepherd's Voice Evangelism",
+    name: "Shepherd\u2019s Voice Evangelism",
     category: "Church",
-    tagline: "Ministry training & outreach resources",
+    description:
+      "A ministry training and outreach organization needed a hub for their resources, event info, and donor engagement. We built a content-rich site that serves both supporters and new visitors.",
+    highlights: [
+      "Resource & training library",
+      "Event calendar & registration",
+      "Donation & giving integration",
+      "Mobile-friendly for all ages",
+      "Unlimited content updates",
+      "Launched in under a week",
+    ],
     screenshot: "/portfolio/shepherds-voice-evangelism.png",
     website: "https://shepherdsvoice.com",
-    accentColor: "bg-violet-50 text-violet-700",
-    result: "60% prefer engaging faith content online",
   },
   {
     name: "Nutrinae",
     category: "Small Business",
-    tagline: "Animal health nutritional solutions",
+    description:
+      "An animal health nutritional solutions company needed a B2B-focused site that educates buyers and generates inquiries. We built a clean, informative layout with product pages and a clear CTA flow.",
+    highlights: [
+      "Product & solution pages",
+      "B2B-focused lead generation",
+      "Educational content sections",
+      "Mobile-optimized design",
+      "Custom branding throughout",
+      "Managed & hosted by CalTech",
+    ],
     screenshot: "/portfolio/nutrinae.png",
     website: "https://nutrinae.com",
-    accentColor: "bg-emerald-50 text-emerald-700",
-    result: "80% of B2B buyers decide before they call",
   },
   {
     name: "ALV Floors & Cabinets",
     category: "Contractor",
-    tagline: "Flooring & cabinetry in Tennessee",
+    description:
+      "A flooring and cabinetry contractor in Tennessee needed to show up in local searches and convert visitors into estimates. We built a visually rich site with project galleries and a quote request form.",
+    highlights: [
+      "Project photo galleries",
+      "Free estimate request form",
+      "Local SEO optimized",
+      "Service area & product pages",
+      "Mobile-responsive design",
+      "Unlimited updates included",
+    ],
     screenshot: "/portfolio/alv-floors.png",
     website: "https://alvfloors.com",
-    accentColor: "bg-orange-50 text-orange-700",
-    result: "82% of 'near me' searches convert in 7 days",
     caseStudySlug: "alv-floors",
   },
   {
     name: "Longhorn Fire Alarm Design",
     category: "Small Business",
-    tagline: "Fire alarm design & engineering services",
+    description:
+      "A fire alarm design and engineering firm needed a professional web presence to win contracts. We built a clean, authoritative site with service pages, project history, and easy contact options.",
+    highlights: [
+      "Engineering service breakdowns",
+      "Project history & credentials",
+      "Contact & RFP forms",
+      "Professional, authoritative design",
+      "Fast-loading & mobile-friendly",
+      "Hosted & maintained by CalTech",
+    ],
     screenshot: "/portfolio/longhorn-fire-alarm-design.png",
     website: "https://longhornfirealarmdesign.com",
-    accentColor: "bg-red-50 text-red-700",
-    result: "$47B market by 2030, growing 7% yearly",
     caseStudySlug: "longhorn-fire-alarm-design",
   },
   {
     name: "Central Baptist Church",
     category: "Church",
-    tagline: "Church community in Port Saint Lucie, FL",
+    description:
+      "A church community in Port Saint Lucie, FL needed a modern site to welcome visitors, share sermons, and accept online donations. We delivered a warm, inviting design with integrated giving.",
+    highlights: [
+      "Online giving & donation platform",
+      "Sermon archive & media player",
+      "Event calendar & announcements",
+      "Visitor welcome & info pages",
+      "Mobile-optimized for all ages",
+      "Free redesign anytime",
+    ],
     screenshot: "/portfolio/central-baptist-church.png",
     website: "https://centralbaptistpsl.com",
-    accentColor: "bg-teal-50 text-teal-700",
-    result: "+32% in giving with online donations",
     caseStudySlug: "central-baptist-church",
   },
 ];
@@ -272,135 +352,138 @@ function getDomainFromUrl(url: string): string {
   }
 }
 
-function PortfolioCard({ item }: { item: PortfolioItem }) {
+function PortfolioCard({ item, dark }: { item: PortfolioItem; dark: boolean }) {
   const domain = getDomainFromUrl(item.website);
 
   return (
-    <div className="grid lg:grid-cols-5 gap-8 lg:gap-10 items-center">
-      {/* Left: Browser mockup with screenshot (3 cols) */}
-      <div className="lg:col-span-3">
-        <div className="rounded-2xl border border-white/10 shadow-2xl overflow-hidden bg-gray-800">
-          {/* Browser chrome */}
-          <div className="bg-gray-800 px-4 py-3 flex items-center gap-3 border-b border-white/10">
-            <div className="flex gap-1.5">
-              <div className="w-3 h-3 rounded-full bg-red-400/80" />
-              <div className="w-3 h-3 rounded-full bg-yellow-400/80" />
-              <div className="w-3 h-3 rounded-full bg-green-400/80" />
-            </div>
-            <div className="flex-1 bg-gray-700 rounded-lg h-7 px-3 flex items-center gap-2">
-              <Shield className="w-3 h-3 text-green-400 shrink-0" />
-              <span className="text-xs text-gray-300 font-medium">{domain}</span>
+    <section className={`py-16 lg:py-20 ${dark ? "bg-gray-900" : "bg-gray-800"}`}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-5 gap-8 lg:gap-10 items-center">
+          {/* Left: Browser mockup with screenshot (3 cols) */}
+          <div className="lg:col-span-3">
+            <div className="rounded-2xl border border-white/10 shadow-2xl overflow-hidden bg-gray-800">
+              {/* Browser chrome */}
+              <div className="bg-gray-800 px-4 py-3 flex items-center gap-3 border-b border-white/10">
+                <div className="flex gap-1.5">
+                  <div className="w-3 h-3 rounded-full bg-red-400/80" />
+                  <div className="w-3 h-3 rounded-full bg-yellow-400/80" />
+                  <div className="w-3 h-3 rounded-full bg-green-400/80" />
+                </div>
+                <div className="flex-1 bg-gray-700 rounded-lg h-7 px-3 flex items-center gap-2">
+                  <Shield className="w-3 h-3 text-green-400 shrink-0" />
+                  <span className="text-xs text-gray-300 font-medium">{domain}</span>
+                </div>
+              </div>
+
+              {/* Screenshot */}
+              <a
+                href={item.website}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block group relative"
+              >
+                <Image
+                  src={item.screenshot}
+                  alt={`${item.name} website designed by CalTech Web`}
+                  width={1280}
+                  height={800}
+                  className="w-full h-auto"
+                  sizes="(max-width: 1024px) 100vw, 60vw"
+                />
+                {/* Hover overlay */}
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center">
+                  <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white text-gray-900 font-bold text-sm shadow-lg">
+                    Visit Live Site
+                    <ExternalLink className="w-4 h-4" />
+                  </span>
+                </div>
+              </a>
             </div>
           </div>
 
-          {/* Screenshot */}
-          <a
-            href={item.website}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block group relative"
-          >
-            <Image
-              src={item.screenshot}
-              alt={`${item.name} website designed by CalTech Web`}
-              width={1280}
-              height={800}
-              className="w-full h-auto"
-              sizes="(max-width: 1024px) 100vw, 60vw"
-            />
-            {/* Hover overlay */}
-            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center">
-              <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white text-gray-900 font-bold text-sm shadow-lg">
-                Visit Live Site
+          {/* Right: Details (2 cols) */}
+          <div className="lg:col-span-2">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-xs font-semibold text-amber-400 mb-4">
+              {item.category}
+            </div>
+
+            <h3 className="text-2xl font-extrabold text-white mb-3">
+              {item.name}
+            </h3>
+
+            <p className="text-gray-400 leading-relaxed mb-6">
+              {item.description}
+            </p>
+
+            {/* Highlights checklist */}
+            <div className="space-y-2.5 mb-8">
+              {item.highlights.map((highlight) => (
+                <div key={highlight} className="flex items-center gap-2.5">
+                  <div className="w-5 h-5 rounded-full bg-amber-500/20 flex items-center justify-center shrink-0">
+                    <Check className="w-3 h-3 text-amber-400" strokeWidth={3} />
+                  </div>
+                  <span className="text-sm text-gray-300">{highlight}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* CTA buttons */}
+            <div className="flex flex-col sm:flex-row gap-3">
+              <a
+                href={item.website}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-amber-500 text-white font-bold text-sm hover:bg-amber-600 transition-all shadow-lg shadow-amber-500/20 hover:-translate-y-0.5"
+              >
+                View Live Site
                 <ExternalLink className="w-4 h-4" />
-              </span>
+              </a>
+              {item.caseStudySlug ? (
+                <Link
+                  href={`/portfolio/${item.caseStudySlug}/`}
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full border border-white/20 text-white font-semibold text-sm hover:bg-white/5 transition-all"
+                >
+                  View Case Study
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              ) : (
+                <Link
+                  href="/web-design-pricing/"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full border border-white/20 text-white font-semibold text-sm hover:bg-white/5 transition-all"
+                >
+                  Get a Site Like This
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              )}
             </div>
-          </a>
-        </div>
-      </div>
-
-      {/* Right: Details (2 cols) */}
-      <div className="lg:col-span-2">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-xs font-semibold text-amber-400 mb-4">
-          {item.category}
-        </div>
-
-        <h3 className="text-2xl font-extrabold text-white mb-3">
-          {item.name}
-        </h3>
-
-        <p className="text-gray-400 leading-relaxed mb-6">
-          {item.tagline}
-        </p>
-
-        {item.result && (
-          <div className="flex items-center gap-2.5 mb-6">
-            <div className="w-5 h-5 rounded-full bg-amber-500/20 flex items-center justify-center shrink-0">
-              <TrendingUp className="w-3 h-3 text-amber-400" />
-            </div>
-            <span className="text-sm text-gray-300">{item.result}</span>
           </div>
-        )}
-
-        {/* CTA buttons */}
-        <div className="flex flex-col sm:flex-row gap-3">
-          <a
-            href={item.website}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-amber-500 text-white font-bold text-sm hover:bg-amber-600 transition-all shadow-lg shadow-amber-500/20 hover:-translate-y-0.5"
-          >
-            View Live Site
-            <ExternalLink className="w-4 h-4" />
-          </a>
-          {item.caseStudySlug ? (
-            <Link
-              href={`/portfolio/${item.caseStudySlug}/`}
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full border border-white/20 text-white font-semibold text-sm hover:bg-white/5 transition-all"
-            >
-              View Case Study
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          ) : (
-            <Link
-              href="/web-design-pricing/"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full border border-white/20 text-white font-semibold text-sm hover:bg-white/5 transition-all"
-            >
-              Get a Site Like This
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          )}
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 
 function PortfolioGrid() {
   return (
-    <section className="py-16 bg-gradient-to-b from-gray-950 to-gray-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="space-y-16 lg:space-y-20">
-          {portfolioItems.map((item) => (
-            <PortfolioCard key={item.name} item={item} />
-          ))}
-        </div>
+    <>
+      {portfolioItems.map((item, i) => (
+        <PortfolioCard key={item.name} item={item} dark={i % 2 === 0} />
+      ))}
 
-        {/* Load more hint */}
-        <div className="text-center mt-16 pt-12 border-t border-white/5">
-          <p className="text-gray-500 text-sm mb-4">
-            Showing 12 of <span className="font-semibold text-gray-300">800+</span> websites
-          </p>
-          <Link
-            href="/web-design-pricing/"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-amber-500 text-white font-semibold text-sm hover:bg-amber-600 transition-all shadow-lg shadow-amber-500/20 hover:-translate-y-0.5"
-          >
-            Want one like these? Get My Website
-            <ArrowRight className="w-4 h-4" />
-          </Link>
-        </div>
-      </div>
-    </section>
+      {/* Load more hint */}
+      <section className="py-12 bg-gray-900 text-center">
+        <p className="text-gray-500 text-sm mb-4">
+          Showing 12 of <span className="font-semibold text-gray-300">800+</span> websites
+        </p>
+        <Link
+          href="/web-design-pricing/"
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-amber-500 text-white font-semibold text-sm hover:bg-amber-600 transition-all shadow-lg shadow-amber-500/20 hover:-translate-y-0.5"
+        >
+          Want one like these? Get My Website
+          <ArrowRight className="w-4 h-4" />
+        </Link>
+      </section>
+    </>
   );
 }
 
@@ -635,7 +718,7 @@ const portfolioItemListJsonLd = {
     "@type": "ListItem",
     position: index + 1,
     name: item.name,
-    description: item.tagline,
+    description: item.description,
     url: item.caseStudySlug
       ? `https://caltechweb.com/portfolio/${item.caseStudySlug}/`
       : "https://caltechweb.com/web-design-portfolio/",
