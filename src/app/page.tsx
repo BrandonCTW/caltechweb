@@ -16,6 +16,8 @@ import {
   MessageSquare,
   Palette,
   Headphones,
+  ExternalLink,
+  Sparkles,
 } from "lucide-react";
 import dynamic from "next/dynamic";
 import FAQ from "@/components/FAQ";
@@ -1029,6 +1031,134 @@ function Transformation() {
             Get My Website
             <ArrowRight className="w-5 h-5" />
           </Link>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─── Featured Launch ─────────────────────────────────────────────────────────
+
+function FeaturedLaunch() {
+  const highlights = [
+    "Countdown timer to retreat date",
+    "Speaker bios & agenda",
+    "Online registration form",
+    "Photo gallery from past retreats",
+    "Mobile-optimized design",
+    "Newsletter & social integration",
+  ];
+
+  return (
+    <section className="py-20 bg-gradient-to-br from-gray-900 via-gray-900 to-gray-950 text-white relative overflow-hidden">
+      {/* Decorative elements */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-amber-500/5 rounded-full blur-3xl -translate-y-1/2" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl translate-y-1/2" />
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <div className="text-center mb-10">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/15 border border-amber-500/30 text-sm font-semibold text-amber-300 mb-5">
+            <Sparkles className="w-4 h-4" />
+            Just Launched
+          </div>
+          <h2 className="text-3xl sm:text-4xl font-extrabold mb-4">
+            Our Latest Project Is Live
+          </h2>
+          <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+            We recently built and launched a brand-new website for Madera Men of Integrity — a faith-based men&apos;s retreat serving Central California for 25 years.
+          </p>
+        </div>
+
+        <div className="grid lg:grid-cols-5 gap-10 items-center">
+          {/* Left: Browser mockup with screenshot (3 cols) */}
+          <div className="lg:col-span-3">
+            <div className="rounded-2xl border border-white/10 shadow-2xl overflow-hidden bg-gray-800">
+              {/* Browser chrome */}
+              <div className="bg-gray-800 px-4 py-3 flex items-center gap-3 border-b border-white/10">
+                <div className="flex gap-1.5">
+                  <div className="w-3 h-3 rounded-full bg-red-400/80" />
+                  <div className="w-3 h-3 rounded-full bg-yellow-400/80" />
+                  <div className="w-3 h-3 rounded-full bg-green-400/80" />
+                </div>
+                <div className="flex-1 bg-gray-700 rounded-lg h-7 px-3 flex items-center gap-2">
+                  <Shield className="w-3 h-3 text-green-400 shrink-0" />
+                  <span className="text-xs text-gray-300 font-medium">maderamenofintegrity.com</span>
+                </div>
+              </div>
+
+              {/* Screenshot */}
+              <a
+                href="https://maderamenofintegrity.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block group relative"
+              >
+                <Image
+                  src="/portfolio/madera-men-of-integrity.png"
+                  alt="Madera Men of Integrity website designed by CalTech Web"
+                  width={1280}
+                  height={800}
+                  className="w-full h-auto"
+                  priority
+                />
+                {/* Hover overlay */}
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center">
+                  <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white text-gray-900 font-bold text-sm shadow-lg">
+                    Visit Live Site
+                    <ExternalLink className="w-4 h-4" />
+                  </span>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          {/* Right: Details (2 cols) */}
+          <div className="lg:col-span-2">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-xs font-semibold text-amber-400 mb-4">
+              Church & Ministry
+            </div>
+
+            <h3 className="text-2xl font-extrabold mb-3">
+              Madera Men of Integrity
+            </h3>
+
+            <p className="text-gray-400 leading-relaxed mb-6">
+              A complete website build for the 25th Annual Men&apos;s Retreat at Sugar Pine Christian Camp. The site features a modern dark design with mountain motifs, event countdown, speaker profiles, and online registration.
+            </p>
+
+            {/* Highlights */}
+            <div className="space-y-2.5 mb-8">
+              {highlights.map((item) => (
+                <div key={item} className="flex items-center gap-2.5">
+                  <div className="w-5 h-5 rounded-full bg-amber-500/20 flex items-center justify-center shrink-0">
+                    <Check className="w-3 h-3 text-amber-400" strokeWidth={3} />
+                  </div>
+                  <span className="text-sm text-gray-300">{item}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* CTA */}
+            <div className="flex flex-col sm:flex-row gap-3">
+              <a
+                href="https://maderamenofintegrity.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-amber-500 text-white font-bold text-sm hover:bg-amber-600 transition-all shadow-lg shadow-amber-500/20 hover:-translate-y-0.5"
+              >
+                View Live Site
+                <ExternalLink className="w-4 h-4" />
+              </a>
+              <Link
+                href="/web-design-portfolio/"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full border border-white/30 text-white font-semibold text-sm hover:bg-white/10 transition-all"
+              >
+                See More Work
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -2060,6 +2190,7 @@ export default function HomePage() {
 
         {/* ── Proof: results, portfolio, testimonials ── */}
         <Transformation />
+        <FeaturedLaunch />
         <PortfolioPreview />
         <CaseStudy />
         <Testimonials />
