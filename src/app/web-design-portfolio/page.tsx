@@ -14,6 +14,8 @@ import {
   Utensils,
   Stethoscope,
   ChevronRight,
+  Shield,
+  Sparkles,
 } from "lucide-react";
 import Image from "next/image";
 import Header from "@/components/Header";
@@ -54,33 +56,37 @@ export const metadata: Metadata = {
 
 function Hero() {
   return (
-    <section className="bg-gradient-to-br from-blue-950 via-blue-900 to-blue-800 text-white py-16 lg:py-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-sm font-medium text-blue-100 mb-6">
-          <Star className="w-4 h-4 text-yellow-400 fill-yellow-400" />
+    <section className="bg-gradient-to-br from-gray-900 via-gray-900 to-gray-950 text-white py-16 lg:py-24 relative overflow-hidden">
+      {/* Decorative blurs */}
+      <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-amber-500/5 rounded-full blur-3xl -translate-y-1/2" />
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl translate-y-1/2" />
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/15 border border-amber-500/30 text-sm font-semibold text-amber-300 mb-6">
+          <Star className="w-4 h-4 text-amber-400 fill-amber-400" />
           800+ websites designed &amp; managed nationwide
         </div>
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-6">
           Real Websites for{" "}
-          <span className="text-orange-400">Real Businesses</span>
+          <span className="text-amber-400">Real Businesses</span>
         </h1>
-        <p className="text-lg sm:text-xl text-blue-100 mb-10 max-w-2xl mx-auto leading-relaxed">
+        <p className="text-lg sm:text-xl text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed">
           Every site below was built for{" "}
-          <span className="font-bold text-white">$99/month</span> - custom
+          <span className="font-bold text-amber-300">$99/month</span> - custom
           design, hosting, unlimited updates, and fast support all included.
           No templates. No cookie-cutter layouts.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Link
             href="/web-design-pricing/"
-            className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-orange-500 text-white font-bold text-base hover:bg-orange-600 transition-colors shadow-lg"
+            className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-amber-500 text-white font-bold text-base hover:bg-amber-600 transition-all shadow-lg shadow-amber-500/20 hover:-translate-y-0.5"
           >
             Get My Website
             <ArrowRight className="w-4 h-4" />
           </Link>
           <a
             href="tel:5592823075"
-            className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border-2 border-white/30 text-white font-semibold text-base hover:border-white/60 hover:bg-white/10 transition-colors"
+            className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border-2 border-white/20 text-white font-semibold text-base hover:border-white/40 hover:bg-white/5 transition-colors"
           >
             <Phone className="w-4 h-4" />
             (559) 282-3075
@@ -105,7 +111,7 @@ const categories = [
 
 function CategoryBar() {
   return (
-    <section className="border-b border-gray-100 bg-white sticky top-16 z-40">
+    <section className="border-b border-white/10 bg-gray-900/95 backdrop-blur-md sticky top-16 z-40">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center gap-2 overflow-x-auto py-4 scrollbar-hide">
           {categories.map(({ label, icon: Icon }, i) => (
@@ -113,8 +119,8 @@ function CategoryBar() {
               key={label}
               className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors shrink-0 ${
                 i === 0
-                  ? "bg-blue-600 text-white"
-                  : "bg-gray-100 text-gray-600 hover:bg-blue-50 hover:text-blue-600"
+                  ? "bg-amber-500 text-white"
+                  : "bg-white/5 text-gray-400 border border-white/10 hover:bg-white/10 hover:text-white"
               }`}
             >
               <Icon className="w-3.5 h-3.5" />
@@ -258,19 +264,42 @@ const portfolioItems: PortfolioItem[] = [
   },
 ];
 
+function getDomainFromUrl(url: string): string {
+  try {
+    return new URL(url).hostname.replace(/^www\./, "");
+  } catch {
+    return url;
+  }
+}
+
 function PortfolioCard({ item }: { item: PortfolioItem }) {
+  const domain = getDomainFromUrl(item.website);
+
   return (
     <div
-      className={`group relative bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 ${
+      className={`group relative bg-gray-800 rounded-2xl overflow-hidden border border-white/10 hover:border-white/20 transition-all duration-300 hover:-translate-y-1 ${
         item.featured ? "md:col-span-2" : ""
       }`}
     >
+      {/* Browser chrome bar */}
+      <div className="bg-gray-800 px-3 py-2 flex items-center gap-2.5 border-b border-white/10">
+        <div className="flex gap-1.5">
+          <div className="w-2.5 h-2.5 rounded-full bg-red-400/80" />
+          <div className="w-2.5 h-2.5 rounded-full bg-yellow-400/80" />
+          <div className="w-2.5 h-2.5 rounded-full bg-green-400/80" />
+        </div>
+        <div className="flex-1 bg-gray-700 rounded-md h-6 px-2.5 flex items-center gap-1.5">
+          <Shield className="w-2.5 h-2.5 text-green-400 shrink-0" />
+          <span className="text-[11px] text-gray-300 font-medium truncate">{domain}</span>
+        </div>
+      </div>
+
       {/* Website screenshot — links to external client site */}
       <a
         href={item.website}
         target="_blank"
         rel="noopener noreferrer"
-        className="block relative h-48 sm:h-56 bg-gray-100 overflow-hidden"
+        className="block relative h-48 sm:h-56 bg-gray-900 overflow-hidden"
       >
         <Image
           src={item.screenshot}
@@ -281,33 +310,33 @@ function PortfolioCard({ item }: { item: PortfolioItem }) {
         />
 
         {/* Hover overlay */}
-        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
-          <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 px-4 py-2 rounded-full bg-white/90 shadow-lg text-gray-800 text-sm font-semibold flex items-center gap-1.5">
-            <ExternalLink className="w-3.5 h-3.5" />
-            Visit Site
-          </div>
+        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center">
+          <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white text-gray-900 font-bold text-sm shadow-lg">
+            Visit Live Site
+            <ExternalLink className="w-4 h-4" />
+          </span>
         </div>
       </a>
 
       {/* Card body */}
       <div className="p-5">
         <div className="flex items-start justify-between gap-3 mb-2">
-          <h3 className="font-bold text-gray-900 text-base leading-snug">{item.name}</h3>
-          <span className={`shrink-0 text-xs font-semibold px-2.5 py-1 rounded-full ${item.accentColor}`}>
+          <h3 className="font-bold text-white text-base leading-snug">{item.name}</h3>
+          <span className="shrink-0 text-xs font-semibold px-2.5 py-1 rounded-full bg-amber-500/15 border border-amber-500/30 text-amber-300">
             {item.category}
           </span>
         </div>
-        <p className="text-sm text-gray-500 leading-relaxed">{item.tagline}</p>
+        <p className="text-sm text-gray-400 leading-relaxed">{item.tagline}</p>
         {item.result && (
-          <div className="mt-3 flex items-center gap-1.5 text-xs font-semibold text-green-700">
-            <TrendingUp className="w-3.5 h-3.5 text-green-600" />
+          <div className="mt-3 flex items-center gap-1.5 text-xs font-semibold text-amber-400">
+            <TrendingUp className="w-3.5 h-3.5 text-amber-400" />
             {item.result}
           </div>
         )}
         {item.caseStudySlug && (
           <Link
             href={`/portfolio/${item.caseStudySlug}/`}
-            className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-blue-600 hover:text-blue-800 transition-colors"
+            className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-amber-400 hover:text-amber-300 transition-colors"
           >
             View Case Study
             <ChevronRight className="w-3 h-3" />
@@ -320,7 +349,7 @@ function PortfolioCard({ item }: { item: PortfolioItem }) {
 
 function PortfolioGrid() {
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="py-16 bg-gradient-to-b from-gray-950 to-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {portfolioItems.map((item) => (
@@ -331,11 +360,11 @@ function PortfolioGrid() {
         {/* Load more hint */}
         <div className="text-center mt-12">
           <p className="text-gray-500 text-sm mb-4">
-            Showing 12 of <span className="font-semibold text-gray-700">800+</span> websites
+            Showing 12 of <span className="font-semibold text-gray-300">800+</span> websites
           </p>
           <Link
             href="/web-design-pricing/"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-blue-600 text-white font-semibold text-sm hover:bg-blue-700 transition-colors shadow-sm"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-amber-500 text-white font-semibold text-sm hover:bg-amber-600 transition-all shadow-lg shadow-amber-500/20 hover:-translate-y-0.5"
           >
             Want one like these? Get My Website
             <ArrowRight className="w-4 h-4" />
@@ -357,41 +386,61 @@ function CaseStudy() {
   ];
 
   return (
-    <section className="py-20 bg-white border-t border-gray-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-20 bg-gray-950 border-t border-white/5 relative overflow-hidden">
+      {/* Decorative blur */}
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-amber-500/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/4" />
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section label */}
         <div className="text-center mb-12">
-          <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-50 border border-green-200 text-sm font-semibold text-green-700">
-            <TrendingUp className="w-4 h-4" />
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/15 border border-amber-500/30 text-sm font-semibold text-amber-300">
+            <Sparkles className="w-4 h-4" />
             Featured Case Study
           </span>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Real site screenshot */}
-          <div className="relative h-80 rounded-2xl overflow-hidden shadow-2xl">
-            <Image
-              src="/portfolio/arjun-kanuri.png"
-              alt="Dr. Arjun Kanuri website designed by CalTech Web"
-              fill
-              priority
-              className="object-cover object-top"
-              sizes="(max-width: 1024px) 100vw, 50vw"
-            />
+          {/* Browser chrome mockup with screenshot */}
+          <div className="rounded-2xl border border-white/10 shadow-2xl overflow-hidden bg-gray-800">
+            {/* Browser chrome */}
+            <div className="bg-gray-800 px-4 py-3 flex items-center gap-3 border-b border-white/10">
+              <div className="flex gap-1.5">
+                <div className="w-3 h-3 rounded-full bg-red-400/80" />
+                <div className="w-3 h-3 rounded-full bg-yellow-400/80" />
+                <div className="w-3 h-3 rounded-full bg-green-400/80" />
+              </div>
+              <div className="flex-1 bg-gray-700 rounded-lg h-7 px-3 flex items-center gap-2">
+                <Shield className="w-3 h-3 text-green-400 shrink-0" />
+                <span className="text-xs text-gray-300 font-medium">arjunkanurimd.com</span>
+              </div>
+            </div>
 
-            {/* Floating badge */}
-            <div className="absolute top-4 right-4 bg-green-500 text-white rounded-xl px-3 py-2 shadow-lg text-center">
-              <div className="text-2xl font-extrabold leading-none">77%</div>
-              <div className="text-xs font-medium opacity-90">Search Online</div>
+            {/* Screenshot */}
+            <div className="relative">
+              <Image
+                src="/portfolio/arjun-kanuri.png"
+                alt="Dr. Arjun Kanuri website designed by CalTech Web"
+                width={1280}
+                height={800}
+                priority
+                className="w-full h-auto"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+
+              {/* Floating badge */}
+              <div className="absolute top-4 right-4 bg-amber-500 text-white rounded-xl px-3 py-2 shadow-lg text-center">
+                <div className="text-2xl font-extrabold leading-none">77%</div>
+                <div className="text-xs font-medium opacity-90">Search Online</div>
+              </div>
             </div>
           </div>
 
           {/* Copy */}
           <div>
-            <h2 className="text-3xl lg:text-4xl font-extrabold text-gray-900 mb-4 leading-tight">
+            <h2 className="text-3xl lg:text-4xl font-extrabold text-white mb-4 leading-tight">
               77% of Patients Find Their Surgeon Online
             </h2>
-            <p className="text-gray-600 text-base leading-relaxed mb-6">
+            <p className="text-gray-400 text-base leading-relaxed mb-6">
               Dr. Arjun Kanuri has been a CalTech Web client for over 9 years.
               His practice site was redesigned with a modern, mobile-first layout,
               clear patient booking flow, and trust-building content that showcases
@@ -402,26 +451,26 @@ function CaseStudy() {
             <div className="grid grid-cols-4 gap-4 mb-8">
               {results.map(({ stat, label }) => (
                 <div key={label} className="text-center">
-                  <div className="text-2xl lg:text-3xl font-extrabold text-blue-600 mb-1">{stat}</div>
+                  <div className="text-2xl lg:text-3xl font-extrabold text-amber-400 mb-1">{stat}</div>
                   <div className="text-xs text-gray-500 leading-snug">{label}</div>
                 </div>
               ))}
             </div>
 
             {/* Testimonial */}
-            <div className="relative bg-gray-50 rounded-2xl p-6 mb-8">
-              <Quote className="absolute top-4 left-4 w-6 h-6 text-blue-200" />
-              <blockquote className="pl-4 text-gray-700 text-sm leading-relaxed italic">
-                "Brandon's expertise and genuine care for my success have been game-changers.
+            <div className="relative bg-white/5 border border-white/10 rounded-2xl p-6 mb-8">
+              <Quote className="absolute top-4 left-4 w-6 h-6 text-amber-500/30" />
+              <blockquote className="pl-4 text-gray-300 text-sm leading-relaxed italic">
+                &quot;Brandon&apos;s expertise and genuine care for my success have been game-changers.
                 Thanks to CalTech Web, my professional image has never looked better, and my
-                business is thriving like never before."
+                business is thriving like never before.&quot;
               </blockquote>
               <div className="flex items-center gap-3 mt-4 pl-4">
-                <div className="w-9 h-9 rounded-full bg-teal-100 flex items-center justify-center text-teal-700 font-bold text-sm">
+                <div className="w-9 h-9 rounded-full bg-amber-500/20 flex items-center justify-center text-amber-400 font-bold text-sm">
                   AK
                 </div>
                 <div>
-                  <div className="text-sm font-semibold text-gray-900">Dr. Arjun Kanuri, MD, MBA</div>
+                  <div className="text-sm font-semibold text-white">Dr. Arjun Kanuri, MD, MBA</div>
                   <div className="text-xs text-gray-500">Plastic & Reconstructive Surgery, DC/MD/VA</div>
                 </div>
                 <div className="ml-auto flex">
@@ -434,7 +483,7 @@ function CaseStudy() {
 
             <Link
               href="/web-design-pricing/"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-orange-500 text-white font-bold hover:bg-orange-600 transition-colors shadow-md"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-amber-500 text-white font-bold hover:bg-amber-600 transition-all shadow-lg shadow-amber-500/20 hover:-translate-y-0.5"
             >
               I Want Results Like This
               <ArrowRight className="w-4 h-4" />
@@ -461,21 +510,21 @@ const includes = [
 
 function WhatsIncluded() {
   return (
-    <section className="py-16 bg-blue-950 text-white">
+    <section className="py-16 bg-gradient-to-b from-gray-900 to-gray-950 text-white border-t border-white/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
             <h2 className="text-3xl lg:text-4xl font-extrabold mb-4 leading-tight">
               Every Site in Our Portfolio Costs{" "}
-              <span className="text-orange-400">$99/month</span>
+              <span className="text-amber-400">$99/month</span>
             </h2>
-            <p className="text-blue-200 text-base leading-relaxed mb-8">
+            <p className="text-gray-400 text-base leading-relaxed mb-8">
               No surprises. No upsells. Everything you need to look
               professional and grow online - bundled into one flat monthly fee.
             </p>
             <Link
               href="/web-design-pricing/"
-              className="inline-flex items-center gap-2 text-blue-300 font-semibold hover:text-white transition-colors text-sm"
+              className="inline-flex items-center gap-2 text-amber-400 font-semibold hover:text-amber-300 transition-colors text-sm"
             >
               See full pricing details
               <ChevronRight className="w-4 h-4" />
@@ -487,11 +536,11 @@ function WhatsIncluded() {
                 key={item}
                 className="flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl px-4 py-3"
               >
-                <div className="w-5 h-5 rounded-full bg-green-500/20 flex items-center justify-center shrink-0">
-                  <Check className="w-3 h-3 text-green-400" />
+                <div className="w-5 h-5 rounded-full bg-amber-500/20 flex items-center justify-center shrink-0">
+                  <Check className="w-3 h-3 text-amber-400" />
                 </div>
                 <span
-                  className="text-sm text-blue-100"
+                  className="text-sm text-gray-300"
                   dangerouslySetInnerHTML={{ __html: item }}
                 />
               </div>
@@ -507,33 +556,36 @@ function WhatsIncluded() {
 
 function FinalCTA() {
   return (
-    <section className="py-20 bg-white border-t border-gray-100">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-3xl lg:text-4xl font-extrabold text-gray-900 mb-4 leading-tight">
+    <section className="py-20 bg-gray-950 border-t border-white/5 relative overflow-hidden">
+      {/* Decorative blur */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-amber-500/5 rounded-full blur-3xl" />
+
+      <div className="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 className="text-3xl lg:text-4xl font-extrabold text-white mb-4 leading-tight">
           Ready to Join 800+ Happy Clients?
         </h2>
-        <p className="text-gray-600 text-base leading-relaxed mb-8">
-          Tell us about your business and we'll get started on your new site.
+        <p className="text-gray-400 text-base leading-relaxed mb-8">
+          Tell us about your business and we&apos;ll get started on your new site.
           It can be live in as few as 5 days.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Link
             href="/web-design-pricing/"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-orange-500 text-white font-bold text-base hover:bg-orange-600 transition-colors shadow-lg"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-amber-500 text-white font-bold text-base hover:bg-amber-600 transition-all shadow-lg shadow-amber-500/20 hover:-translate-y-0.5"
           >
             Get My Website
             <ArrowRight className="w-4 h-4" />
           </Link>
           <a
             href="tel:5592823075"
-            className="inline-flex items-center gap-2 text-gray-600 hover:text-blue-600 transition-colors font-semibold"
+            className="inline-flex items-center gap-2 text-gray-400 hover:text-amber-400 transition-colors font-semibold"
           >
             <Phone className="w-4 h-4" />
             Call (559) 282-3075
           </a>
         </div>
-        <p className="text-sm text-gray-400 mt-6">
-          Not happy? Get a refund and keep your website. That's Brandon's personal guarantee.
+        <p className="text-sm text-gray-600 mt-6">
+          Not happy? Get a refund and keep your website. That&apos;s Brandon&apos;s personal guarantee.
         </p>
       </div>
     </section>
