@@ -19,12 +19,15 @@ import {
   Mail,
   Globe,
   MessageSquare,
+  ChevronDown,
+  HelpCircle,
 } from "lucide-react";
 import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import { useState, FormEvent } from "react";
+import { rfpFaqs } from "./faq-data";
 
 // ─── Hero ─────────────────────────────────────────────────────────────────────
 
@@ -331,16 +334,54 @@ function WhatIsIncluded() {
 
 function RFPForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [organization, setOrganization] = useState("");
+  const [orgType, setOrgType] = useState("");
   const [website, setWebsite] = useState("");
   const [details, setDetails] = useState("");
 
-  function handleSubmit(e: FormEvent) {
+  async function handleSubmit(e: FormEvent) {
     e.preventDefault();
-    // In production, this would POST to an API route
+    setSending(true);
+    setError("");
+
+    const subject = encodeURIComponent(
+      `Website Design RFP from ${organization}${orgType ? ` (${orgType})` : ""}`
+    );
+    const body = encodeURIComponent(
+      `Contact: ${name}\nEmail: ${email}\nOrganization: ${organization}\nOrganization Type: ${orgType || "Not specified"}\nCurrent Website: ${website || "None"}\n\nProject Requirements:\n${details}`
+    );
+
+    try {
+      // Attempt API submission first
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name,
+          email,
+          organization,
+          orgType,
+          website,
+          message: details,
+          source: "rfp-rfq",
+        }),
+      });
+      if (res.ok) {
+        setSubmitted(true);
+        return;
+      }
+    } catch {
+      // API not available — fall through to mailto
+    }
+
+    // Fallback: open mailto so the submission still reaches Brandon
+    window.location.href = `mailto:Brandon@CalTechWeb.com?subject=${subject}&body=${body}`;
     setSubmitted(true);
+    setSending(false);
   }
 
   if (submitted) {
@@ -454,22 +495,50 @@ function RFPForm() {
 
             <div>
               <label
-                htmlFor="website"
+                htmlFor="orgType"
                 className="block text-sm font-semibold text-gray-700 mb-1.5"
               >
-                Current Website (if any)
+                Organization Type
               </label>
               <div className="relative">
-                <Globe className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
-                <input
-                  type="url"
-                  id="website"
-                  value={website}
-                  onChange={(e) => setWebsite(e.target.value)}
-                  placeholder="https://currentsite.org"
-                  className="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                />
+                <Building2 className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+                <select
+                  id="orgType"
+                  value={orgType}
+                  onChange={(e) => setOrgType(e.target.value)}
+                  className="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white appearance-none"
+                >
+                  <option value="">Select one...</option>
+                  <option value="Government Agency">Government Agency</option>
+                  <option value="Non-Profit Organization">Non-Profit Organization</option>
+                  <option value="Church / Ministry">Church / Ministry</option>
+                  <option value="School District / Education">School District / Education</option>
+                  <option value="Small Business">Small Business</option>
+                  <option value="Mid-Size Business">Mid-Size Business</option>
+                  <option value="Other">Other</option>
+                </select>
+                <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
               </div>
+            </div>
+          </div>
+
+          <div>
+            <label
+              htmlFor="website"
+              className="block text-sm font-semibold text-gray-700 mb-1.5"
+            >
+              Current Website (if any)
+            </label>
+            <div className="relative">
+              <Globe className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+              <input
+                type="url"
+                id="website"
+                value={website}
+                onChange={(e) => setWebsite(e.target.value)}
+                placeholder="https://currentsite.org"
+                className="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              />
             </div>
           </div>
 
@@ -494,12 +563,47 @@ function RFPForm() {
             </div>
           </div>
 
+          {error && (
+            <div className="rounded-xl bg-red-50 border border-red-200 px-4 py-3 text-sm text-red-700">
+              {error}
+            </div>
+          )}
+
           <button
             type="submit"
-            className="flex items-center justify-center gap-2 w-full px-8 py-4 rounded-full bg-orange-500 text-white text-lg font-bold hover:bg-orange-600 transition-all shadow-lg hover:shadow-orange-500/25 hover:-translate-y-0.5"
+            disabled={sending}
+            className="flex items-center justify-center gap-2 w-full px-8 py-4 rounded-full bg-orange-500 text-white text-lg font-bold hover:bg-orange-600 transition-all shadow-lg hover:shadow-orange-500/25 hover:-translate-y-0.5 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0"
           >
-            Submit Project Requirements
-            <ArrowRight className="w-5 h-5" />
+            {sending ? (
+              <>
+                <svg
+                  className="w-5 h-5 animate-spin"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <circle
+                    className="opacity-25"
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="currentColor"
+                    strokeWidth="4"
+                  />
+                  <path
+                    className="opacity-75"
+                    fill="currentColor"
+                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
+                  />
+                </svg>
+                Submitting...
+              </>
+            ) : (
+              <>
+                Submit Project Requirements
+                <ArrowRight className="w-5 h-5" />
+              </>
+            )}
           </button>
 
           <p className="text-center text-xs text-gray-400">
@@ -620,6 +724,68 @@ function Testimonials() {
   );
 }
 
+// ─── FAQ ──────────────────────────────────────────────────────────────────────
+
+function FAQ() {
+  return (
+    <section className="py-16 sm:py-24 bg-gray-50">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-blue-700 text-sm font-semibold mb-4">
+            <HelpCircle className="w-4 h-4" />
+            Procurement FAQ
+          </div>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900">
+            RFP &amp; Procurement Questions, Answered
+          </h2>
+          <p className="text-gray-500 mt-3 max-w-xl mx-auto">
+            Common questions from procurement officers, project managers, and
+            decision-makers evaluating CalTech Web as a vendor.
+          </p>
+        </div>
+
+        <div className="space-y-3">
+          {rfpFaqs.map(({ q, a }) => (
+            <details
+              key={q}
+              className="group bg-white border border-gray-100 rounded-xl shadow-sm overflow-hidden"
+            >
+              <summary className="flex items-center justify-between px-6 py-4 cursor-pointer list-none select-none">
+                <span className="font-semibold text-gray-900 pr-4">{q}</span>
+                <ChevronDown className="w-5 h-5 text-gray-400 shrink-0 transition-transform group-open:rotate-180" />
+              </summary>
+              <div className="px-6 pb-5 text-gray-600 text-sm leading-relaxed border-t border-gray-50 pt-4">
+                {a}
+              </div>
+            </details>
+          ))}
+        </div>
+
+        <div className="mt-10 text-center">
+          <p className="text-gray-500 text-sm mb-4">
+            Have a procurement question that&apos;s not listed here?
+          </p>
+          <div className="flex flex-wrap justify-center gap-4">
+            <a
+              href="tel:5592823075"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-gray-200 text-gray-700 text-sm font-semibold hover:border-blue-300 hover:bg-blue-50 transition-colors"
+            >
+              <Phone className="w-4 h-4 text-blue-600" />
+              (559) 282-3075
+            </a>
+            <a
+              href="mailto:Brandon@CalTechWeb.com"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-gray-200 text-gray-700 text-sm font-semibold hover:border-blue-300 hover:bg-blue-50 transition-colors"
+            >
+              Brandon@CalTechWeb.com
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 // ─── Final CTA ───────────────────────────────────────────────────────────────
 
 function FinalCTA() {
@@ -713,6 +879,7 @@ export default function WebsiteDesignRFPPage() {
         <WhatIsIncluded />
         <RFPForm />
         <Testimonials />
+        <FAQ />
         <FinalCTA />
       </main>
       <Footer />

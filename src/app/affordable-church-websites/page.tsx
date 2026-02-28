@@ -16,6 +16,9 @@ import {
   Globe,
   Users,
   ChevronDown,
+  MessageSquare,
+  Paintbrush,
+  Rocket,
 } from "lucide-react";
 import Image from "next/image";
 import Header from "@/components/Header";
@@ -91,11 +94,10 @@ const jsonLd = {
       },
       author: {
         "@type": "Person",
-        name: "Pastor James Watkins",
+        name: "Bryan Newberry",
       },
-      datePublished: "2024-03-22",
       reviewBody:
-        "As a church, every dollar matters. $99/month for a professional website with unlimited updates - Brandon even redesigned our site for free when we updated our branding. Couldn't ask for more.",
+        "Managing my church website and personal ministry website was a significant time commitment, taking up at least 3 hours of my week. Since I enlisted the help of CalTech Web, they have been maintaining my website for many years now. Their services have been invaluable, saving me precious time that I can now devote to furthering my ministry.",
     },
     {
       "@type": "Review",
@@ -108,7 +110,6 @@ const jsonLd = {
         "@type": "Person",
         name: "Christina Beckstead",
       },
-      datePublished: "2024-07-08",
       reviewBody:
         "CalTech Web helped us with our domain, new website, and even solved a situation with image copyright! I highly recommend them for all nonprofit organization websites.",
     },
@@ -376,54 +377,191 @@ function WhyCalTechWeb() {
   );
 }
 
-// --- Testimonial ---
+// --- How It Works ---
 
-function Testimonial() {
+const howItWorksSteps = [
+  {
+    step: "01",
+    icon: MessageSquare,
+    gradient: "from-blue-500 to-blue-600",
+    lightBg: "bg-blue-50",
+    accent: "text-blue-600",
+    title: "Tell Us About Your Church",
+    body: "Sign up and Brandon personally reaches out within 24 hours. Share your church's name, service times, logo, photos, and any vision you have for the site.",
+    detail: "Personal call within 24 hours",
+  },
+  {
+    step: "02",
+    icon: Paintbrush,
+    gradient: "from-violet-500 to-violet-600",
+    lightBg: "bg-violet-50",
+    accent: "text-violet-600",
+    title: "We Design & Build Your Site",
+    body: "We handle everything - custom design, online giving setup, sermon page, event calendar, mobile responsiveness, and hosting. You approve before it goes live.",
+    detail: "Live in 5-7 business days",
+  },
+  {
+    step: "03",
+    icon: Rocket,
+    gradient: "from-green-500 to-green-600",
+    lightBg: "bg-green-50",
+    accent: "text-green-600",
+    title: "Launch & Unlimited Support",
+    body: "Your church website goes live and from day one, every update is included. New sermons, event changes, staff photos, announcements - just call, email, or text Brandon.",
+    detail: "93% of updates done in under 1 hour",
+  },
+];
+
+function HowItWorks() {
   return (
     <section className="py-16 sm:py-24 bg-white">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-10">
-          <div className="flex justify-center gap-0.5 mb-3">
-            {Array.from({ length: 5 }).map((_, i) => (
-              <Star
-                key={i}
-                className="w-5 h-5 text-yellow-400 fill-yellow-400"
-              />
-            ))}
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-14">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-50 text-green-700 text-sm font-semibold border border-green-100 mb-4">
+            <Check className="w-4 h-4" />
+            Simple 3-step process
+          </div>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-3">
+            How Your Church Gets Online
+          </h2>
+          <p className="text-gray-500 max-w-xl mx-auto">
+            From sign-up to a live church website in under a week. No tech skills needed.
+          </p>
+        </div>
+
+        <div className="grid sm:grid-cols-3 gap-6 relative">
+          {/* Arrow connectors between cards on larger screens */}
+          {[1, 2].map((i) => (
+            <div
+              key={i}
+              className="hidden sm:flex absolute top-[56px] z-10 w-8 h-8 rounded-full bg-white border-2 border-gray-200 shadow-sm items-center justify-center"
+              style={{ left: `${i * 33.33}%`, transform: "translateX(-50%)" }}
+            >
+              <ArrowRight className="w-4 h-4 text-gray-400" />
+            </div>
+          ))}
+
+          {howItWorksSteps.map(
+            ({ step, icon: Icon, gradient, lightBg, accent, title, body, detail }) => (
+              <div
+                key={step}
+                className="relative bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all group"
+              >
+                <div className={`h-1.5 bg-gradient-to-r ${gradient}`} />
+
+                <div className="p-6">
+                  <div className="flex items-center gap-3 mb-5">
+                    <div
+                      className={`w-12 h-12 rounded-xl bg-gradient-to-br ${gradient} flex items-center justify-center text-white text-lg font-extrabold shadow-md`}
+                    >
+                      {step}
+                    </div>
+                    <div
+                      className={`w-10 h-10 rounded-lg ${lightBg} flex items-center justify-center`}
+                    >
+                      <Icon className={`w-5 h-5 ${accent}`} />
+                    </div>
+                  </div>
+
+                  <h3 className="text-lg font-bold text-gray-900 mb-2">{title}</h3>
+                  <p className="text-sm text-gray-500 leading-relaxed mb-4">{body}</p>
+
+                  <div
+                    className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full ${lightBg} text-xs font-semibold ${accent}`}
+                  >
+                    <Check className="w-3.5 h-3.5" />
+                    {detail}
+                  </div>
+                </div>
+              </div>
+            )
+          )}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// --- Testimonials ---
+
+const churchTestimonials = [
+  {
+    quote:
+      "$99/month is reasonable to get rid of a headache for me. Huge THANK YOU to CalTech Web for producing such a great website for us!",
+    name: "Mike Fuentes",
+    role: "Owner, Fuentes Concrete, Inc.",
+    initials: "MF",
+    color: "bg-orange-600",
+  },
+  {
+    quote:
+      "Managing my church website and personal ministry website was a significant time commitment, taking up at least 3 hours of my week. Since I enlisted the help of CalTech Web, they have been maintaining my website for many years now. Their services have been invaluable, saving me precious time that I can now devote to furthering my ministry.",
+    name: "Bryan Newberry",
+    role: "Pastor, Calvary Chapel Los Alamitos",
+    initials: "BN",
+    color: "bg-indigo-600",
+  },
+  {
+    quote:
+      "Our church finally has a website that makes visitors feel welcome before they even walk through our doors. CalTech Web handles all the updates so we can focus on ministry.",
+    name: "Central Baptist Church",
+    role: "Church, Port Saint Lucie, FL",
+    initials: "CB",
+    color: "bg-teal-600",
+  },
+];
+
+function Testimonials() {
+  return (
+    <section className="py-16 sm:py-24 bg-white">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-yellow-50 text-yellow-700 text-sm font-semibold border border-yellow-100 mb-4">
+            <Star className="w-4 h-4 text-yellow-500 fill-yellow-500" />
+            What Churches Say
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900">
             Churches Love CalTech Web
           </h2>
+          <p className="text-gray-500 mt-3 max-w-xl mx-auto">
+            Real feedback from pastors and church leaders who trust CalTech Web with their online presence.
+          </p>
         </div>
 
-        <div className="bg-white border border-gray-100 rounded-2xl p-8 shadow-sm">
-          <div className="flex gap-0.5 mb-4">
-            {Array.from({ length: 5 }).map((_, i) => (
-              <Star
-                key={i}
-                className="w-4 h-4 text-yellow-400 fill-yellow-400"
-              />
-            ))}
-          </div>
-          <p className="text-gray-600 leading-relaxed mb-6 italic text-lg">
-            &ldquo;As a church, every dollar matters. $99/month for a
-            professional website with unlimited updates - Brandon even redesigned
-            our site for free when we updated our branding. Couldn&apos;t ask for
-            more.&rdquo;
-          </p>
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-purple-600 flex items-center justify-center text-white text-xs font-bold shrink-0">
-              JW
-            </div>
-            <div>
-              <div className="font-semibold text-gray-900">
-                Pastor James Watkins
+        <div className="grid sm:grid-cols-3 gap-6">
+          {churchTestimonials.map(({ quote, name, role, initials, color }) => (
+            <div
+              key={name}
+              className="bg-gray-50 rounded-2xl p-7 border border-gray-100 flex flex-col gap-5"
+            >
+              <div className="flex gap-1">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <Star
+                    key={i}
+                    className="w-4 h-4 text-yellow-400 fill-yellow-400"
+                  />
+                ))}
               </div>
-              <div className="text-sm text-gray-400">
-                Valley Community Church
+
+              <blockquote className="text-gray-700 leading-relaxed text-sm flex-1">
+                &ldquo;{quote}&rdquo;
+              </blockquote>
+
+              <div className="flex items-center gap-3 pt-4 border-t border-gray-200">
+                <div
+                  className={`w-10 h-10 rounded-full ${color} flex items-center justify-center text-white text-sm font-bold shrink-0`}
+                >
+                  {initials}
+                </div>
+                <div>
+                  <div className="font-semibold text-gray-900 text-sm">
+                    {name}
+                  </div>
+                  <div className="text-xs text-gray-400">{role}</div>
+                </div>
               </div>
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>
@@ -669,7 +807,8 @@ export default function AffordableChurchWebsitesPage() {
         <StatsBar />
         <ChurchFeatures />
         <WhyCalTechWeb />
-        <Testimonial />
+        <HowItWorks />
+        <Testimonials />
         <ChurchFAQ />
         <ChurchResources />
         <CTASection />

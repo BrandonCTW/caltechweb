@@ -13,7 +13,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/affordable-church-websites/",
     "/web-design-competitor-comparison/",
     "/get-a-free-instant-quote/",
-    "/video-website-audit/",
     "/website-design-rfp-rfq/",
     "/free-website-report-card/",
   ];

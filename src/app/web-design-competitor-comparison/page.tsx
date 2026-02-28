@@ -308,6 +308,129 @@ const featureRows = [
   "5-7 day launch",
 ];
 
+function FeatureValue({
+  val,
+  highlight,
+}: {
+  val: boolean | string;
+  highlight: boolean;
+}) {
+  if (val === true) {
+    return (
+      <div className="flex justify-center">
+        <div
+          className={`w-6 h-6 rounded-full flex items-center justify-center ${
+            highlight ? "bg-green-500" : "bg-green-100"
+          }`}
+        >
+          <Check
+            className={`w-3.5 h-3.5 ${
+              highlight ? "text-white" : "text-green-600"
+            }`}
+            strokeWidth={3}
+          />
+        </div>
+      </div>
+    );
+  }
+  if (val === false) {
+    return (
+      <div className="flex justify-center">
+        <div className="w-6 h-6 rounded-full bg-red-50 flex items-center justify-center">
+          <X className="w-3.5 h-3.5 text-red-400" strokeWidth={3} />
+        </div>
+      </div>
+    );
+  }
+  return <span className="text-xs text-gray-400 italic">{val}</span>;
+}
+
+function MobileComparisonCards() {
+  return (
+    <div className="sm:hidden space-y-4">
+      {competitors.map((c) => (
+        <div
+          key={c.name}
+          className={`rounded-2xl overflow-hidden ${
+            c.highlight
+              ? "border-2 border-blue-500 shadow-lg shadow-blue-100"
+              : "border border-gray-200"
+          }`}
+        >
+          {/* Card header */}
+          <div
+            className={`px-5 py-4 ${
+              c.highlight ? "bg-blue-600 text-white" : "bg-gray-50"
+            }`}
+          >
+            <div className="flex items-center justify-between">
+              <div>
+                <div
+                  className={`font-bold text-lg ${
+                    c.highlight ? "text-white" : "text-gray-900"
+                  }`}
+                >
+                  {c.name}
+                </div>
+                {"subtitle" in c && c.subtitle && (
+                  <div
+                    className={`text-xs ${
+                      c.highlight ? "text-blue-200" : "text-gray-400"
+                    }`}
+                  >
+                    {c.subtitle}
+                  </div>
+                )}
+              </div>
+              <div className="text-right">
+                <div
+                  className={`font-extrabold text-lg ${
+                    c.highlight ? "text-white" : "text-gray-900"
+                  }`}
+                >
+                  {c.price}
+                </div>
+                <div
+                  className={`text-xs ${
+                    c.highlight ? "text-blue-200" : "text-gray-400"
+                  }`}
+                >
+                  Upfront: {c.upfront}
+                </div>
+              </div>
+            </div>
+            {c.badge && (
+              <span className="inline-block mt-2 px-2.5 py-0.5 rounded-full bg-orange-500 text-white text-xs font-bold">
+                {c.badge}
+              </span>
+            )}
+          </div>
+
+          {/* Card feature list */}
+          <div className="bg-white divide-y divide-gray-50">
+            {featureRows.map((feature) => {
+              const val = c.features[feature as keyof typeof c.features];
+              return (
+                <div
+                  key={feature}
+                  className="flex items-center justify-between px-5 py-3"
+                >
+                  <span className="text-sm text-gray-700 font-medium pr-3">
+                    {feature}
+                  </span>
+                  <div className="shrink-0">
+                    <FeatureValue val={val} highlight={c.highlight} />
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 function ComparisonTable() {
   return (
     <section className="py-16 sm:py-24 bg-gray-50">
@@ -343,8 +466,11 @@ function ComparisonTable() {
           </div>
         </div>
 
-        {/* Comparison table */}
-        <div className="overflow-x-auto rounded-2xl border border-gray-200 shadow-sm bg-white">
+        {/* Mobile card layout */}
+        <MobileComparisonCards />
+
+        {/* Desktop comparison table */}
+        <div className="hidden sm:block overflow-x-auto rounded-2xl border border-gray-200 shadow-sm bg-white">
           <table className="w-full text-sm">
             <thead>
               <tr className="border-b border-gray-100">
@@ -406,35 +532,7 @@ function ComparisonTable() {
                           c.highlight ? "bg-blue-50/40" : ""
                         }`}
                       >
-                        {val === true ? (
-                          <div className="flex justify-center">
-                            <div
-                              className={`w-6 h-6 rounded-full flex items-center justify-center ${
-                                c.highlight ? "bg-green-500" : "bg-green-100"
-                              }`}
-                            >
-                              <Check
-                                className={`w-3.5 h-3.5 ${
-                                  c.highlight ? "text-white" : "text-green-600"
-                                }`}
-                                strokeWidth={3}
-                              />
-                            </div>
-                          </div>
-                        ) : val === false ? (
-                          <div className="flex justify-center">
-                            <div className="w-6 h-6 rounded-full bg-red-50 flex items-center justify-center">
-                              <X
-                                className="w-3.5 h-3.5 text-red-400"
-                                strokeWidth={3}
-                              />
-                            </div>
-                          </div>
-                        ) : (
-                          <span className="text-xs text-gray-400 italic">
-                            {val}
-                          </span>
-                        )}
+                        <FeatureValue val={val} highlight={c.highlight} />
                       </td>
                     );
                   })}
@@ -617,7 +715,52 @@ function DeepDive() {
 
 // ─── Monthly Cost Comparison ─────────────────────────────────────────────────
 
+const costBarData = [
+  {
+    name: "CalTech Web",
+    year1: "$1,188",
+    year1Max: 1188,
+    breakdown: "$0 upfront + $99/mo",
+    highlight: true,
+    barColor: "bg-blue-600",
+    textColor: "text-blue-600",
+    savings: null as string | null,
+  },
+  {
+    name: "DIY Builder",
+    year1: "$192-600",
+    year1Max: 600,
+    breakdown: "$0 upfront + $16-50/mo",
+    highlight: false,
+    barColor: "bg-gray-300",
+    textColor: "text-gray-600",
+    savings: "Cheaper but you do all the work",
+  },
+  {
+    name: "Freelancer",
+    year1: "$2,600-11,800",
+    year1Max: 11800,
+    breakdown: "$2K-10K upfront + $50-150/mo",
+    highlight: false,
+    barColor: "bg-orange-400",
+    textColor: "text-orange-600",
+    savings: "Save up to $10,612/yr with CalTech Web",
+  },
+  {
+    name: "Agency",
+    year1: "$11,000-74,000+",
+    year1Max: 74000,
+    breakdown: "$5K-50K+ upfront + $500-2K/mo",
+    highlight: false,
+    barColor: "bg-red-400",
+    textColor: "text-red-600",
+    savings: "Save up to $72,812/yr with CalTech Web",
+  },
+];
+
 function CostComparison() {
+  const maxCost = 74000;
+
   return (
     <section className="py-16 sm:py-24 bg-gray-50">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -634,33 +777,75 @@ function CostComparison() {
           </p>
         </div>
 
+        {/* Visual cost bar chart */}
+        <div className="bg-white border border-gray-200 rounded-2xl shadow-sm p-6 sm:p-8 mb-8">
+          <div className="space-y-6">
+            {costBarData.map(
+              ({
+                name,
+                year1,
+                year1Max,
+                breakdown,
+                highlight,
+                barColor,
+                textColor,
+                savings,
+              }) => {
+                const widthPercent = Math.max(
+                  (year1Max / maxCost) * 100,
+                  2
+                );
+                return (
+                  <div key={name}>
+                    <div className="flex items-baseline justify-between mb-1.5">
+                      <div className="flex items-center gap-2">
+                        <span
+                          className={`text-sm font-bold ${
+                            highlight ? "text-blue-700" : "text-gray-700"
+                          }`}
+                        >
+                          {name}
+                        </span>
+                        {highlight && (
+                          <span className="px-2 py-0.5 rounded-full bg-orange-100 text-orange-700 text-[10px] font-bold leading-none">
+                            Best Value
+                          </span>
+                        )}
+                      </div>
+                      <div className="text-right">
+                        <span
+                          className={`text-sm font-extrabold ${textColor}`}
+                        >
+                          {year1}
+                        </span>
+                        <span className="text-xs text-gray-400 ml-1.5 hidden sm:inline">
+                          ({breakdown})
+                        </span>
+                      </div>
+                    </div>
+                    <div className="w-full bg-gray-100 rounded-full h-4 sm:h-5 overflow-hidden">
+                      <div
+                        className={`h-full rounded-full ${barColor} ${
+                          highlight ? "shadow-md shadow-blue-200" : ""
+                        }`}
+                        style={{ width: `${widthPercent}%` }}
+                      />
+                    </div>
+                    {savings && (
+                      <p className="text-xs text-gray-400 mt-1 italic">
+                        {savings}
+                      </p>
+                    )}
+                  </div>
+                );
+              }
+            )}
+          </div>
+        </div>
+
+        {/* Summary cards */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {[
-            {
-              name: "CalTech Web",
-              year1: "$1,188",
-              breakdown: "$0 upfront + $99/mo",
-              highlight: true,
-            },
-            {
-              name: "DIY Builder",
-              year1: "$192-600",
-              breakdown: "$0 upfront + $16-50/mo",
-              highlight: false,
-            },
-            {
-              name: "Freelancer",
-              year1: "$2,600-11,800",
-              breakdown: "$2K-10K upfront + $50-150/mo",
-              highlight: false,
-            },
-            {
-              name: "Agency",
-              year1: "$11,000-74,000+",
-              breakdown: "$5K-50K+ upfront + $500-2K/mo",
-              highlight: false,
-            },
-          ].map(({ name, year1, breakdown, highlight }) => (
+          {costBarData.map(({ name, year1, breakdown, highlight }) => (
             <div
               key={name}
               className={`rounded-2xl p-6 text-center ${

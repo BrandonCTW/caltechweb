@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { rfpFaqs } from "./faq-data";
 
 export const metadata: Metadata = {
   title: "Website Design RFP & RFQ — $99/Month Proposals | CalTech Web",
@@ -85,6 +86,19 @@ const breadcrumbJsonLd = {
   ],
 };
 
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: rfpFaqs.map(({ q, a }) => ({
+    "@type": "Question",
+    name: q,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: a,
+    },
+  })),
+};
+
 export default function WebsiteDesignRFPLayout({
   children,
 }: {
@@ -99,6 +113,10 @@ export default function WebsiteDesignRFPLayout({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
       {children}
     </>

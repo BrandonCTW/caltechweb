@@ -27,6 +27,7 @@ import {
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
+import Image from "next/image";
 
 // ─── Portfolio Data ───────────────────────────────────────────────────────────
 
@@ -628,32 +629,54 @@ function Hero({ cs }: { cs: CaseStudy }) {
             </div>
           </div>
 
-          {/* Mock site preview */}
+          {/* Site preview */}
           <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-            <div className={`bg-gradient-to-br ${cs.gradient} brightness-90 h-72`}>
-              {/* Browser chrome */}
-              <div className="bg-black/25 backdrop-blur-sm px-4 py-2.5 flex items-center gap-1.5">
-                <span className="w-2.5 h-2.5 rounded-full bg-white/40" />
-                <span className="w-2.5 h-2.5 rounded-full bg-white/40" />
-                <span className="w-2.5 h-2.5 rounded-full bg-white/40" />
-                <span className="ml-2 flex-1 bg-white/20 rounded px-2 py-0.5 text-white/70 text-xs truncate">
-                  {cs.website ?? `caltechweb.com/portfolio/${cs.slug}`}
-                </span>
-              </div>
-
-              {/* Mock content */}
-              <div className="flex flex-col items-center justify-center h-56 text-center px-8">
-                <div className="w-16 h-16 rounded-full bg-white/20 border-2 border-white/30 flex items-center justify-center mb-4">
-                  <CategoryIcon className="w-8 h-8 text-white" />
+            {caseStudyImages[cs.slug] ? (
+              <div className="bg-gray-900">
+                {/* Browser chrome */}
+                <div className="bg-gray-800 px-4 py-2.5 flex items-center gap-1.5">
+                  <span className="w-2.5 h-2.5 rounded-full bg-red-400/80" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-yellow-400/80" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-green-400/80" />
+                  <span className="ml-2 flex-1 bg-gray-700 rounded px-2 py-0.5 text-gray-400 text-xs truncate">
+                    {cs.website ?? `caltechweb.com/portfolio/${cs.slug}`}
+                  </span>
                 </div>
-                <div className="text-white font-extrabold text-2xl mb-1">{cs.name}</div>
-                <div className="text-white/80 text-sm mb-4">{cs.tagline}</div>
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/20 border border-white/30 text-white text-xs font-semibold">
-                  <TrendingUp className="w-3 h-3" />
-                  {cs.results[0].stat} {cs.results[0].label}
+                {/* Real screenshot */}
+                <Image
+                  src={caseStudyImages[cs.slug]}
+                  alt={`${cs.name} website designed by CalTech Web`}
+                  width={800}
+                  height={500}
+                  className="w-full h-auto object-cover object-top"
+                  priority
+                />
+              </div>
+            ) : (
+              <div className={`bg-gradient-to-br ${cs.gradient} brightness-90 h-72`}>
+                {/* Browser chrome */}
+                <div className="bg-black/25 backdrop-blur-sm px-4 py-2.5 flex items-center gap-1.5">
+                  <span className="w-2.5 h-2.5 rounded-full bg-white/40" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-white/40" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-white/40" />
+                  <span className="ml-2 flex-1 bg-white/20 rounded px-2 py-0.5 text-white/70 text-xs truncate">
+                    {cs.website ?? `caltechweb.com/portfolio/${cs.slug}`}
+                  </span>
+                </div>
+                {/* Fallback mock content */}
+                <div className="flex flex-col items-center justify-center h-56 text-center px-8">
+                  <div className="w-16 h-16 rounded-full bg-white/20 border-2 border-white/30 flex items-center justify-center mb-4">
+                    <CategoryIcon className="w-8 h-8 text-white" />
+                  </div>
+                  <div className="text-white font-extrabold text-2xl mb-1">{cs.name}</div>
+                  <div className="text-white/80 text-sm mb-4">{cs.tagline}</div>
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/20 border border-white/30 text-white text-xs font-semibold">
+                    <TrendingUp className="w-3 h-3" />
+                    {cs.results[0].stat} {cs.results[0].label}
+                  </div>
                 </div>
               </div>
-            </div>
+            )}
 
             {/* "Live" badge */}
             <div className="absolute bottom-4 right-4 flex items-center gap-1.5 bg-green-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
@@ -695,6 +718,81 @@ function TheStory({ cs }: { cs: CaseStudy }) {
             </div>
             <p className="text-gray-600 leading-relaxed text-base">{cs.solution}</p>
           </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─── Project Timeline ─────────────────────────────────────────────────────────
+
+function ProjectTimeline({ cs }: { cs: CaseStudy }) {
+  const steps = [
+    {
+      day: "Day 1",
+      title: "Discovery",
+      description: "We learn about the business, goals, and target audience to plan the perfect site.",
+      icon: Briefcase,
+    },
+    {
+      day: "Day 2-3",
+      title: "Design & Build",
+      description: "Custom design crafted to match the brand, fully responsive across all devices.",
+      icon: Zap,
+    },
+    {
+      day: "Day 4",
+      title: "Review & Refine",
+      description: "Client reviews the site, and we polish every detail until it's exactly right.",
+      icon: RefreshCw,
+    },
+    {
+      day: `Day ${cs.timeToLaunch.replace(/\D/g, "") || "5"}`,
+      title: "Launch",
+      description: `${cs.name} went live with a fully managed, production-ready website.`,
+      icon: Star,
+    },
+  ];
+
+  return (
+    <section className="py-20 bg-gray-50 border-t border-gray-100">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-14">
+          <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-sm font-semibold text-blue-700">
+            <Clock className="w-4 h-4" />
+            Live in {cs.timeToLaunch}
+          </span>
+          <h2 className="mt-4 text-3xl font-extrabold text-gray-900">
+            How We Built It
+          </h2>
+          <p className="mt-2 text-gray-500 max-w-xl mx-auto">
+            From first call to live site, here is how {cs.name}&rsquo;s project came together.
+          </p>
+        </div>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {steps.map((step, i) => {
+            const StepIcon = step.icon;
+            const isLast = i === steps.length - 1;
+            return (
+              <div key={step.title} className="relative">
+                {/* Connector line (hidden on last item and on mobile) */}
+                {!isLast && (
+                  <div className="hidden lg:block absolute top-8 left-[calc(50%+28px)] w-[calc(100%-56px)] h-px bg-gray-200" />
+                )}
+                <div className={`relative bg-white rounded-2xl border ${isLast ? "border-green-200 shadow-md" : "border-gray-100 shadow-sm"} p-6 text-center h-full`}>
+                  <div className={`w-14 h-14 rounded-2xl ${isLast ? "bg-green-50" : "bg-blue-50"} flex items-center justify-center mx-auto mb-4`}>
+                    <StepIcon className={`w-6 h-6 ${isLast ? "text-green-600" : "text-blue-600"}`} />
+                  </div>
+                  <div className={`text-xs font-bold uppercase tracking-wider mb-1 ${isLast ? "text-green-600" : "text-blue-500"}`}>
+                    {step.day}
+                  </div>
+                  <h3 className="text-lg font-bold text-gray-900 mb-2">{step.title}</h3>
+                  <p className="text-sm text-gray-500 leading-relaxed">{step.description}</p>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
@@ -990,6 +1088,7 @@ export default async function PortfolioDetailPage({
       <Header />
       <Hero cs={cs} />
       <TheStory cs={cs} />
+      <ProjectTimeline cs={cs} />
       <Results cs={cs} />
       <WhatWeBuilt cs={cs} />
       <Testimonial cs={cs} />

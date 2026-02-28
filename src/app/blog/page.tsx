@@ -12,6 +12,7 @@ import {
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
+import BlogFilterGrid from "./BlogFilterGrid";
 
 export const metadata: Metadata = {
   title: "Web Design Blog - Tips for Small Businesses | CalTech Web",
@@ -50,6 +51,28 @@ const featuredPost = {
 
 const posts = [
   {
+    slug: "affordable-web-design-company",
+    category: "Web Design",
+    categoryColor: "bg-blue-100 text-blue-700",
+    title: "Why CalTech Web Is the Most Affordable Web Design Company That Doesn't Cut Corners",
+    excerpt: "There are thousands of 'affordable' web design companies. Most of them are affordable because they cut corners. Here's what makes CalTech Web different.",
+    readTime: "5 min read",
+    date: "February 18, 2026",
+    author: "Brandon Hopkins",
+    featured: false,
+  },
+  {
+    slug: "affordable-web-design-for-small-businesses",
+    category: "Small Business",
+    categoryColor: "bg-orange-100 text-orange-700",
+    title: "Affordable Web Design for Small Businesses: What $99/Month Actually Gets You",
+    excerpt: "Small business owners deserve professional websites without the massive upfront cost. Here's exactly what $99/month includes - and why it beats the alternatives.",
+    readTime: "5 min read",
+    date: "February 12, 2026",
+    author: "Brandon Hopkins",
+    featured: false,
+  },
+  {
     slug: "small-business-website-redesign-signs",
     category: "Web Design Tips",
     categoryColor: "bg-blue-100 text-blue-700",
@@ -58,6 +81,17 @@ const posts = [
       "If your bounce rate is climbing, your phone isn't ringing, or your site looks like it was built in 2014 - it's time. Here's how to know for sure.",
     readTime: "4 min read",
     date: "February 10, 2026",
+    author: "Brandon Hopkins",
+    featured: false,
+  },
+  {
+    slug: "web-design-vs-web-hosting",
+    category: "Web Design Tips",
+    categoryColor: "bg-blue-100 text-blue-700",
+    title: "Web Design vs Web Hosting: What's the Difference and Why It Matters",
+    excerpt: "Many business owners confuse web design and web hosting - or don't realize they need both. Here's a clear explanation and why bundling them saves you money.",
+    readTime: "4 min read",
+    date: "February 5, 2026",
     author: "Brandon Hopkins",
     featured: false,
   },
@@ -74,6 +108,28 @@ const posts = [
     featured: false,
   },
   {
+    slug: "website-maintenance-requirements",
+    category: "Web Design Tips",
+    categoryColor: "bg-blue-100 text-blue-700",
+    title: "Website Maintenance Requirements: What Every Business Owner Needs to Know",
+    excerpt: "Your website needs regular maintenance to stay secure, fast, and visible on Google. Here's what's required - and how CalTech Web handles all of it for $99/month.",
+    readTime: "5 min read",
+    date: "January 30, 2026",
+    author: "Brandon Hopkins",
+    featured: false,
+  },
+  {
+    slug: "church-website-support",
+    category: "Church Websites",
+    categoryColor: "bg-purple-100 text-purple-700",
+    title: "Church Website Support: Why Your Ministry Needs More Than a Template",
+    excerpt: "Church websites have unique needs - online giving, sermon streaming, event management. Here's why a template won't cut it and what to look for instead.",
+    readTime: "5 min read",
+    date: "January 22, 2026",
+    author: "Brandon Hopkins",
+    featured: false,
+  },
+  {
     slug: "church-website-design-essentials",
     category: "Church Websites",
     categoryColor: "bg-purple-100 text-purple-700",
@@ -82,6 +138,17 @@ const posts = [
       "Your church website is often the first thing a visitor sees before they ever walk through your doors. Here's what it needs to say - and do - to turn visitors into members.",
     readTime: "5 min read",
     date: "January 20, 2026",
+    author: "Brandon Hopkins",
+    featured: false,
+  },
+  {
+    slug: "who-updates-a-website-after-the-web-designer-finishes",
+    category: "Web Design Tips",
+    categoryColor: "bg-blue-100 text-blue-700",
+    title: "Who Updates a Website After the Web Designer Finishes?",
+    excerpt: "The website is live - now what? Most designers disappear after launch. Here are your options for keeping your site current, and why ongoing support matters.",
+    readTime: "4 min read",
+    date: "January 15, 2026",
     author: "Brandon Hopkins",
     featured: false,
   },
@@ -98,6 +165,17 @@ const posts = [
     featured: false,
   },
   {
+    slug: "post-sermons-online",
+    category: "Church Websites",
+    categoryColor: "bg-purple-100 text-purple-700",
+    title: "How to Post Sermons Online: A Complete Guide for Churches",
+    excerpt: "60% of people prefer engaging with faith content online. Here's how to get your sermons on your website with YouTube, podcast feeds, and searchable archives.",
+    readTime: "5 min read",
+    date: "January 5, 2026",
+    author: "Brandon Hopkins",
+    featured: false,
+  },
+  {
     slug: "nonprofit-website-design-tips",
     category: "Non-Profits",
     categoryColor: "bg-pink-100 text-pink-700",
@@ -110,6 +188,28 @@ const posts = [
     featured: false,
   },
   {
+    slug: "affordable-construction-company-website",
+    category: "Industry",
+    categoryColor: "bg-amber-100 text-amber-700",
+    title: "Affordable Construction Company Website Design That Wins Contracts",
+    excerpt: "91% of clients research contractors online before signing. If your construction company doesn't have a professional website, you're losing bids to competitors who do.",
+    readTime: "5 min read",
+    date: "December 28, 2025",
+    author: "Brandon Hopkins",
+    featured: false,
+  },
+  {
+    slug: "affordable-real-estate-company-website",
+    category: "Industry",
+    categoryColor: "bg-amber-100 text-amber-700",
+    title: "Affordable Real Estate Company Website Design: Stand Out in Your Market",
+    excerpt: "Your brokerage's website is competing with Zillow and Realtor.com for attention. Here's how to build a site that wins local clients for $99/month.",
+    readTime: "5 min read",
+    date: "December 20, 2025",
+    author: "Brandon Hopkins",
+    featured: false,
+  },
+  {
     slug: "1-hour-support-why-it-matters",
     category: "Support & Reliability",
     categoryColor: "bg-yellow-100 text-yellow-700",
@@ -118,6 +218,17 @@ const posts = [
       "Your business doesn't wait. Neither should your website. Here's how CalTech Web built a support process that gets most requests turned around in under an hour.",
     readTime: "3 min read",
     date: "December 18, 2025",
+    author: "Brandon Hopkins",
+    featured: false,
+  },
+  {
+    slug: "ultimate-guide-christian-ministry-websites",
+    category: "Church Websites",
+    categoryColor: "bg-purple-100 text-purple-700",
+    title: "The Ultimate Guide to Christian Ministry Websites",
+    excerpt: "A comprehensive guide to building ministry websites that grow your reach - covering devotional content, donation systems, volunteer portals, and outreach tools.",
+    readTime: "8 min read",
+    date: "December 15, 2025",
     author: "Brandon Hopkins",
     featured: false,
   },
@@ -154,116 +265,6 @@ const posts = [
       "Most small business owners treat their website and Google Business Profile as separate things. They're not - and linking them the right way can double your local visibility.",
     readTime: "5 min read",
     date: "November 10, 2025",
-    author: "Brandon Hopkins",
-    featured: false,
-  },
-  {
-    slug: "affordable-web-design-company",
-    category: "Web Design",
-    categoryColor: "bg-blue-100 text-blue-700",
-    title: "Why CalTech Web Is the Most Affordable Web Design Company That Doesn't Cut Corners",
-    excerpt: "There are thousands of 'affordable' web design companies. Most of them are affordable because they cut corners. Here's what makes CalTech Web different.",
-    readTime: "5 min read",
-    date: "February 18, 2026",
-    author: "Brandon Hopkins",
-    featured: false,
-  },
-  {
-    slug: "affordable-web-design-for-small-businesses",
-    category: "Small Business",
-    categoryColor: "bg-orange-100 text-orange-700",
-    title: "Affordable Web Design for Small Businesses: What $99/Month Actually Gets You",
-    excerpt: "Small business owners deserve professional websites without the massive upfront cost. Here's exactly what $99/month includes - and why it beats the alternatives.",
-    readTime: "5 min read",
-    date: "February 12, 2026",
-    author: "Brandon Hopkins",
-    featured: false,
-  },
-  {
-    slug: "website-maintenance-requirements",
-    category: "Web Design Tips",
-    categoryColor: "bg-blue-100 text-blue-700",
-    title: "Website Maintenance Requirements: What Every Business Owner Needs to Know",
-    excerpt: "Your website needs regular maintenance to stay secure, fast, and visible on Google. Here's what's required - and how CalTech Web handles all of it for $99/month.",
-    readTime: "5 min read",
-    date: "January 30, 2026",
-    author: "Brandon Hopkins",
-    featured: false,
-  },
-  {
-    slug: "church-website-support",
-    category: "Church Websites",
-    categoryColor: "bg-purple-100 text-purple-700",
-    title: "Church Website Support: Why Your Ministry Needs More Than a Template",
-    excerpt: "Church websites have unique needs - online giving, sermon streaming, event management. Here's why a template won't cut it and what to look for instead.",
-    readTime: "5 min read",
-    date: "January 22, 2026",
-    author: "Brandon Hopkins",
-    featured: false,
-  },
-  {
-    slug: "web-design-vs-web-hosting",
-    category: "Web Design Tips",
-    categoryColor: "bg-blue-100 text-blue-700",
-    title: "Web Design vs Web Hosting: What's the Difference and Why It Matters",
-    excerpt: "Many business owners confuse web design and web hosting - or don't realize they need both. Here's a clear explanation and why bundling them saves you money.",
-    readTime: "4 min read",
-    date: "February 5, 2026",
-    author: "Brandon Hopkins",
-    featured: false,
-  },
-  {
-    slug: "who-updates-a-website-after-the-web-designer-finishes",
-    category: "Web Design Tips",
-    categoryColor: "bg-blue-100 text-blue-700",
-    title: "Who Updates a Website After the Web Designer Finishes?",
-    excerpt: "The website is live - now what? Most designers disappear after launch. Here are your options for keeping your site current, and why ongoing support matters.",
-    readTime: "4 min read",
-    date: "January 15, 2026",
-    author: "Brandon Hopkins",
-    featured: false,
-  },
-  {
-    slug: "affordable-construction-company-website",
-    category: "Industry",
-    categoryColor: "bg-amber-100 text-amber-700",
-    title: "Affordable Construction Company Website Design That Wins Contracts",
-    excerpt: "91% of clients research contractors online before signing. If your construction company doesn't have a professional website, you're losing bids to competitors who do.",
-    readTime: "5 min read",
-    date: "December 28, 2025",
-    author: "Brandon Hopkins",
-    featured: false,
-  },
-  {
-    slug: "affordable-real-estate-company-website",
-    category: "Industry",
-    categoryColor: "bg-amber-100 text-amber-700",
-    title: "Affordable Real Estate Company Website Design: Stand Out in Your Market",
-    excerpt: "Your brokerage's website is competing with Zillow and Realtor.com for attention. Here's how to build a site that wins local clients for $99/month.",
-    readTime: "5 min read",
-    date: "December 20, 2025",
-    author: "Brandon Hopkins",
-    featured: false,
-  },
-  {
-    slug: "post-sermons-online",
-    category: "Church Websites",
-    categoryColor: "bg-purple-100 text-purple-700",
-    title: "How to Post Sermons Online: A Complete Guide for Churches",
-    excerpt: "60% of people prefer engaging with faith content online. Here's how to get your sermons on your website with YouTube, podcast feeds, and searchable archives.",
-    readTime: "5 min read",
-    date: "January 5, 2026",
-    author: "Brandon Hopkins",
-    featured: false,
-  },
-  {
-    slug: "ultimate-guide-christian-ministry-websites",
-    category: "Church Websites",
-    categoryColor: "bg-purple-100 text-purple-700",
-    title: "The Ultimate Guide to Christian Ministry Websites",
-    excerpt: "A comprehensive guide to building ministry websites that grow your reach - covering devotional content, donation systems, volunteer portals, and outreach tools.",
-    readTime: "8 min read",
-    date: "December 15, 2025",
     author: "Brandon Hopkins",
     featured: false,
   },
@@ -461,105 +462,9 @@ function FeaturedPost() {
   );
 }
 
-// ─── Category Filter Bar ──────────────────────────────────────────────────────
+// ─── Category Filter Bar + Post Grid (interactive client component) ───────────
+// See BlogFilterGrid.tsx
 
-function CategoryBar() {
-  return (
-    <div className="bg-white border-b border-gray-100 sticky top-16 z-30">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex gap-2 overflow-x-auto py-3 scrollbar-hide">
-          {categories.map((cat, i) => (
-            <span
-              key={cat}
-              className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-sm font-medium whitespace-nowrap cursor-pointer transition-colors ${
-                i === 0
-                  ? "bg-blue-600 text-white"
-                  : "bg-gray-100 text-gray-600 hover:bg-gray-200"
-              }`}
-            >
-              {cat}
-            </span>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-}
-
-// ─── Post Grid ────────────────────────────────────────────────────────────────
-
-function PostCard({ post }: { post: (typeof posts)[0] }) {
-  return (
-    <Link
-      href={`/${post.slug}/`}
-      className="group flex flex-col bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:border-blue-100 transition-all overflow-hidden"
-    >
-      {/* Color accent bar based on category */}
-      <div
-        className={`h-1.5 w-full ${
-          post.categoryColor.includes("blue")
-            ? "bg-blue-500"
-            : post.categoryColor.includes("orange")
-            ? "bg-orange-500"
-            : post.categoryColor.includes("purple")
-            ? "bg-purple-500"
-            : post.categoryColor.includes("teal")
-            ? "bg-teal-500"
-            : post.categoryColor.includes("pink")
-            ? "bg-pink-500"
-            : post.categoryColor.includes("yellow")
-            ? "bg-yellow-500"
-            : post.categoryColor.includes("red")
-            ? "bg-red-500"
-            : "bg-green-500"
-        }`}
-      />
-      <div className="flex flex-col flex-1 p-6">
-        <span
-          className={`inline-flex items-center gap-1.5 self-start px-2.5 py-1 rounded-full text-xs font-semibold mb-4 ${post.categoryColor}`}
-        >
-          <Tag className="w-3 h-3" />
-          {post.category}
-        </span>
-        <h3 className="text-base font-bold text-gray-900 leading-snug mb-3 group-hover:text-blue-700 transition-colors flex-1">
-          {post.title}
-        </h3>
-        <p className="text-sm text-gray-500 leading-relaxed mb-5 line-clamp-3">
-          {post.excerpt}
-        </p>
-        <div className="flex items-center justify-between text-xs text-gray-400 pt-4 border-t border-gray-50 mt-auto">
-          <span className="flex items-center gap-1.5">
-            <Clock className="w-3.5 h-3.5" />
-            {post.readTime}
-          </span>
-          <span>{post.date}</span>
-        </div>
-      </div>
-    </Link>
-  );
-}
-
-function PostGrid() {
-  return (
-    <section className="py-12 sm:py-16 bg-gray-50">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between mb-8">
-          <h2 className="text-xl font-bold text-gray-900">
-            All Articles{" "}
-            <span className="text-gray-400 font-normal text-base">
-              ({posts.length})
-            </span>
-          </h2>
-        </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {posts.map((post) => (
-            <PostCard key={post.slug} post={post} />
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
 
 // ─── Newsletter / CTA Strip ───────────────────────────────────────────────────
 
@@ -657,8 +562,7 @@ export default function BlogPage() {
       <main className="pb-[76px] md:pb-0">
         <Hero />
         <FeaturedPost />
-        <CategoryBar />
-        <PostGrid />
+        <BlogFilterGrid posts={posts} categories={categories} />
         <CTAStrip />
       </main>
       <Footer />

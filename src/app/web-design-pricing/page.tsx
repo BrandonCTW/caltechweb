@@ -10,9 +10,14 @@ import {
   Clock,
   X,
   ChevronDown,
+  ChevronRight,
   TrendingUp,
   HeadphonesIcon,
   Lock,
+  MessageSquare,
+  Palette,
+  Headphones,
+  Rocket,
 } from "lucide-react";
 import Image from "next/image";
 import Header from "@/components/Header";
@@ -86,11 +91,10 @@ const jsonLd = {
       },
       author: {
         "@type": "Person",
-        name: "Marcus Thompson",
+        name: "Mike Fuentes",
       },
-      datePublished: "2024-06-15",
       reviewBody:
-        "I was paying $800/month to an agency. I switched to CalTech Web 18 months ago and honestly can't believe the difference. My site looks better, gets updated faster, and I'm saving almost $9,000 a year.",
+        "$99/month is reasonable to get rid of a headache for me. Huge THANK YOU to CalTech Web for producing such a great website for us!",
     },
     {
       "@type": "Review",
@@ -101,11 +105,10 @@ const jsonLd = {
       },
       author: {
         "@type": "Person",
-        name: "Pastor James Watkins",
+        name: "Dr. Arjun Kanuri",
       },
-      datePublished: "2024-03-22",
       reviewBody:
-        "As a church, every dollar matters. $99/month for a professional website with unlimited updates - Brandon even redesigned our site for free when we updated our branding. Couldn't ask for more.",
+        "Brandon's expertise and genuine care for my success have been game-changers. Thanks to CalTech Web, my professional image has never looked better, and my business is thriving like never before.",
     },
     {
       "@type": "Review",
@@ -116,11 +119,10 @@ const jsonLd = {
       },
       author: {
         "@type": "Person",
-        name: "Elena Rodriguez",
+        name: "Bryan Newberry",
       },
-      datePublished: "2024-09-10",
       reviewBody:
-        "I thought $99/month was a gimmick. It's not. I've been with CalTech Web for 3 years and they've updated my site probably 50 times. No extra charges. Just fast, reliable service.",
+        "Managing my church website and personal ministry website was a significant time commitment, taking up at least 3 hours of my week. Since I enlisted the help of CalTech Web, they have been maintaining my website for many years now. Their services have been invaluable, saving me precious time that I can now devote to furthering my ministry.",
     },
   ],
 };
@@ -642,31 +644,282 @@ function ComparisonTable() {
   );
 }
 
+// ─── Perfect For Section ─────────────────────────────────────────────────────
+
+const audiences = [
+  {
+    icon: "🏪",
+    title: "Small Businesses",
+    examples: "HVAC, plumbing, landscaping, auto repair, cleaning services",
+    pain: "Tired of paying agencies $500+/mo for a website that never gets updated",
+  },
+  {
+    icon: "⛪",
+    title: "Churches & Non-Profits",
+    examples: "Congregations, ministries, food banks, community organizations",
+    pain: "Need a professional site on a tight budget with frequent event updates",
+  },
+  {
+    icon: "🍽️",
+    title: "Restaurants & Cafes",
+    examples: "Family restaurants, coffee shops, catering, food trucks",
+    pain: "Menu changes, seasonal specials, and hours that need updating weekly",
+  },
+  {
+    icon: "⚖️",
+    title: "Professional Services",
+    examples: "Law firms, accountants, consultants, real estate agents",
+    pain: "Want a polished online presence without managing it themselves",
+  },
+  {
+    icon: "💈",
+    title: "Salons & Wellness",
+    examples: "Hair salons, spas, fitness studios, chiropractors, dentists",
+    pain: "Need booking info, team bios, and service pages that stay current",
+  },
+  {
+    icon: "🏗️",
+    title: "Contractors & Trades",
+    examples: "Roofers, electricians, painters, general contractors",
+    pain: "Too busy running the business to worry about a website",
+  },
+];
+
+function PerfectFor() {
+  return (
+    <section className="py-16 sm:py-24 bg-white">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-50 border border-green-100 text-green-700 text-sm font-semibold mb-4">
+            <Check className="w-4 h-4" />
+            Built for businesses like yours
+          </div>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900">
+            Who Is This Plan Perfect For?
+          </h2>
+          <p className="text-gray-500 mt-3 max-w-xl mx-auto">
+            If your business needs a professional website without the
+            professional price tag, you&apos;re in the right place.
+          </p>
+        </div>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {audiences.map(({ icon, title, examples, pain }) => (
+            <div
+              key={title}
+              className="relative bg-white rounded-2xl border border-gray-100 p-6 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all group"
+            >
+              <div className="text-3xl mb-4" aria-hidden="true">
+                {icon}
+              </div>
+              <h3 className="text-lg font-bold text-gray-900 mb-2">{title}</h3>
+              <p className="text-sm text-gray-500 leading-relaxed mb-3">
+                {pain}
+              </p>
+              <p className="text-xs text-gray-400 leading-relaxed">
+                <span className="font-semibold text-gray-500">Examples:</span>{" "}
+                {examples}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-10 text-center">
+          <p className="text-gray-500 text-sm mb-5">
+            Don&apos;t see your industry?{" "}
+            <span className="font-semibold text-gray-700">
+              We work with all types of businesses.
+            </span>{" "}
+            If you need a website, we can help.
+          </p>
+          <a
+            href="https://buy.stripe.com/eVa3eAfJRf6KfRe144"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-orange-500 text-white text-lg font-bold hover:bg-orange-600 transition-all shadow-lg hover:-translate-y-0.5"
+          >
+            Get My Website
+            <ArrowRight className="w-5 h-5" />
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─── What Happens After You Sign Up ──────────────────────────────────────────
+
+function HowItWorks() {
+  const steps = [
+    {
+      step: "01",
+      title: "Sign Up & Share Your Vision",
+      desc: "Click 'Get My Website' and you're in. Brandon personally reaches out within 24 hours to learn about your business, brand, and goals.",
+      detail: "Personal call within 24 hours",
+      gradient: "from-blue-500 to-blue-600",
+      lightBg: "bg-blue-50",
+      accent: "text-blue-600",
+      border: "border-blue-200",
+      icon: MessageSquare,
+    },
+    {
+      step: "02",
+      title: "Your Site Gets Designed & Built",
+      desc: "We handle everything - design, content layout, mobile responsiveness, hosting setup. You approve the final design before anything goes live.",
+      detail: "Live in 5-7 business days",
+      gradient: "from-violet-500 to-violet-600",
+      lightBg: "bg-violet-50",
+      accent: "text-violet-600",
+      border: "border-violet-200",
+      icon: Palette,
+    },
+    {
+      step: "03",
+      title: "Launch & Ongoing Support",
+      desc: "Your site goes live and you get unlimited updates from that day forward. Need a change? Just call, email, or text Brandon directly.",
+      detail: "93% of updates done in <1 hour",
+      gradient: "from-green-500 to-green-600",
+      lightBg: "bg-green-50",
+      accent: "text-green-600",
+      border: "border-green-200",
+      icon: Headphones,
+    },
+    {
+      step: "04",
+      title: "Grow Without Limits",
+      desc: "New pages, content refreshes, full redesigns - it's all included. Your website evolves with your business at no extra cost.",
+      detail: "Free redesigns for life",
+      gradient: "from-orange-500 to-orange-600",
+      lightBg: "bg-orange-50",
+      accent: "text-orange-600",
+      border: "border-orange-200",
+      icon: Rocket,
+    },
+  ];
+
+  return (
+    <section className="py-16 sm:py-24 bg-white">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-14">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-sm font-semibold border border-blue-100 mb-4">
+            <Zap className="w-4 h-4" />
+            Simple 4-step process
+          </div>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4">
+            What Happens After You Sign Up
+          </h2>
+          <p className="text-lg text-gray-500 max-w-xl mx-auto">
+            From sign-up to launch in under a week. Here&apos;s exactly what to
+            expect.
+          </p>
+        </div>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 relative">
+          {/* Arrow connectors between cards on large screens */}
+          {[1, 2, 3].map((i) => (
+            <div
+              key={i}
+              className="hidden lg:flex absolute top-[60px] z-10 w-8 h-8 rounded-full bg-white border-2 border-gray-200 shadow-sm items-center justify-center"
+              style={{ left: `${i * 25}%`, transform: "translateX(-50%)" }}
+            >
+              <ChevronRight className="w-4 h-4 text-gray-400" />
+            </div>
+          ))}
+
+          {steps.map(
+            ({
+              step,
+              title,
+              desc,
+              detail,
+              gradient,
+              lightBg,
+              accent,
+              border,
+              icon: Icon,
+            }) => (
+              <div
+                key={step}
+                className="relative bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all group"
+              >
+                {/* Top gradient bar */}
+                <div className={`h-1.5 bg-gradient-to-r ${gradient}`} />
+
+                <div className="p-6">
+                  {/* Step badge + icon row */}
+                  <div className="flex items-center gap-3 mb-5">
+                    <div
+                      className={`w-12 h-12 rounded-xl bg-gradient-to-br ${gradient} flex items-center justify-center text-white text-lg font-extrabold shadow-md`}
+                    >
+                      {step}
+                    </div>
+                    <div
+                      className={`w-10 h-10 rounded-lg ${lightBg} flex items-center justify-center`}
+                    >
+                      <Icon className={`w-5 h-5 ${accent}`} />
+                    </div>
+                  </div>
+
+                  <h3 className="text-lg font-bold text-gray-900 mb-3">
+                    {title}
+                  </h3>
+                  <p className="text-gray-500 leading-relaxed text-sm mb-4">
+                    {desc}
+                  </p>
+
+                  {/* Detail chip */}
+                  <div
+                    className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full ${lightBg} border ${border} text-xs font-semibold ${accent}`}
+                  >
+                    <Check className="w-3.5 h-3.5" />
+                    {detail}
+                  </div>
+                </div>
+              </div>
+            ),
+          )}
+        </div>
+
+        <div className="text-center mt-12">
+          <a
+            href="https://buy.stripe.com/eVa3eAfJRf6KfRe144"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-orange-500 text-white text-lg font-bold hover:bg-orange-600 transition-all shadow-lg hover:-translate-y-0.5"
+          >
+            Get Started Today
+            <ArrowRight className="w-5 h-5" />
+          </a>
+          <p className="text-sm text-gray-400 mt-3">
+            Your new website could be live by next week
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 // ─── Testimonials ─────────────────────────────────────────────────────────────
 
 const testimonials = [
   {
     quote:
-      "I was paying $800/month to an agency. I switched to CalTech Web 18 months ago and honestly can't believe the difference. My site looks better, gets updated faster, and I'm saving almost $9,000 a year.",
-    name: "Marcus Thompson",
-    role: "Owner, Thompson HVAC & Plumbing",
-    initials: "MT",
-    bg: "bg-blue-600",
+      "$99/month is reasonable to get rid of a headache for me. Huge THANK YOU to CalTech Web for producing such a great website for us!",
+    name: "Mike Fuentes",
+    role: "Owner, Fuentes Concrete, Inc.",
+    initials: "MF",
+    bg: "bg-orange-600",
   },
   {
     quote:
-      "As a church, every dollar matters. $99/month for a professional website with unlimited updates - Brandon even redesigned our site for free when we updated our branding. Couldn't ask for more.",
-    name: "Pastor James Watkins",
-    role: "Valley Community Church",
-    initials: "JW",
-    bg: "bg-purple-600",
+      "Brandon's expertise and genuine care for my success have been game-changers. Thanks to CalTech Web, my professional image has never looked better, and my business is thriving like never before.",
+    name: "Dr. Arjun Kanuri, MD, MBA",
+    role: "Plastic & Reconstructive Surgery, DC/MD/VA",
+    initials: "AK",
+    bg: "bg-teal-600",
   },
   {
     quote:
-      "I thought $99/month was a gimmick. It's not. I've been with CalTech Web for 3 years and they've updated my site probably 50 times. No extra charges. Just fast, reliable service.",
-    name: "Elena Rodriguez",
-    role: "Owner, Elena's Authentic Kitchen",
-    initials: "ER",
+      "CalTech Web helped us with our domain, new website, and even solved a situation with image copyright! I highly recommend them for all nonprofit organization websites.",
+    name: "Christina Beckstead",
+    role: "Executive Director, Madera County Farm Bureau",
+    initials: "CB",
     bg: "bg-green-600",
   },
 ];
@@ -960,6 +1213,8 @@ export default function PricingPage() {
         <StatsBar />
         <PricingCard />
         <ComparisonTable />
+        <PerfectFor />
+        <HowItWorks />
         <Testimonials />
         <FAQ />
         <Guarantee />

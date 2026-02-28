@@ -1,3 +1,209 @@
+[2026-02-25] === SEO AGENT RUN #6 ===
+
+## Fix: FAQPage Schema + FAQ Section on Competitor Comparison Page
+
+### Problem Identified
+
+`src/app/web-design-competitor-comparison/page.tsx` is a mid-funnel landing page targeting comparison queries ("CalTech Web vs Wix", "web design agency vs monthly plan", "web designer cost comparison") — but it had **no FAQ section and no FAQPage structured data**.
+
+Every other high-intent page on the site already has FAQPage schema:
+- Homepage → FAQPage schema ✓
+- Pricing page → FAQPage schema ✓
+- Contact page → FAQPage schema ✓
+- Church websites page → FAQPage schema ✓
+
+The competitor comparison page was the only remaining conversion-focused page without it.
+
+Google's FAQPage rich results documentation lists `FAQPage` as an eligible schema type that expands a SERP listing to show 2–3 inline Q&A pairs, increasing visual footprint and CTR. For a page that targets comparison queries (where users are actively evaluating options), having FAQ rich results is especially valuable because they directly answer the questions the searcher is trying to resolve.
+
+### What Was Changed
+
+**`src/app/web-design-competitor-comparison/page.tsx`**
+
+1. Added `ChevronDown` to lucide-react imports (needed for accordion chevron)
+2. Added `comparisonFaqs` array with 7 comparison-intent Q&A pairs:
+   - "Is $99/month really cheaper than Wix or Squarespace?"
+   - "What's the real difference between CalTech Web and a freelancer?"
+   - "Can I switch to CalTech Web if I already have a Wix or Squarespace site?"
+   - "How is $99/month different from what a web design agency charges?"
+   - "Are there hidden fees beyond $99/month?"
+   - "What happens to my website if I cancel?"
+   - "Do I need any technical skills to work with CalTech Web?"
+3. Added `comparisonFaqJsonLd` object (`@type: "FAQPage"`) injected as a `<script type="application/ld+json">` tag
+4. Added `ComparisonFAQ` component — same `<details>`/`<summary>` accordion pattern as the pricing page FAQ (consistent UX across site)
+5. Inserted `<ComparisonFAQ />` between `<Testimonials />` and `<FinalCTA />` in the render tree
+
+### Why It Matters
+
+Google's FAQ rich results documentation explicitly states that FAQPage schema enables expanded SERP listings with Q&A pairs visible directly under the page title. For someone searching "is CalTech Web worth it" or "web design agency vs monthly fee," having the answers appear inline in the SERP (before they even click) increases CTR and establishes trust before the visit.
+
+The 7 questions chosen directly address the comparison decisions a prospect makes: cost vs. DIY builders, how it differs from freelancers and agencies, migration from existing platforms, hidden fees, and cancellation terms. These are the objections that close (or lose) deals.
+
+TypeScript check: exit 0, no errors.
+
+---
+
+[2026-02-25] === SEO AGENT RUN #5 ===
+
+## Fix: Topic Cluster Internal Links on Church Websites Pillar Page
+
+### Problem Identified
+
+`src/app/affordable-church-websites/page.tsx` is the site's pillar page for church website design — but it had **zero contextual links to any of the 4 church-specific blog posts** on the site. Its only blog link was a generic `/blog/` link in the nav and footer.
+
+Google's documentation on topical authority and E-E-A-T describes a "topic cluster" model: a pillar page (targeting a broad keyword like "affordable church website design") should link to cluster content (dedicated blog posts about church website topics). This:
+- Signals breadth of expertise on the topic to Google
+- Passes PageRank from the high-authority service page to the blog posts
+- Creates a clear internal link graph that Google can follow
+
+The 4 church blog posts existed but had no inbound link from the most relevant page on the site. Google's crawl could reach them via sitemap, but they received no PageRank from the church pillar page.
+
+### What Was Changed
+
+**`src/app/affordable-church-websites/page.tsx`**
+
+1. Added `ChurchResources` function — a 2×2 card grid linking to 4 church-specific blog posts with descriptive anchor text:
+   - "Church Website Design: 7 Things Every Church Website Needs" → `/church-website-design-essentials/`
+   - "The Ultimate Guide to Christian Ministry Websites" → `/ultimate-guide-christian-ministry-websites/`
+   - "How to Post Sermons Online: A Complete Guide for Churches" → `/post-sermons-online/`
+   - "Church Website Support: Why Your Ministry Needs More Than a Template" → `/church-website-support/`
+2. Each card has an `<h3>` heading, excerpt, and "Read article" CTA with `ArrowRight` icon
+3. Inserted `<ChurchResources />` between `<ChurchFAQ />` and `<CTASection />` in the render tree
+
+### Why It Matters
+
+Google's Helpful Content and E-E-A-T guidelines reward sites that demonstrate depth of topical expertise through interconnected content. Having the pillar page explicitly link to cluster content (with descriptive anchor text) tells Google: "this site has extensive, authoritative content about church websites." The anchor text on each link also provides Google additional context about what each target page covers — this is a documented anchor text signal.
+
+TypeScript check: exit 0, no errors.
+
+---
+
+[2026-02-25] === SEO AGENT RUN #4 ===
+
+## Fix: Added FAQPage Schema + FAQ Section to Church Websites Page
+
+### Problem Identified
+
+`src/app/affordable-church-websites/page.tsx` is a high-commercial-intent landing page targeting searches like "affordable church website design" — but it had no FAQ section and no FAQPage structured data, while the pricing page already had both.
+
+Google's FAQPage schema enables FAQ rich results in search: the SERP listing expands to show 2–3 Q&A accordion items directly under the page title. This makes the listing visually larger, pushes competitors down, and improves CTR — especially on mobile where space is limited. Google has explicitly documented FAQPage as a supported rich result type that affects how listings appear.
+
+### What Was Changed
+
+**`src/app/affordable-church-websites/page.tsx`**
+
+1. Added `ChevronDown` to lucide-react imports (needed for accordion UI)
+2. Added `churchFaqs` array with 8 church-specific Q&A pairs:
+   - How much does a church website cost?
+   - Does the church website include online giving?
+   - How long does it take to build a church website?
+   - Can we update the website ourselves?
+   - Do you work with small or rural churches?
+   - What if we need a redesign later?
+   - Is there a contract or long-term commitment?
+   - Can you help with sermon streaming and podcast setup?
+3. Added `churchFaqJsonLd` object (`@type: "FAQPage"`) injected as a `<script type="application/ld+json">` tag
+4. Added `ChurchFAQ` component — same `<details>`/`<summary>` accordion pattern as the pricing page FAQ (consistent UX)
+5. Inserted `<ChurchFAQ />` between Testimonial and CTASection in the page render tree
+6. Added the `churchFaqJsonLd` script tag alongside the existing Service and BreadcrumbList schema
+
+### Why It Matters
+
+The church websites page targets a specific, high-intent audience (pastors and church administrators searching for websites). Adding FAQPage schema:
+- Enables FAQ rich results → larger SERP footprint → higher CTR
+- Adds ~600 words of targeted, on-topic content to the page
+- Directly answers the questions Google sees being searched alongside "church website design"
+- Signals E-E-A-T: demonstrates expertise and addresses common objections
+
+---
+
+[2026-02-25] === SEO AGENT RUN #3 ===
+
+## Fix: Missing Trailing Slashes in MobileNav and Homepage Links
+
+### Problem Identified
+
+`next.config.ts` sets `trailingSlash: true`, meaning Next.js 301-redirects any URL without a trailing slash to its trailing-slash equivalent. Two locations had internal links missing trailing slashes, causing redirect chains on every page visit:
+
+**1. `src/components/MobileNav.tsx`** — The shared mobile navigation component (rendered on every page of the site via Google's mobile-first index) had 5 of 6 nav links missing trailing slashes:
+- `/web-design-portfolio` → `/web-design-portfolio/`
+- `/web-design-pricing` → `/web-design-pricing/`
+- `/blog` → `/blog/`
+- `/brandon-hopkins` → `/brandon-hopkins/`
+- `/affordable-church-websites` → `/affordable-church-websites/`
+
+Since MobileNav is imported in every page and Google crawls mobile-first, this meant every crawl of the mobile navigation triggered 5 simultaneous 301 redirects per page — affecting the entire site.
+
+**2. `src/app/page.tsx`** — The homepage had 8 links without trailing slashes across two sections:
+- Footer "Company" links: `/brandon-hopkins`, `/web-design-portfolio`, `/web-design-pricing`, `/blog`, `/web-design-pricing` (5 links)
+- WhoWeServe section: `/get-a-free-instant-quote`, `/affordable-church-websites`, `/get-a-free-instant-quote` (3 links)
+
+### Why It Matters
+
+Google's documentation states that redirect chains waste crawl budget and cause PageRank dilution. With `trailingSlash: true` active, each non-trailing-slash link becomes a two-request exchange (original URL → 301 → final URL) instead of one. The MobileNav issue was particularly high-impact because it appears on every page of the site.
+
+### Fix
+
+Added trailing slashes to all 13 affected links across `MobileNav.tsx` and `page.tsx`.
+
+---
+
+[2026-02-25] === SEO AGENT RUN #2 ===
+
+## Three Fixes: Trailing Slashes, ItemList URLs, OG Article Tags
+
+### Fix 1: Missing Trailing Slash on Portfolio Related Project Links
+
+`src/app/portfolio/[slug]/page.tsx` line 899 linked to related portfolio case studies without a trailing slash: `href={`/portfolio/${rel.slug}`}`. With `trailingSlash: true` in `next.config.ts`, Next.js 301-redirects non-trailing-slash URLs. This triggered a redirect on every "Related Projects" link. Google documents that internal redirect chains waste crawl budget and dilute PageRank.
+
+**Fix:** `href={`/portfolio/${rel.slug}/`}`
+
+### Fix 2: ItemList Structured Data Pointing to External Client URLs
+
+`portfolioItemListJsonLd` in `src/app/web-design-portfolio/page.tsx` used `url: item.website` (external URLs like `https://arjunkanurimd.com`) as each `ListItem`'s URL. Google's carousel/ItemList documentation requires each item's `url` to point to a page on the current site. External URLs block carousel rich result eligibility.
+
+**Fix:** Now uses internal case study URL when available, falling back to the portfolio page:
+`url: item.caseStudySlug ? `https://caltechweb.com/portfolio/${item.caseStudySlug}/` : "https://caltechweb.com/web-design-portfolio/"`
+
+### Fix 3: Missing OG Article Properties on Blog Posts
+
+`src/app/[slug]/page.tsx` blog post `openGraph` metadata was missing `modifiedTime`, `section`, and `tags` (part of the `og:article:*` protocol). Added:
+- `modifiedTime: new Date(post.date).toISOString()`
+- `section: post.category`
+- `tags: [post.category, "web design", "CalTech Web"]`
+
+---
+
+[2026-02-25] === SEO AGENT RUN ===
+
+## Area Targeted: Duplicate Metadata Tags — Get a Free Instant Quote Page
+
+### Problem Identified
+
+`src/app/get-a-free-instant-quote/page.tsx` is a `"use client"` component that previously contained raw `<title>`, `<meta name="description">`, `<link rel="canonical">`, and `<meta property="og:*">` tags inline in its JSX return. The project is on **React 19**, which automatically hoists these tags to `<head>`. At the same time, `src/app/get-a-free-instant-quote/layout.tsx` exports a proper Next.js `Metadata` object covering the same fields — with **different content**:
+
+| Tag | Layout (Next.js Metadata) | Page JSX (removed) |
+|---|---|---|
+| `<title>` | "Get a Free Instant Website Quote \| CalTech Web" | "Get a Free Quote - $99/month Web Design \| CalTech Web" |
+| `<meta name="description">` | "Get an instant, no-obligation quote…" | "Get a free web design quote from CalTech Web…" |
+
+This resulted in **two `<title>` tags** and **two `<meta name="description">` tags** in the rendered HTML. A duplicate `<link rel="canonical">` was also present. Google's guidance is that duplicate or conflicting canonical tags weaken canonicalization signals, and duplicate title/description tags can cause Googlebot to pick unpredictable values.
+
+### Why This Matters
+
+Google explicitly documents that a single, unambiguous canonical URL is important for indexing. Duplicate title tags mean Google may use either value in SERPs. Conflicting meta descriptions reduce Google's ability to generate accurate snippets. All three issues stem from a documented Google ranking consideration.
+
+### Change Made
+
+**`src/app/get-a-free-instant-quote/page.tsx`**
+- Removed the raw `<title>`, `<meta name="description">`, `<link rel="canonical">`, and all `<meta property="og:*">` tags from the JSX return (lines 380–400)
+- Updated the stale comment at the top to reflect that `layout.tsx` handles all metadata
+- The `layout.tsx` remains the single source of truth for this page's metadata
+
+TypeScript check: exit 0, no errors.
+
+---
+
 [2026-02-25] === SEO AGENT RUN ===
 
 ## Area Targeted: FAQPage Schema — Contact Page
@@ -48,6 +254,46 @@ only ones with this malformed pattern.
 - Removed `breadcrumb` from inside the `Service` JSON-LD
 - Added standalone `breadcrumbJsonLd` constant: Home → Website Design RFP & RFQ
 - Injected as second `<script type="application/ld+json">`
+
+TypeScript check: exit 0, no errors.
+
+---
+
+[2026-02-25] === SEO AGENT RUN ===
+
+## Area Targeted: Orphaned Portfolio Case Study Pages (Internal Linking)
+
+### Problem Identified
+
+The site has 13 portfolio case study pages at `/portfolio/{slug}/` — each with BreadcrumbList + Review structured data, dedicated metadata, and rich content. However, **none had any internal HTML links pointing to them** from the portfolio listing page (`/web-design-portfolio/`).
+
+The `PortfolioCard` component used `href={item.website}` pointing directly to external client sites. This meant:
+1. All 13 case study pages were effectively **orphaned** — receiving zero internal PageRank from the rest of the site
+2. Google had no crawl path to these pages except the XML sitemap
+3. 8 of the 13 case study pages were not represented in the portfolio grid at all — completely unreachable via internal links
+
+Google's documentation explicitly states that internal links are one of the primary ways PageRank flows through a site, and pages with no internal links rarely rank well.
+
+### Changes Made
+
+**`src/app/web-design-portfolio/page.tsx`**
+- Added optional `caseStudySlug?: string` to the `PortfolioItem` type
+- Added `caseStudySlug` to 5 portfolio grid items that have case study pages: `dr-arjun-kanuri`, `specialized-plastic-surgery`, `alv-floors`, `longhorn-fire-alarm-design`, `central-baptist-church`
+- Restructured `PortfolioCard` from a single `<a>` wrapper to a `div` container with:
+  - An `<a>` on the screenshot → links to external client site ("Visit Site" UX preserved)
+  - A Next.js `<Link>` at the card footer → "View Case Study →" for items with `caseStudySlug`
+
+**`src/app/portfolio/[slug]/page.tsx`**
+- In `longhorn-fire-alarm-design`, replaced `"fuentes-concrete"` in its related array with `"custom-cabling-solutions"` — the one case study with no internal path to it. `fuentes-concrete` remains reachable via `alv-floors`'s related list.
+
+### Why This Matters
+
+After these changes, all 13 portfolio case study pages are reachable via internal HTML links:
+- 5 direct links from the portfolio grid (dr-arjun-kanuri, specialized-plastic-surgery, alv-floors, longhorn-fire-alarm-design, central-baptist-church)
+- Related project links spreading outward cover the remaining 8 pages
+- `custom-cabling-solutions` is now reachable via longhorn's related section
+
+PageRank can now flow: homepage → (nav) → portfolio listing → case study pages, giving each case study page genuine link authority.
 
 TypeScript check: exit 0, no errors.
 
@@ -1533,3 +1779,148 @@ Done. Here's what was found and fixed:
 **TypeScript:** `npx tsc --noEmit` — exit 0, no errors.
 [2026-02-25 17:28:07] Run #8 finished
 [2026-02-25 17:28:12] Run #9 starting (model: sonnet)
+**Done.** Here's what was found and fixed:
+
+## Problem: Duplicate Metadata on `/get-a-free-instant-quote/`
+
+The `get-a-free-instant-quote/page.tsx` is a `"use client"` component that contained raw `<title>`, `<meta name="description">`, `<link rel="canonical">`, and OpenGraph `<meta>` tags inline in JSX.
+
+**The site runs React 19**, which automatically hoists those tags to `<head>` — creating actual duplicates alongside the metadata already exported from `layout.tsx`. Worse, the two sets had **different content**:
+
+| Tag | Layout (correct) | Page JSX (removed) |
+|---|---|---|
+| `<title>` | "Get a Free Instant Website Quote \| CalTech Web" | "Get a Free Quote - $99/month Web Design \| CalTech Web" |
+| `<meta description>` | "Get an instant, no-obligation quote…" | "Get a free web design quote from CalTech Web…" |
+
+**What this causes:** Two `<title>` tags in rendered HTML means Google picks unpredictably between them for SERP display. Two canonical tags with any ambiguity weakens canonicalization signals. Google's guidelines explicitly document these as issues that affect how pages are indexed and ranked.
+
+**Fix:** Removed the redundant raw HTML meta block from `page.tsx` (lines 380–400). The `layout.tsx` already handles all metadata correctly via Next.js's proper `Metadata` API — it's now the single, unambiguous source of truth for this page.
+[2026-02-25 17:36:04] Run #9 finished
+[2026-02-25 17:36:09] Run #10 starting (model: sonnet)
+Here's what was done and why it matters:
+
+---
+
+## Area Fixed: Orphaned Portfolio Case Study Pages
+
+**Problem:** The site has 13 portfolio case study pages at `/portfolio/{slug}/` that were completely orphaned from an internal linking standpoint. The portfolio grid on `/web-design-portfolio/` linked directly to external client websites — Google had no HTML path to follow to reach the case study pages, other than the XML sitemap.
+
+Pages with no internal links receive no PageRank flow from the site, and Google's own documentation identifies internal linking as a primary signal for page importance.
+
+**Changes made:**
+
+**`src/app/web-design-portfolio/page.tsx`**
+- Added `caseStudySlug?: string` to the `PortfolioItem` type
+- Added `caseStudySlug` to the 5 grid items that have case study pages: Arjun Kanuri, Specialized Plastic Surgery, ALV Floors, Longhorn Fire Alarm Design, Central Baptist Church
+- Restructured `PortfolioCard` from a single `<a>` (which would cause nested links) to a `div` with:
+  - An `<a>` on the screenshot area → still links to the external client site with the "Visit Site" hover overlay
+  - A `Link` at the card bottom → "View Case Study →" only for items with a case study
+
+**`src/app/portfolio/[slug]/page.tsx`**
+- In `longhorn-fire-alarm-design`'s related array, replaced `fuentes-concrete` (reachable via `alv-floors` already) with `custom-cabling-solutions` — the one case study that had no path to it through any related-project chain
+
+After these changes, all 13 case study pages are reachable via real HTML links and can accumulate PageRank from the homepage → nav → portfolio listing → case study chain.
+[2026-02-25 17:48:24] Run #10 finished
+[2026-02-25 17:48:29] Run #11 starting (model: sonnet)
+Three SEO fixes applied this session:
+
+---
+
+**1. Trailing slash on portfolio related-project links** (`portfolio/[slug]/page.tsx:899`)
+
+The "More Success Stories" links were missing a trailing slash (`/portfolio/${rel.slug}` → `/portfolio/${rel.slug}/`). With `trailingSlash: true` in `next.config.ts`, every click triggered a 301 redirect before resolving. Internal redirects waste crawl budget and reduce the PageRank passed through the link — both documented by Google.
+
+**2. ItemList structured data URLs** (`web-design-portfolio/page.tsx`)
+
+The `portfolioItemListJsonLd` schema was using the *client's external websites* (e.g. `https://arjunkanurimd.com`) as each list item's `url`. Google's carousel/ItemList documentation requires item URLs to point to pages on your own site. External URLs prevent Google from crawling the linked pages for schema context, blocking any chance of carousel rich results. Now correctly uses the internal portfolio case study URLs.
+
+**3. `og:article` section and tags on blog posts** (`[slug]/page.tsx`)
+
+Blog post OpenGraph metadata was missing three standard `og:article:*` properties that categorize articles for crawlers and Google Discover: `modifiedTime`, `section` (the post category), and `tags`. These are now emitted on every blog post page.
+[2026-02-25 17:56:02] Run #11 finished
+[2026-02-25 17:56:07] Run #12 starting (model: sonnet)
+Done. Here's what was found and fixed:
+
+---
+
+## SEO Agent Run #3 — Trailing Slashes in MobileNav & Homepage
+
+**Problem:** `next.config.ts` has `trailingSlash: true`, so any URL without a trailing slash gets a 301 redirect. Google documents that redirect chains waste crawl budget and dilute PageRank.
+
+**Two locations had missing trailing slashes:**
+
+### 1. `src/components/MobileNav.tsx` (site-wide impact)
+The shared mobile nav component — imported on every single page — had 5 of 6 links without trailing slashes (`/web-design-portfolio`, `/web-design-pricing`, `/blog`, `/brandon-hopkins`, `/affordable-church-websites`). Since Google uses mobile-first indexing, every page on the site was triggering 5 simultaneous 301 redirects per Googlebot crawl of the mobile nav. **Fixed all 5.**
+
+### 2. `src/app/page.tsx` (homepage, 8 links)
+- Footer "Company" section: 5 links missing trailing slashes
+- "WhoWeServe" section: 3 links missing trailing slashes
+
+**Fixed all 13 affected links total.**
+
+This was the same class of issue fixed in Run #2 (portfolio related-project links), but this instance affected the entire site due to the shared MobileNav component.
+[2026-02-25 18:07:19] Run #12 finished
+[2026-02-25 18:07:24] Run #13 starting (model: sonnet)
+Done. Here's what was done this run:
+
+---
+
+**Change: FAQPage schema + FAQ section added to `/affordable-church-websites/`**
+
+**The gap:** The church websites page — a high-commercial-intent landing page targeting searches like "affordable church website design" — had Service schema and BreadcrumbList schema, but no FAQPage schema and no FAQ section. The pricing page already had both.
+
+**What was added:**
+- 8 church-specific FAQ entries (cost, online giving, timeline, updates, small churches, redesigns, contracts, sermon streaming)
+- `FAQPage` JSON-LD structured data injected via `<script type="application/ld+json">`
+- `ChurchFAQ` accordion component (same `<details>`/`<summary>` pattern as the pricing page) placed between the testimonial and CTA sections
+
+**Why it matters:** Google's FAQPage schema is one of the few structured data types that directly changes how a SERP listing looks — FAQ items expand the result with 2–3 visible Q&A pairs, making it visually larger than competitor listings. This increases CTR without requiring any off-site work. It also adds ~600 words of targeted, on-topic content that answers questions Google sees being searched alongside "church website design."
+[2026-02-25 18:12:08] Run #13 finished
+[2026-02-25 18:12:13] Run #14 starting (model: sonnet)
+**Done.** Here's what was fixed and why it matters:
+
+---
+
+## Fix: Topic Cluster Internal Linking — Church Websites Pillar Page
+
+**Problem:** `affordable-church-websites/page.tsx` is the pillar page for church website design, but it had zero links to the 4 church-specific blog posts on the site. Blog posts were only reachable via sitemap from this page, receiving no PageRank from the most topically relevant page on the site.
+
+**Fix:** Added a `ChurchResources` section between the FAQ and CTA with 2×2 card links to all 4 church blog posts:
+- `church-website-design-essentials/` — "7 Things Every Church Website Needs"
+- `ultimate-guide-christian-ministry-websites/` — "The Ultimate Guide to Christian Ministry Websites"
+- `post-sermons-online/` — "How to Post Sermons Online"
+- `church-website-support/` — "Why Your Ministry Needs More Than a Template"
+
+**Why it matters per Google:**
+- Google's Helpful Content and E-E-A-T systems reward sites where a pillar page links explicitly to cluster content — it signals topical depth and expertise
+- Anchor text on internal links is a documented signal Google uses to understand target page content
+- Internal PageRank now flows from the church service page → into 4 blog posts that previously had zero inbound links from relevant pages
+- Creates a crawl path with proper context, not just a sitemap entry
+[2026-02-25 18:20:19] Run #14 finished
+[2026-02-25 18:20:24] Run #15 starting (model: sonnet)
+Done. Here's what was done this run:
+
+---
+
+**Run #6 — FAQPage Schema + FAQ Section: Competitor Comparison Page**
+
+**Problem:** `web-design-competitor-comparison/page.tsx` was the only remaining high-intent conversion page on the site without a FAQ section or FAQPage structured data. Every other major page (homepage, pricing, contact, church websites) already has FAQPage schema eligible for Google's FAQ rich results.
+
+**What was changed in `src/app/web-design-competitor-comparison/page.tsx`:**
+
+1. Added `ChevronDown` to lucide-react imports
+2. Added `comparisonFaqs` array — 7 Q&A pairs targeting the exact objections someone has when comparing web design options:
+   - $99/month vs Wix/Squarespace (true cost including time)
+   - CalTech Web vs freelancer (support, reliability, pricing predictability)
+   - Migration from an existing DIY site
+   - $99/month vs agency pricing
+   - Hidden fees (only: domain ~$12–15/year)
+   - What happens on cancellation
+   - Technical skill requirement
+3. Added `comparisonFaqJsonLd` — FAQPage schema injected as `<script type="application/ld+json">`
+4. Added `ComparisonFAQ` component — same `<details>`/`<summary>` accordion as the pricing page
+5. Inserted `<ComparisonFAQ />` between `<Testimonials />` and `<FinalCTA />`
+
+**Why it matters:** Google's FAQPage rich results expand the SERP listing to show Q&A pairs directly under the page title — a larger footprint that pushes competitors' listings down and pre-answers the objections that determine whether someone clicks. TypeScript: exit 0.
+[2026-02-25 18:26:24] Run #15 finished
+[2026-02-25 18:26:24] Reached max loops (15). Stopping.

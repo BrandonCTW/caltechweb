@@ -8,20 +8,8 @@ Redesign the CalTech Web homepage to be a modern, conversion-focused website tha
 
 ## Business Context
 
-- **Company**: CalTech Web — affordable web design company
-- **Founder/Owner**: Brandon Hopkins
-- **Phone**: (559) 282-3075
-- **Email**: Brandon@CalTechWeb.com
-- **Location**: California-based, serving clients nationwide
-- **Price**: $99/month all-inclusive
-- **Services**: Website design, hosting, maintenance, unlimited updates, free redesigns, ongoing support
-- **Specialties**: Small business websites, church websites, non-profit website design
-- **Stats**: 800+ websites managed, 93% of support requests completed in under 1 hour, 5,000+ support tickets closed
-- **Tone**: Friendly, trustworthy, value-driven, personal — Brandon speaks directly to the client
+See SITE-FACTS.md
 
-## Nav Links
-
-Home, Web Design Portfolio, Web Design Pricing, Blog, About, Church Websites, FREE Quote CTA
 
 ## Key Selling Points
 
@@ -54,7 +42,6 @@ Make it look like a trustworthy, modern small business service site. Think:
 - Bold, clear pricing front and center ($99/month)
 - Friendly and personal — Brandon is the face of the brand
 - Strong trust signals (800+ sites, 93% under 1 hour, testimonials)
-- Clear CTAs: "Get FREE Quote" and phone number visible above the fold
 - Clean, professional but approachable — not corporate
 
 ## Workflow

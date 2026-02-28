@@ -17,6 +17,8 @@ import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
+import BrandonFAQ from "./BrandonFAQ";
+import { brandonFaqs } from "./faq-data";
 
 export const metadata: Metadata = {
   title: "About Brandon Hopkins | Founder of CalTech Web",
@@ -92,6 +94,19 @@ const breadcrumbJsonLd = {
       item: "https://caltechweb.com/brandon-hopkins/",
     },
   ],
+};
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: brandonFaqs.map(({ q, a }) => ({
+    "@type": "Question",
+    name: q,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: a,
+    },
+  })),
 };
 
 // ─── Hero ─────────────────────────────────────────────────────────────────────
@@ -181,11 +196,38 @@ function Stats() {
 
 // ─── Story ────────────────────────────────────────────────────────────────────
 
+const milestones = [
+  {
+    year: "The Problem",
+    icon: MessageSquare,
+    heading: "Small businesses kept getting burned",
+    body: "Early in my career I saw the same story play out over and over: a small business owner, a pastor, or a non-profit director would come to me frustrated. They\u2019d paid $3,000\u2013$5,000 for a website that looked dated six months later. Simple text changes cost $150 a pop. Their developer ghosted them.",
+  },
+  {
+    year: "The Idea",
+    icon: Zap,
+    heading: "What if you never had to worry about your website again?",
+    body: "I built CalTech Web around one idea: one flat monthly fee \u2014 no surprise bills, no waiting days for updates, no wondering if the site is actually being maintained. Everything your website needs, covered.",
+  },
+  {
+    year: "Today",
+    icon: Globe,
+    heading: "800+ websites and counting",
+    body: "Today we manage 800+ websites for small businesses, churches, and non-profits across the country. My team closes 93% of support requests in under an hour. We get new sites live in 5\u20137 business days. And every client has my personal email and cell number.",
+  },
+  {
+    year: "Always",
+    icon: Heart,
+    heading: "The CalTech Web difference",
+    body: "That\u2019s not something you\u2019ll get from a big agency. It\u2019s the CalTech Web difference \u2014 and I\u2019m proud of it every single day.",
+  },
+];
+
 function Story() {
   return (
     <section className="py-16 sm:py-20">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
+        <div className="text-center mb-14">
           <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4">
             Why I Built CalTech Web
           </h2>
@@ -194,35 +236,34 @@ function Story() {
           </p>
         </div>
 
-        <div className="prose prose-lg max-w-none text-gray-700 space-y-6">
-          <p>
-            Early in my career I saw the same story play out over and over: a
-            small business owner, a pastor, or a non-profit director would come
-            to me frustrated. They&apos;d paid $3,000–$5,000 for a website that
-            looked dated six months later. Simple text changes cost $150 a pop.
-            Their developer ghosted them. Their hosting was mysteriously $80 a
-            month on top of everything else.
-          </p>
+        {/* Timeline */}
+        <div className="relative">
+          {/* Vertical line */}
+          <div className="absolute left-5 sm:left-6 top-0 bottom-0 w-px bg-blue-100" aria-hidden="true" />
 
-          <p>
-            I knew there was a better way. I built CalTech Web around one idea:{" "}
-            <strong>what if a client never had to worry about their website again?</strong>{" "}
-            One flat monthly fee - no surprise bills, no waiting days for
-            updates, no wondering if the site is actually being maintained.
-          </p>
+          <div className="space-y-10">
+            {milestones.map(({ year, icon: Icon, heading, body }) => (
+              <div key={year} className="relative flex gap-5 sm:gap-7">
+                {/* Node */}
+                <div className="relative z-10 flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-blue-600 text-white flex items-center justify-center shadow-md shadow-blue-600/20">
+                  <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
+                </div>
 
-          <p>
-            Today we manage <strong>800+ websites</strong> for small businesses,
-            churches, and non-profits across the country. My team closes{" "}
-            <strong>93% of support requests in under an hour</strong>. We get
-            new sites live in <strong>5–7 business days</strong>. And every
-            client has my personal email and cell number.
-          </p>
-
-          <p>
-            That&apos;s not something you&apos;ll get from a big agency. It&apos;s the CalTech
-            Web difference - and I&apos;m proud of it every single day.
-          </p>
+                {/* Content */}
+                <div className="pt-1 pb-2">
+                  <span className="inline-block text-xs font-bold uppercase tracking-wider text-blue-600 mb-1">
+                    {year}
+                  </span>
+                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 leading-snug">
+                    {heading}
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed max-w-2xl">
+                    {body}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -479,6 +520,10 @@ export default function AboutPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       <Header />
       <main className="pb-[76px] md:pb-0">
         <Hero />
@@ -486,6 +531,7 @@ export default function AboutPage() {
         <Story />
         <Values />
         <Testimonials />
+        <BrandonFAQ />
         <Guarantee />
       </main>
       <Footer />

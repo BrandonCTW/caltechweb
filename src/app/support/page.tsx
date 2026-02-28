@@ -9,6 +9,8 @@ import {
   Zap,
   MessageCircle,
   TicketCheck,
+  AlertTriangle,
+  ChevronDown,
 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -18,11 +20,13 @@ import { useState, useEffect, type FormEvent } from "react";
 
 function SupportForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState(false);
   const [sending, setSending] = useState(false);
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setSending(true);
+    setError(false);
 
     const form = e.currentTarget;
     const formData = new FormData(form);
@@ -37,10 +41,10 @@ function SupportForm() {
       if (response.ok) {
         setSubmitted(true);
       } else {
-        setSubmitted(true);
+        setError(true);
       }
     } catch {
-      setSubmitted(true);
+      setError(true);
     } finally {
       setSending(false);
     }
@@ -72,6 +76,37 @@ function SupportForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
+      {error && (
+        <div className="flex items-start gap-3 bg-red-50 border border-red-200 rounded-2xl p-4">
+          <div className="w-9 h-9 rounded-lg bg-red-100 flex items-center justify-center shrink-0 mt-0.5">
+            <AlertTriangle className="w-4 h-4 text-red-600" />
+          </div>
+          <div>
+            <p className="text-sm font-bold text-gray-900">
+              Something went wrong
+            </p>
+            <p className="text-sm text-gray-600">
+              Your request couldn&apos;t be sent. Please try again, or reach us
+              directly at{" "}
+              <a
+                href="mailto:support@caltechweb.com"
+                className="text-blue-600 hover:underline"
+              >
+                support@caltechweb.com
+              </a>{" "}
+              or{" "}
+              <a
+                href="tel:5592823075"
+                className="text-blue-600 hover:underline"
+              >
+                (559) 282-3075
+              </a>
+              .
+            </p>
+          </div>
+        </div>
+      )}
+
       <div>
         <label
           htmlFor="name"
@@ -155,6 +190,111 @@ function SupportForm() {
         )}
       </button>
     </form>
+  );
+}
+
+// --- Support FAQ ---
+
+const supportFaqs = [
+  {
+    q: "What kinds of updates can I request?",
+    a: "Anything on your website. Text changes, new photos, adding or removing pages, layout tweaks, new blog posts, menu updates, hours changes, staff bios — you name it. If it's on your site, we can update it.",
+  },
+  {
+    q: "How quickly will my update be completed?",
+    a: "Most requests are completed within 1 hour during business hours (Mon–Fri, 8am–5pm PT). Larger requests like new pages or design changes may take 1–2 business days. We'll let you know the timeline when we receive your request.",
+  },
+  {
+    q: "Is there a limit to how many updates I can request?",
+    a: "No. Your plan includes unlimited updates — there's no cap and no extra charge. Send as many requests as you need, as often as you need them.",
+  },
+  {
+    q: "Do I need to provide exact wording or images?",
+    a: "Not at all. You can send us rough notes, bullet points, or just describe what you want changed. We'll write the copy and source or resize images as needed. Of course, if you have specific text or photos ready, just attach them to your request.",
+  },
+  {
+    q: "Can I request a full redesign of my site?",
+    a: "Yes — free redesigns are included in your plan. If you want a fresh look, a new color scheme, or a completely different layout, just let us know. We'll design a new version for your approval before making it live.",
+  },
+  {
+    q: "What's the best way to send files or images?",
+    a: "You can attach files directly to the support form, email them to support@caltechweb.com, or share a Google Drive / Dropbox link. We accept all common image and document formats.",
+  },
+  {
+    q: "My website is down. What should I do?",
+    a: "Call us immediately at (559) 282-3075 or use the live chat in the bottom-right corner. We treat outages as top priority and will begin working on it right away, even outside normal business hours.",
+  },
+];
+
+function SupportFAQ() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  return (
+    <section className="py-16 bg-gray-50">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-10">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900 mb-3">
+            Common Support Questions
+          </h2>
+          <p className="text-gray-500 text-sm sm:text-base">
+            Quick answers so you know exactly what to expect.
+          </p>
+        </div>
+
+        <div className="divide-y divide-gray-100 border border-gray-100 rounded-2xl overflow-hidden shadow-sm bg-white">
+          {supportFaqs.map(({ q, a }, i) => {
+            const isOpen = openIndex === i;
+            return (
+              <div key={i}>
+                <button
+                  onClick={() => setOpenIndex(isOpen ? null : i)}
+                  className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left hover:bg-gray-50 transition-colors"
+                  aria-expanded={isOpen}
+                >
+                  <span className="text-base font-semibold text-gray-900 leading-snug">
+                    {q}
+                  </span>
+                  <ChevronDown
+                    className={`w-5 h-5 text-gray-400 shrink-0 transition-transform duration-200 ${
+                      isOpen ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
+                <div
+                  className="overflow-hidden transition-all duration-300 ease-in-out"
+                  style={{
+                    maxHeight: isOpen ? "400px" : "0px",
+                    opacity: isOpen ? 1 : 0,
+                  }}
+                >
+                  <div className="px-6 pb-5">
+                    <p className="text-gray-600 leading-relaxed text-sm">{a}</p>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        <p className="text-center text-sm text-gray-400 mt-8">
+          Still have a question?{" "}
+          <a
+            href="mailto:support@caltechweb.com"
+            className="text-blue-600 font-semibold hover:underline"
+          >
+            Email support
+          </a>{" "}
+          or call{" "}
+          <a
+            href="tel:5592823075"
+            className="text-blue-600 font-semibold hover:underline"
+          >
+            (559) 282-3075
+          </a>
+          .
+        </p>
+      </div>
+    </section>
   );
 }
 
@@ -331,6 +471,9 @@ export default function SupportPage() {
             </div>
           </div>
         </section>
+
+        {/* FAQ */}
+        <SupportFAQ />
       </main>
       <Footer />
     </>

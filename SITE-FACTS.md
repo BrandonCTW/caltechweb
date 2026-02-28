@@ -153,6 +153,34 @@
 | Average time to complete an update | 1.7 hours |
 | Support system | Zendesk ticketing system |
 
+### Support Page (`/support/`)
+
+**URL:** caltechweb.com/support/
+**Page Title:** Client Support | CalTech Web
+**Heading:** "Need Something Updated?"
+
+**Contact Channels:**
+- **Form** — Submit a support request directly on the page
+- **Email** — support@caltechweb.com
+- **Phone** — (559) 282-3075
+- **Live Chat** — Chat bubble in the bottom-right corner
+
+**Support Form Fields:**
+- Name (required)
+- Email (required)
+- Website URL (required)
+- "What do you need updated?" message (required)
+- Submits to `/api/contact` (POST)
+
+**Live Stats (pulled from Zendesk via `/api/zendesk-stats`):**
+- Tickets solved (all-time)
+- Median resolution time in minutes
+- Percent resolved under 24 hours
+- Timestamp of last data refresh
+
+**Hero Badge:** "{X}% of requests resolved in under 24 hours"
+**Post-submission CTA:** Call (559) 282-3075, with note that most requests are completed within 1 hour during business hours
+
 ---
 
 ## Process (How It Works)

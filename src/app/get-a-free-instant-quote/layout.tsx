@@ -48,12 +48,71 @@ const breadcrumbJsonLd = {
   ],
 };
 
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Is there really no setup fee?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Correct - there is no setup fee, no hidden charges, and no contracts. You pay $99/month and that covers everything: design, hosting, SSL, unlimited updates, and priority support.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What if I already have a website?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "No problem. We can migrate your existing site, redesign it from scratch, or start fresh - whatever works best for your goals. Your domain always stays yours.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How long does it take to get my site live?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Most websites are designed and launched within 5-7 business days. You will review and approve the design before anything goes public.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Can I cancel anytime?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Absolutely. There are no contracts or cancellation fees. If you decide to leave, you can cancel at any time with no penalty.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What if I am not happy with the design?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Brandon personally guarantees your satisfaction. Revisions are unlimited during the design process. If you are not happy after launch, you get a full refund and keep your website.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Do you work with businesses outside California?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes - CalTech Web serves clients nationwide. Everything is handled remotely, so location is never a barrier.",
+      },
+    },
+  ],
+};
+
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
       {children}
     </>
