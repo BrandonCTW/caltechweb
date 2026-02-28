@@ -270,22 +270,6 @@ const posts = [
   },
 ];
 
-const categories = [
-  "All Posts",
-  "Web Design Tips",
-  "Web Design",
-  "Case Studies",
-  "SEO",
-  "Church Websites",
-  "Non-Profits",
-  "Small Business",
-  "Industry",
-  "Pricing & Value",
-  "Conversion",
-  "Local SEO",
-  "Support & Reliability",
-];
-
 // ─── Structured Data ──────────────────────────────────────────────────────────
 
 const breadcrumbJsonLd = {
@@ -328,9 +312,21 @@ const blogJsonLd = {
     headline: post.title,
     description: post.excerpt,
     url: `https://caltechweb.com/${post.slug}/`,
+    datePublished: new Date(post.date).toISOString(),
+    dateModified: new Date(post.date).toISOString(),
     author: {
       "@type": "Person",
       name: post.author,
+      url: "https://caltechweb.com/brandon-hopkins/",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "CalTech Web",
+      url: "https://caltechweb.com/",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://caltechweb.com/logo.png",
+      },
     },
   })),
 };
@@ -562,7 +558,7 @@ export default function BlogPage() {
       <main className="pb-[76px] md:pb-0">
         <Hero />
         <FeaturedPost />
-        <BlogFilterGrid posts={posts} categories={categories} />
+        <BlogFilterGrid posts={posts} />
         <CTAStrip />
       </main>
       <Footer />

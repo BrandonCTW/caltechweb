@@ -52,7 +52,8 @@ const jsonLd = {
   "@type": "Person",
   name: "Brandon Hopkins",
   url: "https://caltechweb.com/brandon-hopkins/",
-  jobTitle: "Founder & Web Designer",
+  image: "https://caltechweb.com/brandon-hopkins.jpg",
+  jobTitle: "CEO & Founder",
   worksFor: {
     "@type": "Organization",
     name: "CalTech Web",
@@ -62,11 +63,14 @@ const jsonLd = {
   email: "Brandon@CalTechWeb.com",
   address: {
     "@type": "PostalAddress",
+    streetAddress: "26766 Greentree Ave.",
+    addressLocality: "Madera",
     addressRegion: "CA",
+    postalCode: "93638",
     addressCountry: "US",
   },
   description:
-    "Brandon Hopkins is the founder of CalTech Web, an affordable web design company serving small businesses, churches, and non-profits nationwide for $99/month.",
+    "Brandon Hopkins is the CEO and founder of CalTech Web, an affordable web design company serving small businesses, churches, and non-profits nationwide for $99/month. He has 20 years of experience in SEO, online marketing, and website design.",
   knowsAbout: [
     "Web Design",
     "Website Hosting",
@@ -74,6 +78,11 @@ const jsonLd = {
     "Church Websites",
     "Non-Profit Websites",
     "SEO",
+    "Online Marketing",
+  ],
+  sameAs: [
+    "https://www.linkedin.com/company/caltech-web",
+    "https://www.instagram.com/caltechweb/",
   ],
 };
 
@@ -118,7 +127,7 @@ function Hero() {
         <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
           {/* Avatar / photo placeholder */}
           <div className="shrink-0">
-            <Image src="/brandon-hopkins.jpg" alt="Brandon Hopkins" width={416} height={416} sizes="(max-width: 640px) 176px, 208px" className="w-44 h-44 sm:w-52 sm:h-52 rounded-full object-cover border-4 border-blue-400/40 shadow-2xl" priority />
+            <Image src="/brandon-hopkins.jpg" alt="Brandon Hopkins, CEO and Founder of CalTech Web — affordable web design company based in Madera, California" width={416} height={416} sizes="(max-width: 640px) 176px, 208px" className="w-44 h-44 sm:w-52 sm:h-52 rounded-full object-cover border-4 border-blue-400/40 shadow-2xl" priority />
           </div>
 
           {/* Copy */}

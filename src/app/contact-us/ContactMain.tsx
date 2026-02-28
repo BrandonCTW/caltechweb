@@ -8,6 +8,7 @@ import {
   ArrowRight,
   Check,
   Shield,
+  ArrowUpRight,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -260,6 +261,49 @@ export default function ContactMain() {
                   {item}
                 </div>
               ))}
+            </div>
+
+            {/* Internal links */}
+            <div className="border-t border-gray-100 pt-6">
+              <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-3">Learn More</p>
+              <ul className="space-y-2">
+                <li>
+                  <Link
+                    href="/web-design-pricing/"
+                    className="flex items-center gap-1.5 text-sm text-blue-600 font-medium hover:underline"
+                  >
+                    <ArrowUpRight className="w-3.5 h-3.5 shrink-0" />
+                    Web design pricing — $99/month
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/web-design-portfolio/"
+                    className="flex items-center gap-1.5 text-sm text-blue-600 font-medium hover:underline"
+                  >
+                    <ArrowUpRight className="w-3.5 h-3.5 shrink-0" />
+                    View our web design portfolio
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/affordable-church-websites/"
+                    className="flex items-center gap-1.5 text-sm text-blue-600 font-medium hover:underline"
+                  >
+                    <ArrowUpRight className="w-3.5 h-3.5 shrink-0" />
+                    Affordable church websites
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/brandon-hopkins/"
+                    className="flex items-center gap-1.5 text-sm text-blue-600 font-medium hover:underline"
+                  >
+                    <ArrowUpRight className="w-3.5 h-3.5 shrink-0" />
+                    About Brandon Hopkins — CEO & Founder
+                  </Link>
+                </li>
+              </ul>
             </div>
           </div>
 

@@ -76,6 +76,13 @@ export default function RootLayout({
       <body className={`${geist.className} antialiased bg-background text-foreground min-h-screen`}>
         {children}
         <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-16KYJVW780"
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-16KYJVW780');`}
+        </Script>
+        <Script
           id="ze-snippet"
           src="https://static.zdassets.com/ekr/snippet.js?key=20e06cbb-5338-45fc-93ba-6e1621dc8d52"
           strategy="lazyOnload"

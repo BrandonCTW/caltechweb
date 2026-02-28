@@ -296,10 +296,10 @@ function ChurchFeatures() {
                 <Icon className="w-5 h-5" />
               </div>
               <div>
-                <div className="font-semibold text-gray-900 mb-1">{title}</div>
-                <div className="text-sm text-gray-500 leading-relaxed">
+                <h3 className="font-semibold text-gray-900 mb-1 text-base">{title}</h3>
+                <p className="text-sm text-gray-500 leading-relaxed">
                   {body}
-                </div>
+                </p>
               </div>
             </div>
           ))}
@@ -362,12 +362,12 @@ function WhyCalTechWeb() {
                 <Icon className="w-5 h-5" />
               </div>
               <div>
-                <div className="font-semibold text-gray-900 text-sm mb-1">
+                <h3 className="font-semibold text-gray-900 text-sm mb-1">
                   {title}
-                </div>
-                <div className="text-sm text-gray-500 leading-relaxed">
+                </h3>
+                <p className="text-sm text-gray-500 leading-relaxed">
                   {body}
-                </div>
+                </p>
               </div>
             </div>
           ))}

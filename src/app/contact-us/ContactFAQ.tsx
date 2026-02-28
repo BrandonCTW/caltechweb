@@ -2,8 +2,10 @@
 
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
+import Link from "next/link";
+import type { ReactNode } from "react";
 
-const faqs = [
+const faqs: { q: string; a: ReactNode }[] = [
   {
     q: "How quickly will I hear back?",
     a: "Brandon personally responds to every inquiry, usually within a few hours on business days. If your need is urgent, the fastest way to reach us is by phone: (559) 282-3075.",
@@ -14,7 +16,16 @@ const faqs = [
   },
   {
     q: "What does the $99/month include?",
-    a: "Everything: custom website design, unlimited content updates, hosting, SSL certificate, backups, security monitoring, free redesigns whenever you want a fresh look, and priority support. The only extra is your domain name (typically $15–20/year).",
+    a: (
+      <>
+        Everything: custom website design, unlimited content updates, hosting, SSL certificate,
+        backups, security monitoring, free redesigns whenever you want a fresh look, and priority
+        support. The only extra is your domain name (typically $15–20/year).{" "}
+        <Link href="/web-design-pricing/" className="text-blue-600 font-semibold hover:underline">
+          See the full pricing breakdown.
+        </Link>
+      </>
+    ),
   },
   {
     q: "How long does it take to launch a new site?",
@@ -22,7 +33,16 @@ const faqs = [
   },
   {
     q: "I already have a website. Can you take it over?",
-    a: "Absolutely. We can migrate your existing site, redesign it completely, or make incremental improvements - whatever fits your goals. Your domain always stays yours.",
+    a: (
+      <>
+        Absolutely. We can migrate your existing site, redesign it completely, or make incremental
+        improvements - whatever fits your goals. Your domain always stays yours.{" "}
+        <Link href="/web-design-portfolio/" className="text-blue-600 font-semibold hover:underline">
+          Browse our portfolio
+        </Link>{" "}
+        to see examples of recent work.
+      </>
+    ),
   },
   {
     q: "Do you work with businesses outside California?",

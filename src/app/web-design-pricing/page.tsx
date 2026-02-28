@@ -77,7 +77,7 @@ const jsonLd = {
   aggregateRating: {
     "@type": "AggregateRating",
     ratingValue: "5",
-    reviewCount: "800",
+    reviewCount: "4",
     bestRating: "5",
     worstRating: "1",
   },
@@ -123,6 +123,20 @@ const jsonLd = {
       },
       reviewBody:
         "Managing my church website and personal ministry website was a significant time commitment, taking up at least 3 hours of my week. Since I enlisted the help of CalTech Web, they have been maintaining my website for many years now. Their services have been invaluable, saving me precious time that I can now devote to furthering my ministry.",
+    },
+    {
+      "@type": "Review",
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: "5",
+        bestRating: "5",
+      },
+      author: {
+        "@type": "Person",
+        name: "Christina Beckstead",
+      },
+      reviewBody:
+        "CalTech Web helped us with our domain, new website, and even solved a situation with image copyright! I highly recommend them for all nonprofit organization websites.",
     },
   ],
 };
@@ -652,36 +666,42 @@ const audiences = [
     title: "Small Businesses",
     examples: "HVAC, plumbing, landscaping, auto repair, cleaning services",
     pain: "Tired of paying agencies $500+/mo for a website that never gets updated",
+    href: null,
   },
   {
     icon: "⛪",
     title: "Churches & Non-Profits",
     examples: "Congregations, ministries, food banks, community organizations",
     pain: "Need a professional site on a tight budget with frequent event updates",
+    href: "/affordable-church-websites/",
   },
   {
     icon: "🍽️",
     title: "Restaurants & Cafes",
     examples: "Family restaurants, coffee shops, catering, food trucks",
     pain: "Menu changes, seasonal specials, and hours that need updating weekly",
+    href: null,
   },
   {
     icon: "⚖️",
     title: "Professional Services",
     examples: "Law firms, accountants, consultants, real estate agents",
     pain: "Want a polished online presence without managing it themselves",
+    href: null,
   },
   {
     icon: "💈",
     title: "Salons & Wellness",
     examples: "Hair salons, spas, fitness studios, chiropractors, dentists",
     pain: "Need booking info, team bios, and service pages that stay current",
+    href: null,
   },
   {
     icon: "🏗️",
     title: "Contractors & Trades",
     examples: "Roofers, electricians, painters, general contractors",
     pain: "Too busy running the business to worry about a website",
+    href: null,
   },
 ];
 
@@ -704,7 +724,7 @@ function PerfectFor() {
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {audiences.map(({ icon, title, examples, pain }) => (
+          {audiences.map(({ icon, title, examples, pain, href }) => (
             <div
               key={title}
               className="relative bg-white rounded-2xl border border-gray-100 p-6 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all group"
@@ -720,6 +740,14 @@ function PerfectFor() {
                 <span className="font-semibold text-gray-500">Examples:</span>{" "}
                 {examples}
               </p>
+              {href && (
+                <Link
+                  href={href}
+                  className="inline-block mt-4 text-xs font-semibold text-blue-600 hover:text-blue-700 hover:underline"
+                >
+                  Learn more &rarr;
+                </Link>
+              )}
             </div>
           ))}
         </div>
@@ -730,7 +758,14 @@ function PerfectFor() {
             <span className="font-semibold text-gray-700">
               We work with all types of businesses.
             </span>{" "}
-            If you need a website, we can help.
+            If you need a website, we can help.{" "}
+            <Link
+              href="/web-design-portfolio/"
+              className="font-semibold text-blue-600 hover:text-blue-700 hover:underline"
+            >
+              See our portfolio
+            </Link>{" "}
+            for examples.
           </p>
           <a
             href="https://buy.stripe.com/eVa3eAfJRf6KfRe144"
@@ -1063,7 +1098,14 @@ function FAQ() {
 
         <div className="mt-10 text-center">
           <p className="text-gray-500 text-sm mb-4">
-            Have a question that&apos;s not here? Call or email Brandon directly.
+            Have a question that&apos;s not here?{" "}
+            <Link
+              href="/contact-us/"
+              className="font-semibold text-blue-600 hover:text-blue-700 hover:underline"
+            >
+              Visit our contact page
+            </Link>{" "}
+            or reach Brandon directly.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <a

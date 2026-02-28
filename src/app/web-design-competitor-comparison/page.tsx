@@ -123,8 +123,8 @@ function Hero() {
         </div>
 
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-6">
-          CalTech Web vs.{" "}
-          <span className="text-orange-400">Everyone Else</span>
+          Web Design Pricing{" "}
+          <span className="text-orange-400">Compared</span>
         </h1>
 
         <p className="text-lg sm:text-xl text-blue-100 mb-8 max-w-2xl mx-auto leading-relaxed">
@@ -1153,6 +1153,41 @@ function ComparisonFAQ() {
             >
               Brandon@CalTechWeb.com
             </a>
+          </div>
+        </div>
+
+        <div className="mt-10 pt-8 border-t border-gray-100 text-center">
+          <p className="text-gray-500 text-sm mb-4">
+            Ready to see what we build?
+          </p>
+          <div className="flex flex-wrap justify-center gap-3 text-sm">
+            <Link
+              href="/web-design-portfolio/"
+              className="text-blue-600 hover:text-blue-700 font-semibold hover:underline"
+            >
+              View our web design portfolio
+            </Link>
+            <span className="text-gray-300" aria-hidden="true">&middot;</span>
+            <Link
+              href="/web-design-pricing/"
+              className="text-blue-600 hover:text-blue-700 font-semibold hover:underline"
+            >
+              See full pricing details
+            </Link>
+            <span className="text-gray-300" aria-hidden="true">&middot;</span>
+            <Link
+              href="/affordable-church-websites/"
+              className="text-blue-600 hover:text-blue-700 font-semibold hover:underline"
+            >
+              Church website plans
+            </Link>
+            <span className="text-gray-300" aria-hidden="true">&middot;</span>
+            <Link
+              href="/affordable-web-design-for-small-businesses/"
+              className="text-blue-600 hover:text-blue-700 font-semibold hover:underline"
+            >
+              Small business web design guide
+            </Link>
           </div>
         </div>
       </div>

@@ -2,16 +2,10 @@ import type { Metadata } from "next";
 import {
   ArrowRight,
   Phone,
-  Globe,
   Star,
   Check,
   ExternalLink,
   Quote,
-  Building2,
-  Heart,
-  Briefcase,
-  Utensils,
-  Stethoscope,
   ChevronRight,
   Shield,
   Sparkles,
@@ -90,42 +84,6 @@ function Hero() {
             <Phone className="w-4 h-4" />
             (559) 282-3075
           </a>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// ─── Category Filter ──────────────────────────────────────────────────────────
-
-const categories = [
-  { label: "All", icon: Globe },
-  { label: "Small Business", icon: Briefcase },
-  { label: "Church", icon: Heart },
-  { label: "Non-Profit", icon: Heart },
-  { label: "Restaurant", icon: Utensils },
-  { label: "Medical", icon: Stethoscope },
-  { label: "Contractor", icon: Building2 },
-];
-
-function CategoryBar() {
-  return (
-    <section className="border-b border-white/10 bg-gray-900/95 backdrop-blur-md sticky top-16 z-40">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center gap-2 overflow-x-auto py-4 scrollbar-hide">
-          {categories.map(({ label, icon: Icon }, i) => (
-            <button
-              key={label}
-              className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors shrink-0 ${
-                i === 0
-                  ? "bg-amber-500 text-white"
-                  : "bg-white/5 text-gray-400 border border-white/10 hover:bg-white/10 hover:text-white"
-              }`}
-            >
-              <Icon className="w-3.5 h-3.5" />
-              {label}
-            </button>
-          ))}
         </div>
       </div>
     </section>
@@ -721,7 +679,7 @@ const portfolioItemListJsonLd = {
     description: item.description,
     url: item.caseStudySlug
       ? `https://caltechweb.com/portfolio/${item.caseStudySlug}/`
-      : "https://caltechweb.com/web-design-portfolio/",
+      : item.website,
   })),
 };
 
@@ -757,7 +715,6 @@ export default function PortfolioPage() {
       />
       <Header />
       <Hero />
-      <CategoryBar />
       <PortfolioGrid />
       <CaseStudy />
       <WhatsIncluded />

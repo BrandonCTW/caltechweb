@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import {
   Check,
   Phone,
@@ -30,6 +31,36 @@ import Link from "next/link";
 
 const SocialProofToast = dynamic(() => import("@/components/SocialProofToast"));
 const AnimatedChat = dynamic(() => import("@/components/AnimatedChat"));
+
+// ─── Page Metadata ────────────────────────────────────────────────────────────
+
+export const metadata: Metadata = {
+  title: "Affordable Web Design for Small Businesses | $99/month | CalTech Web",
+  description:
+    "Get a professional website for just $99/month — custom design, unlimited updates, hosting, SSL, and fast support all included. 800+ sites built for small businesses, churches, and non-profits. No contracts.",
+  alternates: { canonical: "https://caltechweb.com/" },
+  openGraph: {
+    title: "Affordable Web Design for Small Businesses | $99/month | CalTech Web",
+    description:
+      "Custom website design, unlimited updates, hosting, and priority support — all for $99/month. Serving 800+ small businesses, churches, and non-profits nationwide. No contracts, money-back guarantee.",
+    url: "https://caltechweb.com/",
+    images: [
+      {
+        url: "/brandon-hopkins.jpg",
+        width: 2400,
+        height: 1600,
+        alt: "Brandon Hopkins, Founder of CalTech Web — affordable web design starting at $99/month",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Affordable Web Design for Small Businesses | $99/month | CalTech Web",
+    description:
+      "Custom website design, unlimited updates, hosting, and priority support — all for $99/month. 800+ sites. No contracts.",
+    images: ["/brandon-hopkins.jpg"],
+  },
+};
 
 // ─── Structured Data (JSON-LD) ───────────────────────────────────────────────
 

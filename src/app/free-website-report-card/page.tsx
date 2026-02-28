@@ -32,8 +32,8 @@ function Hero() {
         </div>
 
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-6">
-          How Does Your Website{" "}
-          <span className="text-orange-400">Grade?</span>
+          Free Website Report Card —{" "}
+          <span className="text-orange-400">See Your Grade Instantly</span>
         </h1>
 
         <p className="text-lg sm:text-xl text-blue-100 mb-8 max-w-2xl mx-auto leading-relaxed">

@@ -48,6 +48,88 @@ const breadcrumbJsonLd = {
   ],
 };
 
+const localBusinessJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: "CalTech Web LLC",
+  url: "https://caltechweb.com/",
+  logo: "https://caltechweb.com/caltechweb-logo.png",
+  image: "https://caltechweb.com/brandon-hopkins.jpg",
+  description:
+    "Affordable California web design company serving over 800 websites. Custom web design, hosting, and unlimited updates for $99/month — no setup fees, no contracts.",
+  telephone: "+15592823075",
+  email: "Brandon@CalTechWeb.com",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "26766 Greentree Ave.",
+    addressLocality: "Madera",
+    addressRegion: "CA",
+    postalCode: "93638",
+    addressCountry: "US",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 36.9613,
+    longitude: -120.0607,
+  },
+  areaServed: {
+    "@type": "Country",
+    name: "United States",
+  },
+  priceRange: "$99/month",
+  foundingDate: "2004",
+  founder: {
+    "@type": "Person",
+    name: "Brandon Hopkins",
+    jobTitle: "CEO and Founder",
+    url: "https://caltechweb.com/brandon-hopkins/",
+  },
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Web Design Services",
+    itemListElement: [
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Custom Website Design",
+          description:
+            "Custom website design with unlimited pages, mobile-responsive layout, hosting, SSL, and on-site SEO setup.",
+        },
+        price: "99.00",
+        priceCurrency: "USD",
+        priceSpecification: {
+          "@type": "UnitPriceSpecification",
+          price: "99.00",
+          priceCurrency: "USD",
+          billingDuration: "P1M",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Church Website Design",
+          description:
+            "Church website design including online giving tools, weekly sermon uploads, and event calendar updates.",
+        },
+        price: "149.00",
+        priceCurrency: "USD",
+        priceSpecification: {
+          "@type": "UnitPriceSpecification",
+          price: "149.00",
+          priceCurrency: "USD",
+          billingDuration: "P1M",
+        },
+      },
+    ],
+  },
+  sameAs: [
+    "https://www.linkedin.com/company/caltech-web",
+    "https://www.instagram.com/caltechweb/",
+  ],
+};
+
 const faqJsonLd = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -106,6 +188,10 @@ const faqJsonLd = {
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}

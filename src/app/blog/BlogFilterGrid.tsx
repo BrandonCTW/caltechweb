@@ -1,6 +1,3 @@
-"use client";
-
-import { useState } from "react";
 import Link from "next/link";
 import { Clock, Tag, Zap } from "lucide-react";
 
@@ -74,87 +71,24 @@ function PostCard({ post, isRecent }: { post: Post; isRecent?: boolean }) {
   );
 }
 
-export default function BlogFilterGrid({
-  posts,
-  categories,
-}: {
-  posts: Post[];
-  categories: string[];
-}) {
-  const [activeCategory, setActiveCategory] = useState("All Posts");
-
-  const filteredPosts =
-    activeCategory === "All Posts"
-      ? posts
-      : posts.filter((post) => {
-          const cat = activeCategory.toLowerCase();
-          const postCat = post.category.toLowerCase();
-          // "Case Studies" filter matches the "Case Study" category
-          if (cat === "case studies") return postCat === "case study";
-          return postCat === cat;
-        });
-
+export default function BlogFilterGrid({ posts }: { posts: Post[] }) {
   return (
-    <>
-      {/* Category Filter Bar */}
-      <div className="bg-white border-b border-gray-100 sticky top-16 z-30">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex gap-2 overflow-x-auto py-3 scrollbar-hide">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setActiveCategory(cat)}
-                className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-sm font-medium whitespace-nowrap transition-colors ${
-                  activeCategory === cat
-                    ? "bg-blue-600 text-white"
-                    : "bg-gray-100 text-gray-600 hover:bg-gray-200"
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
+    <section className="py-12 sm:py-16 bg-gray-50">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mb-8">
+          <h2 className="text-xl font-bold text-gray-900">
+            All Articles{" "}
+            <span className="text-gray-400 font-normal text-base">
+              ({posts.length})
+            </span>
+          </h2>
+        </div>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {posts.map((post, index) => (
+            <PostCard key={post.slug} post={post} isRecent={index < 3} />
+          ))}
         </div>
       </div>
-
-      {/* Post Grid */}
-      <section className="py-12 sm:py-16 bg-gray-50">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between mb-8">
-            <h2 className="text-xl font-bold text-gray-900">
-              {activeCategory === "All Posts" ? "All Articles" : activeCategory}{" "}
-              <span className="text-gray-400 font-normal text-base">
-                ({filteredPosts.length})
-              </span>
-            </h2>
-            {activeCategory !== "All Posts" && (
-              <button
-                onClick={() => setActiveCategory("All Posts")}
-                className="text-sm text-blue-600 hover:text-blue-700 font-medium transition-colors"
-              >
-                Clear filter
-              </button>
-            )}
-          </div>
-          {filteredPosts.length === 0 ? (
-            <div className="text-center py-16">
-              <p className="text-gray-400 text-lg">
-                No articles in this category yet.
-              </p>
-            </div>
-          ) : (
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filteredPosts.map((post, index) => (
-                <PostCard
-                  key={post.slug}
-                  post={post}
-                  isRecent={activeCategory === "All Posts" && index < 3}
-                />
-              ))}
-            </div>
-          )}
-        </div>
-      </section>
-    </>
+    </section>
   );
 }

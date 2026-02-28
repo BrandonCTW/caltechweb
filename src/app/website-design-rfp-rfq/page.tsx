@@ -128,24 +128,28 @@ const audiences = [
     color: "text-blue-600 bg-blue-50",
     title: "Government Agencies",
     body: "Federal, state, and local agencies benefit from our simple flat-rate pricing. No complex bids, no cost overruns, no multi-year contracts. Easy to budget, easy to approve.",
+    href: null,
   },
   {
     icon: Church,
     color: "text-purple-600 bg-purple-50",
     title: "Non-Profits & Churches",
     body: "Stretch your budget further. $99/month covers everything - design, hosting, updates, and support. No large capital expenditure required for board approval.",
+    href: "/affordable-church-websites/",
   },
   {
     icon: Briefcase,
     color: "text-orange-600 bg-orange-50",
     title: "Businesses & Organizations",
     body: "Whether you are a small business or a mid-size organization, our model eliminates procurement headaches. One vendor, one invoice, one predictable monthly cost.",
+    href: null,
   },
   {
     icon: Users,
     color: "text-green-600 bg-green-50",
     title: "School Districts & Education",
     body: "Schools and districts need reliable, ADA-accessible websites at budget-friendly pricing. CalTech Web delivers professional sites that meet compliance requirements.",
+    href: null,
   },
 ];
 
@@ -168,7 +172,7 @@ function WhoWeServe() {
         </div>
 
         <div className="grid sm:grid-cols-2 gap-6">
-          {audiences.map(({ icon: Icon, color, title, body }) => (
+          {audiences.map(({ icon: Icon, color, title, body, href }) => (
             <div
               key={title}
               className="flex items-start gap-4 p-6 rounded-2xl border border-gray-100 bg-white hover:shadow-md transition-shadow"
@@ -183,6 +187,15 @@ function WhoWeServe() {
                 <div className="text-sm text-gray-500 leading-relaxed">
                   {body}
                 </div>
+                {href && (
+                  <Link
+                    href={href}
+                    className="inline-flex items-center gap-1 text-xs text-blue-600 font-semibold mt-2 hover:text-blue-700 transition-colors"
+                  >
+                    Learn more
+                    <ArrowRight className="w-3 h-3" />
+                  </Link>
+                )}
               </div>
             </div>
           ))}
@@ -270,6 +283,23 @@ function WhyCalTechWeb() {
               </div>
             </div>
           ))}
+        </div>
+
+        <div className="mt-10 flex flex-wrap justify-center gap-6">
+          <Link
+            href="/web-design-portfolio/"
+            className="inline-flex items-center gap-2 text-blue-600 font-semibold text-sm hover:text-blue-700 transition-colors"
+          >
+            View our web design portfolio
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+          <Link
+            href="/web-design-competitor-comparison/"
+            className="inline-flex items-center gap-2 text-blue-600 font-semibold text-sm hover:text-blue-700 transition-colors"
+          >
+            Compare CalTech Web vs competitors
+            <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
       </div>
     </section>
@@ -657,7 +687,13 @@ function Testimonials() {
           </h2>
           <p className="text-gray-500 mt-3 max-w-xl mx-auto">
             Government agencies, non-profits, and businesses choose CalTech Web
-            for reliable, affordable website design.
+            for reliable, affordable website design.{" "}
+            <Link
+              href="/web-design-portfolio/"
+              className="text-blue-600 font-semibold hover:text-blue-700 transition-colors"
+            >
+              See our portfolio.
+            </Link>
           </p>
         </div>
 
