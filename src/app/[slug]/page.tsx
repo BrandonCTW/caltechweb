@@ -448,6 +448,11 @@ const blogPosts: BlogPost[] = [
           "Your logo, brand colors, and fonts applied consistently throughout",
         ],
         included: "Every CalTech Web site is built for mobile first and scores 90+ on Google PageSpeed. No upgrade needed.",
+        quote: {
+          text: "Wow! I'm blown away by the new website and how easy it has been to work with CalTech Web!",
+          author: "Executive Director",
+          role: "Madera County Food Bank",
+        },
       },
       {
         heading: "Online Donation Integration",
@@ -526,6 +531,11 @@ const blogPosts: BlogPost[] = [
           "No per update fees, no contracts, no surprises",
         ],
         tip: "93% of support requests are completed in under one hour. Your site stays current without adding anything to your plate.",
+        quote: {
+          text: "CalTech Web helped us with our domain, new website, and even solved a situation with image copyright! I highly recommend them for all nonprofit organization websites.",
+          author: "Christina Beckstead",
+          role: "Executive Director, Madera County Farm Bureau",
+        },
       },
     ],
     conclusion:
@@ -1723,13 +1733,68 @@ function ArticleContent({ post }: { post: BlogPost }) {
         ))}
       </div>
 
+      {/* Nonprofit pricing callout */}
+      {post.slug === "nonprofit-website-design-tips" && (
+        <div className="mb-10 p-6 rounded-2xl bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-100">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-100 text-orange-700 text-xs font-bold mb-4">
+            <Zap className="w-3 h-3" />
+            $99/month — everything included
+          </div>
+          <h2 className="text-xl font-extrabold text-gray-900 mb-2 leading-snug">
+            No setup fees. No per-update charges. No surprises.
+          </h2>
+          <p className="text-gray-600 text-sm leading-relaxed mb-5">
+            Every item on this list is built into CalTech Web&apos;s $99/month plan. Not as an add-on. Not as an upgrade. Just included.
+          </p>
+          <div className="grid grid-cols-3 gap-3 mb-5">
+            {[
+              { stat: "800+", label: "Organizations served" },
+              { stat: "93%", label: "Updates in under 1 hour" },
+              { stat: "5–7 days", label: "Average launch time" },
+            ].map(({ stat, label }) => (
+              <div key={label} className="text-center p-3 bg-white rounded-xl border border-blue-100 shadow-sm">
+                <div className="text-2xl font-extrabold text-blue-700">{stat}</div>
+                <div className="text-xs text-gray-500 mt-1 leading-tight">{label}</div>
+              </div>
+            ))}
+          </div>
+          <div className="flex flex-col sm:flex-row gap-3">
+            <Link
+              href="/web-design-pricing/"
+              className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-orange-500 text-white text-sm font-bold hover:bg-orange-600 transition-colors"
+            >
+              Get Your Nonprofit Website
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+            <a
+              href="tel:5592823075"
+              className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full border border-blue-200 text-blue-700 text-sm font-semibold hover:bg-blue-50 transition-colors"
+            >
+              <Phone className="w-4 h-4" />
+              Call Brandon: (559) 282-3075
+            </a>
+          </div>
+        </div>
+      )}
+
       {/* Sections */}
       <div className="space-y-10">
         {post.sections.map((section, si) => (
           <section key={si}>
-            <h2 className="text-xl sm:text-2xl font-extrabold text-gray-900 mb-4 leading-snug">
-              {section.heading}
-            </h2>
+            {post.slug === "nonprofit-website-design-tips" ? (
+              <div className="flex items-start gap-4 mb-4">
+                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center text-base font-extrabold shadow-sm">
+                  {si + 1}
+                </div>
+                <h2 className="text-xl sm:text-2xl font-extrabold text-gray-900 leading-snug pt-1.5">
+                  {section.heading}
+                </h2>
+              </div>
+            ) : (
+              <h2 className="text-xl sm:text-2xl font-extrabold text-gray-900 mb-4 leading-snug">
+                {section.heading}
+              </h2>
+            )}
 
             {/* Body paragraphs */}
             {section.body.length > 0 && (
@@ -1907,29 +1972,34 @@ function RelatedPosts({ posts }: { posts: BlogPost[] }) {
 
 // ─── CTA Strip ────────────────────────────────────────────────────────────────
 
-function CTAStrip() {
+function CTAStrip({ post }: { post: BlogPost }) {
+  const isNonprofit = post.slug === "nonprofit-website-design-tips";
+
   return (
     <section className="py-14 sm:py-20 bg-gradient-to-br from-blue-600 to-blue-700 text-white">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-sm font-medium text-blue-100 mb-6">
           <Zap className="w-4 h-4 text-yellow-400" />
-          Ready to put this into practice?
+          {isNonprofit ? "Built for nonprofits. Priced for nonprofits." : "Ready to put this into practice?"}
         </div>
         <h2 className="text-3xl sm:text-4xl font-extrabold mb-4">
-          Get a website that already does all of this{" "}
-          <span className="text-orange-300">for $99/month.</span>
+          {isNonprofit ? (
+            <>Your nonprofit deserves a professional website{" "}<span className="text-orange-300">for $99/month.</span></>
+          ) : (
+            <>Get a website that already does all of this{" "}<span className="text-orange-300">for $99/month.</span></>
+          )}
         </h2>
         <p className="text-blue-100 text-lg max-w-2xl mx-auto mb-8 leading-relaxed">
-          Everything you just read about (speed, mobile-first design, clear
-          CTAs, local SEO) is built into every CalTech Web site. Launching in
-          5–7 days.
+          {isNonprofit
+            ? "Donation integration, volunteer forms, mobile-first design, SEO, and unlimited updates — every item on this list is already built into your $99/month site. No setup fees. No surprises. Launching in 5–7 days."
+            : "Everything you just read about (speed, mobile-first design, clear CTAs, local SEO) is built into every CalTech Web site. Launching in 5–7 days."}
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
             href="/web-design-pricing/"
             className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-orange-500 text-white text-lg font-bold hover:bg-orange-600 transition-all shadow-lg hover:-translate-y-0.5"
           >
-            Get My Website
+            {isNonprofit ? "Get My Nonprofit Website" : "Get My Website"}
             <ArrowRight className="w-5 h-5" />
           </Link>
           <a
@@ -2120,7 +2190,7 @@ export default async function BlogPostPage({
         <RelatedPosts posts={relatedPosts} />
 
         {/* CTA */}
-        <CTAStrip />
+        <CTAStrip post={post} />
       </main>
       <Footer />
       <StickyMobileCTA />
