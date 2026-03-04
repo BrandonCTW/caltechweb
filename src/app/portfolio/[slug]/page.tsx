@@ -553,6 +553,12 @@ const caseStudyImages: Record<string, string> = {
   "specialized-plastic-surgery": "/portfolio/specialized-plastic-surgery.png",
   "longhorn-fire-alarm-design": "/portfolio/longhorn-fire-alarm-design.png",
   "central-baptist-church": "/portfolio/central-baptist-church.png",
+  "calvary-chapel-los-alamitos": "/portfolio/calvary-chapel-los-alamitos.png",
+  "madera-county-farm-bureau": "/portfolio/madera-county-farm-bureau.png",
+  "fuentes-concrete": "/portfolio/fuentes-concrete.png",
+  "custom-cabling-solutions": "/portfolio/custom-cabling-solutions.png",
+  "origami-owl-chrissy-weems": "/portfolio/origami-owl-chrissy-weems.png",
+  "california-women-for-agriculture": "/portfolio/california-women-for-agriculture.png",
 };
 
 export async function generateMetadata({
@@ -942,21 +948,34 @@ function RelatedProjects({ cs }: { cs: CaseStudy }) {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {related.map((rel) => {
             const RelIcon = rel.Icon;
+            const relImage = caseStudyImages[rel.slug];
             return (
               <Link
                 key={rel.slug}
                 href={`/portfolio/${rel.slug}/`}
                 className="group bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
               >
-                <div className={`h-36 bg-gradient-to-br ${rel.gradient} flex flex-col items-center justify-center text-center px-4`}>
-                  <div className="w-10 h-10 rounded-full bg-white/20 border border-white/30 flex items-center justify-center mb-2">
-                    <RelIcon className="w-5 h-5 text-white" />
-                  </div>
-                  <div className="text-white font-bold text-sm">{rel.name}</div>
-                  {rel.results[0] && (
-                    <div className="mt-1.5 inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold">
-                      <TrendingUp className="w-2.5 h-2.5" />
-                      {rel.results[0].stat} {rel.results[0].label}
+                <div className="h-36 overflow-hidden relative">
+                  {relImage ? (
+                    <Image
+                      src={relImage}
+                      alt={`${rel.name} website designed by CalTech Web`}
+                      width={600}
+                      height={375}
+                      className="w-full h-auto object-cover object-top"
+                    />
+                  ) : (
+                    <div className={`h-full bg-gradient-to-br ${rel.gradient} flex flex-col items-center justify-center text-center px-4`}>
+                      <div className="w-10 h-10 rounded-full bg-white/20 border border-white/30 flex items-center justify-center mb-2">
+                        <RelIcon className="w-5 h-5 text-white" />
+                      </div>
+                      <div className="text-white font-bold text-sm">{rel.name}</div>
+                      {rel.results[0] && (
+                        <div className="mt-1.5 inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold">
+                          <TrendingUp className="w-2.5 h-2.5" />
+                          {rel.results[0].stat} {rel.results[0].label}
+                        </div>
+                      )}
                     </div>
                   )}
                 </div>
