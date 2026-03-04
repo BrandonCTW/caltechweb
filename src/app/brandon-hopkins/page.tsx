@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     "Meet Brandon Hopkins, founder of CalTech Web. Professional websites for small businesses at $99/month with fast support and a personal guarantee.",
   alternates: { canonical: "https://caltechweb.com/brandon-hopkins/" },
   openGraph: {
-    title: "About Brandon Hopkins - Founder of CalTech Web",
+    title: "About Brandon Hopkins | Founder of CalTech Web",
     description:
       "Brandon Hopkins built CalTech Web to give small businesses access to professional web design without the big-agency price tag. $99/month, 800+ sites, and counting.",
     url: "https://caltechweb.com/brandon-hopkins/",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
         url: "/brandon-hopkins.jpg",
         width: 2400,
         height: 1600,
-        alt: "Brandon Hopkins - Founder of CalTech Web",
+        alt: "Brandon Hopkins, Founder of CalTech Web",
       },
     ],
   },
@@ -81,8 +81,10 @@ const jsonLd = {
     "Online Marketing",
   ],
   sameAs: [
-    "https://www.linkedin.com/company/caltech-web",
+    "https://www.facebook.com/CalTechWeb",
     "https://www.instagram.com/caltechweb/",
+    "https://www.youtube.com/@caltechweb",
+    "https://www.linkedin.com/company/caltech-web/",
   ],
 };
 
@@ -145,7 +147,7 @@ function Hero() {
               I started CalTech Web because great websites shouldn&apos;t cost a
               fortune. For <strong className="text-white">$99/month</strong>,
               your small business, church, or non-profit gets a custom
-              professional website - with hosting, unlimited updates, and fast
+              professional website, with hosting, unlimited updates, and fast
               personal support from me directly.
             </p>
 
@@ -216,7 +218,7 @@ const milestones = [
     year: "The Idea",
     icon: Zap,
     heading: "What if you never had to worry about your website again?",
-    body: "I built CalTech Web around one idea: one flat monthly fee \u2014 no surprise bills, no waiting days for updates, no wondering if the site is actually being maintained. Everything your website needs, covered.",
+    body: "I built CalTech Web around one idea: one flat monthly fee, no surprise bills, no waiting days for updates, no wondering if the site is actually being maintained. Everything your website needs, covered.",
   },
   {
     year: "Today",
@@ -228,7 +230,7 @@ const milestones = [
     year: "Always",
     icon: Heart,
     heading: "The CalTech Web difference",
-    body: "That\u2019s not something you\u2019ll get from a big agency. It\u2019s the CalTech Web difference \u2014 and I\u2019m proud of it every single day.",
+    body: "That\u2019s not something you\u2019ll get from a big agency. It\u2019s the CalTech Web difference, and I\u2019m proud of it every single day.",
   },
 ];
 
@@ -284,7 +286,7 @@ function Story() {
 const values = [
   {
     icon: Heart,
-    title: "Clients First - Always",
+    title: "Clients First, Always",
     description:
       "I built this company around one principle: if you're not 100% happy, you get your money back and keep the website. No hoops. No hassle.",
   },
@@ -304,7 +306,7 @@ const values = [
     icon: Users,
     title: "Personal Relationship",
     description:
-      "You're not a ticket number. You get my direct email and number. If something's not right, you reach me - not a call center.",
+      "You're not a ticket number. You get my direct email and number. If something's not right, you reach me, not a call center.",
   },
   {
     icon: Award,
@@ -329,7 +331,7 @@ function Values() {
             What I Stand For
           </h2>
           <p className="text-lg text-gray-600 max-w-xl mx-auto">
-            These aren&apos;t buzzwords - they&apos;re how CalTech Web operates every day.
+            These aren&apos;t buzzwords, they&apos;re how CalTech Web operates every day.
           </p>
         </div>
 

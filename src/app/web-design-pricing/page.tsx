@@ -25,21 +25,21 @@ import Footer from "@/components/Footer";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Web Design Pricing - $99/month All-Inclusive | CalTech Web",
+  title: "Web Design Pricing | $99/month All-Inclusive | CalTech Web",
   description:
     "Transparent web design pricing at $99/month. Custom design, unlimited updates, hosting, SSL, and priority support included. No contracts.",
   alternates: { canonical: "https://caltechweb.com/web-design-pricing/" },
   openGraph: {
-    title: "Web Design Pricing - $99/month All-Inclusive | CalTech Web",
+    title: "Web Design Pricing | $99/month All-Inclusive | CalTech Web",
     description:
-      "Everything your website needs for one flat monthly fee. Custom design, unlimited updates, hosting, and fast support - all for $99/month.",
+      "Everything your website needs for one flat monthly fee. Custom design, unlimited updates, hosting, and fast support, all for $99/month.",
     url: "https://caltechweb.com/web-design-pricing/",
     images: [
       {
         url: "/brandon-hopkins.jpg",
         width: 2400,
         height: 1600,
-        alt: "Brandon Hopkins - Founder of CalTech Web",
+        alt: "Brandon Hopkins, Founder of CalTech Web",
       },
     ],
   },
@@ -56,7 +56,7 @@ const jsonLd = {
   "@type": "Service",
   name: "All-Inclusive Website Design Plan",
   description:
-    "Custom website design, unlimited updates, free redesigns, hosting, SSL, and priority support - all for $99/month.",
+    "Custom website design, unlimited updates, free redesigns, hosting, SSL, and priority support, all for $99/month.",
   url: "https://caltechweb.com/web-design-pricing/",
   provider: {
     "@type": "Organization",
@@ -77,7 +77,7 @@ const jsonLd = {
   aggregateRating: {
     "@type": "AggregateRating",
     ratingValue: "5",
-    reviewCount: "4",
+    reviewCount: "9",
     bestRating: "5",
     worstRating: "1",
   },
@@ -138,6 +138,75 @@ const jsonLd = {
       reviewBody:
         "CalTech Web helped us with our domain, new website, and even solved a situation with image copyright! I highly recommend them for all nonprofit organization websites.",
     },
+    {
+      "@type": "Review",
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: "5",
+        bestRating: "5",
+      },
+      author: {
+        "@type": "Person",
+        name: "Chris Devulapalli",
+      },
+      reviewBody:
+        "We had a fantastic experience working with CalTech Web on our website redesign! Brandon and his team, especially our designer Saif, were professional, responsive, and truly understood our vision. Saif was incredibly creative and attentive to our needs, ensuring that every detail was executed beautifully. We are beyond happy with the results and highly recommend CalTech Web to anyone looking for high-quality web design and development. Thank you, Brandon and Saif, for bringing our vision to life!",
+    },
+    {
+      "@type": "Review",
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: "5",
+        bestRating: "5",
+      },
+      author: {
+        "@type": "Person",
+        name: "Hallie Gay Bagley",
+      },
+      reviewBody:
+        "i love Saif! he always solves our problems and i so enjoy working with cal tech web team. Brandon was terrific in the beginning to get everything started professionally and he guided me through an elaborate process. Saif never fails to respond quickly and aids me in all technical issues quickly and with terrific communication. Thank you Brandon and Saif and CalTech Web!",
+    },
+    {
+      "@type": "Review",
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: "5",
+        bestRating: "5",
+      },
+      author: {
+        "@type": "Person",
+        name: "Lusinda Duffy",
+      },
+      reviewBody:
+        "My CalTech Web Guru is amazing! So fast responding and letting me know he's working on whatever issue I or my customer is having, and before I can even thank him for letting me know he's on it, he's emailing that the issue has been resolved! Weather it is an issue that came up from an auto plugin update, or a credit card processing issue, he gets me back up and running in minutes! Thank you Saif!",
+    },
+    {
+      "@type": "Review",
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: "5",
+        bestRating: "5",
+      },
+      author: {
+        "@type": "Person",
+        name: "Clint Borman",
+      },
+      reviewBody:
+        "Caltech is very responsive with all of my requests. I'll often times have multiple requests per day and they are acting on all of them within a very short period of time.",
+    },
+    {
+      "@type": "Review",
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: "5",
+        bestRating: "5",
+      },
+      author: {
+        "@type": "Person",
+        name: "Ashley Cooper",
+      },
+      reviewBody: "",
+    },
   ],
 };
 
@@ -168,7 +237,7 @@ function Hero() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-sm font-medium text-blue-100 mb-6">
           <Zap className="w-4 h-4 text-yellow-400" />
-          Simple, transparent pricing - no surprises
+          Simple, transparent pricing, no surprises
         </div>
 
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-6">
@@ -254,14 +323,14 @@ function StatsBar() {
 
 const includedFeatures = [
   { text: "Custom website design tailored to your brand", highlight: true },
-  { text: "Unlimited content updates - text, images, pages", highlight: true },
+  { text: "Unlimited content updates: text, images, pages", highlight: true },
   { text: "Free redesign whenever you want a fresh look", highlight: true },
-  { text: "Website hosting - fully managed", highlight: false },
+  { text: "Website hosting, fully managed", highlight: false },
   { text: "SSL certificate (https security)", highlight: false },
   { text: "Daily backups & uptime monitoring", highlight: false },
   { text: "Mobile-responsive on all devices", highlight: false },
   { text: "Basic on-page SEO setup", highlight: false },
-  { text: "Priority support - 93% of requests done in <1 hour", highlight: true },
+  { text: "Priority support, 93% of requests done in <1 hour", highlight: true },
   { text: "Google Analytics integration", highlight: false },
   { text: "Contact forms & click-to-call setup", highlight: false },
   { text: "Domain connection (you keep ownership)", highlight: false },
@@ -281,7 +350,7 @@ function PricingCard() {
           </h2>
           <p className="text-gray-500 mt-3 max-w-xl mx-auto">
             No choosing between tiers. No add-ons. Every client gets the full
-            package - because you deserve a website that actually works.
+            package, because you deserve a website that actually works.
           </p>
         </div>
 
@@ -307,7 +376,7 @@ function PricingCard() {
                   <span className="text-xl text-blue-200 mb-2">/mo</span>
                 </div>
                 <p className="text-blue-200 text-sm mb-4">
-                  Everything your website needs - nothing extra to pay
+                  Everything your website needs, nothing extra to pay
                 </p>
                 <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5">
                   <span className="text-sm text-blue-200 line-through decoration-red-400">
@@ -403,7 +472,7 @@ function PricingCard() {
                     icon: RefreshCw,
                     color: "text-blue-600 bg-blue-50",
                     title: "Unlimited updates included",
-                    body: "Need to change your menu, add a new service, update your hours? Just email or call Brandon. Your website stays current - always.",
+                    body: "Need to change your menu, add a new service, update your hours? Just email or call Brandon. Your website stays current, always.",
                   },
                   {
                     icon: Zap,
@@ -415,19 +484,19 @@ function PricingCard() {
                     icon: HeadphonesIcon,
                     color: "text-green-600 bg-green-50",
                     title: "93% of support requests done in under 1 hour",
-                    body: "5,000+ support tickets closed. When something needs fixing or updating, it happens fast - not next Tuesday.",
+                    body: "5,000+ support tickets closed. When something needs fixing or updating, it happens fast, not next Tuesday.",
                   },
                   {
                     icon: Shield,
                     color: "text-purple-600 bg-purple-50",
                     title: "Brandon's personal money-back guarantee",
-                    body: "Not happy with your website? Get a full refund - and you keep the site files. No risk, no hassle.",
+                    body: "Not happy with your website? Get a full refund, and you keep the site files. No risk, no hassle.",
                   },
                   {
                     icon: Lock,
                     color: "text-gray-600 bg-gray-50",
                     title: "No contracts. Ever.",
-                    body: "Month-to-month only. Cancel anytime - though 93% of clients have been with us for over 2 years.",
+                    body: "Month-to-month only. Cancel anytime, though 93% of clients have been with us for over 2 years.",
                   },
                 ].map(({ icon: Icon, color, title, body }) => (
                   <div
@@ -535,7 +604,7 @@ function ComparisonTable() {
             More value. Less cost.
           </h2>
           <p className="text-gray-500 mt-3 max-w-xl mx-auto">
-            CalTech Web bundles everything a typical agency charges extra for - 
+            CalTech Web bundles everything a typical agency charges extra for:
             at a fraction of the price.
           </p>
         </div>
@@ -798,7 +867,7 @@ function HowItWorks() {
     {
       step: "02",
       title: "Your Site Gets Designed & Built",
-      desc: "We handle everything - design, content layout, mobile responsiveness, hosting setup. You approve the final design before anything goes live.",
+      desc: "We handle everything: design, content layout, mobile responsiveness, hosting setup. You approve the final design before anything goes live.",
       detail: "Live in 5-7 business days",
       gradient: "from-violet-500 to-violet-600",
       lightBg: "bg-violet-50",
@@ -820,7 +889,7 @@ function HowItWorks() {
     {
       step: "04",
       title: "Grow Without Limits",
-      desc: "New pages, content refreshes, full redesigns - it's all included. Your website evolves with your business at no extra cost.",
+      desc: "New pages, content refreshes, full redesigns, it's all included. Your website evolves with your business at no extra cost.",
       detail: "Free redesigns for life",
       gradient: "from-orange-500 to-orange-600",
       lightBg: "bg-orange-50",
@@ -1024,7 +1093,7 @@ const faqs = [
   },
   {
     q: "What counts as an 'unlimited update'?",
-    a: "Content changes - text edits, image swaps, new pages, menu updates, staff photos, contact info, event listings, and more. We don't bill by the hour or per request. Just send us what you need and we handle it.",
+    a: "Content changes: text edits, image swaps, new pages, menu updates, staff photos, contact info, event listings, and more. We don't bill by the hour or per request. Just send us what you need and we handle it.",
   },
   {
     q: "Can I really cancel anytime?",
@@ -1032,7 +1101,7 @@ const faqs = [
   },
   {
     q: "What's NOT included in the $99?",
-    a: "Your domain name registration (~$12–15/year) is the one thing you purchase separately. Everything else - hosting, SSL, design, updates, support - is included.",
+    a: "Your domain name registration (~$12–15/year) is the one thing you purchase separately. Everything else (hosting, SSL, design, updates, support) is included.",
   },
   {
     q: "How long does it take to get my new website?",
@@ -1040,15 +1109,15 @@ const faqs = [
   },
   {
     q: "What if I already have a website?",
-    a: "We'll migrate your existing content to your new site at no extra charge. You don't lose anything - we just make it better.",
+    a: "We'll migrate your existing content to your new site at no extra charge. You don't lose anything, we just make it better.",
   },
   {
     q: "Do you work with businesses outside California?",
-    a: "Absolutely. CalTech Web serves small businesses, churches, and non-profits across all 50 states. Everything is handled remotely - no in-person meetings required.",
+    a: "Absolutely. CalTech Web serves small businesses, churches, and non-profits across all 50 states. Everything is handled remotely, no in-person meetings required.",
   },
   {
     q: "What's Brandon's money-back guarantee?",
-    a: "If you're not satisfied with your website, Brandon will refund your most recent month's payment - and you keep your website. No risk.",
+    a: "If you're not satisfied with your website, Brandon will refund your most recent month's payment, and you keep your website. No risk.",
   },
 ];
 
@@ -1171,7 +1240,7 @@ function Guarantee() {
         </h2>
         <p className="text-blue-100 text-lg max-w-2xl mx-auto mb-8 leading-relaxed">
           If you&apos;re not completely satisfied with your website, Brandon will
-          personally refund your most recent payment - and you keep your website
+          personally refund your most recent payment, and you keep your website
           files. No questions asked. No hassle. That&apos;s a promise.
         </p>
         <div className="flex items-center justify-center gap-3 mb-10">

@@ -32,13 +32,13 @@ function Hero() {
         </div>
 
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-6">
-          Free Website Report Card —{" "}
+          Free Website Report Card,{" "}
           <span className="text-orange-400">See Your Grade Instantly</span>
         </h1>
 
         <p className="text-lg sm:text-xl text-blue-100 mb-8 max-w-2xl mx-auto leading-relaxed">
           We analyze 35+ factors across 5 categories and show you exactly where
-          your site needs help — and what it would look like after CalTech Web
+          your site needs help, and what it would look like after CalTech Web
           fixes it.
         </p>
 
@@ -280,7 +280,7 @@ const faqs = [
   },
   {
     q: "What does the 'With CalTech Web' view show?",
-    a: "It shows your projected score after CalTech Web builds you a new, professionally designed website. Every failing check is resolved — from mobile optimization to page speed to proper SEO markup — all included in the $99/month plan.",
+    a: "It shows your projected score after CalTech Web builds you a new, professionally designed website. Every failing check is resolved, from mobile optimization to page speed to proper SEO markup, all included in the $99/month plan.",
   },
   {
     q: "How long does the scan take?",

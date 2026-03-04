@@ -1,7 +1,7 @@
 export const rfpFaqs = [
   {
     q: "Do you respond to formal RFPs and RFQs?",
-    a: "Yes. CalTech Web has been responding to website design RFPs and RFQs since 2015. We provide clear, concise proposals - typically 2-3 pages - that procurement teams can review and approve quickly. No 40-page documents filled with jargon.",
+    a: "Yes. CalTech Web has been responding to website design RFPs and RFQs since 2015. We provide clear, concise proposals, typically 2-3 pages, that procurement teams can review and approve quickly. No 40-page documents filled with jargon.",
   },
   {
     q: "How does your $99/month model work for procurement budgets?",
@@ -21,7 +21,7 @@ export const rfpFaqs = [
   },
   {
     q: "What happens if we need to cancel or switch vendors?",
-    a: "You can cancel anytime with no penalties. We provide all your website files so your organization is never left without a web presence. There is no data hostage situation - your content belongs to you.",
+    a: "You can cancel anytime with no penalties. We provide all your website files so your organization is never left without a web presence. There is no data hostage situation, your content belongs to you.",
   },
   {
     q: "Can you provide references from similar organizations?",
@@ -29,6 +29,6 @@ export const rfpFaqs = [
   },
   {
     q: "How do you handle ongoing support and maintenance?",
-    a: "Support is included in the $99/month. We have closed over 5,000 support tickets with 93% completed in under one hour. Your organization gets a direct line to Brandon - no ticket queues, no offshore support teams, no waiting days for a response.",
+    a: "Support is included in the $99/month. We have closed over 5,000 support tickets with 93% completed in under one hour. Your organization gets a direct line to Brandon, no ticket queues, no offshore support teams, no waiting days for a response.",
   },
 ];

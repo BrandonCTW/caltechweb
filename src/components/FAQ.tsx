@@ -6,11 +6,11 @@ import { ChevronDown } from "lucide-react";
 const faqs = [
   {
     q: "Is there a setup fee or long-term contract?",
-    a: "No setup fee, ever. And no contracts - your service is month-to-month. If you decide to leave, just let us know and we'll cancel without penalty. We'd rather earn your business every month than lock you in.",
+    a: "No setup fee, ever. And no contracts, your service is month-to-month. If you decide to leave, just let us know and we'll cancel without penalty. We'd rather earn your business every month than lock you in.",
   },
   {
     q: "What does \"unlimited updates\" actually mean?",
-    a: "It means exactly that - unlimited. Need new photos added? Update your hours or menu? Add a page for a new service? Just send us a message and we'll handle it, usually within the hour. There's no cap on how many requests you can make.",
+    a: "It means exactly that, unlimited. Need new photos added? Update your hours or menu? Add a page for a new service? Just send us a message and we'll handle it, usually within the hour. There's no cap on how many requests you can make.",
   },
   {
     q: "How fast will my website be live?",
@@ -18,15 +18,15 @@ const faqs = [
   },
   {
     q: "I already have a website. Can you switch me over?",
-    a: "Absolutely. We can migrate your existing site, do a complete redesign, or start fresh - whatever makes the most sense for your business. Your domain stays yours. We'll handle the technical side of the move.",
+    a: "Absolutely. We can migrate your existing site, do a complete redesign, or start fresh, whatever makes the most sense for your business. Your domain stays yours. We'll handle the technical side of the move.",
   },
   {
     q: "Do you work with clients outside of California?",
-    a: "Yes - we serve clients nationwide. While CalTech Web is based in California, we work with small businesses, churches, and non-profits across the country. Everything is handled remotely so location is never a barrier.",
+    a: "Yes, we serve clients nationwide. While CalTech Web is based in California, we work with small businesses, churches, and non-profits across the country. Everything is handled remotely so location is never a barrier.",
   },
   {
     q: "What if I'm not happy with the design?",
-    a: "Brandon personally guarantees your satisfaction. If you're not happy, you get a full refund - and you keep your website. No questions asked. We've maintained this guarantee since day one because we stand behind our work.",
+    a: "Brandon personally guarantees your satisfaction. If you're not happy, you get a full refund, and you keep your website. No questions asked. We've maintained this guarantee since day one because we stand behind our work.",
   },
   {
     q: "Does $99/month include hosting?",

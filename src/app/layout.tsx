@@ -6,9 +6,9 @@ import "./globals.css";
 const geist = Geist({ subsets: ["latin"] });
 
 const siteUrl = "https://caltechweb.com/";
-const siteTitle = "CalTech Web - Affordable Website Design at $99/month";
+const siteTitle = "CalTech Web | Affordable Website Design at $99/month";
 const siteDescription =
-  "Professional website for $99/month — unlimited updates, hosting, SSL, and fast support included. 800+ sites for small businesses, churches, and non-profits.";
+  "Professional website for $99/month, unlimited updates, hosting, SSL, and fast support included. 800+ sites for small businesses, churches, and non-profits.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     type: "website",
     url: siteUrl,
     siteName: "CalTech Web",
-    title: "Professional Websites for Small Businesses - $99/month",
+    title: "Professional Websites for Small Businesses | $99/month",
     description: siteDescription,
     locale: "en_US",
     images: [
@@ -43,13 +43,13 @@ export const metadata: Metadata = {
         url: "/brandon-hopkins.jpg",
         width: 2400,
         height: 1600,
-        alt: "Brandon Hopkins - Founder of CalTech Web",
+        alt: "Brandon Hopkins, Founder of CalTech Web",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Professional Websites for Small Businesses - $99/month",
+    title: "Professional Websites for Small Businesses | $99/month",
     description: siteDescription,
     creator: "@caltechweb",
     images: ["/brandon-hopkins.jpg"],

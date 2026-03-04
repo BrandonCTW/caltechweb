@@ -37,19 +37,19 @@ const AnimatedChat = dynamic(() => import("@/components/AnimatedChat"));
 export const metadata: Metadata = {
   title: "Affordable Web Design for Small Businesses | $99/month | CalTech Web",
   description:
-    "Get a professional website for just $99/month — custom design, unlimited updates, hosting, SSL, and fast support all included. 800+ sites built for small businesses, churches, and non-profits. No contracts.",
+    "Get a professional website for just $99/month, custom design, unlimited updates, hosting, SSL, and fast support all included. 800+ sites built for small businesses, churches, and non-profits. No contracts.",
   alternates: { canonical: "https://caltechweb.com/" },
   openGraph: {
     title: "Affordable Web Design for Small Businesses | $99/month | CalTech Web",
     description:
-      "Custom website design, unlimited updates, hosting, and priority support — all for $99/month. Serving 800+ small businesses, churches, and non-profits nationwide. No contracts, money-back guarantee.",
+      "Custom website design, unlimited updates, hosting, and priority support, all for $99/month. Serving 800+ small businesses, churches, and non-profits nationwide. No contracts, money-back guarantee.",
     url: "https://caltechweb.com/",
     images: [
       {
         url: "/brandon-hopkins.jpg",
         width: 2400,
         height: 1600,
-        alt: "Brandon Hopkins, Founder of CalTech Web — affordable web design starting at $99/month",
+        alt: "Brandon Hopkins, Founder of CalTech Web, affordable web design starting at $99/month",
       },
     ],
   },
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Affordable Web Design for Small Businesses | $99/month | CalTech Web",
     description:
-      "Custom website design, unlimited updates, hosting, and priority support — all for $99/month. 800+ sites. No contracts.",
+      "Custom website design, unlimited updates, hosting, and priority support, all for $99/month. 800+ sites. No contracts.",
     images: ["/brandon-hopkins.jpg"],
   },
 };
@@ -114,7 +114,7 @@ const jsonLd = {
           "@type": "Service",
           "name": "All-Inclusive Website Design Plan",
           "description":
-            "Custom website design, mobile-responsive layout, hosting, SSL, unlimited content updates, free redesigns, priority support, and basic on-page SEO - all for $99/month.",
+            "Custom website design, mobile-responsive layout, hosting, SSL, unlimited content updates, free redesigns, priority support, and basic on-page SEO, all for $99/month.",
         },
         "price": "99",
         "priceCurrency": "USD",
@@ -175,7 +175,7 @@ const homepageFaqJsonLd = {
       name: "Is there a setup fee or long-term contract?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "No setup fee, ever. And no contracts - your service is month-to-month. If you decide to leave, just let us know and we'll cancel without penalty. We'd rather earn your business every month than lock you in.",
+        text: "No setup fee, ever. And no contracts, your service is month-to-month. If you decide to leave, just let us know and we'll cancel without penalty. We'd rather earn your business every month than lock you in.",
       },
     },
     {
@@ -183,7 +183,7 @@ const homepageFaqJsonLd = {
       name: 'What does "unlimited updates" actually mean?',
       acceptedAnswer: {
         "@type": "Answer",
-        text: "It means exactly that - unlimited. Need new photos added? Update your hours or menu? Add a page for a new service? Just send us a message and we'll handle it, usually within the hour. There's no cap on how many requests you can make.",
+        text: "It means exactly that, unlimited. Need new photos added? Update your hours or menu? Add a page for a new service? Just send us a message and we'll handle it, usually within the hour. There's no cap on how many requests you can make.",
       },
     },
     {
@@ -199,7 +199,7 @@ const homepageFaqJsonLd = {
       name: "I already have a website. Can you switch me over?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Absolutely. We can migrate your existing site, do a complete redesign, or start fresh - whatever makes the most sense for your business. Your domain stays yours. We'll handle the technical side of the move.",
+        text: "Absolutely. We can migrate your existing site, do a complete redesign, or start fresh, whatever makes the most sense for your business. Your domain stays yours. We'll handle the technical side of the move.",
       },
     },
     {
@@ -207,7 +207,7 @@ const homepageFaqJsonLd = {
       name: "Do you work with clients outside of California?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes - we serve clients nationwide. While CalTech Web is based in California, we work with small businesses, churches, and non-profits across the country. Everything is handled remotely so location is never a barrier.",
+        text: "Yes, we serve clients nationwide. While CalTech Web is based in California, we work with small businesses, churches, and non-profits across the country. Everything is handled remotely so location is never a barrier.",
       },
     },
     {
@@ -215,7 +215,7 @@ const homepageFaqJsonLd = {
       name: "What if I'm not happy with the design?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Brandon personally guarantees your satisfaction. If you're not happy, you get a full refund - and you keep your website. No questions asked. We've maintained this guarantee since day one because we stand behind our work.",
+        text: "Brandon personally guarantees your satisfaction. If you're not happy, you get a full refund, and you keep your website. No questions asked. We've maintained this guarantee since day one because we stand behind our work.",
       },
     },
     {
@@ -260,7 +260,7 @@ function Hero() {
 
             <p className="text-lg sm:text-xl text-blue-100 mb-8 max-w-2xl leading-relaxed">
               Get a stunning, mobile-ready website with unlimited updates, free
-              redesigns, and fast support - all included. No contracts, no hidden
+              redesigns, and fast support, all included. No contracts, no hidden
               fees.
             </p>
 
@@ -304,7 +304,7 @@ function Hero() {
             {/* Guarantee note */}
             <p className="mt-6 text-sm text-blue-200 flex items-center gap-1.5">
               <Shield className="w-4 h-4 text-green-400" />
-              Not satisfied? Get a full refund - and keep your website.
+              Not satisfied? Get a full refund, and keep your website.
             </p>
           </div>
 
@@ -507,7 +507,7 @@ function Comparison() {
             Why $99/Month Is a No-Brainer
           </h2>
           <p className="text-lg text-gray-500 max-w-2xl mx-auto">
-            Compare what you get with CalTech Web versus the alternatives - at a fraction of the cost.
+            Compare what you get with CalTech Web versus the alternatives, at a fraction of the cost.
           </p>
         </div>
 
@@ -623,12 +623,12 @@ function WhatIsIncluded() {
     {
       icon: Globe,
       title: "Custom Website Design",
-      desc: "A professionally designed, mobile-responsive website tailored to your business - built to impress and convert.",
+      desc: "A professionally designed, mobile-responsive website tailored to your business, built to impress and convert.",
     },
     {
       icon: RefreshCw,
       title: "Unlimited Updates",
-      desc: "Need to update your hours, add a photo, or change your menu? Just ask - we handle it, usually within the hour.",
+      desc: "Need to update your hours, add a photo, or change your menu? Just ask. We handle it, usually within the hour.",
     },
     {
       icon: Shield,
@@ -638,7 +638,7 @@ function WhatIsIncluded() {
     {
       icon: Star,
       title: "Free Redesigns",
-      desc: "Ready for a fresh look? We'll completely redesign your site at no extra cost - whenever you want.",
+      desc: "Ready for a fresh look? We'll completely redesign your site at no extra cost, whenever you want.",
     },
     {
       icon: Clock,
@@ -665,7 +665,7 @@ function WhatIsIncluded() {
           </h2>
           <p className="text-lg text-gray-500 max-w-2xl mx-auto">
             No hidden fees. No upsells. No surprises. Just everything your small
-            business website needs - for a flat $99 a month.
+            business website needs, for a flat $99 a month.
           </p>
         </div>
 
@@ -696,7 +696,7 @@ function HowItWorks() {
     {
       step: "01",
       title: "Schedule a Call",
-      desc: "Tell us about your business and what you need. We'll walk through your goals and get the ball rolling - no obligation, no pressure.",
+      desc: "Tell us about your business and what you need. We'll walk through your goals and get the ball rolling, no obligation, no pressure.",
       detail: "Takes less than 60 seconds",
       gradient: "from-blue-500 to-blue-600",
       lightBg: "bg-blue-50",
@@ -718,7 +718,7 @@ function HowItWorks() {
     {
       step: "03",
       title: "We Handle Everything",
-      desc: "Updates, fixes, redesigns - just send us a message. We've got your website so you can focus on your business.",
+      desc: "Updates, fixes, redesigns, just send us a message. We've got your website so you can focus on your business.",
       detail: "93% done in under 1 hour",
       gradient: "from-green-500 to-green-600",
       lightBg: "bg-green-50",
@@ -831,7 +831,7 @@ function Transformation() {
             From Outdated to Outstanding
           </h2>
           <p className="text-lg text-gray-500 max-w-2xl mx-auto">
-            See what a $99/month redesign actually looks like - versus the kind of site
+            See what a $99/month redesign actually looks like, versus the kind of site
             that&apos;s silently costing you customers right now.
           </p>
         </div>
@@ -971,7 +971,7 @@ function Transformation() {
               {/* Real client site screenshot */}
               <Image
                 src="/after-screenshot.png"
-                alt="Professional website designed by CalTech Web - Blacke House Co."
+                alt="Professional website designed by CalTech Web, Blacke House Co."
                 width={1200}
                 height={800}
                 className="w-full h-auto"
@@ -1039,7 +1039,7 @@ function FeaturedLaunch() {
             Our Latest Project Is Live
           </h2>
           <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-            We recently built and launched a brand-new website for Madera Men of Integrity — a faith-based men&apos;s retreat serving Central California for 25 years.
+            We recently built and launched a brand-new website for Madera Men of Integrity, a faith-based men&apos;s retreat serving Central California for 25 years.
           </p>
         </div>
 
@@ -1187,7 +1187,7 @@ function PortfolioPreview() {
             Websites That Win Business
           </h2>
           <p className="text-lg text-gray-500 max-w-2xl mx-auto">
-            From restaurants to churches to healthcare practices - we design sites that look great and turn visitors into customers.
+            From restaurants to churches to healthcare practices, we design sites that look great and turn visitors into customers.
           </p>
         </div>
 
@@ -1272,7 +1272,7 @@ function CaseStudy() {
             <p className="text-blue-200 text-lg mb-8 leading-relaxed">
               Dr. Arjun Kanuri came to CalTech Web with an outdated site that
               wasn&apos;t bringing in new patients. After a full redesign, his
-              traffic jumped 40% and conversions doubled - in just 3 months.
+              traffic jumped 40% and conversions doubled in just 3 months.
             </p>
 
             <div className="grid grid-cols-2 gap-6 mb-8">
@@ -1305,7 +1305,7 @@ function CaseStudy() {
               ))}
             </div>
             <blockquote className="text-lg text-blue-100 leading-relaxed mb-6 italic">
-              &ldquo;I was skeptical about the $99/month price - I figured I&apos;d get what
+              &ldquo;I was skeptical about the $99/month price. I figured I&apos;d get what
               I paid for. But CalTech Web blew me away. They redesigned my site,
               my traffic went up 40%, and I&apos;m getting twice as many new
               patients. Brandon&apos;s team responds faster than any vendor I&apos;ve
@@ -1377,7 +1377,7 @@ function Testimonials() {
             Trusted by 800+ Businesses Nationwide
           </h2>
           <p className="text-lg text-gray-500 max-w-2xl mx-auto">
-            From church pastors to restaurant owners to non-profits - real clients sharing real results.
+            From church pastors to restaurant owners to non-profits, real clients sharing real results.
           </p>
         </div>
 
@@ -1435,7 +1435,7 @@ function WhoWeServe() {
   const categories = [
     {
       title: "Small Businesses",
-      desc: "Restaurants, contractors, retail shops, service providers - if you need customers to find you online, we build sites that deliver.",
+      desc: "Restaurants, contractors, retail shops, service providers: if you need customers to find you online, we build sites that deliver.",
       icon: Building2,
       href: "/get-a-free-instant-quote/",
     },
@@ -1447,7 +1447,7 @@ function WhoWeServe() {
     },
     {
       title: "Professionals",
-      desc: "Doctors, lawyers, consultants, real estate agents - a polished site builds trust and brings in more referrals and leads.",
+      desc: "Doctors, lawyers, consultants, real estate agents: a polished site builds trust and brings in more referrals and leads.",
       icon: Briefcase,
       href: "/get-a-free-instant-quote/",
     },
@@ -1462,7 +1462,7 @@ function WhoWeServe() {
           </h2>
           <p className="text-lg text-gray-500 max-w-2xl mx-auto">
             We specialize in affordable websites for the businesses that need
-            them most - and we serve clients nationwide.
+            them most, and we serve clients nationwide.
           </p>
         </div>
 
@@ -1530,11 +1530,11 @@ function MeetBrandon() {
               </div>
 
               <blockquote className="text-xl text-gray-800 font-medium leading-relaxed mb-6 italic">
-                &ldquo;I started CalTech Web because small businesses deserve a great website - not just the ones who can afford a $5,000 agency. At $99 a month, you get my personal attention, fast responses, and a site that actually works for your business.&rdquo;
+                &ldquo;I started CalTech Web because small businesses deserve a great website, not just the ones who can afford a $5,000 agency. At $99 a month, you get my personal attention, fast responses, and a site that actually works for your business.&rdquo;
               </blockquote>
 
               <p className="text-gray-600 text-sm leading-relaxed mb-8">
-                I personally review every project and guarantee your satisfaction. If you&apos;re not happy, you get a full refund - and you keep your website. I&apos;ve held that promise with every single client since day one.
+                I personally review every project and guarantee your satisfaction. If you&apos;re not happy, you get a full refund, and you keep your website. I&apos;ve held that promise with every single client since day one.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 items-start">
@@ -1586,7 +1586,7 @@ function SupportDemo() {
               Send a Message.<br />Get It Done Fast.
             </h2>
             <p className="text-lg text-gray-500 mb-6 leading-relaxed">
-              No tickets. No waiting days. No &ldquo;we&apos;ll look into it.&rdquo; Just send us what you need and we handle it - usually before you finish your next cup of coffee.
+              No tickets. No waiting days. No &ldquo;we&apos;ll look into it.&rdquo; Just send us what you need and we handle it, usually before you finish your next cup of coffee.
             </p>
 
             <div className="space-y-3">
@@ -1605,7 +1605,7 @@ function SupportDemo() {
                 </div>
                 <div>
                   <div className="font-semibold text-gray-900 text-sm">93% completed in under 1 hour</div>
-                  <div className="text-xs text-gray-500">That&apos;s our guarantee - not just a goal</div>
+                  <div className="text-xs text-gray-500">That&apos;s our guarantee, not just a goal</div>
                 </div>
               </div>
             </div>
@@ -1623,18 +1623,18 @@ function SupportDemo() {
 
 function ClientWinsTicker() {
   const wins = [
-    { text: "Dr. Arjun Kanuri - +40% traffic, 2× conversions, 9-year client", kind: "stat" as const },
-    { text: "Madera County Farm Bureau - +55% traffic, 1,000+ page site", kind: "stat" as const },
-    { text: "Sermon upload for Calvary Chapel Los Alamitos - completed in 38 minutes", kind: "update" as const },
-    { text: "Central Baptist Church - event calendar update live in 42 minutes", kind: "update" as const },
-    { text: "Fuentes Concrete, Inc. - professional contractor site launched in 6 days", kind: "launch" as const },
-    { text: "Christina Beckstead - recommends CalTech Web for all nonprofit websites", kind: "stat" as const },
-    { text: "Pastor Bryan Newberry - saves 3+ hours/week on website management", kind: "stat" as const },
-    { text: "California Women for Agriculture - advocacy site live in 6 days", kind: "launch" as const },
-    { text: "Photo gallery update for ALV Floors - done in 28 minutes", kind: "update" as const },
-    { text: "Origami Owl / Chrissy Weems - e-commerce jewelry site launched", kind: "launch" as const },
-    { text: "TurboThao Nails - service menu and booking page added same day", kind: "launch" as const },
-    { text: "Kingdom International - ministry page updated in 45 minutes", kind: "update" as const },
+    { text: "Dr. Arjun Kanuri: +40% traffic, 2× conversions, 9-year client", kind: "stat" as const },
+    { text: "Madera County Farm Bureau: +55% traffic, 1,000+ page site", kind: "stat" as const },
+    { text: "Sermon upload for Calvary Chapel Los Alamitos, completed in 38 minutes", kind: "update" as const },
+    { text: "Central Baptist Church: event calendar update live in 42 minutes", kind: "update" as const },
+    { text: "Fuentes Concrete, Inc.: professional contractor site launched in 6 days", kind: "launch" as const },
+    { text: "Christina Beckstead: recommends CalTech Web for all nonprofit websites", kind: "stat" as const },
+    { text: "Pastor Bryan Newberry: saves 3+ hours/week on website management", kind: "stat" as const },
+    { text: "California Women for Agriculture: advocacy site live in 6 days", kind: "launch" as const },
+    { text: "Photo gallery update for ALV Floors, done in 28 minutes", kind: "update" as const },
+    { text: "Origami Owl / Chrissy Weems: e-commerce jewelry site launched", kind: "launch" as const },
+    { text: "TurboThao Nails: service menu and booking page added same day", kind: "launch" as const },
+    { text: "Kingdom International: ministry page updated in 45 minutes", kind: "update" as const },
   ];
 
   const doubled = [...wins, ...wins];
@@ -1688,7 +1688,7 @@ function InlineQuoteForm() {
           </h2>
           <p className="text-blue-200 text-lg max-w-xl mx-auto">
             Tell us a little about your business and we&apos;ll get your
-            new website underway - no obligation, no sales pressure.
+            new website underway, no obligation, no sales pressure.
           </p>
         </div>
 
@@ -1833,7 +1833,7 @@ function Guarantee() {
             </h2>
             <p className="text-xl text-blue-100 mb-6 max-w-2xl mx-auto leading-relaxed">
               I personally stand behind every website we build. If you&apos;re not
-              100% satisfied, I&apos;ll give you a full refund - and you keep your
+              100% satisfied, I&apos;ll give you a full refund, and you keep your
               website. No questions asked.
             </p>
             <div className="flex items-center justify-center gap-3 mb-8">
@@ -1874,7 +1874,7 @@ function Pricing() {
     { text: "Custom website design", highlight: false },
     { text: "Mobile-responsive layout", highlight: false },
     { text: "Unlimited content updates", highlight: true },
-    { text: "Free redesigns - whenever you want", highlight: true },
+    { text: "Free redesigns, whenever you want", highlight: true },
     { text: "Hosting & SSL certificate", highlight: false },
     { text: "Priority support (93% done in <1 hour)", highlight: true },
     { text: "Basic on-page SEO", highlight: false },
@@ -1932,7 +1932,7 @@ function Pricing() {
                   <span className="text-7xl font-extrabold leading-none">99</span>
                   <span className="text-xl text-blue-200 mb-2">/mo</span>
                 </div>
-                <p className="text-blue-200 text-sm mb-4">Everything your website needs - nothing extra to pay</p>
+                <p className="text-blue-200 text-sm mb-4">Everything your website needs, nothing extra to pay</p>
 
                 {/* Comparison strikethrough */}
                 <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5">
@@ -2012,7 +2012,7 @@ function FinalCTA() {
     {
       icon: Shield,
       title: "Money-back guarantee",
-      desc: "Not happy? Full refund - and you keep your website.",
+      desc: "Not happy? Full refund, and you keep your website.",
     },
     {
       icon: Clock,
@@ -2089,7 +2089,7 @@ function FinalCTA() {
             &ldquo;I personally review every new project and stand behind every
             website we build.{" "}
             <span className="font-semibold text-gray-800 not-italic">
-              If you&apos;re not satisfied, you get a full refund - and keep your
+              If you&apos;re not satisfied, you get a full refund, and keep your
               site.
             </span>{" "}
             That&apos;s my promise.&rdquo;

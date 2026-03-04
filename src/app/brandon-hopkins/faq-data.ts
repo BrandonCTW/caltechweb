@@ -21,6 +21,6 @@ export const brandonFaqs = [
   },
   {
     q: "Can I call or text Brandon directly?",
-    a: "Absolutely. Brandon's phone number is (559) 282-3075 and his email is Brandon@CalTechWeb.com. He prides himself on being accessible and responsive - most inquiries get a reply within a few hours.",
+    a: "Absolutely. Brandon's phone number is (559) 282-3075 and his email is Brandon@CalTechWeb.com. He prides himself on being accessible and responsive, and most inquiries get a reply within a few hours.",
   },
 ];

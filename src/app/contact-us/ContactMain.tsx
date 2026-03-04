@@ -297,7 +297,7 @@ export default function ContactMain() {
                     className="flex items-center gap-1.5 text-sm text-blue-600 font-medium hover:underline"
                   >
                     <ArrowUpRight className="w-3.5 h-3.5 shrink-0" />
-                    Web design pricing — $99/month
+                    Web design pricing, $99/month
                   </Link>
                 </li>
                 <li>
@@ -324,7 +324,7 @@ export default function ContactMain() {
                     className="flex items-center gap-1.5 text-sm text-blue-600 font-medium hover:underline"
                   >
                     <ArrowUpRight className="w-3.5 h-3.5 shrink-0" />
-                    About Brandon Hopkins — CEO & Founder
+                    About Brandon Hopkins, CEO & Founder
                   </Link>
                 </li>
               </ul>

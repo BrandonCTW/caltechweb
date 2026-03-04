@@ -30,16 +30,16 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title:
-      "Web Design Company Comparison - CalTech Web vs the Competition | CalTech Web",
+      "Web Design Company Comparison | CalTech Web vs the Competition | CalTech Web",
     description:
-      "Side-by-side comparison of CalTech Web ($99/mo) vs Wix, Squarespace, freelancers, and agencies. Custom design, hosting, unlimited updates - all included.",
+      "Side-by-side comparison of CalTech Web ($99/mo) vs Wix, Squarespace, freelancers, and agencies. Custom design, hosting, unlimited updates, all included.",
     url: "https://caltechweb.com/web-design-competitor-comparison/",
     images: [
       {
         url: "/brandon-hopkins.jpg",
         width: 2400,
         height: 1600,
-        alt: "Brandon Hopkins - Founder of CalTech Web",
+        alt: "Brandon Hopkins, Founder of CalTech Web",
       },
     ],
   },
@@ -129,7 +129,7 @@ function Hero() {
 
         <p className="text-lg sm:text-xl text-blue-100 mb-8 max-w-2xl mx-auto leading-relaxed">
           DIY website builders. Freelancers. Big agencies. How does $99/month
-          with CalTech Web actually compare? Here is the honest breakdown - so
+          with CalTech Web actually compare? Here is the honest breakdown, so
           you can decide with confidence.
         </p>
 
@@ -444,7 +444,7 @@ function ComparisonTable() {
             The Full Comparison
           </h2>
           <p className="text-gray-500 mt-3 max-w-xl mx-auto">
-            See exactly what you get - and what you don&apos;t - with each
+            See exactly what you get, and what you don&apos;t, with each
             option. No fine print, no surprises.
           </p>
         </div>
@@ -460,7 +460,7 @@ function ComparisonTable() {
             </div>
             <div className="text-sm text-gray-500">
               Agencies charge $5K-$50K+ upfront, then $500-$2,000/month for
-              maintenance. CalTech Web: $0 upfront, $99/month - with more
+              maintenance. CalTech Web: $0 upfront, $99/month, with more
               included.
             </div>
           </div>
@@ -573,14 +573,14 @@ const deepDive = [
       "Hosting included",
     ],
     cons: [
-      "Template-based - your site looks like thousands of others",
+      "Template-based, your site looks like thousands of others",
       "You do all the work yourself",
       "Limited SEO control",
       "No dedicated support person",
       "Redesigns mean starting from scratch",
     ],
     verdict:
-      "DIY builders are cheap, but they cost you time. If your website matters to your business, you need a professional design - not a template. CalTech Web gives you a custom site for just $49-$83 more per month, and you never have to touch it.",
+      "DIY builders are cheap, but they cost you time. If your website matters to your business, you need a professional design, not a template. CalTech Web gives you a custom site for just $49-$83 more per month, and you never have to touch it.",
   },
   {
     icon: Users,
@@ -596,12 +596,12 @@ const deepDive = [
       "Large upfront cost ($2K-$10K)",
       "Ongoing maintenance billed hourly ($50-$150/hr)",
       "Hosting, SSL, backups are your responsibility",
-      "Freelancers disappear - vacations, other clients, career changes",
+      "Freelancers disappear: vacations, other clients, career changes",
       "No guaranteed response times",
       "Redesigns cost thousands more",
     ],
     verdict:
-      "Freelancers deliver quality work, but they come with big upfront costs and no guarantees on availability. With CalTech Web, you get the same personal attention (Brandon is your single point of contact) at a fraction of the cost - with hosting, updates, and redesigns all included.",
+      "Freelancers deliver quality work, but they come with big upfront costs and no guarantees on availability. With CalTech Web, you get the same personal attention (Brandon is your single point of contact) at a fraction of the cost, with hosting, updates, and redesigns all included.",
   },
   {
     icon: Shield,
@@ -622,7 +622,7 @@ const deepDive = [
       "You are one of many clients",
     ],
     verdict:
-      "Agencies make sense for Fortune 500 companies with six-figure budgets. For small businesses, churches, and non-profits, they are overkill. CalTech Web delivers the same quality result - custom design, ongoing updates, hosting, and support - at 80-95% less cost.",
+      "Agencies make sense for Fortune 500 companies with six-figure budgets. For small businesses, churches, and non-profits, they are overkill. CalTech Web delivers the same quality result (custom design, ongoing updates, hosting, and support) at 80-95% less cost.",
   },
 ];
 
@@ -635,7 +635,7 @@ function DeepDive() {
             The Detailed Breakdown
           </h2>
           <p className="text-gray-500 mt-3 max-w-xl mx-auto">
-            A closer look at each option - the real pros, cons, and costs nobody
+            A closer look at each option: the real pros, cons, and costs nobody
             else tells you about.
           </p>
         </div>
@@ -904,7 +904,7 @@ function WhyCalTechWins() {
             Why 800+ Businesses Chose CalTech Web
           </h2>
           <p className="text-gray-500 mt-3 max-w-xl mx-auto">
-            The best of all worlds - custom quality at DIY prices, with agency-level
+            The best of all worlds: custom quality at DIY prices, with agency-level
             support.
           </p>
         </div>
@@ -921,13 +921,13 @@ function WhyCalTechWins() {
               icon: RefreshCw,
               color: "text-blue-600 bg-blue-50",
               title: "Unlimited Updates",
-              body: "Need a change? Email or call Brandon. Text edits, image swaps, new pages - all included in your $99.",
+              body: "Need a change? Email or call Brandon. Text edits, image swaps, new pages, all included in your $99.",
             },
             {
               icon: HeadphonesIcon,
               color: "text-green-600 bg-green-50",
               title: "93% in Under 1 Hour",
-              body: "5,000+ support tickets closed. When you need something, it gets done fast - not next Tuesday.",
+              body: "5,000+ support tickets closed. When you need something, it gets done fast, not next Tuesday.",
             },
             {
               icon: Shield,
@@ -1064,23 +1064,23 @@ function Testimonials() {
 const comparisonFaqs = [
   {
     q: "Is $99/month really cheaper than Wix or Squarespace?",
-    a: "When you factor in your time, it usually is. Wix and Squarespace charge $17–$65/month just for the platform — then you still have to design, build, and maintain the site yourself. First-timers typically spend 40–80 hours building their site. If your time is worth anything, that alone costs far more than $99. And the result is a template-based site you maintain indefinitely, vs. a custom design with someone handling everything for you.",
+    a: "When you factor in your time, it usually is. Wix and Squarespace charge $17–$65/month just for the platform, and you still have to design, build, and maintain the site yourself. First-timers typically spend 40–80 hours building their site. If your time is worth anything, that alone costs far more than $99. And the result is a template-based site you maintain indefinitely, vs. a custom design with someone handling everything for you.",
   },
   {
     q: "What's the real difference between CalTech Web and a freelancer?",
-    a: "Three main things: ongoing support, predictable pricing, and reliability. A freelancer charges $2,000–$10,000 upfront, then bills hourly for any change. When they move on or get busy, you're left managing it alone. CalTech Web is $99/month with unlimited updates, and Brandon personally handles every request — often within the hour. You're not managing a vendor relationship; you're getting a dedicated service.",
+    a: "Three main things: ongoing support, predictable pricing, and reliability. A freelancer charges $2,000–$10,000 upfront, then bills hourly for any change. When they move on or get busy, you're left managing it alone. CalTech Web is $99/month with unlimited updates, and Brandon personally handles every request, often within the hour. You're not managing a vendor relationship; you're getting a dedicated service.",
   },
   {
     q: "Can I switch to CalTech Web if I already have a Wix or Squarespace site?",
-    a: "Yes. Brandon will migrate your existing content — text, images, services, and any other pages — to your new site at no extra charge. You won't lose anything. Most clients are live on their new site within 5–7 business days of the switch.",
+    a: "Yes. Brandon will migrate your existing content (text, images, services, and any other pages) to your new site at no extra charge. You won't lose anything. Most clients are live on their new site within 5–7 business days of the switch.",
   },
   {
     q: "How is $99/month different from what a web design agency charges?",
-    a: "Agencies typically charge $5,000–$50,000 upfront to build the site, then $500–$2,000/month for ongoing maintenance — often locked into multi-year contracts. CalTech Web is $99/month with no setup fee, no contract, and no minimum term. For a small business, church, or non-profit, the math is straightforward: you get comparable (or better) custom work without the agency overhead.",
+    a: "Agencies typically charge $5,000–$50,000 upfront to build the site, then $500–$2,000/month for ongoing maintenance, often locked into multi-year contracts. CalTech Web is $99/month with no setup fee, no contract, and no minimum term. For a small business, church, or non-profit, the math is straightforward: you get comparable (or better) custom work without the agency overhead.",
   },
   {
     q: "Are there hidden fees beyond $99/month?",
-    a: "Only one: your domain name (~$12–15/year), which you purchase and own separately. Everything else — hosting, SSL certificate, unlimited content updates, free redesigns, and priority support — is included in the $99. No surprise invoices.",
+    a: "Only one: your domain name (~$12–15/year), which you purchase and own separately. Everything else (hosting, SSL certificate, unlimited content updates, free redesigns, and priority support) is included in the $99. No surprise invoices.",
   },
   {
     q: "What happens to my website if I cancel?",
@@ -1088,7 +1088,7 @@ const comparisonFaqs = [
   },
   {
     q: "Do I need any technical skills to work with CalTech Web?",
-    a: "None. You tell Brandon what you need — in plain language, by email or text — and it gets done. No logins, no CMS training, no dealing with plugins or hosting dashboards. If something needs to change on your site, you just ask.",
+    a: "None. You tell Brandon what you need, in plain language, by email or text, and it gets done. No logins, no CMS training, no dealing with plugins or hosting dashboards. If something needs to change on your site, you just ask.",
   },
 ];
 
@@ -1114,7 +1114,7 @@ function ComparisonFAQ() {
             Common questions about switching
           </h2>
           <p className="text-gray-500 mt-3 max-w-xl mx-auto">
-            Everything you&apos;re wondering before making a decision — answered honestly.
+            Everything you&apos;re wondering before making a decision, answered honestly.
           </p>
         </div>
 

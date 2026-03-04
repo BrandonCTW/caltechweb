@@ -345,7 +345,7 @@ const caseStudies: CaseStudy[] = [
       "Contact info & hours",
     ],
     testimonial:
-      "My clients love the new website - they can see all our services, check prices, and book appointments right from their phone. CalTech Web made the whole process painless.",
+      "My clients love the new website, they can see all our services, check prices, and book appointments right from their phone. CalTech Web made the whole process painless.",
     testimonialAuthor: "TurboThao Nails",
     testimonialRole: "Beauty / Nail Salon",
     timeToLaunch: "5 days",
@@ -513,7 +513,7 @@ const caseStudies: CaseStudy[] = [
     challenge:
       "Custom Cabling Solutions needed a professional web presence to compete for commercial contracts in the structured cabling and network infrastructure space. Without a credible website, they were losing bids to competitors who appeared more established online, despite having years of hands-on experience and industry certifications.",
     solution:
-      "We built a clean, professional site that showcases their full range of services — network cabling, fiber optic installation, data center builds, and audio/video cabling. The site highlights their certifications, completed projects, and service areas, giving commercial clients the confidence to request a quote.",
+      "We built a clean, professional site that showcases their full range of services: network cabling, fiber optic installation, data center builds, and audio/video cabling. The site highlights their certifications, completed projects, and service areas, giving commercial clients the confidence to request a quote.",
     results: [
       { stat: "4", label: "Organic Visitors/Mo", color: "text-blue-600" },
       { stat: "Page 1", label: "Local Search Ranking", color: "text-green-600" },
@@ -565,14 +565,14 @@ export async function generateMetadata({
   if (!cs) return {};
   const ogImage = caseStudyImages[cs.slug];
   return {
-    title: `${cs.name} - Web Design Case Study | CalTech Web`,
+    title: `${cs.name} | Web Design Case Study | CalTech Web`,
     description: `See how CalTech Web helped ${cs.name} grow online for just $99/month. Custom design, fast launch, real results.`,
     alternates: { canonical: `https://caltechweb.com/portfolio/${cs.slug}/` },
     openGraph: {
       type: "website",
       url: `https://caltechweb.com/portfolio/${cs.slug}/`,
       siteName: "CalTech Web",
-      title: `${cs.name} - Web Design Case Study | CalTech Web`,
+      title: `${cs.name} | Web Design Case Study | CalTech Web`,
       description: `See how CalTech Web helped ${cs.name} grow online for just $99/month.`,
       ...(ogImage && {
         images: [
@@ -841,7 +841,7 @@ function WhatWeBuilt({ cs }: { cs: CaseStudy }) {
               What We Built
             </h2>
             <p className="text-gray-500 mb-8">
-              Every feature below is included at $99/month - no add-ons, no surprises.
+              Every feature below is included at $99/month, no add-ons, no surprises.
             </p>
             <ul className="space-y-3">
               {cs.features.map((feature) => (
@@ -858,7 +858,7 @@ function WhatWeBuilt({ cs }: { cs: CaseStudy }) {
           {/* Value callout */}
           <div className="bg-gradient-to-br from-blue-950 to-blue-900 rounded-3xl p-8 text-white">
             <div className="text-6xl font-extrabold text-orange-400 mb-2">$99</div>
-            <div className="text-blue-200 text-lg font-medium mb-6">per month - all-inclusive</div>
+            <div className="text-blue-200 text-lg font-medium mb-6">per month, all-inclusive</div>
             <div className="space-y-4 mb-8">
               {[
                 { icon: Zap, text: "Site live in 5–7 days on average" },
@@ -987,7 +987,7 @@ function FinalCTA({ cs }: { cs: CaseStudy }) {
           <span className="text-orange-400">{cs.name}?</span>
         </h2>
         <p className="text-blue-200 text-base leading-relaxed mb-8">
-          Your site can be live in as few as 5 days. One flat price: $99/month - 
+          Your site can be live in as few as 5 days. One flat price: $99/month,
           design, hosting, unlimited updates, and fast support all included.
           Not happy? Get a refund and keep your site. That&rsquo;s Brandon&rsquo;s personal guarantee.
         </p>

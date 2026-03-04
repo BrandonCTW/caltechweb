@@ -16,31 +16,31 @@ import Footer from "@/components/Footer";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Web Design Portfolio - 800+ Sites Built | CalTech Web",
+  title: "Web Design Portfolio | 800+ Sites Built | CalTech Web",
   description:
-    "Browse our portfolio of 800+ websites built for small businesses, churches, non-profits, restaurants, and medical practices - all for just $99/month.",
+    "Browse our portfolio of 800+ websites built for small businesses, churches, non-profits, restaurants, and medical practices, all for just $99/month.",
   alternates: { canonical: "https://caltechweb.com/web-design-portfolio/" },
   openGraph: {
     type: "website",
     url: "https://caltechweb.com/web-design-portfolio/",
     siteName: "CalTech Web",
-    title: "Web Design Portfolio - 800+ Sites Built | CalTech Web",
+    title: "Web Design Portfolio | 800+ Sites Built | CalTech Web",
     description:
-      "Browse our portfolio of 800+ websites built for small businesses, churches, non-profits, restaurants, and medical practices - all for just $99/month.",
+      "Browse our portfolio of 800+ websites built for small businesses, churches, non-profits, restaurants, and medical practices, all for just $99/month.",
     images: [
       {
         url: "/portfolio/arjun-kanuri.png",
         width: 1200,
         height: 630,
-        alt: "CalTech Web Portfolio - Professional websites for small businesses",
+        alt: "CalTech Web Portfolio, Professional websites for small businesses",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Web Design Portfolio - 800+ Sites Built | CalTech Web",
+    title: "Web Design Portfolio | 800+ Sites Built | CalTech Web",
     description:
-      "Browse our portfolio of 800+ websites built for small businesses, churches, non-profits, restaurants, and medical practices - all for just $99/month.",
+      "Browse our portfolio of 800+ websites built for small businesses, churches, non-profits, restaurants, and medical practices, all for just $99/month.",
     images: ["/portfolio/arjun-kanuri.png"],
   },
 };
@@ -65,7 +65,7 @@ function Hero() {
         </h1>
         <p className="text-lg sm:text-xl text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed">
           Every site below was built for{" "}
-          <span className="font-bold text-amber-300">$99/month</span> - custom
+          <span className="font-bold text-amber-300">$99/month</span>, custom
           design, hosting, unlimited updates, and fast support all included.
           No templates. No cookie-cutter layouts.
         </p>
@@ -568,7 +568,7 @@ function CaseStudy() {
 // ─── What Every Site Includes ─────────────────────────────────────────────────
 
 const includes = [
-  "Custom design - no templates",
+  "Custom design, no templates",
   "Mobile-responsive layout",
   "Hosting &amp; SSL included",
   "Unlimited content updates",
@@ -590,7 +590,7 @@ function WhatsIncluded() {
             </h2>
             <p className="text-gray-400 text-base leading-relaxed mb-8">
               No surprises. No upsells. Everything you need to look
-              professional and grow online - bundled into one flat monthly fee.
+              professional and grow online, bundled into one flat monthly fee.
             </p>
             <Link
               href="/web-design-pricing/"
@@ -667,9 +667,9 @@ function FinalCTA() {
 const portfolioItemListJsonLd = {
   "@context": "https://schema.org",
   "@type": "ItemList",
-  name: "Web Design Portfolio - CalTech Web",
+  name: "Web Design Portfolio | CalTech Web",
   description:
-    "800+ websites built for small businesses, churches, non-profits, restaurants, and medical practices — all for $99/month.",
+    "800+ websites built for small businesses, churches, non-profits, restaurants, and medical practices, all for $99/month.",
   url: "https://caltechweb.com/web-design-portfolio/",
   numberOfItems: portfolioItems.length,
   itemListElement: portfolioItems.map((item, index) => ({

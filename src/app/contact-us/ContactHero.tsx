@@ -15,7 +15,7 @@ export default function ContactHero() {
         </h1>
         <p className="text-blue-200 text-base sm:text-lg max-w-2xl mx-auto mb-10">
           Whether you&apos;re starting from scratch or looking to upgrade, we&apos;ll help you
-          get a professional site live in 5–7 days - for just $99/month, all-inclusive.
+          get a professional site live in 5–7 days for just $99/month, all-inclusive.
         </p>
 
         {/* Quick contact options */}

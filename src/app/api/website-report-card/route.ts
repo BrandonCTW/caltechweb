@@ -317,7 +317,7 @@ function analyzeMobileExperience(html: string): WebsiteCheck[] {
   if (hasHamburger || hasAriaExpanded || hasResponsiveNav) {
     checks.push({ label: 'Mobile Navigation', status: 'pass', detail: 'Mobile-friendly navigation detected. Visitors can easily browse your site on a phone.' })
   } else {
-    checks.push({ label: 'Mobile Navigation', status: 'fail', detail: 'No mobile menu pattern detected. Desktop-only navigation is unusable on phones — visitors will leave immediately.' })
+    checks.push({ label: 'Mobile Navigation', status: 'fail', detail: 'No mobile menu pattern detected. Desktop-only navigation is unusable on phones, and visitors will leave immediately.' })
   }
 
   return checks
@@ -512,9 +512,9 @@ function analyzeLeadCapture(html: string): WebsiteCheck[] {
   } else if (contactMethods === 2) {
     checks.push({ label: 'Multiple Contact Methods', status: 'pass', detail: '2 contact methods found. Consider adding a third (phone, email, or form) for maximum accessibility.' })
   } else if (contactMethods === 1) {
-    checks.push({ label: 'Multiple Contact Methods', status: 'warning', detail: 'Only 1 contact method found. Some visitors prefer phone, others prefer email or forms — offer at least 2.' })
+    checks.push({ label: 'Multiple Contact Methods', status: 'warning', detail: 'Only 1 contact method found. Some visitors prefer phone, others prefer email or forms. Offer at least 2.' })
   } else {
-    checks.push({ label: 'Multiple Contact Methods', status: 'fail', detail: 'No clear contact methods found. Visitors have no way to reach you — you are losing every potential lead.' })
+    checks.push({ label: 'Multiple Contact Methods', status: 'fail', detail: 'No clear contact methods found. Visitors have no way to reach you, and you are losing every potential lead.' })
   }
 
   // Action-oriented text
@@ -725,7 +725,7 @@ function generateActions(categories: ReportCategory[]): ReportAction[] {
   if (hasLeadIssues) {
     actions.push({
       title: 'Add Lead Capture Elements',
-      description: 'Your website is missing key elements that turn visitors into leads — contact forms, click-to-call links, and clear CTAs. CalTech Web builds these into every site.',
+      description: 'Your website is missing key elements that turn visitors into leads: contact forms, click-to-call links, and clear CTAs. CalTech Web builds these into every site.',
       urgency: 'This Month',
       impact: 'High',
     })
@@ -784,7 +784,7 @@ function generateMockReport(url: string, domain: string, errorMessage: string): 
           ? `${label} looks good on this site.`
           : status === 'warning'
             ? `${label} could be improved for better results.`
-            : `${label} needs attention — this may be costing you customers.`,
+            : `${label} needs attention. This may be costing you customers.`,
       }
     })
     cat.score = checkScore(cat.checks)

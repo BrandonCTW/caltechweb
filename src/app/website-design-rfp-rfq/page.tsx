@@ -134,7 +134,7 @@ const audiences = [
     icon: Church,
     color: "text-purple-600 bg-purple-50",
     title: "Non-Profits & Churches",
-    body: "Stretch your budget further. $99/month covers everything - design, hosting, updates, and support. No large capital expenditure required for board approval.",
+    body: "Stretch your budget further. $99/month covers everything: design, hosting, updates, and support. No large capital expenditure required for board approval.",
     href: "/affordable-church-websites/",
   },
   {
@@ -230,7 +230,7 @@ function WhyCalTechWeb() {
             {
               icon: DollarSign,
               color: "text-green-600 bg-green-50",
-              title: "Flat $99/month - No Large Upfront Costs",
+              title: "Flat $99/month, No Large Upfront Costs",
               body: "Most vendors quote $5,000-$50,000+ upfront. CalTech Web eliminates capital expenditure entirely. $99/month covers design, hosting, SSL, updates, and support. Easy to budget, easy to approve.",
             },
             {
@@ -249,7 +249,7 @@ function WhyCalTechWeb() {
               icon: Clock,
               color: "text-purple-600 bg-purple-50",
               title: "93% of Support Requests Completed in Under 1 Hour",
-              body: "Over 5,000 support tickets closed. When your organization needs updates, changes, or troubleshooting, it happens fast - not on a 2-week turnaround.",
+              body: "Over 5,000 support tickets closed. When your organization needs updates, changes, or troubleshooting, it happens fast, not on a 2-week turnaround.",
             },
             {
               icon: Star,
@@ -260,7 +260,7 @@ function WhyCalTechWeb() {
             {
               icon: CheckCircle,
               color: "text-red-600 bg-red-50",
-              title: "800+ Websites Delivered - Proven Track Record",
+              title: "800+ Websites Delivered, Proven Track Record",
               body: "CalTech Web is not a startup. With 800+ websites delivered across multiple industries, you are working with a proven vendor who delivers consistently.",
             },
           ].map(({ icon: Icon, color, title, body }) => (
@@ -334,7 +334,7 @@ function WhatIsIncluded() {
             "Contact forms and click-to-call",
             "Google Analytics integration",
             "Daily backups and uptime monitoring",
-            "Priority support - 93% done in <1 hour",
+            "Priority support, 93% done in <1 hour",
             "Domain connection (you keep ownership)",
           ].map((feature) => (
             <div key={feature} className="flex items-start gap-3 py-2">
@@ -716,7 +716,7 @@ function Testimonials() {
             },
             {
               quote:
-                "We went through three agencies in five years - always over budget, always behind schedule. Brandon delivered in 6 days and has been our vendor for 3 years running.",
+                "We went through three agencies in five years, always over budget, always behind schedule. Brandon delivered in 6 days and has been our vendor for 3 years running.",
               name: "Sandra Hernandez",
               role: "Operations Manager, Regional Chamber",
               initials: "SH",
@@ -846,7 +846,7 @@ function FinalCTA() {
         </h2>
         <p className="text-blue-100 text-lg max-w-2xl mx-auto mb-8 leading-relaxed">
           No five-figure proposals. No multi-year lock-ins. No scope creep.
-          Just a professional website for $99/month, delivered in days - backed
+          Just a professional website for $99/month, delivered in days, backed
           by 800+ successful projects and a money-back guarantee.
         </p>
 

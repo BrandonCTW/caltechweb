@@ -15,12 +15,12 @@ import Link from "next/link";
 import BlogFilterGrid from "./BlogFilterGrid";
 
 export const metadata: Metadata = {
-  title: "Web Design Blog - Tips for Small Businesses | CalTech Web",
+  title: "Web Design Blog | Tips for Small Businesses | CalTech Web",
   description:
-    "Practical web design tips, case studies, and advice for small business owners, churches, and non-profits. From CalTech Web — $99/month.",
+    "Practical web design tips, case studies, and advice for small business owners, churches, and non-profits. From CalTech Web, $99/month.",
   alternates: { canonical: "https://caltechweb.com/blog/" },
   openGraph: {
-    title: "Web Design Blog - Tips for Small Businesses | CalTech Web",
+    title: "Web Design Blog | Tips for Small Businesses | CalTech Web",
     description:
       "Practical web design tips, case studies, and affordable website advice from Brandon Hopkins at CalTech Web.",
     url: "https://caltechweb.com/blog/",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
         url: "/brandon-hopkins.jpg",
         width: 2400,
         height: 1600,
-        alt: "Brandon Hopkins - CalTech Web",
+        alt: "Brandon Hopkins, CalTech Web",
       },
     ],
   },
@@ -43,7 +43,7 @@ const featuredPost = {
   categoryColor: "bg-green-100 text-green-700",
   title: "How Dr. Arjun Kanuri Increased Website Traffic by 40% and Doubled Conversions in 3 Months",
   excerpt:
-    "A busy medical practice, an outdated website, and a $99/month plan. Here's exactly what we changed - and the measurable results that followed.",
+    "A busy medical practice, an outdated website, and a $99/month plan. Here's exactly what we changed, and the measurable results that followed.",
   readTime: "6 min read",
   date: "January 28, 2026",
   author: "Brandon Hopkins",
@@ -66,7 +66,7 @@ const posts = [
     category: "Small Business",
     categoryColor: "bg-orange-100 text-orange-700",
     title: "Affordable Web Design for Small Businesses: What $99/Month Actually Gets You",
-    excerpt: "Small business owners deserve professional websites without the massive upfront cost. Here's exactly what $99/month includes - and why it beats the alternatives.",
+    excerpt: "Small business owners deserve professional websites without the massive upfront cost. Here's exactly what $99/month includes, and why it beats the alternatives.",
     readTime: "5 min read",
     date: "February 12, 2026",
     author: "Brandon Hopkins",
@@ -78,7 +78,7 @@ const posts = [
     categoryColor: "bg-blue-100 text-blue-700",
     title: "5 Signs Your Small Business Website Needs a Redesign (Right Now)",
     excerpt:
-      "If your bounce rate is climbing, your phone isn't ringing, or your site looks like it was built in 2014 - it's time. Here's how to know for sure.",
+      "If your bounce rate is climbing, your phone isn't ringing, or your site looks like it was built in 2014, it's time. Here's how to know for sure.",
     readTime: "4 min read",
     date: "February 10, 2026",
     author: "Brandon Hopkins",
@@ -89,7 +89,7 @@ const posts = [
     category: "Web Design Tips",
     categoryColor: "bg-blue-100 text-blue-700",
     title: "Web Design vs Web Hosting: What's the Difference and Why It Matters",
-    excerpt: "Many business owners confuse web design and web hosting - or don't realize they need both. Here's a clear explanation and why bundling them saves you money.",
+    excerpt: "Many business owners confuse web design and web hosting, or don't realize they need both. Here's a clear explanation and why bundling them saves you money.",
     readTime: "4 min read",
     date: "February 5, 2026",
     author: "Brandon Hopkins",
@@ -101,7 +101,7 @@ const posts = [
     categoryColor: "bg-orange-100 text-orange-700",
     title: "$99/Month vs. DIY Website Builders: Which Is Actually Cheaper?",
     excerpt:
-      "Wix, Squarespace, and GoDaddy all look affordable at first glance. But once you add up your time, upgrades, and missed conversions - the math tells a different story.",
+      "Wix, Squarespace, and GoDaddy all look affordable at first glance. But once you add up your time, upgrades, and missed conversions, the math tells a different story.",
     readTime: "5 min read",
     date: "February 3, 2026",
     author: "Brandon Hopkins",
@@ -112,7 +112,7 @@ const posts = [
     category: "Web Design Tips",
     categoryColor: "bg-blue-100 text-blue-700",
     title: "Website Maintenance Requirements: What Every Business Owner Needs to Know",
-    excerpt: "Your website needs regular maintenance to stay secure, fast, and visible on Google. Here's what's required - and how CalTech Web handles all of it for $99/month.",
+    excerpt: "Your website needs regular maintenance to stay secure, fast, and visible on Google. Here's what's required, and how CalTech Web handles all of it for $99/month.",
     readTime: "5 min read",
     date: "January 30, 2026",
     author: "Brandon Hopkins",
@@ -123,7 +123,7 @@ const posts = [
     category: "Church Websites",
     categoryColor: "bg-purple-100 text-purple-700",
     title: "Church Website Support: Why Your Ministry Needs More Than a Template",
-    excerpt: "Church websites have unique needs - online giving, sermon streaming, event management. Here's why a template won't cut it and what to look for instead.",
+    excerpt: "Church websites have unique needs: online giving, sermon streaming, event management. Here's why a template won't cut it and what to look for instead.",
     readTime: "5 min read",
     date: "January 22, 2026",
     author: "Brandon Hopkins",
@@ -135,7 +135,7 @@ const posts = [
     categoryColor: "bg-purple-100 text-purple-700",
     title: "Church Website Design: 7 Things Every Church Website Needs",
     excerpt:
-      "Your church website is often the first thing a visitor sees before they ever walk through your doors. Here's what it needs to say - and do - to turn visitors into members.",
+      "Your church website is often the first thing a visitor sees before they ever walk through your doors. Here's what it needs to say, and do, to turn visitors into members.",
     readTime: "5 min read",
     date: "January 20, 2026",
     author: "Brandon Hopkins",
@@ -146,7 +146,7 @@ const posts = [
     category: "Web Design Tips",
     categoryColor: "bg-blue-100 text-blue-700",
     title: "Who Updates a Website After the Web Designer Finishes?",
-    excerpt: "The website is live - now what? Most designers disappear after launch. Here are your options for keeping your site current, and why ongoing support matters.",
+    excerpt: "The website is live, now what? Most designers disappear after launch. Here are your options for keeping your site current, and why ongoing support matters.",
     readTime: "4 min read",
     date: "January 15, 2026",
     author: "Brandon Hopkins",
@@ -158,7 +158,7 @@ const posts = [
     categoryColor: "bg-teal-100 text-teal-700",
     title: "How Website Speed Affects Your Local SEO Rankings (And What To Do About It)",
     excerpt:
-      "Google's algorithm has made page speed a ranking factor - and most small business websites are failing this test. Here's what matters and how to fix it fast.",
+      "Google's algorithm has made page speed a ranking factor, and most small business websites are failing this test. Here's what matters and how to fix it fast.",
     readTime: "4 min read",
     date: "January 12, 2026",
     author: "Brandon Hopkins",
@@ -213,7 +213,7 @@ const posts = [
     slug: "1-hour-support-why-it-matters",
     category: "Support & Reliability",
     categoryColor: "bg-yellow-100 text-yellow-700",
-    title: "Why 93% of Our Website Updates Are Done in Under 1 Hour - And Why That Matters",
+    title: "Why 93% of Our Website Updates Are Done in Under 1 Hour, And Why That Matters",
     excerpt:
       "Your business doesn't wait. Neither should your website. Here's how CalTech Web built a support process that gets most requests turned around in under an hour.",
     readTime: "3 min read",
@@ -226,7 +226,7 @@ const posts = [
     category: "Church Websites",
     categoryColor: "bg-purple-100 text-purple-700",
     title: "The Ultimate Guide to Christian Ministry Websites",
-    excerpt: "A comprehensive guide to building ministry websites that grow your reach - covering devotional content, donation systems, volunteer portals, and outreach tools.",
+    excerpt: "A comprehensive guide to building ministry websites that grow your reach, covering devotional content, donation systems, volunteer portals, and outreach tools.",
     readTime: "8 min read",
     date: "December 15, 2025",
     author: "Brandon Hopkins",
@@ -262,7 +262,7 @@ const posts = [
     categoryColor: "bg-teal-100 text-teal-700",
     title: "Your Google Business Profile and Website: How They Work Together to Get You Found",
     excerpt:
-      "Most small business owners treat their website and Google Business Profile as separate things. They're not - and linking them the right way can double your local visibility.",
+      "Most small business owners treat their website and Google Business Profile as separate things. They're not, and linking them the right way can double your local visibility.",
     readTime: "5 min read",
     date: "November 10, 2025",
     author: "Brandon Hopkins",
@@ -347,7 +347,7 @@ function Hero() {
         </h1>
         <p className="text-lg text-blue-100 max-w-2xl mx-auto leading-relaxed">
           Real advice from someone who&apos;s built 800+ websites. No fluff,
-          no jargon - just what actually works for small businesses, churches,
+          no jargon, just what actually works for small businesses, churches,
           and non-profits.
         </p>
       </div>
@@ -473,12 +473,12 @@ function CTAStrip() {
           Ready to put these tips to work?
         </div>
         <h2 className="text-3xl sm:text-4xl font-extrabold mb-4">
-          Get a website that already follows all of this advice - {" "}
+          Get a website that already follows all of this advice,{" "}
           <span className="text-orange-300">for $99/month.</span>
         </h2>
         <p className="text-blue-100 text-lg max-w-2xl mx-auto mb-8 leading-relaxed">
-          Everything you read about here - fast load times, mobile-first design,
-          clear CTAs, local SEO setup - is already built into every CalTech Web
+          Everything you read about here (fast load times, mobile-first design,
+          clear CTAs, local SEO setup) is already built into every CalTech Web
           site.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">

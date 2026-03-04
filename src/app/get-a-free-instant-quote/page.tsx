@@ -367,11 +367,11 @@ function ContactForm() {
 const quoteFaqs = [
   {
     q: "Is there really no setup fee?",
-    a: "Correct - there is no setup fee, no hidden charges, and no contracts. You pay $99/month and that covers everything: design, hosting, SSL, unlimited updates, and priority support.",
+    a: "Correct, there is no setup fee, no hidden charges, and no contracts. You pay $99/month and that covers everything: design, hosting, SSL, unlimited updates, and priority support.",
   },
   {
     q: "What if I already have a website?",
-    a: "No problem. We can migrate your existing site, redesign it from scratch, or start fresh - whatever works best for your goals. Your domain always stays yours.",
+    a: "No problem. We can migrate your existing site, redesign it from scratch, or start fresh, whatever works best for your goals. Your domain always stays yours.",
   },
   {
     q: "How long does it take to get my site live?",
@@ -387,7 +387,7 @@ const quoteFaqs = [
   },
   {
     q: "Do you work with businesses outside California?",
-    a: "Yes - CalTech Web serves clients nationwide. Everything is handled remotely, so location is never a barrier.",
+    a: "Yes, CalTech Web serves clients nationwide. Everything is handled remotely, so location is never a barrier.",
   },
 ];
 
@@ -475,7 +475,7 @@ export default function GetAFreeInstantQuotePage() {
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-sm font-medium text-blue-100 mb-6">
               <Zap className="w-4 h-4 text-yellow-400" />
-              Free quote - no obligation
+              Free quote, no obligation
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-6">
@@ -519,7 +519,7 @@ export default function GetAFreeInstantQuotePage() {
                       "Mobile-responsive",
                       "Basic SEO setup",
                       "Priority support",
-                      "No contracts - cancel anytime",
+                      "No contracts, cancel anytime",
                     ].map((item) => (
                       <li key={item} className="flex items-center gap-2.5">
                         <div className="w-5 h-5 rounded-full bg-green-500 flex items-center justify-center shrink-0">

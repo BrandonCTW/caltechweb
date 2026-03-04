@@ -3,12 +3,12 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Client Support | CalTech Web",
   description:
-    "Need a website update? Submit a support request and we'll handle it — 93% of requests completed in under 1 hour. Email, call, or use the form.",
+    "Need a website update? Submit a support request and we'll handle it. 93% of requests completed in under 1 hour. Email, call, or use the form.",
   alternates: { canonical: "https://caltechweb.com/support/" },
   openGraph: {
     title: "Client Support | CalTech Web",
     description:
-      "Need a website update? Submit a support request and we'll handle it — 93% of requests completed in under 1 hour.",
+      "Need a website update? Submit a support request and we'll handle it. 93% of requests completed in under 1 hour.",
     url: "https://caltechweb.com/support/",
     type: "website",
     images: [
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
         url: "/brandon-hopkins.jpg",
         width: 2400,
         height: 1600,
-        alt: "Brandon Hopkins - Founder of CalTech Web",
+        alt: "Brandon Hopkins, Founder of CalTech Web",
       },
     ],
   },
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Client Support | CalTech Web",
     description:
-      "Need a website update? Submit a support request and we'll handle it — 93% of requests completed in under 1 hour.",
+      "Need a website update? Submit a support request and we'll handle it. 93% of requests completed in under 1 hour.",
     images: ["/brandon-hopkins.jpg"],
   },
 };
@@ -38,7 +38,7 @@ const faqPageJsonLd = {
       name: "What kinds of updates can I request?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Anything on your website. Text changes, new photos, adding or removing pages, layout tweaks, new blog posts, menu updates, hours changes, staff bios — you name it. If it's on your site, we can update it.",
+        text: "Anything on your website. Text changes, new photos, adding or removing pages, layout tweaks, new blog posts, menu updates, hours changes, staff bios, you name it. If it's on your site, we can update it.",
       },
     },
     {
@@ -54,7 +54,7 @@ const faqPageJsonLd = {
       name: "Is there a limit to how many updates I can request?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "No. Your plan includes unlimited updates — there's no cap and no extra charge. Send as many requests as you need, as often as you need them.",
+        text: "No. Your plan includes unlimited updates, there's no cap and no extra charge. Send as many requests as you need, as often as you need them.",
       },
     },
     {
@@ -70,7 +70,7 @@ const faqPageJsonLd = {
       name: "Can I request a full redesign of my site?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes — free redesigns are included in your plan. If you want a fresh look, a new color scheme, or a completely different layout, just let us know. We'll design a new version for your approval before making it live.",
+        text: "Yes, free redesigns are included in your plan. If you want a fresh look, a new color scheme, or a completely different layout, just let us know. We'll design a new version for your approval before making it live.",
       },
     },
     {

@@ -171,7 +171,7 @@ function SupportForm() {
           name="message"
           required
           rows={5}
-          placeholder="Describe the changes you need — text updates, new photos, layout tweaks, etc."
+          placeholder="Describe the changes you need: text updates, new photos, layout tweaks, etc."
           className="w-full px-4 py-3 rounded-xl border border-gray-200 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-shadow resize-none"
         />
       </div>
@@ -199,7 +199,7 @@ function SupportForm() {
 const supportFaqs = [
   {
     q: "What kinds of updates can I request?",
-    a: "Anything on your website. Text changes, new photos, adding or removing pages, layout tweaks, new blog posts, menu updates, hours changes, staff bios — you name it. If it's on your site, we can update it.",
+    a: "Anything on your website. Text changes, new photos, adding or removing pages, layout tweaks, new blog posts, menu updates, hours changes, staff bios, you name it. If it's on your site, we can update it.",
   },
   {
     q: "How quickly will my update be completed?",
@@ -207,7 +207,7 @@ const supportFaqs = [
   },
   {
     q: "Is there a limit to how many updates I can request?",
-    a: "No. Your plan includes unlimited updates — there's no cap and no extra charge. Send as many requests as you need, as often as you need them.",
+    a: "No. Your plan includes unlimited updates, there's no cap and no extra charge. Send as many requests as you need, as often as you need them.",
   },
   {
     q: "Do I need to provide exact wording or images?",
@@ -215,7 +215,7 @@ const supportFaqs = [
   },
   {
     q: "Can I request a full redesign of my site?",
-    a: "Yes — free redesigns are included in your plan. If you want a fresh look, a new color scheme, or a completely different layout, just let us know. We'll design a new version for your approval before making it live.",
+    a: "Yes, free redesigns are included in your plan. If you want a fresh look, a new color scheme, or a completely different layout, just let us know. We'll design a new version for your approval before making it live.",
   },
   {
     q: "What's the best way to send files or images?",

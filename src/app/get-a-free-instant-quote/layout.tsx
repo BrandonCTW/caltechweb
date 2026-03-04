@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Get a Free Instant Website Quote | CalTech Web",
   description:
-    "Get an instant, no-obligation quote for your custom website. See exactly what you'll pay — $99/month, all-inclusive. Takes 60 seconds.",
+    "Get an instant, no-obligation quote for your custom website. See exactly what you'll pay, $99/month, all-inclusive. Takes 60 seconds.",
   alternates: { canonical: "https://caltechweb.com/get-a-free-instant-quote/" },
   openGraph: {
     title: "Get a Free Instant Website Quote | CalTech Web",
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
         url: "/brandon-hopkins.jpg",
         width: 2400,
         height: 1600,
-        alt: "Brandon Hopkins - Founder of CalTech Web",
+        alt: "Brandon Hopkins, Founder of CalTech Web",
       },
     ],
   },
@@ -56,7 +56,7 @@ const localBusinessJsonLd = {
   logo: "https://caltechweb.com/caltechweb-logo.png",
   image: "https://caltechweb.com/brandon-hopkins.jpg",
   description:
-    "Affordable California web design company serving over 800 websites. Custom web design, hosting, and unlimited updates for $99/month — no setup fees, no contracts.",
+    "Affordable California web design company serving over 800 websites. Custom web design, hosting, and unlimited updates for $99/month, no setup fees, no contracts.",
   telephone: "+15592823075",
   email: "Brandon@CalTechWeb.com",
   address: {
@@ -125,8 +125,10 @@ const localBusinessJsonLd = {
     ],
   },
   sameAs: [
-    "https://www.linkedin.com/company/caltech-web",
+    "https://www.facebook.com/CalTechWeb",
     "https://www.instagram.com/caltechweb/",
+    "https://www.youtube.com/@caltechweb",
+    "https://www.linkedin.com/company/caltech-web/",
   ],
 };
 
@@ -139,7 +141,7 @@ const faqJsonLd = {
       name: "Is there really no setup fee?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Correct - there is no setup fee, no hidden charges, and no contracts. You pay $99/month and that covers everything: design, hosting, SSL, unlimited updates, and priority support.",
+        text: "Correct, there is no setup fee, no hidden charges, and no contracts. You pay $99/month and that covers everything: design, hosting, SSL, unlimited updates, and priority support.",
       },
     },
     {
@@ -147,7 +149,7 @@ const faqJsonLd = {
       name: "What if I already have a website?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "No problem. We can migrate your existing site, redesign it from scratch, or start fresh - whatever works best for your goals. Your domain always stays yours.",
+        text: "No problem. We can migrate your existing site, redesign it from scratch, or start fresh, whatever works best for your goals. Your domain always stays yours.",
       },
     },
     {
@@ -179,7 +181,7 @@ const faqJsonLd = {
       name: "Do you work with businesses outside California?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes - CalTech Web serves clients nationwide. Everything is handled remotely, so location is never a barrier.",
+        text: "Yes, CalTech Web serves clients nationwide. Everything is handled remotely, so location is never a barrier.",
       },
     },
   ],

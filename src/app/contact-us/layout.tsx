@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Contact CalTech Web - Talk to Brandon | (559) 282-3075",
+  title: "Contact CalTech Web | Talk to Brandon | (559) 282-3075",
   description:
     "Reach Brandon Hopkins at CalTech Web. Call (559) 282-3075 or send a message. Most inquiries answered within hours. No sales pitch.",
   alternates: { canonical: "https://caltechweb.com/contact-us/" },
   openGraph: {
-    title: "Contact CalTech Web - Talk to Brandon | (559) 282-3075",
+    title: "Contact CalTech Web | Talk to Brandon | (559) 282-3075",
     description:
-      "Reach Brandon Hopkins directly. Call, email, or fill out the form - most inquiries answered within a few hours. Affordable websites for small businesses, churches, and non-profits.",
+      "Reach Brandon Hopkins directly. Call, email, or fill out the form. Most inquiries answered within a few hours. Affordable websites for small businesses, churches, and non-profits.",
     url: "https://caltechweb.com/contact-us/",
     type: "website",
     images: [
@@ -16,13 +16,13 @@ export const metadata: Metadata = {
         url: "/brandon-hopkins.jpg",
         width: 2400,
         height: 1600,
-        alt: "Brandon Hopkins - Founder of CalTech Web",
+        alt: "Brandon Hopkins, Founder of CalTech Web",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Contact CalTech Web - Talk to Brandon | (559) 282-3075",
+    title: "Contact CalTech Web | Talk to Brandon | (559) 282-3075",
     description:
       "Reach Brandon Hopkins at CalTech Web. Call (559) 282-3075 or send a message. Most inquiries answered within hours. No sales pitch.",
     images: ["/brandon-hopkins.jpg"],
@@ -65,7 +65,7 @@ const faqPageJsonLd = {
       name: "Is there a setup fee or contract?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "No setup fee, ever - and no contracts. Everything is month-to-month. You can cancel anytime with no penalty.",
+        text: "No setup fee, ever, and no contracts. Everything is month-to-month. You can cancel anytime with no penalty.",
       },
     },
     {
@@ -89,7 +89,7 @@ const faqPageJsonLd = {
       name: "I already have a website. Can you take it over?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Absolutely. We can migrate your existing site, redesign it completely, or make incremental improvements - whatever fits your goals. Your domain always stays yours.",
+        text: "Absolutely. We can migrate your existing site, redesign it completely, or make incremental improvements, whatever fits your goals. Your domain always stays yours.",
       },
     },
     {
@@ -97,7 +97,7 @@ const faqPageJsonLd = {
       name: "Do you work with businesses outside California?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes - CalTech Web serves clients nationwide. Everything is handled remotely, so location is never a barrier.",
+        text: "Yes, CalTech Web serves clients nationwide. Everything is handled remotely, so location is never a barrier.",
       },
     },
     {
@@ -117,7 +117,7 @@ const contactPageJsonLd = {
   name: "Contact CalTech Web",
   url: "https://caltechweb.com/contact-us/",
   description:
-    "Contact page for CalTech Web - affordable website design for small businesses, churches, and non-profits.",
+    "Contact page for CalTech Web, affordable website design for small businesses, churches, and non-profits.",
   mainEntity: {
     "@type": "LocalBusiness",
     name: "CalTech Web",

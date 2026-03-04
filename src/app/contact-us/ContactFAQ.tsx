@@ -12,7 +12,7 @@ const faqs: { q: string; a: ReactNode }[] = [
   },
   {
     q: "Is there a setup fee or contract?",
-    a: "No setup fee, ever - and no contracts. Everything is month-to-month. You can cancel anytime with no penalty.",
+    a: "No setup fee, ever, and no contracts. Everything is month-to-month. You can cancel anytime with no penalty.",
   },
   {
     q: "What does the $99/month include?",
@@ -36,7 +36,7 @@ const faqs: { q: string; a: ReactNode }[] = [
     a: (
       <>
         Absolutely. We can migrate your existing site, redesign it completely, or make incremental
-        improvements - whatever fits your goals. Your domain always stays yours.{" "}
+        improvements, whatever fits your goals. Your domain always stays yours.{" "}
         <Link href="/web-design-portfolio/" className="text-blue-600 font-semibold hover:underline">
           Browse our portfolio
         </Link>{" "}
@@ -46,7 +46,7 @@ const faqs: { q: string; a: ReactNode }[] = [
   },
   {
     q: "Do you work with businesses outside California?",
-    a: "Yes - CalTech Web serves clients nationwide. Everything is handled remotely, so location is never a barrier.",
+    a: "Yes, CalTech Web serves clients nationwide. Everything is handled remotely, so location is never a barrier.",
   },
   {
     q: "What if I'm not happy with the design?",

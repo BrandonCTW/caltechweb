@@ -42,7 +42,7 @@ export const metadata: Metadata = {
         url: "/brandon-hopkins.jpg",
         width: 2400,
         height: 1600,
-        alt: "Brandon Hopkins - Founder of CalTech Web",
+        alt: "Brandon Hopkins, Founder of CalTech Web",
       },
     ],
   },
@@ -154,7 +154,7 @@ function Hero() {
         <p className="text-lg sm:text-xl text-blue-100 mb-8 max-w-2xl mx-auto leading-relaxed">
           Your church deserves a professional website without the professional
           price tag. Online giving, sermon streaming, event calendars, and
-          unlimited updates - all included for one flat monthly fee.
+          unlimited updates, all included for one flat monthly fee.
         </p>
 
         <div className="flex flex-wrap justify-center gap-3 mb-10">
@@ -238,31 +238,31 @@ const churchFeatures = [
     icon: Video,
     color: "text-blue-600 bg-blue-50",
     title: "Sermon Streaming & Archives",
-    body: "Embed your sermons directly on your website. Whether you stream live or post recordings, your message reaches everyone - even those who can't attend in person.",
+    body: "Embed your sermons directly on your website. Whether you stream live or post recordings, your message reaches everyone, even those who can't attend in person.",
   },
   {
     icon: Calendar,
     color: "text-purple-600 bg-purple-50",
     title: "Event Calendars",
-    body: "Keep your congregation informed with an easy-to-read event calendar. Bible studies, youth group, potlucks, worship nights - all in one place.",
+    body: "Keep your congregation informed with an easy-to-read event calendar. Bible studies, youth group, potlucks, worship nights, all in one place.",
   },
   {
     icon: RefreshCw,
     color: "text-orange-600 bg-orange-50",
     title: "Unlimited Updates Included",
-    body: "Need to update service times, add a new ministry page, or post an announcement? Just email or call Brandon. Updates are included - no extra charges, ever.",
+    body: "Need to update service times, add a new ministry page, or post an announcement? Just email or call Brandon. Updates are included, no extra charges, ever.",
   },
   {
     icon: Monitor,
     color: "text-indigo-600 bg-indigo-50",
     title: "Mobile-Responsive Design",
-    body: "Over 60% of your visitors are on their phones. Your church website will look beautiful on every device - phones, tablets, and desktops.",
+    body: "Over 60% of your visitors are on their phones. Your church website will look beautiful on every device, including phones, tablets, and desktops.",
   },
   {
     icon: Globe,
     color: "text-teal-600 bg-teal-50",
     title: "Hosting, SSL & Domain Setup",
-    body: "Everything technical is handled for you. Fast hosting, security certificates, and domain connection - all included in your $99/month.",
+    body: "Everything technical is handled for you. Fast hosting, security certificates, and domain connection, all included in your $99/month.",
   },
 ];
 
@@ -320,7 +320,7 @@ function WhyCalTechWeb() {
             Why Churches Choose CalTech Web
           </h2>
           <p className="text-gray-500 mt-3 max-w-xl mx-auto">
-            With 800+ websites designed - many for churches - we understand what
+            With 800+ websites designed, many for churches, we understand what
             ministries need and how to deliver it affordably.
           </p>
         </div>
@@ -330,7 +330,7 @@ function WhyCalTechWeb() {
             {
               icon: DollarSign,
               color: "text-green-600 bg-green-50",
-              title: "$99/month - everything included",
+              title: "$99/month, everything included",
               body: "Custom design, hosting, SSL, unlimited updates, and free redesigns. Your church budget goes further because there are no surprise fees.",
             },
             {
@@ -342,7 +342,7 @@ function WhyCalTechWeb() {
             {
               icon: RefreshCw,
               color: "text-orange-600 bg-orange-50",
-              title: "Free redesigns - whenever you want",
+              title: "Free redesigns, whenever you want",
               body: "Rebranding? New pastor? Growing into a new season? Your website gets a fresh design at no extra cost. Most agencies charge $3,000+ for a redesign.",
             },
             {
@@ -397,7 +397,7 @@ const howItWorksSteps = [
     lightBg: "bg-violet-50",
     accent: "text-violet-600",
     title: "We Design & Build Your Site",
-    body: "We handle everything - custom design, online giving setup, sermon page, event calendar, mobile responsiveness, and hosting. You approve before it goes live.",
+    body: "We handle everything: custom design, online giving setup, sermon page, event calendar, mobile responsiveness, and hosting. You approve before it goes live.",
     detail: "Live in 5-7 business days",
   },
   {
@@ -407,7 +407,7 @@ const howItWorksSteps = [
     lightBg: "bg-green-50",
     accent: "text-green-600",
     title: "Launch & Unlimited Support",
-    body: "Your church website goes live and from day one, every update is included. New sermons, event changes, staff photos, announcements - just call, email, or text Brandon.",
+    body: "Your church website goes live and from day one, every update is included. New sermons, event changes, staff photos, announcements, just call, email, or text Brandon.",
     detail: "93% of updates done in under 1 hour",
   },
 ];
@@ -573,7 +573,7 @@ function Testimonials() {
 const churchFaqs = [
   {
     q: "How much does a church website cost?",
-    a: "$99/month includes everything — custom design, hosting, SSL, unlimited updates, and free redesigns. There is no setup fee, no design fee, and no contract. Your church pays $99 the first month and every month after.",
+    a: "$99/month includes everything: custom design, hosting, SSL, unlimited updates, and free redesigns. There is no setup fee, no design fee, and no contract. Your church pays $99 the first month and every month after.",
   },
   {
     q: "Does the church website include online giving?",
@@ -581,11 +581,11 @@ const churchFaqs = [
   },
   {
     q: "How long does it take to build a church website?",
-    a: "Most church websites are live within 5–7 business days of receiving your content — logo, photos, service times, and any text you'd like us to use. We've launched same-week sites when churches needed them quickly.",
+    a: "Most church websites are live within 5–7 business days of receiving your content: logo, photos, service times, and any text you'd like us to use. We've launched same-week sites when churches needed them quickly.",
   },
   {
     q: "Can we update the website ourselves?",
-    a: "You don't have to. Unlimited updates are included in your $99/month. Just email or call Brandon — new sermon content, event changes, staff photos, announcement banners — all handled for you, typically within the hour.",
+    a: "You don't have to. Unlimited updates are included in your $99/month. Just email or call Brandon. New sermon content, event changes, staff photos, announcement banners, all handled for you, typically within the hour.",
   },
   {
     q: "Do you work with small or rural churches?",
@@ -597,11 +597,11 @@ const churchFaqs = [
   },
   {
     q: "Is there a contract or long-term commitment?",
-    a: "No contracts, ever. CalTech Web is month-to-month. If your church needs to cancel, you keep your website files. We believe you should stay because the service is worth it — not because you're locked in.",
+    a: "No contracts, ever. CalTech Web is month-to-month. If your church needs to cancel, you keep your website files. We believe you should stay because the service is worth it, not because you're locked in.",
   },
   {
     q: "Can you help with sermon streaming and podcast setup?",
-    a: "Yes. We embed your sermon videos from YouTube or Vimeo, and can help you set up a podcast feed so your messages are accessible on Spotify, Apple Podcasts, and more — all included in your plan.",
+    a: "Yes. We embed your sermon videos from YouTube or Vimeo, and can help you set up a podcast feed so your messages are accessible on Spotify, Apple Podcasts, and more, all included in your plan.",
   },
 ];
 
@@ -660,13 +660,13 @@ function ChurchResources() {
       href: "/church-website-design-essentials/",
       title: "Church Website Design: 7 Things Every Church Website Needs",
       excerpt:
-        "Your church website is often the first thing a visitor sees before they ever walk through your doors. Here's what it needs to say — and do.",
+        "Your church website is often the first thing a visitor sees before they ever walk through your doors. Here's what it needs to say, and do.",
     },
     {
       href: "/ultimate-guide-christian-ministry-websites/",
       title: "The Ultimate Guide to Christian Ministry Websites",
       excerpt:
-        "A comprehensive guide to building ministry websites that grow your reach — covering devotional content, donation systems, and outreach tools.",
+        "A comprehensive guide to building ministry websites that grow your reach, covering devotional content, donation systems, and outreach tools.",
     },
     {
       href: "/post-sermons-online/",
@@ -678,7 +678,7 @@ function ChurchResources() {
       href: "/church-website-support/",
       title: "Church Website Support: Why Your Ministry Needs More Than a Template",
       excerpt:
-        "Church websites have unique needs — online giving, sermon streaming, event management. Here's why a template won't cut it.",
+        "Church websites have unique needs: online giving, sermon streaming, event management. Here's why a template won't cut it.",
     },
   ];
 

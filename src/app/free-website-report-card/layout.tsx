@@ -16,7 +16,7 @@ export const metadata: Metadata = {
         url: "/brandon-hopkins.jpg",
         width: 2400,
         height: 1600,
-        alt: "Brandon Hopkins - Founder of CalTech Web",
+        alt: "Brandon Hopkins, Founder of CalTech Web",
       },
     ],
   },
@@ -34,7 +34,7 @@ const jsonLd = {
   "@type": "WebApplication",
   name: "Free Website Report Card",
   description:
-    "An instant website grading tool that analyzes first impression, mobile experience, trust signals, lead capture, and SEO basics — then shows what CalTech Web would fix.",
+    "An instant website grading tool that analyzes first impression, mobile experience, trust signals, lead capture, and SEO basics, then shows what CalTech Web would fix.",
   url: "https://caltechweb.com/free-website-report-card/",
   applicationCategory: "BusinessApplication",
   operatingSystem: "Any",
@@ -42,7 +42,7 @@ const jsonLd = {
     "@type": "Offer",
     price: "0",
     priceCurrency: "USD",
-    description: "Free website report card — no signup required",
+    description: "Free website report card, no signup required",
   },
   provider: {
     "@type": "ProfessionalService",
@@ -89,7 +89,7 @@ const faqJsonLd = {
       name: "What does the 'With CalTech Web' view show?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "It shows your projected score after CalTech Web builds you a new, professionally designed website. Every failing check is resolved — from mobile optimization to page speed to proper SEO markup — all included in the $99/month plan.",
+        text: "It shows your projected score after CalTech Web builds you a new, professionally designed website. Every failing check is resolved, from mobile optimization to page speed to proper SEO markup, all included in the $99/month plan.",
       },
     },
     {
