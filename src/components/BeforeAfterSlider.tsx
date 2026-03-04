@@ -21,6 +21,7 @@ export default function BeforeAfterSlider({
   height,
 }: Props) {
   const [position, setPosition] = useState(50);
+  const [hasInteracted, setHasInteracted] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const dragging = useRef(false);
 
@@ -36,6 +37,7 @@ export default function BeforeAfterSlider({
   const onPointerDown = useCallback(
     (e: React.PointerEvent) => {
       dragging.current = true;
+      setHasInteracted(true);
       (e.target as HTMLElement).setPointerCapture?.(e.pointerId);
       updatePosition(e.clientX);
     },
@@ -100,20 +102,26 @@ export default function BeforeAfterSlider({
 
       {/* Slider line */}
       <div
-        className="absolute top-0 bottom-0 w-0.5 bg-white/90 z-10"
+        className="absolute top-0 bottom-0 w-1 bg-white z-10"
         style={{
           left: `${position}%`,
           transform: "translateX(-50%)",
-          boxShadow: "0 0 6px rgba(0,0,0,0.4)",
+          boxShadow: "0 0 8px rgba(0,0,0,0.5), 0 0 20px rgba(0,0,0,0.2)",
         }}
       >
         {/* Drag handle */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-lg shadow-black/30 flex items-center justify-center">
-          <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
+        <div
+          className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white flex items-center justify-center ${
+            hasInteracted
+              ? "shadow-lg shadow-black/30"
+              : "shadow-[0_0_0_4px_rgba(245,158,11,0.4),0_0_20px_rgba(245,158,11,0.3)] animate-pulse"
+          }`}
+        >
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
             <path
               d="M6 10H2M2 10L4.5 7.5M2 10L4.5 12.5M14 10H18M18 10L15.5 7.5M18 10L15.5 12.5"
               stroke="#374151"
-              strokeWidth="2"
+              strokeWidth="2.5"
               strokeLinecap="round"
               strokeLinejoin="round"
             />
@@ -121,18 +129,25 @@ export default function BeforeAfterSlider({
         </div>
       </div>
 
+      {/* "Drag to compare" hint */}
+      {!hasInteracted && (
+        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 px-4 py-2 rounded-full bg-black/70 backdrop-blur-sm text-sm font-semibold text-white pointer-events-none animate-bounce">
+          Drag to compare
+        </div>
+      )}
+
       {/* Labels */}
       <div
-        className="absolute top-3 left-3 z-10 px-2.5 py-1 rounded-md bg-black/60 backdrop-blur-sm text-xs font-bold text-white pointer-events-none transition-opacity duration-200"
+        className="absolute top-3 left-3 z-10 px-3 py-1.5 rounded-lg bg-black/70 backdrop-blur-sm text-sm font-bold text-white pointer-events-none transition-opacity duration-200"
         style={{ opacity: position > 12 ? 1 : 0 }}
       >
-        2003
+        Before
       </div>
       <div
-        className="absolute top-3 right-3 z-10 px-2.5 py-1 rounded-md bg-amber-500 text-xs font-bold text-white pointer-events-none transition-opacity duration-200"
+        className="absolute top-3 right-3 z-10 px-3 py-1.5 rounded-lg bg-amber-500 text-sm font-bold text-white pointer-events-none transition-opacity duration-200"
         style={{ opacity: position < 88 ? 1 : 0 }}
       >
-        2026
+        After
       </div>
     </div>
   );
