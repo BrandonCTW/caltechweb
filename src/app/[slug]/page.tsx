@@ -25,7 +25,7 @@ type ContentSection = {
   list?: string[];
   tip?: string;
   included?: string;
-  quote?: { text: string; author: string; role?: string };
+  quote?: { text: string; author: string; role?: string; photo?: string };
 };
 
 type BlogPost = {
@@ -450,8 +450,9 @@ const blogPosts: BlogPost[] = [
         included: "Every CalTech Web site is built for mobile first and scores 90+ on Google PageSpeed. No upgrade needed.",
         quote: {
           text: "Wow! I'm blown away by the new website and how easy it has been to work with CalTech Web!",
-          author: "Executive Director",
-          role: "Madera County Food Bank",
+          author: "Ryan McWherter",
+          role: "Executive Director, Madera County Food Bank",
+          photo: "/ryan-mcwherter.jpg",
         },
       },
       {
@@ -1847,11 +1848,20 @@ function ArticleContent({ post }: { post: BlogPost }) {
                 <blockquote className="text-gray-800 text-lg leading-relaxed font-medium italic mb-4">
                   &ldquo;{section.quote.text}&rdquo;
                 </blockquote>
-                <footer className="text-sm text-gray-500">
-                  <span className="font-semibold text-gray-700">
-                    - {section.quote.author}
-                  </span>
-                  {section.quote.role && `, ${section.quote.role}`}
+                <footer className="flex items-center gap-3">
+                  {section.quote.photo && (
+                    <img
+                      src={section.quote.photo}
+                      alt={section.quote.author}
+                      className="w-10 h-10 rounded-full object-cover object-top flex-shrink-0"
+                    />
+                  )}
+                  <div className="text-sm text-gray-500">
+                    <span className="font-semibold text-gray-700">
+                      {section.quote.author}
+                    </span>
+                    {section.quote.role && <span>, {section.quote.role}</span>}
+                  </div>
                 </footer>
               </div>
             )}
