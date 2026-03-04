@@ -32,10 +32,11 @@ function SupportForm() {
     const formData = new FormData(form);
 
     try {
-      const response = await fetch("/api/contact", {
+      const data = Object.fromEntries(formData);
+      const response = await fetch("https://caltechweb-forms.vercel.app/api/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(Object.fromEntries(formData)),
+        body: JSON.stringify({ ...data, site: "caltechweb.com", source: "support" }),
       });
 
       if (response.ok) {

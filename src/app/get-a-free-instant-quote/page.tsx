@@ -74,10 +74,11 @@ function ContactForm() {
     formData.set("projectType", selectedType || "not-specified");
 
     try {
-      const response = await fetch("/api/contact", {
+      const data = Object.fromEntries(formData);
+      const response = await fetch("https://caltechweb-forms.vercel.app/api/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(Object.fromEntries(formData)),
+        body: JSON.stringify({ ...data, site: "caltechweb.com", source: "free-quote" }),
       });
 
       if (response.ok) {

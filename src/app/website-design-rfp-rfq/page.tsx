@@ -387,16 +387,15 @@ function RFPForm() {
 
     try {
       // Attempt API submission first
-      const res = await fetch("/api/contact", {
+      const res = await fetch("https://caltechweb-forms.vercel.app/api/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
+          site: "caltechweb.com",
           name,
           email,
-          organization,
-          orgType,
           website,
-          message: details,
+          message: `${organization ? `Organization: ${organization}\n` : ""}${orgType ? `Type: ${orgType}\n\n` : ""}${details}`,
           source: "rfp-rfq",
         }),
       });

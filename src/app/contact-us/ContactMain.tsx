@@ -30,9 +30,33 @@ function ContactForm() {
     setFields((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   }
 
-  function handleSubmit(e: React.FormEvent) {
+  const [sending, setSending] = useState(false);
+
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    // Build mailto link with form data
+    setSending(true);
+
+    try {
+      const res = await fetch("https://caltechweb-forms.vercel.app/api/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          site: "caltechweb.com",
+          name: fields.name,
+          email: fields.email,
+          website: fields.phone,
+          message: `${fields.businessType ? `Business Type: ${fields.businessType}\n\n` : ""}${fields.message}`,
+          source: "contact-page",
+        }),
+      });
+      if (res.ok) {
+        setSubmitted(true);
+        return;
+      }
+    } catch {
+      // fallback to mailto
+    }
+
     const subject = encodeURIComponent(
       `Website inquiry from ${fields.name}${fields.businessType ? ` (${fields.businessType})` : ""}`
     );
@@ -41,6 +65,7 @@ function ContactForm() {
     );
     window.location.href = `mailto:Brandon@CalTechWeb.com?subject=${subject}&body=${body}`;
     setSubmitted(true);
+    setSending(false);
   }
 
   if (submitted) {
