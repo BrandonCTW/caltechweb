@@ -75,7 +75,7 @@ function ContactForm() {
 
     try {
       const data = Object.fromEntries(formData);
-      const response = await fetch("https://caltechweb-forms.vercel.app/api/submit", {
+      const response = await fetch("https://forms.caltechweb.com/api/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ ...data, site: "caltechweb.com", source: "free-quote" }),
