@@ -37,7 +37,7 @@ function ContactForm() {
     setSending(true);
 
     try {
-      const res = await fetch("https://caltechweb-forms.vercel.app/api/submit", {
+      const res = await fetch("https://forms.caltechweb.com/api/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

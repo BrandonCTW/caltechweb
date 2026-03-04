@@ -77,7 +77,7 @@ function ContactForm() {
       const data = Object.fromEntries(formData) as Record<string, string>;
       const phone = data.phone || "";
       const projectType = data.projectType || "";
-      const response = await fetch("https://caltechweb-forms.vercel.app/api/submit", {
+      const response = await fetch("https://forms.caltechweb.com/api/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
