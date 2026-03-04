@@ -423,61 +423,71 @@ const blogPosts: BlogPost[] = [
     slug: "nonprofit-website-design-tips",
     category: "Non-Profits",
     categoryColor: "bg-pink-100 text-pink-700",
-    title: "Non-Profit Website Design: How to Get More Donors and Volunteers Online",
+    title: "What Every Non-Profit Website Needs (And What CalTech Web Builds In)",
     metaTitle:
-      "Non-Profit Web Design: More Donors | CalTech Web",
+      "Non-Profit Website Design | CalTech Web",
     metaDescription:
-      "A non-profit's website should build trust and make it easy to give. Most don't do either. Here's the blueprint for a site that grows your mission.",
+      "Every non-profit needs a professional website that builds trust, drives donations, and attracts volunteers. See what's included — at no extra cost.",
     excerpt:
-      "A non-profit's website should do two things: build trust and make it easy to give. Most don't do either. Here's the blueprint for a site that actually grows your mission.",
+      "Every non-profit needs a professional website that builds trust, drives donations, and attracts volunteers. Here's what that looks like — and how CalTech Web delivers it all for $99/month.",
     readTime: "5 min read",
     date: "December 30, 2025",
     intro:
-      "I've built websites for non-profits across California: food banks, youth organizations, faith-based charities, animal rescues. And almost every time, the incoming site has the same problems: it tells people about the mission but makes it hard to do anything about it.\n\nA non-profit website has two jobs. First: convince a visitor that your organization is trustworthy and doing meaningful work. Second: make it as easy as possible to donate, volunteer, or get involved. Here's how to do both.",
+      "I've built websites for non-profits across California — food banks, youth organizations, faith-based charities, animal rescues. Every one of them needed the same core things: a site that looks credible, loads fast, and makes it easy to give or get involved.\n\nHere's what a real non-profit website includes. Every item on this list is something CalTech Web builds into every site at no additional cost.",
     sections: [
       {
-        heading: "Lead With Impact, Not With Mission Statements",
+        heading: "A Professional, Mobile-First Design",
         body: [
-          "Most non-profit homepages open with a vague mission statement like \"Empowering communities through transformative change.\" This is meaningless.",
-          "Instead, lead with a concrete impact statement: \"We've served 12,000 meals this year to families in Fresno County.\" Or: \"47 shelter dogs found forever homes last month.\" Specific numbers create emotional resonance and immediate credibility.",
-          "Save the formal mission statement for your About page. Your homepage should answer one question: what do you actually do, and is it working?",
-        ],
-        tip: "Update your impact numbers at least quarterly. A website showing stats from 2023 in late 2025 signals to donors that nobody is paying attention.",
-      },
-      {
-        heading: "Make the Donation CTA Unmissable",
-        body: [
-          "Your \"Donate\" button should be the most prominent call-to-action on your homepage. It should appear in the navigation, above the fold on mobile, and at least twice more as you scroll down the page.",
-          "Don't bury it. Don't make it look like every other link. Use a contrasting color. Make it a button, not a text link. And make sure it works perfectly on mobile because that's where most of your spontaneous donations will come from.",
-          "Test the donation flow yourself on your phone, right now. If it takes more than 3 taps to complete a donation, you're losing contributors.",
+          "Most donors and volunteers will see your website on their phone before they ever sit down at a desktop. If your site doesn't load cleanly on mobile — with readable text, working buttons, and a fast load time — you're losing people before they even read your mission.",
+          "CalTech Web builds every non-profit site to be fully mobile-responsive from day one. That's not an add-on. It's the baseline.",
         ],
       },
       {
-        heading: "Show the Humans Behind the Mission",
+        heading: "Donation Integration",
         body: [
-          "Trust is the foundation of charitable giving. People give to people, not to organizations. Your website should make the humans behind your non-profit visible and real.",
-          "Include photos of your team, your volunteers in action, and the people or animals your work serves (with appropriate permissions). Include a staff page with real names and brief bios. Show a video, even a simple phone-recorded one, of your work in action.",
-          "Organizations that show their people raise more money. This isn't a guess; it's backed by decades of fundraising research.",
+          "Non-profits need a clear, easy way to accept donations online. Most organizations use a third-party processor like PayPal, Stripe, or a platform like Donorbox or Give Lively.",
+          "We embed your donation link or widget directly into your site and make it prominent — in the navigation, above the fold, and in the footer. No extra charge to connect what you're already using.",
         ],
       },
       {
-        heading: "Make Volunteering Easy to Sign Up For",
+        heading: "An Events or Programs Page",
         body: [
-          "Many non-profits want volunteers but bury the volunteer information deep in the site. Make it easy to find and easier to commit to.",
-          "Create a simple volunteer page with: what roles are available, what the time commitment looks like, and a simple signup form. The form should ask for the minimum information needed: name, email, and maybe availability. The full onboarding can happen later.",
-          "The goal is to capture interest before it fades. Make the first step as easy as possible.",
+          "Whether you run a weekly food distribution, a seasonal gala, or recurring volunteer shifts, people need to know when and where to show up. A clean events or programs page communicates this at a glance.",
+          "We set up this page structure for you and make it easy to update whenever your calendar changes. Updates are included in your monthly plan — call or email Brandon and it's done.",
         ],
       },
       {
-        heading: "Display Your 990 and Nonprofit Status Prominently",
+        heading: "A Volunteer Signup Form",
         body: [
-          "Donors research before they give. Having your 501(c)(3) status, EIN, and a link to your most recent 990 (tax filing) visible on your site answers the transparency question before it's asked.",
-          "This is especially important for first-time donors who found you through search rather than personal connection. They don't know you yet. Show them that you're accountable.",
+          "The organizations that grow fastest make it easy to say yes. A simple volunteer form — name, email, availability — captures interest before it fades. Full onboarding can happen offline.",
+          "CalTech Web includes a custom contact or signup form on every site. No third-party form tool required unless you need it.",
         ],
+      },
+      {
+        heading: "An About Page That Builds Trust",
+        body: [
+          "Donors give to people, not logos. An About page with photos of your team, a short history of your organization, and your 501(c)(3) status builds the credibility that turns visitors into contributors.",
+          "We design and write this page with you. If you don't have great photos yet, we'll help you figure out what to shoot and how to present it professionally.",
+        ],
+      },
+      {
+        heading: "Search Engine Visibility",
+        body: [
+          "When someone searches \"food bank in Fresno\" or \"youth nonprofit near me,\" your site should appear. Basic on-page SEO — proper headings, page titles, meta descriptions, fast loading — is something most non-profit sites are missing.",
+          "Every CalTech Web site includes SEO basics built in. We title your pages correctly, set up your Google Business profile if needed, and make sure search engines can actually find you.",
+        ],
+      },
+      {
+        heading: "Ongoing Support and Updates",
+        body: [
+          "Non-profit websites go stale fast. Events end. Staff changes. Programs launch. Most organizations can't afford a developer on call — so updates don't get made, and the site slowly becomes a liability instead of an asset.",
+          "With CalTech Web, unlimited updates are included. Call or text Brandon directly and changes are made the same day, usually within the hour. This alone is worth the $99/month.",
+        ],
+        tip: "93% of support requests are completed in under one hour. For non-profits, that means your site stays current without adding to your to-do list.",
       },
     ],
     conclusion:
-      "A non-profit website isn't just a digital brochure; it's your 24/7 fundraising and recruiting tool. Get the design right and it quietly grows your mission around the clock.\n\nCalTech Web offers special pricing for non-profits. Call or email Brandon to discuss your organization's needs.",
+      "A professional non-profit website doesn't have to cost thousands of dollars or require a technology committee. CalTech Web builds everything listed here — design, mobile optimization, donation integration, forms, SEO, and ongoing support — for $99/month flat.\n\nNo setup fees. No per-update charges. No surprises. Call Brandon to get started.",
     related: [
       "church-website-design-essentials",
       "contact-page-converts",
