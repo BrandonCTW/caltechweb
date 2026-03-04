@@ -135,10 +135,9 @@ const portfolioItems: PortfolioItem[] = [
       "Fast-loading, hosted & secured by CalTech",
       "Unlimited content updates included",
     ],
-    screenshot: "/portfolio/arjun-kanuri-after.png",
+    screenshot: "/portfolio/arjun-kanuri.png",
     website: "https://arjunkanurimd.com",
     caseStudySlug: "dr-arjun-kanuri",
-    beforeScreenshot: "/portfolio/arjun-kanuri-before.png",
   },
   {
     name: "Blacke House Co.",
