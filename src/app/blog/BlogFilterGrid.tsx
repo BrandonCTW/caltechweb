@@ -3,10 +3,10 @@
 import { useState } from 'react'
 import Link from 'next/link'
 
-type ContentType = 'all' | 'case-study' | 'guide' | 'industry'
+type ContentType = 'all' | 'case-study' | 'guide'
 
 export type ResourceItem = {
-  type: 'case-study' | 'guide' | 'industry'
+  type: 'case-study' | 'guide'
   title: string
   description: string
   slug: string
@@ -18,13 +18,11 @@ const typeLabels: Record<ContentType, string> = {
   all: 'All',
   'case-study': 'Case Studies',
   guide: 'Guides',
-  industry: 'By Industry',
 }
 
 const typeBadgeStyles: Record<string, string> = {
   'case-study': 'bg-emerald-50 text-emerald-700 border-emerald-100',
   guide: 'bg-blue-50 text-blue-700 border-blue-100',
-  industry: 'bg-amber-50 text-amber-700 border-amber-100',
 }
 
 const typeIcons: Record<string, string> = {
@@ -32,11 +30,9 @@ const typeIcons: Record<string, string> = {
     'M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z',
   guide:
     'M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z',
-  industry:
-    'M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25',
 }
 
-const filterTypes: ContentType[] = ['all', 'case-study', 'guide', 'industry']
+const filterTypes: ContentType[] = ['all', 'case-study', 'guide']
 
 export default function BlogFilterGrid({ resources }: { resources: ResourceItem[] }) {
   const [activeFilter, setActiveFilter] = useState<ContentType>('all')
