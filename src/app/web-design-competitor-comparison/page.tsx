@@ -921,7 +921,7 @@ function WhyCalTechWins() {
               icon: RefreshCw,
               color: "text-blue-600 bg-blue-50",
               title: "Unlimited Updates",
-              body: "Need a change? Email or call Brandon. Text edits, image swaps, new pages, all included in your $99.",
+              body: "Need a change? Email support@caltechweb.com. Text edits, image swaps, new pages, all included in your $99.",
             },
             {
               icon: HeadphonesIcon,
@@ -1137,7 +1137,7 @@ function ComparisonFAQ() {
 
         <div className="mt-10 text-center">
           <p className="text-gray-500 text-sm mb-4">
-            Still have questions? Call or email Brandon directly.
+            Still have questions? Email support@caltechweb.com.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <a

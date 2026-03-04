@@ -176,10 +176,10 @@ const posts = [
     featured: false,
   },
   {
-    slug: "nonprofit-website-design-tips",
+    slug: "nonprofit-website-design",
     category: "Non-Profits",
     categoryColor: "bg-pink-100 text-pink-700",
-    title: "Non-Profit Website Design: How to Get More Donors and Volunteers Online",
+    title: "Nonprofit Website Design: What Every Nonprofit Site Needs",
     excerpt:
       "A non-profit's website should do two things: build trust and make it easy to give. Most don't do either. Here's the blueprint for a site that actually grows your mission.",
     readTime: "5 min read",

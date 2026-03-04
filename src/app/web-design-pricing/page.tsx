@@ -472,7 +472,7 @@ function PricingCard() {
                     icon: RefreshCw,
                     color: "text-blue-600 bg-blue-50",
                     title: "Unlimited updates included",
-                    body: "Need to change your menu, add a new service, update your hours? Just email or call Brandon. Your website stays current, always.",
+                    body: "Need to change your menu, add a new service, update your hours? Just email support@caltechweb.com. Your website stays current, always.",
                   },
                   {
                     icon: Zap,
@@ -878,7 +878,7 @@ function HowItWorks() {
     {
       step: "03",
       title: "Launch & Ongoing Support",
-      desc: "Your site goes live and you get unlimited updates from that day forward. Need a change? Just call, email, or text Brandon directly.",
+      desc: "Your site goes live and you get unlimited updates from that day forward. Need a change? Just email support@caltechweb.com.",
       detail: "93% of updates done in <1 hour",
       gradient: "from-green-500 to-green-600",
       lightBg: "bg-green-50",

@@ -250,7 +250,7 @@ const churchFeatures = [
     icon: RefreshCw,
     color: "text-orange-600 bg-orange-50",
     title: "Unlimited Updates Included",
-    body: "Need to update service times, add a new ministry page, or post an announcement? Just email or call Brandon. Updates are included, no extra charges, ever.",
+    body: "Need to update service times, add a new ministry page, or post an announcement? Just email support@caltechweb.com. Updates are included, no extra charges, ever.",
   },
   {
     icon: Monitor,
@@ -407,7 +407,7 @@ const howItWorksSteps = [
     lightBg: "bg-green-50",
     accent: "text-green-600",
     title: "Launch & Unlimited Support",
-    body: "Your church website goes live and from day one, every update is included. New sermons, event changes, staff photos, announcements, just call, email, or text Brandon.",
+    body: "Your church website goes live and from day one, every update is included. New sermons, event changes, staff photos, announcements, just email support@caltechweb.com.",
     detail: "93% of updates done in under 1 hour",
   },
 ];
@@ -585,7 +585,7 @@ const churchFaqs = [
   },
   {
     q: "Can we update the website ourselves?",
-    a: "You don't have to. Unlimited updates are included in your $99/month. Just email or call Brandon. New sermon content, event changes, staff photos, announcement banners, all handled for you, typically within the hour.",
+    a: "You don't have to. Unlimited updates are included in your $99/month. Just email support@caltechweb.com. New sermon content, event changes, staff photos, announcement banners, all handled for you, typically within the hour.",
   },
   {
     q: "Do you work with small or rural churches?",

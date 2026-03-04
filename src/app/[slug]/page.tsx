@@ -343,7 +343,7 @@ const blogPosts: BlogPost[] = [
     conclusion:
       "A church website doesn't need to be fancy. It needs to be welcoming, informative, and easy to use on a phone. Get these seven elements right and your site will be doing its job: turning curious visitors into first-timers, and first-timers into members.\n\nCalTech Web specializes in church websites. We've built them for congregations across California and know exactly what works.",
     related: [
-      "nonprofit-website-design-tips",
+      "nonprofit-website-design",
       "mobile-first-website-design",
       "small-business-website-redesign-signs",
     ],
@@ -421,14 +421,14 @@ const blogPosts: BlogPost[] = [
     ],
   },
   {
-    slug: "nonprofit-website-design-tips",
+    slug: "nonprofit-website-design",
     category: "Non-Profits",
     categoryColor: "bg-pink-100 text-pink-700",
-    title: "What Every Nonprofit Website Needs (And What CalTech Web Builds In)",
+    title: "Nonprofit Website Design: What Every Nonprofit Site Needs",
     metaTitle:
       "Nonprofit Website Design | CalTech Web",
     metaDescription:
-      "Every nonprofit needs a professional website that builds trust, drives donations, and attracts volunteers. See what is included at no extra cost.",
+      "Professional nonprofit website design that builds trust, drives donations, and attracts volunteers — everything included at $99/month.",
     excerpt:
       "Every nonprofit needs a professional website that builds trust, drives donations, and attracts volunteers. Here is what that looks like, and how CalTech Web delivers it all for $99 a month.",
     readTime: "5 min read",
@@ -479,7 +479,7 @@ const blogPosts: BlogPost[] = [
           "Clean layout that is easy to scan at a glance",
           "Simple to update whenever your calendar changes",
         ],
-        tip: "Updates to your events page are included in your monthly plan. Text or email Brandon and it is done the same day.",
+        tip: "Updates to your events page are included in your monthly plan. Email support@caltechweb.com and it is done the same day.",
       },
       {
         heading: "A Volunteer Signup Form",
@@ -578,7 +578,7 @@ const blogPosts: BlogPost[] = [
           "The reason we can complete 93% of support requests in under an hour is simple: this is a priority, not an afterthought.",
         ],
         list: [
-          "Direct access: You call or email Brandon directly, not a ticketing system, not a third-party support desk.",
+          "Direct access: You email support@caltechweb.com directly, not a ticketing system, not a third-party support desk.",
           "Simple changes are made immediately: Text updates, image swaps, new phone numbers, updated hours. These take minutes, not days.",
           "We know your site: Because we built it, we don't have to spend 20 minutes figuring out how it's structured before we can make a change.",
           "No bureaucracy: No approval process, no change management workflow. Just: you ask, we do it.",
@@ -1735,7 +1735,7 @@ function ArticleContent({ post }: { post: BlogPost }) {
       </div>
 
       {/* Nonprofit pricing callout */}
-      {post.slug === "nonprofit-website-design-tips" && (
+      {post.slug === "nonprofit-website-design" && (
         <div className="mb-10 p-6 rounded-2xl bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-100">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-100 text-orange-700 text-xs font-bold mb-4">
             <Zap className="w-3 h-3" />
@@ -1782,7 +1782,7 @@ function ArticleContent({ post }: { post: BlogPost }) {
       <div className="space-y-10">
         {post.sections.map((section, si) => (
           <section key={si}>
-            {post.slug === "nonprofit-website-design-tips" ? (
+            {post.slug === "nonprofit-website-design" ? (
               <div className="flex items-start gap-4 mb-4">
                 <div className="flex-shrink-0 w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center text-base font-extrabold shadow-sm">
                   {si + 1}
@@ -1983,7 +1983,7 @@ function RelatedPosts({ posts }: { posts: BlogPost[] }) {
 // ─── CTA Strip ────────────────────────────────────────────────────────────────
 
 function CTAStrip({ post }: { post: BlogPost }) {
-  const isNonprofit = post.slug === "nonprofit-website-design-tips";
+  const isNonprofit = post.slug === "nonprofit-website-design";
 
   return (
     <section className="py-14 sm:py-20 bg-gradient-to-br from-blue-600 to-blue-700 text-white">

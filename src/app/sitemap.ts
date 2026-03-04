@@ -32,7 +32,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { slug: "who-updates-a-website-after-the-web-designer-finishes", date: "2026-01-15" },
     { slug: "website-speed-local-seo", date: "2026-01-12" },
     { slug: "post-sermons-online", date: "2026-01-05" },
-    { slug: "nonprofit-website-design-tips", date: "2025-12-30" },
+    { slug: "nonprofit-website-design", date: "2025-12-30" },
     { slug: "affordable-construction-company-website", date: "2025-12-28" },
     { slug: "affordable-real-estate-company-website", date: "2025-12-20" },
     { slug: "ultimate-guide-christian-ministry-websites", date: "2025-12-15" },
