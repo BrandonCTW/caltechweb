@@ -14,6 +14,7 @@ import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
+import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 
 export const metadata: Metadata = {
   title: "Web Design Portfolio | 800+ Sites Built | CalTech Web",
@@ -100,9 +101,27 @@ type PortfolioItem = {
   screenshot: string;
   website: string;
   caseStudySlug?: string;
+  beforeScreenshot?: string;
 };
 
 const portfolioItems: PortfolioItem[] = [
+  {
+    name: "Madera Men of Integrity",
+    category: "Church & Ministry",
+    description:
+      "A faith-based men\u2019s retreat serving Central California for over 25 years needed a modern site to replace their original 2003 design. We built a bold, event-focused site with a countdown timer, speaker profiles, online registration, and a photo gallery.",
+    highlights: [
+      "Complete redesign from 2003 original",
+      "Event countdown timer & agenda",
+      "Online registration form",
+      "Speaker profiles & photo gallery",
+      "Mobile-optimized dark theme",
+      "Launched in under 5 days",
+    ],
+    screenshot: "/portfolio/madera-men-of-integrity-after.png",
+    website: "https://maderamenofintegrity.com",
+    beforeScreenshot: "/portfolio/madera-men-of-integrity-before.png",
+  },
   {
     name: "Arjun Kanuri, MD",
     category: "Medical",
@@ -333,29 +352,40 @@ function PortfolioCard({ item, dark }: { item: PortfolioItem; dark: boolean }) {
                 </div>
               </div>
 
-              {/* Screenshot */}
-              <a
-                href={item.website}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block group relative"
-              >
-                <Image
-                  src={item.screenshot}
-                  alt={`${item.name} website designed by CalTech Web`}
+              {/* Screenshot or Before/After Slider */}
+              {item.beforeScreenshot ? (
+                <BeforeAfterSlider
+                  beforeSrc={item.beforeScreenshot}
+                  afterSrc={item.screenshot}
+                  beforeAlt={`${item.name} original website from 2003`}
+                  afterAlt={`${item.name} website redesigned by CalTech Web`}
                   width={1280}
                   height={800}
-                  className="w-full h-auto"
-                  sizes="(max-width: 1024px) 100vw, 60vw"
                 />
-                {/* Hover overlay */}
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center">
-                  <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white text-gray-900 font-bold text-sm shadow-lg">
-                    Visit Live Site
-                    <ExternalLink className="w-4 h-4" />
-                  </span>
-                </div>
-              </a>
+              ) : (
+                <a
+                  href={item.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block group relative"
+                >
+                  <Image
+                    src={item.screenshot}
+                    alt={`${item.name} website designed by CalTech Web`}
+                    width={1280}
+                    height={800}
+                    className="w-full h-auto"
+                    sizes="(max-width: 1024px) 100vw, 60vw"
+                  />
+                  {/* Hover overlay */}
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center">
+                    <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white text-gray-900 font-bold text-sm shadow-lg">
+                      Visit Live Site
+                      <ExternalLink className="w-4 h-4" />
+                    </span>
+                  </div>
+                </a>
+              )}
             </div>
           </div>
 
@@ -431,7 +461,7 @@ function PortfolioGrid() {
       {/* Load more hint */}
       <section className="py-12 bg-gray-900 text-center">
         <p className="text-gray-500 text-sm mb-4">
-          Showing 12 of <span className="font-semibold text-gray-300">800+</span> websites
+          Showing 13 of <span className="font-semibold text-gray-300">800+</span> websites
         </p>
         <Link
           href="/web-design-pricing/"
