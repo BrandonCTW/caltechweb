@@ -186,9 +186,10 @@ const portfolioItems: PortfolioItem[] = [
       "Mobile-first patient experience",
       "Managed & updated by CalTech",
     ],
-    screenshot: "/portfolio/specialized-plastic-surgery.png",
+    screenshot: "/portfolio/specialized-plastic-surgery-after.png",
     website: "https://specializedplasticsurgery.com",
     caseStudySlug: "specialized-plastic-surgery",
+    beforeScreenshot: "/portfolio/specialized-plastic-surgery-before.png",
   },
   {
     name: "Modolith",
@@ -254,8 +255,9 @@ const portfolioItems: PortfolioItem[] = [
       "Custom branding throughout",
       "Managed & hosted by CalTech",
     ],
-    screenshot: "/portfolio/nutrinae.png",
+    screenshot: "/portfolio/nutrinae-after.png",
     website: "https://nutrinae.com",
+    beforeScreenshot: "/portfolio/nutrinae-before.png",
   },
   {
     name: "ALV Floors & Cabinets",
