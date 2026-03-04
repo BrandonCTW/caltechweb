@@ -135,9 +135,10 @@ const portfolioItems: PortfolioItem[] = [
       "Fast-loading, hosted & secured by CalTech",
       "Unlimited content updates included",
     ],
-    screenshot: "/portfolio/arjun-kanuri.png",
+    screenshot: "/portfolio/arjun-kanuri-after.png",
     website: "https://arjunkanurimd.com",
     caseStudySlug: "dr-arjun-kanuri",
+    beforeScreenshot: "/portfolio/arjun-kanuri-before.png",
   },
   {
     name: "Blacke House Co.",
@@ -152,8 +153,9 @@ const portfolioItems: PortfolioItem[] = [
       "Custom branding & typography",
       "Launched in under 7 days",
     ],
-    screenshot: "/portfolio/blacke-house-co.png",
+    screenshot: "/portfolio/blacke-house-co-after.png",
     website: "https://blackehouseco.com",
+    beforeScreenshot: "/portfolio/blacke-house-co-before.png",
   },
   {
     name: "Revival Grace Ministry",
@@ -170,22 +172,6 @@ const portfolioItems: PortfolioItem[] = [
     ],
     screenshot: "/portfolio/revival-grace-ministry.png",
     website: "https://revivalgrace.com",
-  },
-  {
-    name: "Luana Wellness",
-    category: "Small Business",
-    description:
-      "A wellness coaching brand needed an online presence that matched their calming, professional approach. We delivered a booking-focused site with service breakdowns and client testimonials.",
-    highlights: [
-      "Online booking integration",
-      "Service & pricing pages",
-      "Client testimonials section",
-      "Mobile-optimized design",
-      "SSL & hosting included",
-      "Free redesign anytime",
-    ],
-    screenshot: "/portfolio/luana-wellness.png",
-    website: "https://luanawellness.com",
   },
   {
     name: "Specialized Plastic Surgery",
@@ -217,8 +203,9 @@ const portfolioItems: PortfolioItem[] = [
       "Fast-loading & mobile-responsive",
       "Hosted & secured by CalTech",
     ],
-    screenshot: "/portfolio/modolith.png",
+    screenshot: "/portfolio/modolith-after.png",
     website: "https://modolith.com",
+    beforeScreenshot: "/portfolio/modolith-before.png",
   },
   {
     name: "Meritus Solutions Group",
@@ -233,8 +220,9 @@ const portfolioItems: PortfolioItem[] = [
       "SSL certificate & hosting included",
       "Priority support from CalTech",
     ],
-    screenshot: "/portfolio/meritus-solutions-group.png",
+    screenshot: "/portfolio/meritus-solutions-group-after.png",
     website: "https://meritussolutions.com",
+    beforeScreenshot: "/portfolio/meritus-solutions-group-before.png",
   },
   {
     name: "Shepherd\u2019s Voice Evangelism",
@@ -249,8 +237,9 @@ const portfolioItems: PortfolioItem[] = [
       "Unlimited content updates",
       "Launched in under a week",
     ],
-    screenshot: "/portfolio/shepherds-voice-evangelism.png",
+    screenshot: "/portfolio/shepherds-voice-evangelism-after.png",
     website: "https://shepherdsvoice.com",
+    beforeScreenshot: "/portfolio/shepherds-voice-evangelism-before.png",
   },
   {
     name: "Nutrinae",
@@ -315,9 +304,10 @@ const portfolioItems: PortfolioItem[] = [
       "Mobile-optimized for all ages",
       "Free redesign anytime",
     ],
-    screenshot: "/portfolio/central-baptist-church.png",
+    screenshot: "/portfolio/central-baptist-church-after.png",
     website: "https://centralbaptistpsl.com",
     caseStudySlug: "central-baptist-church",
+    beforeScreenshot: "/portfolio/central-baptist-church-before.png",
   },
 ];
 
@@ -461,7 +451,7 @@ function PortfolioGrid() {
       {/* Load more hint */}
       <section className="py-12 bg-gray-900 text-center">
         <p className="text-gray-500 text-sm mb-4">
-          Showing 13 of <span className="font-semibold text-gray-300">800+</span> websites
+          Showing 12 of <span className="font-semibold text-gray-300">800+</span> websites
         </p>
         <Link
           href="/web-design-pricing/"
