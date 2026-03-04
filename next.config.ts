@@ -84,6 +84,10 @@ const nextConfig: NextConfig = {
       { source: "/fulfillment", destination: "/terms-and-conditions/", permanent: true },
       { source: "/fulfillment/", destination: "/terms-and-conditions/", permanent: true },
 
+      // Old blog post slugs → new canonical slugs
+      { source: "/dr-kanuri-40-percent-traffic-increase", destination: "/medical-practice-website-design/", permanent: true },
+      { source: "/dr-kanuri-40-percent-traffic-increase/", destination: "/medical-practice-website-design/", permanent: true },
+
       // Old WordPress sitemap redirect
       { source: "/sitemap_index.xml", destination: "/sitemap.xml", permanent: true },
     ];

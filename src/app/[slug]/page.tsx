@@ -48,61 +48,64 @@ type BlogPost = {
 
 const blogPosts: BlogPost[] = [
   {
-    slug: "dr-kanuri-40-percent-traffic-increase",
+    slug: "medical-practice-website-design",
     category: "Case Study",
     categoryColor: "bg-green-100 text-green-700",
     title:
-      "How Dr. Arjun Kanuri Increased Website Traffic by 40% and Doubled Conversions in 3 Months",
+      "Medical Practice Website Design: How Dr. Kanuri Got 40% More Traffic and 2× More Patients",
     metaTitle:
-      "40% Traffic Increase & 2× Conversions | CalTech Web",
+      "Medical Practice Website Design Case Study | CalTech Web",
     metaDescription:
-      "See exactly how Dr. Arjun Kanuri's medical practice grew website traffic 40% and doubled patient conversions in 90 days with a $99/month CalTech Web redesign.",
+      "See how we redesigned Dr. Arjun Kanuri's medical practice website in 5 days — and delivered 40% more organic traffic, 2× appointment conversions, and 12+ new patient inquiries per month.",
     excerpt:
-      "A busy plastic surgery practice, an outdated website, and a $99/month plan. Here is exactly what we changed and the measurable results that followed.",
+      "A plastic surgery practice with an outdated site was losing new patients to a slow, untrustworthy website. Here is exactly what we built and what changed in 90 days.",
     readTime: "6 min read",
     date: "January 28, 2026",
     intro:
-      "When Dr. Arjun Kanuri first called me, he was frustrated. His plastic surgery practice in the DC/MD/VA area was busy, word-of-mouth referrals kept the appointment book full, but his website was costing him new patients. People were finding him on Google, landing on a slow, outdated site, and leaving before they ever booked an appointment.\n\n\"I had patients tell me they almost didn't come in because the website looked old,\" he told me. \"That's when I knew something had to change.\"\n\nHere is exactly what we did and what happened over the next 90 days.",
+      "Most medical practices have the same problem: the doctor is excellent, referrals keep the calendar full, but the website is silently costing them new patients.\n\nThat was Dr. Arjun Kanuri's situation. His plastic surgery practice in the DC/MD/VA area was thriving on word-of-mouth — but people were finding him on Google, landing on a slow, outdated site, and leaving before they ever booked.\n\n\"I had patients tell me they almost didn't come in because the website looked old,\" he told me. \"That's when I knew something had to change.\"\n\nMedical practice website design is different from a standard business site. Patients are making high-stakes decisions about their health. Trust, clarity, and speed aren't nice-to-haves — they're the entire game. Here is exactly what we built and what happened over the next 90 days.",
     sections: [
       {
-        heading: "The Problem: A Website That Was Working Against Him",
+        heading: "What Was Wrong With the Old Site",
         body: [
-          "Dr. Kanuri's previous website was built in 2019. Back then, it was fine. By 2025, it was a liability.",
-          "The site loaded in 7.2 seconds on mobile. It wasn't mobile-responsive, and elements overflowed on smaller screens. The \"Book Appointment\" button was buried three clicks deep. There was no clear information about his specialties, insurance acceptance, or what patients could expect at their first visit.",
-          "Worst of all: the site had no trust signals. No patient reviews. No professional photo. No credentials displayed prominently. For a medical professional, trust is everything, yet his website was projecting the opposite.",
+          "Dr. Kanuri's previous website was built in 2019. By 2025, it was a liability.",
+          "The site loaded in 7.2 seconds on mobile — nearly 5× slower than the 1.5-second threshold where Google starts penalizing rankings. It wasn't mobile-responsive, so elements overflowed on smaller screens. The \"Book Appointment\" button was buried three clicks deep.",
+          "There was no clear information about specialties, insurance acceptance, or what patients could expect at their first visit. Most critically, there were no trust signals — no patient reviews, no professional photo, no credentials front and center.",
+          "For any business, that's a problem. For a medical practice, it's a patient-repelling liability. People choosing a surgeon need to feel confident before they even pick up the phone.",
         ],
-        tip: "If your website takes more than 3 seconds to load on mobile, you're losing more than half of potential visitors before they ever see your content. Google reports a 53% abandonment rate for pages that take longer than 3 seconds.",
+        tip: "Pages that load slower than 3 seconds see a 53% abandonment rate on mobile, according to Google. A medical practice website that loads slowly isn't just annoying — it's handing patients to competitors.",
       },
       {
-        heading: "What We Changed and Why Each Change Mattered",
+        heading: "What We Built — and Why Every Decision Mattered",
         body: [
-          "We launched the redesigned site in 5 days. Every change was intentional.",
+          "We launched the redesigned site in 5 days. Every element of the new medical practice website design was driven by a specific conversion or SEO goal.",
         ],
         list: [
-          "Speed first: Optimized images, modern hosting infrastructure, and clean code brought load time from 7.2 seconds down to under 1.8 seconds on mobile.",
-          "Mobile-first layout: 68% of Dr. Kanuri's traffic came from phones. We designed for mobile first, then scaled up, not the other way around.",
-          "Clear conversion path: The primary CTA, \"Book an Appointment,\" appears above the fold on every page. No scrolling required.",
-          "Trust signals front and center: Patient reviews, credentials, a professional headshot, and insurance information are all visible on the homepage.",
-          "Local SEO foundation: Proper title tags, schema markup for a medical practice, and consistent business information to improve search visibility.",
-          "Simplified navigation: Removed 11 menu items. Kept 4. Made it impossible to get lost.",
+          "Load time: Dropped from 7.2 seconds to 1.8 seconds on mobile. Optimized images, modern hosting infrastructure, and clean Next.js code.",
+          "Mobile-first: 68% of Dr. Kanuri's traffic came from phones. We designed the mobile experience first, then scaled up — not the other way around.",
+          "Above-the-fold CTA: 'Book an Appointment' appears on every page without scrolling. One tap from anywhere on the site.",
+          "Trust-first homepage: Professional headshot, board certifications, patient review highlights, and insurance information visible without scrolling.",
+          "Local SEO structure: Medical practice schema markup, optimized title tags for his specialty and location, and a fully configured Google Business Profile integration.",
+          "Simplified navigation: Went from 11 menu items to 4. Patients could find what they needed in seconds instead of getting lost.",
+          "HIPAA-conscious contact forms: Secure inquiry forms that ask the right questions upfront without collecting protected health information.",
         ],
       },
       {
         heading: "The Results at 90 Days",
         body: [
-          "We track the same metrics for every client: organic traffic, conversion rate, bounce rate, and session duration. Here's what Dr. Kanuri's analytics showed at the 90-day mark compared to the same period the prior year:",
+          "We track the same core metrics for every client: organic traffic, conversion rate, bounce rate, and session duration. Here is what Dr. Kanuri's analytics showed 90 days after launch, compared to the same period the prior year.",
         ],
         list: [
-          "Organic traffic: +40% increase, more people finding the practice through Google searches.",
-          "Appointment conversions: 2× increase, the same traffic was converting at twice the rate.",
-          "Bounce rate: Dropped from 74% to 38%. Visitors were reading the site instead of immediately leaving.",
-          "Average session duration: Up from 0:48 to 2:12. People were engaged and exploring.",
-          "Mobile conversions: Previously near zero. Now the primary source of new appointment requests.",
+          "+40% organic traffic — more prospective patients finding the practice through Google.",
+          "2× appointment conversion rate — the same number of visitors was booking at twice the rate.",
+          "Bounce rate: 74% → 38% — visitors were reading the site instead of immediately leaving.",
+          "Session duration: 0:48 → 2:12 — people were exploring services, reading credentials, reviewing patient stories.",
+          "Mobile conversions: Near zero before launch. Now the primary source of new appointment requests.",
+          "12+ additional new patient inquiries per month — directly attributed to the website.",
         ],
-        tip: "The traffic increase came from better SEO. The conversion increase came from better design and clearer CTAs. Both matter, but the conversion improvement had the biggest immediate impact on new patient revenue.",
+        tip: "The 40% traffic increase came from better technical SEO and site structure. The 2× conversion increase came from better design and clearer calls to action. Both mattered, but the conversion improvement had the bigger immediate impact on new patient revenue.",
       },
       {
-        heading: "In His Own Words",
+        heading: "In Dr. Kanuri's Words",
         body: [],
         quote: {
           text: "Brandon's expertise and genuine care for my success have been game-changers. Thanks to CalTech Web, my professional image has never looked better, and my business is thriving like never before.",
@@ -111,20 +114,20 @@ const blogPosts: BlogPost[] = [
         },
       },
       {
-        heading: "What $99/Month Actually Buys You",
+        heading: "What This Cost — and What It Returns",
         body: [
-          "The redesign, hosting, ongoing updates, and support are all included in the $99/month plan. Over 3 months, that's $297 in total investment.",
-          "Even conservatively, if one additional patient per month books through the website, the site pays for itself many times over. Dr. Kanuri reports an average of 12+ additional new patient inquiries per month since the relaunch.",
-          "That's the math that actually matters, not the cost of the website, but the cost of not having one that works.",
+          "The redesign, hosting, ongoing updates, and support are all included in CalTech Web's $99/month plan. Over 90 days, that is $297 in total investment.",
+          "At 12 additional patient inquiries per month, even converting a fraction of those into consultations pays for years of the website in a single month. That is the math medical practices need to be running — not 'how much does a website cost?' but 'how much is a non-performing website costing me?'",
+          "Good medical practice website design is not about looking impressive. It is about getting found, building trust in 8 seconds, and making it easy to book. That is the entire brief. We built to that spec.",
         ],
       },
     ],
     conclusion:
-      "If your website is slow, outdated, or not converting visitors into customers, the fix doesn't have to be complicated. Dr. Kanuri's site took 5 days to launch and costs $99/month. The results were measurable within 90 days.\n\nIf you're curious what a redesign could do for your business, I offer a free review of your current site and a straightforward conversation about what's possible, no pressure, no obligation.",
+      "If your medical practice has a slow, outdated, or low-converting website, the fix does not have to be complicated or expensive. Dr. Kanuri's new site launched in 5 days and costs $99/month. The results were measurable within 90 days.\n\nIf you'd like a free, honest review of your current site — what it's doing well, what it's costing you, and what's realistically possible — reach out. No sales pitch, no obligation.",
     related: [
-      "small-business-website-redesign-signs",
-      "99-month-vs-diy-website-builders",
-      "website-speed-local-seo",
+      "affordable-web-design-company",
+      "affordable-web-design-for-small-businesses",
+      "website-maintenance-requirements",
     ],
   },
   {

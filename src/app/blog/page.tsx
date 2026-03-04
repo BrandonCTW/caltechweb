@@ -31,7 +31,7 @@ export const metadata: Metadata = {
 const resources: ResourceItem[] = [
   {
     type: "case-study",
-    slug: "dr-kanuri-40-percent-traffic-increase",
+    slug: "medical-practice-website-design",
     tag: "Medical Practice",
     title: "Dr. Arjun Kanuri: 40% Traffic Increase & 2× Conversions in 3 Months",
     description:
