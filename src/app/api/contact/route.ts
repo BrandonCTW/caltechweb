@@ -1,9 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
+import * as postmark from "postmark";
 
 /* ===================================================================
    Contact / Audit Request API — POST /api/contact/
-   Accepts { name, email, website, source, message } and forwards the
-   lead to a Discord webhook (if configured) or logs it server-side.
+   Accepts { name, email, website, source, message } and sends an
+   email via Postmark to the site owner.
    =================================================================== */
 
 interface ContactPayload {
@@ -16,6 +17,67 @@ interface ContactPayload {
 
 function isValidEmail(email: string): boolean {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+function getPostmarkClient() {
+  return new postmark.ServerClient(process.env.POSTMARK_SERVER_TOKEN!);
+}
+
+const SOURCE_LABELS: Record<string, string> = {
+  "contact-page": "Contact Page",
+  "free-quote": "Free Quote Request",
+  "rfp-rfq": "RFP / RFQ Submission",
+  "support": "Support Request",
+  unknown: "Website Form",
+};
+
+function buildEmailHtml(payload: {
+  name: string;
+  email: string;
+  website: string;
+  source: string;
+  message: string;
+  submittedAt: string;
+}) {
+  const sourceLabel = SOURCE_LABELS[payload.source] || payload.source;
+
+  return `
+    <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+      <div style="background: #f97316; color: white; padding: 16px 24px; border-radius: 8px 8px 0 0;">
+        <h2 style="margin: 0;">New Lead: ${sourceLabel}</h2>
+      </div>
+      <div style="background: #fff; border: 1px solid #e5e7eb; border-top: none; padding: 24px; border-radius: 0 0 8px 8px;">
+        <table style="width: 100%; border-collapse: collapse;">
+          <tr>
+            <td style="padding: 8px 0; font-weight: bold; color: #374151; width: 100px;">Name</td>
+            <td style="padding: 8px 0; color: #111827;">${payload.name}</td>
+          </tr>
+          <tr>
+            <td style="padding: 8px 0; font-weight: bold; color: #374151;">Email</td>
+            <td style="padding: 8px 0; color: #111827;"><a href="mailto:${payload.email}">${payload.email}</a></td>
+          </tr>
+          ${payload.website ? `
+          <tr>
+            <td style="padding: 8px 0; font-weight: bold; color: #374151;">Website</td>
+            <td style="padding: 8px 0; color: #111827;">${payload.website}</td>
+          </tr>` : ""}
+          ${payload.message ? `
+          <tr>
+            <td style="padding: 8px 0; font-weight: bold; color: #374151; vertical-align: top;">Message</td>
+            <td style="padding: 8px 0; color: #111827;">${payload.message.replace(/\n/g, "<br>")}</td>
+          </tr>` : ""}
+          <tr>
+            <td style="padding: 8px 0; font-weight: bold; color: #374151;">Source</td>
+            <td style="padding: 8px 0; color: #111827;">${sourceLabel}</td>
+          </tr>
+          <tr>
+            <td style="padding: 8px 0; font-weight: bold; color: #374151;">Submitted</td>
+            <td style="padding: 8px 0; color: #6b7280; font-size: 13px;">${new Date(payload.submittedAt).toLocaleString("en-US", { timeZone: "America/Los_Angeles" })}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  `;
 }
 
 export async function POST(request: NextRequest) {
@@ -46,33 +108,29 @@ export async function POST(request: NextRequest) {
       submittedAt: new Date().toISOString(),
     };
 
-    // --- Discord webhook (if DISCORD_WEBHOOK_URL is set) ---
-    const webhookUrl = process.env.DISCORD_WEBHOOK_URL;
+    const sourceLabel = SOURCE_LABELS[payload.source] || payload.source;
+    const toAddress = process.env.POSTMARK_TO_EMAIL || "Brandon@CalTechWeb.com";
+    const fromAddress = process.env.POSTMARK_FROM_EMAIL || "noreply@caltechweb.com";
 
-    if (webhookUrl) {
-      const embed = {
-        title: `New Lead: ${payload.source}`,
-        color: 0xf97316, // orange-500
-        fields: [
-          { name: "Name", value: payload.name, inline: true },
-          { name: "Email", value: payload.email, inline: true },
-          ...(payload.website
-            ? [{ name: "Website", value: payload.website, inline: false }]
-            : []),
-          ...(payload.message
-            ? [{ name: "Message", value: payload.message, inline: false }]
-            : []),
-          { name: "Source", value: payload.source, inline: true },
-        ],
-        timestamp: payload.submittedAt,
-      };
-
-      await fetch(webhookUrl, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ embeds: [embed] }),
-      });
-    }
+    await getPostmarkClient().sendEmail({
+      From: `CalTech Web <${fromAddress}>`,
+      To: toAddress,
+      ReplyTo: payload.email,
+      Subject: `New ${sourceLabel} from ${payload.name}`,
+      HtmlBody: buildEmailHtml(payload),
+      TextBody: [
+        `New ${sourceLabel}`,
+        `Name: ${payload.name}`,
+        `Email: ${payload.email}`,
+        payload.website ? `Website: ${payload.website}` : "",
+        payload.message ? `Message: ${payload.message}` : "",
+        `Source: ${sourceLabel}`,
+        `Submitted: ${payload.submittedAt}`,
+      ]
+        .filter(Boolean)
+        .join("\n"),
+      MessageStream: "outbound",
+    });
 
     // --- Always log server-side for reliability ---
     console.log("[contact-form]", JSON.stringify(payload));
