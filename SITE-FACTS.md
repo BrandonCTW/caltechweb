@@ -208,6 +208,9 @@
 ### Bryan Newberry, Pastor — Calvary Chapel Los Alamitos
 > "Managing my church website and personal ministry website was a significant time commitment, taking up at least 3 hours of my week, if not more. However, since I enlisted the help of CalTech Web, they have been maintaining my website for many years now. Their services have been invaluable, saving me precious time that I can now devote to furthering my ministry. The minimal cost of their services is easily justified by the additional hours I can now devote to my ministry each week."
 
+### Ryan McWherter, Executive Director — Madera County Food Bank
+> "Wow! I'm blown away by the new website and how easy it has been to work with CalTech Web!"
+
 ### Mike Fuentes — Fuentes Concrete, Inc.
 > "$99/month is reasonable to get rid of a headache for me. Huge THANK YOU to CalTech Web for producing such a great website for us!"
 

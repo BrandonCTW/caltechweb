@@ -375,9 +375,18 @@ const testimonials = [
   },
   {
     quote:
+      "Wow! I'm blown away by the new website and how easy it has been to work with CalTech Web!",
+    name: "Ryan McWherter",
+    title: "Executive Director, Madera County Food Bank",
+    image: "/testimonials/ryan-mcwherter.jpg",
+    result: "Non-profit client",
+  },
+  {
+    quote:
       "Managing my church website and personal ministry website was a significant time commitment, taking up at least 3 hours of my week. Since I enlisted the help of CalTech Web, their services have been invaluable, saving me precious time that I can now devote to furthering my ministry.",
     name: "Bryan Newberry",
     title: "Pastor, Calvary Chapel Los Alamitos",
+    image: "/testimonials/bryan-newberry.jpg",
     result: "Saves 3+ hours per week · Multi-year client",
   },
 ];
@@ -396,8 +405,8 @@ function Testimonials() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
-          {testimonials.map(({ quote, name, title, result }) => (
+        <div className="grid md:grid-cols-2 gap-6">
+          {testimonials.map(({ quote, name, title, image, result }) => (
             <div
               key={name}
               className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm flex flex-col gap-4"
@@ -413,12 +422,23 @@ function Testimonials() {
               <p className="text-sm text-gray-700 leading-relaxed flex-1">
                 &ldquo;{quote}&rdquo;
               </p>
-              <div>
-                <div className="font-bold text-gray-900 text-sm">{name}</div>
-                <div className="text-xs text-gray-500 mb-2">{title}</div>
-                <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-green-50 border border-green-100 text-xs font-medium text-green-700">
-                  <Check className="w-3 h-3" />
-                  {result}
+              <div className="flex items-center gap-3">
+                {image && (
+                  <Image
+                    src={image}
+                    alt={name}
+                    width={48}
+                    height={48}
+                    className="rounded-full object-cover w-12 h-12"
+                  />
+                )}
+                <div>
+                  <div className="font-bold text-gray-900 text-sm">{name}</div>
+                  <div className="text-xs text-gray-500 mb-2">{title}</div>
+                  <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-green-50 border border-green-100 text-xs font-medium text-green-700">
+                    <Check className="w-3 h-3" />
+                    {result}
+                  </div>
                 </div>
               </div>
             </div>

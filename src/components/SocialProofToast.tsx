@@ -30,6 +30,11 @@ const items = [
     subtitle: "3-year client · 1,000+ pages",
   },
   {
+    icon: "star" as const,
+    title: "Madera County Food Bank - \"Blown away by the new website!\"",
+    subtitle: "Ryan McWherter, Executive Director",
+  },
+  {
     icon: "globe" as const,
     title: "TurboThao Nails website went live",
     subtitle: "Booking page included",
