@@ -364,6 +364,7 @@ const testimonials = [
       "Brandon's expertise and genuine care for my success have been game-changers. Thanks to CalTech Web, my professional image has never looked better, and my business is thriving like never before.",
     name: "Dr. Arjun Kanuri, MD, MBA",
     title: "Plastic & Reconstructive Surgeon",
+    image: "/testimonials/arjun-kanuri.jpg",
     result: "40% traffic increase · 2× conversions · 9-year client",
   },
   {
@@ -371,6 +372,7 @@ const testimonials = [
       "CalTech Web helped us with our domain, new website, and even solved a situation with image copyright! I highly recommend them for all nonprofit organization websites.",
     name: "Christina Beckstead",
     title: "Executive Director, Madera County Farm Bureau",
+    image: "/testimonials/christina-beckstead.jpg",
     result: "55% traffic increase · 1,000+ pages · 3-year client",
   },
   {
