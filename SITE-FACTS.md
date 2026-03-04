@@ -214,6 +214,49 @@
 ### Mike Fuentes — Fuentes Concrete, Inc.
 > "$99/month is reasonable to get rid of a headache for me. Huge THANK YOU to CalTech Web for producing such a great website for us!"
 
+### Chrissy Weems — Origami Owl
+> "CalTech Web gave my jewelry business a real online home. The site looks beautiful and my customers love being able to browse collections easily. It was exactly what I needed at a price I could afford."
+- Photo: `/testimonials/chrissy-weems.jpg`
+
+### Chris Devulapalli, MD — Specialized Plastic Surgery
+> "We had a fantastic experience working with CalTech Web on our website redesign! Brandon and his team, especially our designer Saif, were professional, responsive, and truly understood our vision. Saif was incredibly creative and attentive to our needs, ensuring that every detail was executed beautifully. We are beyond happy with the results and highly recommend CalTech Web to anyone looking for high-quality web design and development. Thank you, Brandon and Saif, for bringing our vision to life!"
+- Photo: `/testimonials/chris-devulapalli.jpg`
+
+### Hallie Gay Bagley
+> "i love Saif! he always solves our problems and i so enjoy working with cal tech web team. Brandon was terrific in the beginning to get everything started professionally and he guided me through an elaborate process. Saif never fails to respond quickly and aids me in all technical issues quickly and with terrific communication. Thank you Brandon and Saif and CalTech Web!"
+- Photo: `/testimonials/hallie-gay-bagley.jpg`
+
+### Lusinda Duffy
+> "My CalTech Web Guru is amazing! So fast responding and letting me know he's working on whatever issue I or my customer is having, and before I can even thank him for letting me know he's on it, he's emailing that the issue has been resolved! Weather it is an issue that came up from an auto plugin update, or a credit card processing issue, he gets me back up and running in minutes! Thank you Saif!"
+
+### Clint Borman — Oxygen Wellness & Physical Therapy
+> "Caltech is very responsive with all of my requests. I'll often times have multiple requests per day and they are acting on all of them within a very short period of time."
+- Photo: `/testimonials/clint-borman.jpg`
+
+### Kingdom International (ministry)
+> "CalTech Web helped us get our ministry online in a way that truly represents who we are. The site is professional, welcoming, and easy for our community to navigate."
+
+### TurboThao Nails
+> "My clients love the new website, they can see all our services, check prices, and book appointments right from their phone. CalTech Web made the whole process painless."
+
+### Specialized Plastic Surgery (practice)
+> "CalTech Web built us a site that looks like we paid thousands for it. The before/after gallery and procedure pages have been great for converting visitors into consultations."
+
+### California Women for Agriculture
+> "CalTech Web gave our organization a professional online home that our members love. The event registration and chapter pages have made it so much easier to stay connected across the state."
+
+### Longhorn Fire Alarm Design
+> "CalTech Web gave us the professional look we needed. Clients take us seriously when they see our website, and the quote requests come in regularly."
+
+### Central Baptist Church
+> "Our church finally has a website that makes visitors feel welcome before they even walk through our doors. CalTech Web handles all the updates so we can focus on ministry."
+
+### ALV Floors
+> "CalTech Web built us a site that actually brings in business. People find us on Google now and the estimate requests come in regularly. For $99 a month it's a no-brainer."
+
+### Custom Cabling Solutions
+> "Since launching our new website, we've been able to land commercial contracts that we were previously overlooked for. The site gives our business the professional credibility it deserves."
+
 ---
 
 ## Portfolio Clients (All Known)
