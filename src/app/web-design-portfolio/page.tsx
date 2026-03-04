@@ -272,9 +272,10 @@ const portfolioItems: PortfolioItem[] = [
       "Mobile-responsive design",
       "Unlimited updates included",
     ],
-    screenshot: "/portfolio/alv-floors.png",
+    screenshot: "/portfolio/alv-floors-after.png",
     website: "https://alvfloors.com",
     caseStudySlug: "alv-floors",
+    beforeScreenshot: "/portfolio/alv-floors-before.png",
   },
   {
     name: "Longhorn Fire Alarm Design",
