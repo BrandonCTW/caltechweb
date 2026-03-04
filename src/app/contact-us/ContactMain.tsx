@@ -37,15 +37,14 @@ function ContactForm() {
     setSending(true);
 
     try {
-      const res = await fetch("https://forms.caltechweb.com/api/submit", {
+      const res = await fetch("https://caltechweb-forms.vercel.app/api/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           site: "caltechweb.com",
           name: fields.name,
           email: fields.email,
-          website: fields.phone,
-          message: `${fields.businessType ? `Business Type: ${fields.businessType}\n\n` : ""}${fields.message}`,
+          message: `${fields.phone ? `Phone: ${fields.phone}\n` : ""}${fields.businessType ? `Business Type: ${fields.businessType}\n\n` : "\n"}${fields.message}`,
           source: "contact-page",
         }),
       });

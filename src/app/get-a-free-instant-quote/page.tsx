@@ -74,11 +74,20 @@ function ContactForm() {
     formData.set("projectType", selectedType || "not-specified");
 
     try {
-      const data = Object.fromEntries(formData);
-      const response = await fetch("https://forms.caltechweb.com/api/submit", {
+      const data = Object.fromEntries(formData) as Record<string, string>;
+      const phone = data.phone || "";
+      const projectType = data.projectType || "";
+      const response = await fetch("https://caltechweb-forms.vercel.app/api/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...data, site: "caltechweb.com", source: "free-quote" }),
+        body: JSON.stringify({
+          site: "caltechweb.com",
+          name: data.name,
+          email: data.email,
+          website: data.website,
+          message: `${phone ? `Phone: ${phone}\n` : ""}${projectType ? `Project Type: ${projectType}\n\n` : "\n"}${data.message || ""}`,
+          source: "free-quote",
+        }),
       });
 
       if (response.ok) {
