@@ -700,26 +700,26 @@ function Testimonials() {
           {[
             {
               quote:
-                "Our procurement team was thrilled with how simple CalTech Web made the process. No giant proposal, no confusing line items. Just $99/month and a website delivered in a week.",
-              name: "Angela Morris",
-              role: "Admin Director, County Parks Dept.",
-              initials: "AM",
+                "$99/month is reasonable to get rid of a headache for me. Huge THANK YOU to CalTech Web for producing such a great website for us!",
+              name: "Mike Fuentes",
+              role: "Owner, Fuentes Concrete, Inc.",
+              initials: "MF",
               bg: "bg-blue-600",
             },
             {
               quote:
-                "As a non-profit, we could not justify spending $15,000 on a website. CalTech Web gave us a professional site for $99/month that our board immediately approved.",
-              name: "James Caldwell",
-              role: "Executive Director, Valley Food Bank",
-              initials: "JC",
+                "CalTech Web helped us with our domain, new website, and even solved a situation with image copyright! I highly recommend them for all nonprofit organization websites.",
+              name: "Christina Beckstead",
+              role: "Executive Director, Madera County Farm Bureau",
+              initials: "CB",
               bg: "bg-green-600",
             },
             {
               quote:
-                "We went through three agencies in five years, always over budget, always behind schedule. Brandon delivered in 6 days and has been our vendor for 3 years running.",
-              name: "Sandra Hernandez",
-              role: "Operations Manager, Regional Chamber",
-              initials: "SH",
+                "Caltech is very responsive with all of my requests. I'll often times have multiple requests per day and they are acting on all of them within a very short period of time.",
+              name: "Clint Borman",
+              role: "Oxygen Wellness & Physical Therapy",
+              initials: "CB",
               bg: "bg-purple-600",
             },
           ].map(({ quote, name, role, initials, bg }) => (

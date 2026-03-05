@@ -33,14 +33,15 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Industries */}
+          {/* Who We Serve */}
           <div>
-            <h4 className="text-white font-semibold mb-3 text-sm uppercase tracking-wider">Industries</h4>
+            <h4 className="text-white font-semibold mb-3 text-sm uppercase tracking-wider">Who We Serve</h4>
             <ul className="space-y-2 text-sm">
               {[
                 { label: "Small Businesses", href: "/affordable-web-design-company/" },
                 { label: "Church Websites", href: "/affordable-church-websites/" },
                 { label: "Non-Profits", href: "/nonprofit-website-design/" },
+                { label: "Government & RFP", href: "/website-design-rfp-rfq/" },
               ].map(({ label, href }) => (
                 <li key={label}>
                   <Link href={href} className="hover:text-white transition-colors">{label}</Link>
