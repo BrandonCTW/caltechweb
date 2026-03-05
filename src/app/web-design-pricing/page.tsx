@@ -1017,6 +1017,7 @@ const testimonials = [
     role: "Plastic & Reconstructive Surgery, DC/MD/VA",
     initials: "AK",
     bg: "bg-teal-600",
+    image: "/testimonials/arjun-kanuri.jpg",
   },
   {
     quote:
@@ -1047,7 +1048,7 @@ function Testimonials() {
         </div>
 
         <div className="grid sm:grid-cols-3 gap-6">
-          {testimonials.map(({ quote, name, role, initials, bg }) => (
+          {testimonials.map(({ quote, name, role, initials, bg, image }) => (
             <div
               key={name}
               className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow"
@@ -1064,11 +1065,15 @@ function Testimonials() {
                 &ldquo;{quote}&rdquo;
               </p>
               <div className="flex items-center gap-3">
+                {image ? (
+                  <Image src={image} alt={name} width={36} height={36} className="w-9 h-9 rounded-full object-cover shrink-0" />
+                ) : (
                 <div
                   className={`w-9 h-9 rounded-full ${bg} flex items-center justify-center text-white text-xs font-bold shrink-0`}
                 >
                   {initials}
                 </div>
+                )}
                 <div>
                   <div className="text-sm font-semibold text-gray-900">
                     {name}

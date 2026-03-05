@@ -195,6 +195,7 @@
 ## Client Testimonials
 
 ### Dr. Arjun Kanuri, MD, MBA
+**Headshot:** `/public/testimonials/arjun-kanuri.jpg`
 > "Brandon's expertise and genuine care for my success have been game-changers. Thanks to CalTech Web, my professional image has never looked better, and my business is thriving like never before."
 - Plastic & reconstructive surgeon, Washington DC/MD/VA area
 - **9 years as a client**
