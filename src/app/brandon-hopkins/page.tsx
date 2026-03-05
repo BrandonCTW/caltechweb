@@ -129,7 +129,7 @@ function Hero() {
         <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
           {/* Avatar / photo placeholder */}
           <div className="shrink-0">
-            <Image src="/brandon-hopkins.jpg" alt="Brandon Hopkins, CEO and Founder of CalTech Web — affordable web design company based in Madera, California" width={416} height={416} sizes="(max-width: 640px) 176px, 208px" className="w-44 h-44 sm:w-52 sm:h-52 rounded-full object-cover border-4 border-blue-400/40 shadow-2xl" priority />
+            <Image src="/brandon-hopkins.jpg" alt="Brandon Hopkins, CEO and Founder of CalTech Web, affordable web design company based in Madera, California" width={416} height={416} sizes="(max-width: 640px) 176px, 208px" className="w-44 h-44 sm:w-52 sm:h-52 rounded-full object-cover border-4 border-blue-400/40 shadow-2xl" priority />
           </div>
 
           {/* Copy */}

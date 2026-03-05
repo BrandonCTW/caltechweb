@@ -47,7 +47,7 @@ export default function NotFound() {
               {
                 label: "See Pricing",
                 href: "/web-design-pricing/",
-                desc: "$99/month — everything included",
+                desc: "$99/month, everything included",
               },
               {
                 label: "Read the Blog",

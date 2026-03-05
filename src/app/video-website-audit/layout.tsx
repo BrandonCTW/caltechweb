@@ -3,12 +3,12 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Free Video Website Audit | CalTech Web",
   description:
-    "Get a free personalized video audit of your website from Brandon Hopkins. See exactly what's holding your site back — design, speed, SEO, and conversions. No obligation.",
+    "Get a free personalized video audit of your website from Brandon Hopkins. See exactly what's holding your site back, design, speed, SEO, and conversions. No obligation.",
   alternates: { canonical: "https://caltechweb.com/video-website-audit/" },
   openGraph: {
     title: "Free Video Website Audit | CalTech Web",
     description:
-      "Brandon personally reviews your website on video — design, mobile, SEO, speed, and conversion issues. Free, no strings attached.",
+      "Brandon personally reviews your website on video, covering design, mobile, SEO, speed, and conversion issues. Free, no strings attached.",
     url: "https://caltechweb.com/video-website-audit/",
     type: "website",
     images: [
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Free Video Website Audit | CalTech Web",
     description:
-      "Brandon personally reviews your website on video — design, mobile, SEO, speed, and conversion issues. Free, no strings attached.",
+      "Brandon personally reviews your website on video, covering design, mobile, SEO, speed, and conversion issues. Free, no strings attached.",
     images: ["/brandon-hopkins.jpg"],
   },
 };
@@ -59,7 +59,7 @@ const serviceJsonLd = {
     url: "https://caltechweb.com",
   },
   description:
-    "Brandon Hopkins personally records a video reviewing your website — covering design, mobile-responsiveness, page speed, SEO, and conversion rate issues — at no charge.",
+    "Brandon Hopkins personally records a video reviewing your website, covering design, mobile-responsiveness, page speed, SEO, and conversion rate issues, at no charge.",
   offers: {
     "@type": "Offer",
     price: "0",

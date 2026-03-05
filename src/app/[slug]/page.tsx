@@ -56,32 +56,32 @@ const blogPosts: BlogPost[] = [
     metaTitle:
       "Medical Practice Website Design Case Study | CalTech Web",
     metaDescription:
-      "See how we redesigned Dr. Arjun Kanuri's medical practice website in 5 days — and delivered 40% more organic traffic, 2× appointment conversions, and 12+ new patient inquiries per month.",
+      "See how we redesigned Dr. Arjun Kanuri's medical practice website in 5 days and delivered 40% more organic traffic, 2× appointment conversions, and 12+ new patient inquiries per month.",
     excerpt:
       "A plastic surgery practice with an outdated site was losing new patients to a slow, untrustworthy website. Here is exactly what we built and what changed in 90 days.",
     readTime: "6 min read",
     date: "January 28, 2026",
     intro:
-      "Most medical practices have the same problem: the doctor is excellent, referrals keep the calendar full, but the website is silently costing them new patients.\n\nThat was Dr. Arjun Kanuri's situation. His plastic surgery practice in the DC/MD/VA area was thriving on word-of-mouth — but people were finding him on Google, landing on a slow, outdated site, and leaving before they ever booked.\n\n\"I had patients tell me they almost didn't come in because the website looked old,\" he told me. \"That's when I knew something had to change.\"\n\nMedical practice website design is different from a standard business site. Patients are making high-stakes decisions about their health. Trust, clarity, and speed aren't nice-to-haves — they're the entire game. Here is exactly what we built and what happened over the next 90 days.",
+      "Most medical practices have the same problem: the doctor is excellent, referrals keep the calendar full, but the website is silently costing them new patients.\n\nThat was Dr. Arjun Kanuri's situation. His plastic surgery practice in the DC/MD/VA area was thriving on word-of-mouth, but people were finding him on Google, landing on a slow, outdated site, and leaving before they ever booked.\n\n\"I had patients tell me they almost didn't come in because the website looked old,\" he told me. \"That's when I knew something had to change.\"\n\nMedical practice website design is different from a standard business site. Patients are making high-stakes decisions about their health. Trust, clarity, and speed aren't nice-to-haves, they're the entire game. Here is exactly what we built and what happened over the next 90 days.",
     sections: [
       {
         heading: "What Was Wrong With the Old Site",
         body: [
           "Dr. Kanuri's previous website was built in 2019. By 2025, it was a liability.",
-          "The site loaded in 7.2 seconds on mobile — nearly 5× slower than the 1.5-second threshold where Google starts penalizing rankings. It wasn't mobile-responsive, so elements overflowed on smaller screens. The \"Book Appointment\" button was buried three clicks deep.",
-          "There was no clear information about specialties, insurance acceptance, or what patients could expect at their first visit. Most critically, there were no trust signals — no patient reviews, no professional photo, no credentials front and center.",
+          "The site loaded in 7.2 seconds on mobile, nearly 5× slower than the 1.5-second threshold where Google starts penalizing rankings. It wasn't mobile-responsive, so elements overflowed on smaller screens. The \"Book Appointment\" button was buried three clicks deep.",
+          "There was no clear information about specialties, insurance acceptance, or what patients could expect at their first visit. Most critically, there were no trust signals, no patient reviews, no professional photo, no credentials front and center.",
           "For any business, that's a problem. For a medical practice, it's a patient-repelling liability. People choosing a surgeon need to feel confident before they even pick up the phone.",
         ],
-        tip: "Pages that load slower than 3 seconds see a 53% abandonment rate on mobile, according to Google. A medical practice website that loads slowly isn't just annoying — it's handing patients to competitors.",
+        tip: "Pages that load slower than 3 seconds see a 53% abandonment rate on mobile, according to Google. A medical practice website that loads slowly isn't just annoying, it's handing patients to competitors.",
       },
       {
-        heading: "What We Built — and Why Every Decision Mattered",
+        heading: "What We Built and Why Every Decision Mattered",
         body: [
           "We launched the redesigned site in 5 days. Every element of the new medical practice website design was driven by a specific conversion or SEO goal.",
         ],
         list: [
           "Load time: Dropped from 7.2 seconds to 1.8 seconds on mobile. Optimized images, modern hosting infrastructure, and clean Next.js code.",
-          "Mobile-first: 68% of Dr. Kanuri's traffic came from phones. We designed the mobile experience first, then scaled up — not the other way around.",
+          "Mobile-first: 68% of Dr. Kanuri's traffic came from phones. We designed the mobile experience first, then scaled up, not the other way around.",
           "Above-the-fold CTA: 'Book an Appointment' appears on every page without scrolling. One tap from anywhere on the site.",
           "Trust-first homepage: Professional headshot, board certifications, patient review highlights, and insurance information visible without scrolling.",
           "Local SEO structure: Medical practice schema markup, optimized title tags for his specialty and location, and a fully configured Google Business Profile integration.",
@@ -95,12 +95,12 @@ const blogPosts: BlogPost[] = [
           "We track the same core metrics for every client: organic traffic, conversion rate, bounce rate, and session duration. Here is what Dr. Kanuri's analytics showed 90 days after launch, compared to the same period the prior year.",
         ],
         list: [
-          "+40% organic traffic — more prospective patients finding the practice through Google.",
-          "2× appointment conversion rate — the same number of visitors was booking at twice the rate.",
-          "Bounce rate: 74% → 38% — visitors were reading the site instead of immediately leaving.",
-          "Session duration: 0:48 → 2:12 — people were exploring services, reading credentials, reviewing patient stories.",
+          "+40% organic traffic, more prospective patients finding the practice through Google.",
+          "2× appointment conversion rate, the same number of visitors was booking at twice the rate.",
+          "Bounce rate: 74% → 38%, visitors were reading the site instead of immediately leaving.",
+          "Session duration: 0:48 → 2:12, people were exploring services, reading credentials, reviewing patient stories.",
           "Mobile conversions: Near zero before launch. Now the primary source of new appointment requests.",
-          "12+ additional new patient inquiries per month — directly attributed to the website.",
+          "12+ additional new patient inquiries per month, directly attributed to the website.",
         ],
         tip: "The 40% traffic increase came from better technical SEO and site structure. The 2× conversion increase came from better design and clearer calls to action. Both mattered, but the conversion improvement had the bigger immediate impact on new patient revenue.",
       },
@@ -114,16 +114,16 @@ const blogPosts: BlogPost[] = [
         },
       },
       {
-        heading: "What This Cost — and What It Returns",
+        heading: "What This Cost and What It Returns",
         body: [
           "The redesign, hosting, ongoing updates, and support are all included in CalTech Web's $99/month plan. Over 90 days, that is $297 in total investment.",
-          "At 12 additional patient inquiries per month, even converting a fraction of those into consultations pays for years of the website in a single month. That is the math medical practices need to be running — not 'how much does a website cost?' but 'how much is a non-performing website costing me?'",
+          "At 12 additional patient inquiries per month, even converting a fraction of those into consultations pays for years of the website in a single month. That is the math medical practices need to be running. Not 'how much does a website cost?' but 'how much is a non-performing website costing me?'",
           "Good medical practice website design is not about looking impressive. It is about getting found, building trust in 8 seconds, and making it easy to book. That is the entire brief. We built to that spec.",
         ],
       },
     ],
     conclusion:
-      "If your medical practice has a slow, outdated, or low-converting website, the fix does not have to be complicated or expensive. Dr. Kanuri's new site launched in 5 days and costs $99/month. The results were measurable within 90 days.\n\nIf you'd like a free, honest review of your current site — what it's doing well, what it's costing you, and what's realistically possible — reach out. No sales pitch, no obligation.",
+      "If your medical practice has a slow, outdated, or low-converting website, the fix does not have to be complicated or expensive. Dr. Kanuri's new site launched in 5 days and costs $99/month. The results were measurable within 90 days.\n\nIf you'd like a free, honest review of your current site, what it's doing well, what it's costing you, and what's realistically possible, reach out. No sales pitch, no obligation.",
     related: [
       "affordable-web-design-company",
       "affordable-web-design-for-small-businesses",
@@ -351,11 +351,11 @@ const blogPosts: BlogPost[] = [
     metaDescription:
       "Comparing the best church website builders for 2026: Squarespace, Wix, Faithlife, Ministry Designs, Ekklesia360, and CalTech Web. See pricing, features, and who each is right for.",
     excerpt:
-      "There are dozens of church website builders on the market — but most aren't built for how churches actually work. Here is an honest comparison of the top options, what each gets right, what it gets wrong, and who each one is best for.",
+      "There are dozens of church website builders on the market, but most aren't built for how churches actually work. Here is an honest comparison of the top options, what each gets right, what it gets wrong, and who each one is best for.",
     readTime: "9 min read",
     date: "February 25, 2026",
     intro:
-      "Every church needs a website. But choosing the right platform to build it on — or the right partner to build it for you — is one of the most consequential decisions a church communications team makes.\n\nGet it wrong and you're stuck with a slow, template-locked site that your staff dreads updating. Get it right and your website becomes a genuinely powerful tool for welcoming first-time visitors, keeping your congregation engaged, and extending your ministry's reach all week long.\n\nI've built church websites for over 15 years and have worked with churches ranging from 40-member congregations to multi-campus ministries. Here is my honest comparison of the best church website builders available in 2026 — what each one actually delivers, what it gets wrong, and which situations each one is best suited for.",
+      "Every church needs a website. But choosing the right platform to build it on, or the right partner to build it for you, is one of the most consequential decisions a church communications team makes.\n\nGet it wrong and you're stuck with a slow, template-locked site that your staff dreads updating. Get it right and your website becomes a genuinely powerful tool for welcoming first-time visitors, keeping your congregation engaged, and extending your ministry's reach all week long.\n\nI've built church websites for over 15 years and have worked with churches ranging from 40-member congregations to multi-campus ministries. Here is my honest comparison of the best church website builders available in 2026, what each one actually delivers, what it gets wrong, and which situations each one is best suited for.",
     sections: [
       {
         heading: "What Makes a Church Website Builder Worth Using",
@@ -363,7 +363,7 @@ const blogPosts: BlogPost[] = [
           "Before comparing platforms, it's worth establishing what a church website actually needs to do well. A generic website builder checklist doesn't apply here.",
           "First-time visitor experience matters more than almost anything else. Someone searching for a church in your city will spend 15-30 seconds deciding whether your church looks right for them. Service times, address, and a sense of your congregation's personality need to be immediately apparent.",
           "Online giving integration has to be seamless and mobile-friendly. A significant portion of church revenue now comes through online giving. Complicated or broken giving flows cost churches real money.",
-          "Sermon archives need to work as a genuine content library — searchable, organized by series, and easy to keep current. The sermon archive is often the most visited section of a church website by regular members.",
+          "Sermon archives need to work as a genuine content library, searchable, organized by series, and easy to keep current. The sermon archive is often the most visited section of a church website by regular members.",
           "Event management needs to stay current without requiring significant technical effort. An outdated events calendar signals neglect and erodes trust.",
           "Finally, most churches don't have a full-time web developer. The platform and support model need to match the actual capacity of your staff or volunteers.",
         ],
@@ -380,7 +380,7 @@ const blogPosts: BlogPost[] = [
         heading: "Squarespace: Beautiful Templates, Limited Church Features",
         body: [
           "Squarespace is the most polished general-purpose website builder on the market. Its templates are genuinely beautiful and its drag-and-drop editor is more intuitive than most. For churches with a strong visual identity and a staff member willing to invest time in learning the platform, it can produce excellent results.",
-          "But Squarespace was built for portfolios, restaurants, and e-commerce — not churches. There is no built-in sermon archive structure, no native event registration for ministry-specific needs, and online giving requires a third-party embed that often breaks on mobile updates.",
+          "But Squarespace was built for portfolios, restaurants, and e-commerce, not churches. There is no built-in sermon archive structure, no native event registration for ministry-specific needs, and online giving requires a third-party embed that often breaks on mobile updates.",
           "Pricing runs $23-$65/month depending on the plan, but that doesn't include a developer to build the site, a designer to make it look right, or ongoing support when something breaks. For a church with no dedicated web staff, Squarespace is a significant time investment that rarely produces the result you're imagining when you sign up.",
         ],
         tip: "Squarespace is best for: churches with a staff member who enjoys design and has 10-20 hours to invest in building and maintaining the site. Not recommended for: congregations without dedicated web staff who need the site to 'just work.'",
@@ -389,16 +389,16 @@ const blogPosts: BlogPost[] = [
         heading: "Wix: Flexible but Requires Real Time Investment",
         body: [
           "Wix offers more flexibility than Squarespace through its App Market and its ADI (Artificial Design Intelligence) builder. You can add a wide variety of third-party apps for giving, event management, and sermon hosting.",
-          "The challenge is that all of this flexibility comes at the cost of time and complexity. Building a genuinely good church website on Wix — one that has all the features a church needs, works well on mobile, and loads quickly — typically takes 40-80 hours for a first-time user. And ongoing management requires someone comfortable navigating the platform.",
+          "The challenge is that all of this flexibility comes at the cost of time and complexity. Building a genuinely good church website on Wix, one that has all the features a church needs, works well on mobile, and loads quickly, typically takes 40-80 hours for a first-time user. And ongoing management requires someone comfortable navigating the platform.",
           "Wix plans start at $17/month for basic sites, but church-appropriate plans run $29-$36/month. Add third-party apps for giving and sermon management, and the monthly cost grows. More importantly, every hour your church volunteer spends managing the website is an hour not spent on ministry.",
-          "SEO is also a known weakness. Wix has improved significantly, but it still produces heavier code than purpose-built or developer-built sites, which can affect load speed and rankings — both of which Google cares about.",
+          "SEO is also a known weakness. Wix has improved significantly, but it still produces heavier code than purpose-built or developer-built sites, which can affect load speed and rankings, both of which Google cares about.",
         ],
       },
       {
         heading: "Faithlife Sites: Purpose-Built for Churches, but Ecosystem-Dependent",
         body: [
           "Faithlife (the company behind Logos Bible Software) offers a church website platform specifically designed for ministry organizations. It integrates natively with Faithlife's church management tools, giving platform, and small group software.",
-          "If your church is already invested in the Faithlife ecosystem — using Proclaim for worship slides, Faithlife Giving, or their church management system — then Faithlife Sites makes sense. The tight integration is genuinely useful, and the platform understands church-specific needs better than any general builder.",
+          "If your church is already invested in the Faithlife ecosystem, using Proclaim for worship slides, Faithlife Giving, or their church management system, then Faithlife Sites makes sense. The tight integration is genuinely useful, and the platform understands church-specific needs better than any general builder.",
           "If you're not in the Faithlife ecosystem, the platform is less compelling. Pricing ranges from free (very limited) to $99-$199/month for plans with the features most churches need. Setup is not trivial, and the design aesthetic leans utilitarian compared to what Squarespace or a custom-designed site can produce.",
           "Faithlife Sites is best for: churches already using Faithlife tools who want seamless integration. Not ideal for: churches looking for design flexibility or those outside the Faithlife ecosystem.",
         ],
@@ -409,17 +409,17 @@ const blogPosts: BlogPost[] = [
           "Ekklesia360 and Ministry Designs are purpose-built for churches and have been serving congregations for over a decade. Both include native sermon archives, event management, online giving integration, and ministry-specific design templates.",
           "These platforms understand the operational reality of a church office. Templates are designed around church content models, not restaurant menus or portfolio pages. Support teams understand ministry terminology. The workflow matches how a communications director actually thinks about managing church content.",
           "The trade-off is cost and flexibility. Ekklesia360 plans start at around $100-$200/month, with setup fees that can run $500-$2,500 depending on the build level. Ministry Designs is similarly priced. For a smaller congregation, these costs can feel significant.",
-          "Design flexibility is also limited. Both platforms use template systems that are church-optimized but not custom. If your church wants a website that truly reflects your unique identity — not a modified version of a template twenty other churches are using — you'll hit a ceiling.",
+          "Design flexibility is also limited. Both platforms use template systems that are church-optimized but not custom. If your church wants a website that truly reflects your unique identity, not a modified version of a template twenty other churches are using, you'll hit a ceiling.",
         ],
         tip: "If budget is not a constraint and your church needs a fully managed, church-specific platform with deep integration for giving and member management, these platforms deserve serious consideration. For smaller churches, the monthly cost may not be justified by the features you'll actually use.",
       },
       {
         heading: "CalTech Web: Custom Design with Full Ongoing Support",
         body: [
-          "Full disclosure: I'm the founder of CalTech Web. But I'm including us here because we fill a genuine gap that the other options don't address: a fully custom, professionally designed church website with complete ongoing support — at a price that works for smaller and mid-size congregations.",
-          "At $99/month with everything included, CalTech Web is priced below most dedicated church platforms. But unlike DIY builders, you don't build the site yourself — we build it for you. And unlike most agencies, support doesn't end at launch. Unlimited content updates, free redesigns, hosting, SSL, and priority support are all included in the monthly fee.",
-          "For churches that want their website to reflect their specific visual identity and congregational character — not a template — this matters. Every CalTech Web church site is built from scratch around the church's brand, photography, and ministry priorities.",
-          "Online giving integration, sermon archive setup, event calendars, ministry page structures, staff bios — all of it is handled and maintained. When your sermon archive needs a new series added, you email or call us directly. Ninety-three percent of updates are completed in under one hour.",
+          "Full disclosure: I'm the founder of CalTech Web. But I'm including us here because we fill a genuine gap that the other options don't address: a fully custom, professionally designed church website with complete ongoing support, at a price that works for smaller and mid-size congregations.",
+          "At $99/month with everything included, CalTech Web is priced below most dedicated church platforms. But unlike DIY builders, you don't build the site yourself, we build it for you. And unlike most agencies, support doesn't end at launch. Unlimited content updates, free redesigns, hosting, SSL, and priority support are all included in the monthly fee.",
+          "For churches that want their website to reflect their specific visual identity and congregational character, not a template, this matters. Every CalTech Web church site is built from scratch around the church's brand, photography, and ministry priorities.",
+          "Online giving integration, sermon archive setup, event calendars, ministry page structures, staff bios, all of it is handled and maintained. When your sermon archive needs a new series added, you email or call us directly. Ninety-three percent of updates are completed in under one hour.",
           "The model works especially well for churches of 100-1,500 members that take their online presence seriously but don't have the budget for a $500/month platform or the staff capacity to manage a DIY builder.",
         ],
         quote: {
@@ -435,16 +435,16 @@ const blogPosts: BlogPost[] = [
           "Here is a straightforward decision framework based on the options reviewed:",
         ],
         list: [
-          "If you have a tech-savvy staff member with time to invest: Squarespace or Wix can produce good results at low monthly cost — but budget 40-80 hours for setup and ongoing management time.",
+          "If you have a tech-savvy staff member with time to invest: Squarespace or Wix can produce good results at low monthly cost, but budget 40-80 hours for setup and ongoing management time.",
           "If you're already in the Faithlife ecosystem: Faithlife Sites provides the best integration with your existing tools.",
           "If you want a purpose-built church platform and have budget: Ekklesia360 or Ministry Designs are solid choices with deep church-specific functionality.",
           "If you want a fully custom design with no DIY time investment: CalTech Web handles everything for $99/month, including ongoing updates, and works well for churches that don't want to manage their own website.",
-          "Whatever platform you choose: prioritize mobile-first design, fast load times, and a clear path to keep your content current. These factors matter more to Google — and to first-time visitors — than the platform you're on.",
+          "Whatever platform you choose: prioritize mobile-first design, fast load times, and a clear path to keep your content current. These factors matter more to Google, and to first-time visitors, than the platform you're on.",
         ],
       },
     ],
     conclusion:
-      "The best church website builder is the one that matches your church's actual capacity and priorities. A beautiful DIY site that never gets updated is worse than a simpler managed site that's always current. A powerful platform your staff doesn't know how to use is worse than a straightforward one they do.\n\nIf you're not sure what your church needs, I'm happy to take a look at your current site and give you an honest recommendation — even if that recommendation is a platform other than ours. Reach out for a free conversation.",
+      "The best church website builder is the one that matches your church's actual capacity and priorities. A beautiful DIY site that never gets updated is worse than a simpler managed site that's always current. A powerful platform your staff doesn't know how to use is worse than a straightforward one they do.\n\nIf you're not sure what your church needs, I'm happy to take a look at your current site and give you an honest recommendation, even if that recommendation is a platform other than ours. Reach out for a free conversation.",
     related: [
       "affordable-web-design-company",
       "affordable-web-design-for-small-businesses",
@@ -670,7 +670,7 @@ function ArticleContent({ post }: { post: BlogPost }) {
         <div className="mb-10 p-6 rounded-2xl bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-100">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-100 text-orange-700 text-xs font-bold mb-4">
             <Zap className="w-3 h-3" />
-            $99/month — everything included
+            $99/month, everything included
           </div>
           <h2 className="text-xl font-extrabold text-gray-900 mb-2 leading-snug">
             No setup fees. No per-update charges. No surprises.
@@ -932,7 +932,7 @@ function CTAStrip({ post }: { post: BlogPost }) {
         </h2>
         <p className="text-blue-100 text-lg max-w-2xl mx-auto mb-8 leading-relaxed">
           {isNonprofit
-            ? "Donation integration, volunteer forms, mobile-first design, SEO, and unlimited updates — every item on this list is already built into your $99/month site. No setup fees. No surprises. Launching in 5–7 days."
+            ? "Donation integration, volunteer forms, mobile-first design, SEO, and unlimited updates, every item on this list is already built into your $99/month site. No setup fees. No surprises. Launching in 5–7 days."
             : "Everything you just read about (speed, mobile-first design, clear CTAs, local SEO) is built into every CalTech Web site. Launching in 5–7 days."}
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">

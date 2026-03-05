@@ -48,7 +48,7 @@ export default function InlineQuoteForm() {
               <Check className="w-8 h-8 text-green-600" strokeWidth={3} />
             </div>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900 mb-3">
-              Got it — we'll be in touch soon!
+              Got it, we'll be in touch soon!
             </h2>
             <p className="text-gray-500 mb-6 max-w-md mx-auto">
               Brandon personally reviews every request. Expect to hear back within a few hours, usually sooner.

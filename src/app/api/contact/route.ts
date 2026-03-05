@@ -1,10 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
-import * as postmark from "postmark";
+import { Resend } from "resend";
 
 /* ===================================================================
    Contact / Audit Request API — POST /api/contact/
    Accepts { name, email, website, source, message } and sends an
-   email via Postmark to the site owner.
+   email via Resend to the site owner.
    =================================================================== */
 
 interface ContactPayload {
@@ -19,8 +19,8 @@ function isValidEmail(email: string): boolean {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
-function getPostmarkClient() {
-  return new postmark.ServerClient(process.env.POSTMARK_SERVER_TOKEN!);
+function getResend() {
+  return new Resend(process.env.RESEND_API_KEY);
 }
 
 const SOURCE_LABELS: Record<string, string> = {
@@ -109,16 +109,15 @@ export async function POST(request: NextRequest) {
     };
 
     const sourceLabel = SOURCE_LABELS[payload.source] || payload.source;
-    const toAddress = process.env.POSTMARK_TO_EMAIL || "Brandon@CalTechWeb.com";
-    const fromAddress = process.env.POSTMARK_FROM_EMAIL || "noreply@caltechweb.com";
 
-    await getPostmarkClient().sendEmail({
-      From: `CalTech Web <${fromAddress}>`,
-      To: toAddress,
-      ReplyTo: payload.email,
-      Subject: `New ${sourceLabel} from ${payload.name}`,
-      HtmlBody: buildEmailHtml(payload),
-      TextBody: [
+    const { error } = await getResend().emails.send({
+      from: "CalTech Web Forms <forms@mail.caltechweb.com>",
+      to: "Brandon@CalTechWeb.com",
+      cc: "brandon@caltechweb.com",
+      replyTo: payload.email,
+      subject: `New ${sourceLabel} from ${payload.name}`,
+      html: buildEmailHtml(payload),
+      text: [
         `New ${sourceLabel}`,
         `Name: ${payload.name}`,
         `Email: ${payload.email}`,
@@ -129,10 +128,16 @@ export async function POST(request: NextRequest) {
       ]
         .filter(Boolean)
         .join("\n"),
-      MessageStream: "outbound",
     });
 
-    // --- Always log server-side for reliability ---
+    if (error) {
+      console.error("[contact-form] Resend error:", JSON.stringify(error));
+      return NextResponse.json(
+        { error: "Failed to process your request. Please try again." },
+        { status: 500 }
+      );
+    }
+
     console.log("[contact-form]", JSON.stringify(payload));
 
     return NextResponse.json({ success: true });

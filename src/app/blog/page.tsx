@@ -35,14 +35,14 @@ const resources: ResourceItem[] = [
     tag: "Medical Practice",
     title: "Dr. Arjun Kanuri: 40% Traffic Increase & 2× Conversions in 3 Months",
     description:
-      "A busy medical practice with an outdated website. Here's exactly what we changed — and the measurable results: 40% more traffic, doubled conversions, 5-day launch.",
+      "A busy medical practice with an outdated website. Here's exactly what we changed and the measurable results: 40% more traffic, doubled conversions, 5-day launch.",
   },
   {
     type: "guide",
     slug: "affordable-web-design-company",
     title: "Why CalTech Web Is the Most Affordable Web Design Company That Doesn't Cut Corners",
     description:
-      "There are thousands of 'affordable' web design companies. Most cut corners. Here's what makes CalTech Web different — and what you should demand from any agency.",
+      "There are thousands of 'affordable' web design companies. Most cut corners. Here's what makes CalTech Web different and what you should demand from any agency.",
   },
   {
     type: "guide",
@@ -56,7 +56,7 @@ const resources: ResourceItem[] = [
     slug: "website-maintenance-requirements",
     title: "Website Maintenance Requirements: What Every Business Owner Needs to Know",
     description:
-      "Your website needs regular maintenance to stay secure, fast, and visible on Google. Here's what's required — and how CalTech Web handles all of it for $99/month.",
+      "Your website needs regular maintenance to stay secure, fast, and visible on Google. Here's what's required and how CalTech Web handles all of it for $99/month.",
   },
   {
     type: "guide",
@@ -64,7 +64,7 @@ const resources: ResourceItem[] = [
     tag: "Church Websites",
     title: "Best Church Website Builder in 2026: Honest Comparison for Small and Mid-Size Churches",
     description:
-      "Squarespace, Wix, Faithlife, Ministry Designs, Ekklesia360, or a custom-built site? Here's an honest comparison of every major option — pricing, features, and who each one is right for.",
+      "Squarespace, Wix, Faithlife, Ministry Designs, Ekklesia360, or a custom-built site? Here's an honest comparison of every major option, pricing, features, and who each one is right for.",
   },
 ];
 
@@ -93,7 +93,7 @@ function Hero() {
           <span className="text-orange-400">Verify</span>
         </h1>
         <p className="text-lg text-blue-100 max-w-2xl mx-auto leading-relaxed">
-          Case studies, guides, and industry-specific advice from Brandon Hopkins — 800+ websites built, every lesson learned the hard way.
+          Case studies, guides, and industry-specific advice from Brandon Hopkins. 800+ websites built, every lesson learned the hard way.
         </p>
       </div>
     </section>

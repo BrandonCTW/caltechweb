@@ -139,7 +139,7 @@ export default function BlogFilterGrid({ resources }: { resources: ResourceItem[
             Ready to put this into practice?
           </h3>
           <p className="text-gray-500 text-sm mb-6 max-w-md mx-auto">
-            Every site we build follows the same principles you&apos;re reading about here. Get started for $99/month — no contracts, no surprises.
+            Every site we build follows the same principles you&apos;re reading about here. Get started for $99/month, no contracts, no surprises.
           </p>
           <Link
             href="/web-design-pricing/"

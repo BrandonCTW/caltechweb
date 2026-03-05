@@ -225,7 +225,7 @@ const before = [
 
 const after = [
   "One email and it's done, usually within the hour",
-  "Unlimited updates included — no invoices, no surprises",
+  "Unlimited updates included, no invoices, no surprises",
   "A professional site that reflects the quality of your work",
   "Events published, deadlines posted, announcements up fast",
   "A clean, trust-building donation experience that converts",
@@ -304,7 +304,7 @@ const handled = [
     icon: Paintbrush,
     color: "text-blue-600 bg-blue-50",
     title: "Custom Website Design",
-    body: "We design your site from scratch — no templates, no cookie-cutter layouts. Your website reflects who you are and the community you serve.",
+    body: "We design your site from scratch, no templates, no cookie-cutter layouts. Your website reflects who you are and the community you serve.",
   },
   {
     icon: DollarSign,
@@ -316,25 +316,25 @@ const handled = [
     icon: Users,
     color: "text-purple-600 bg-purple-50",
     title: "Membership Management",
-    body: "Member sign-ups, renewals, and directories — we build what your organization needs to manage your community online.",
+    body: "Member sign-ups, renewals, and directories, we build what your organization needs to manage your community online.",
   },
   {
     icon: Calendar,
     color: "text-orange-600 bg-orange-50",
     title: "Events & Registration",
-    body: "Event pages, raffle registration, fundraiser sign-ups — everything organized and easy for participants to find and use.",
+    body: "Event pages, raffle registration, fundraiser sign-ups, everything organized and easy for participants to find and use.",
   },
   {
     icon: RefreshCw,
     color: "text-indigo-600 bg-indigo-50",
     title: "Unlimited Updates, Included",
-    body: "Need to update your board, add a new program, or post an event? Just email us. Updates are included in your $99/month — no hourly fees.",
+    body: "Need to update your board, add a new program, or post an event? Just email us. Updates are included in your $99/month, no hourly fees.",
   },
   {
     icon: Globe,
     color: "text-teal-600 bg-teal-50",
     title: "Hosting, SSL & Domain",
-    body: "We take care of every technical detail. Fast hosting, SSL security certificate, and domain connection — all handled and included.",
+    body: "We take care of every technical detail. Fast hosting, SSL security certificate, and domain connection, all handled and included.",
   },
 ];
 
@@ -352,7 +352,7 @@ function WeHandleEverything() {
           </h2>
           <p className="text-gray-500 mt-3 max-w-xl mx-auto">
             From donations to membership to events, your nonprofit website comes
-            fully equipped — and we manage it all so you don&apos;t have to.
+            fully equipped, and we manage it all so you don&apos;t have to.
           </p>
         </div>
 
@@ -397,8 +397,8 @@ function TimeSavings() {
           <p className="text-gray-600 text-lg leading-relaxed max-w-2xl mx-auto mb-8">
             Every hour you spend wrestling with your website is an hour away from
             your programs, your donors, and the people you serve. CalTech Web
-            gives that time back. We handle the website completely — design,
-            updates, hosting, tech support — so you can stay focused on your
+            gives that time back. We handle the website completely, including
+            design, updates, hosting, and tech support, so you can stay focused on your
             mission.
           </p>
           <div className="grid sm:grid-cols-3 gap-6 mb-8">
@@ -524,7 +524,7 @@ const steps = [
     lightBg: "bg-violet-50",
     accent: "text-violet-600",
     title: "We Build Your Entire Website",
-    body: "Custom design, donation setup, event pages, member tools — we handle every detail. You review and approve before it goes live. Zero technical work on your end.",
+    body: "Custom design, donation setup, event pages, member tools, we handle every detail. You review and approve before it goes live. Zero technical work on your end.",
     detail: "Live in 5-7 business days",
   },
   {
@@ -534,7 +534,7 @@ const steps = [
     lightBg: "bg-green-50",
     accent: "text-green-600",
     title: "Go Live & Never Think About It Again",
-    body: "Your site goes live and from that point forward, every update is handled. New programs, event changes, board updates, announcements — just email us and it&apos;s done.",
+    body: "Your site goes live and from that point forward, every update is handled. New programs, event changes, board updates, announcements, just email us and it&apos;s done.",
     detail: "93% of updates done in under 1 hour",
   },
 ];
@@ -719,7 +719,7 @@ const faqs = [
     a: "Yes. We've built websites for food banks, agricultural organizations, member associations, foundations, community groups, and more. If you have a mission, we can build a website around it.",
   },
   {
-    q: "What if we need something updated — who do we contact?",
+    q: "What if we need something updated? Who do we contact?",
     a: "Just email support@caltechweb.com and describe what you need. That's it. No project management, no approval workflows, no hourly billing. Most requests are completed within 42 minutes during business hours.",
   },
   {
@@ -732,7 +732,7 @@ const faqs = [
   },
   {
     q: "What if we already have a website and just want to switch?",
-    a: "We'll redesign and rebuild your website from scratch, migrating any content you want to keep. There's no extra charge for redesigns — they're included in your $99/month for as long as you're a client.",
+    a: "We'll redesign and rebuild your website from scratch, migrating any content you want to keep. There's no extra charge for redesigns, they're included in your $99/month for as long as you're a client.",
   },
   {
     q: "Do we have to sign a long-term contract?",
@@ -802,7 +802,7 @@ function CTASection() {
         </h2>
         <p className="text-blue-100 text-lg max-w-2xl mx-auto mb-8 leading-relaxed">
           Join hundreds of organizations already using CalTech Web. Your new
-          website can be live in as little as 5–7 business days — and after
+          website can be live in as little as 5–7 business days, and after
           that, you never have to think about it again.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">

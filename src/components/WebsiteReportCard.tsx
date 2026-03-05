@@ -331,7 +331,7 @@ function CategoryCard({
                   </div>
                   <div className="text-xs text-gray-500 leading-relaxed mt-0.5">
                     {view === "after" && check.status !== "pass"
-                      ? `Fixed by CalTech Web — ${check.label.toLowerCase()} optimized for maximum performance.`
+                      ? `Fixed by CalTech Web, ${check.label.toLowerCase()} optimized for maximum performance.`
                       : check.detail}
                   </div>
                 </div>
@@ -648,7 +648,7 @@ export default function WebsiteReportCard() {
               </h3>
               <p className="text-sm text-gray-600 mb-5 max-w-lg mx-auto">
                 CalTech Web builds, hosts, and maintains your website. We fix
-                every issue in this report — and keep your site fast, secure, and
+                every issue in this report and keep your site fast, secure, and
                 converting visitors into customers.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
@@ -677,7 +677,7 @@ export default function WebsiteReportCard() {
             </h3>
             <p className="text-blue-200 text-sm mb-5 max-w-lg mx-auto">
               Stop losing customers to a broken website. CalTech Web builds you
-              a fast, professional site for just $99/month — no contracts, no
+              a fast, professional site for just $99/month, no contracts, no
               surprises.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">

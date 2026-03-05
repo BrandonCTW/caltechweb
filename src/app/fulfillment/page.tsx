@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Fulfillment Policy | CalTech Web",
     description:
-      "How CalTech Web delivers its $99/month web design service — website launch, updates, hosting, and cancellation.",
+      "How CalTech Web delivers its $99/month web design service, website launch, updates, hosting, and cancellation.",
     url: "https://caltechweb.com/fulfillment/",
   },
 };
@@ -34,7 +34,7 @@ export default function FulfillmentPage() {
               Fulfillment Policy
             </h1>
             <p className="text-lg text-blue-100 max-w-2xl mx-auto">
-              How CalTech Web delivers its $99/month web design service —
+              How CalTech Web delivers its $99/month web design service,
               timelines, updates, hosting, and what happens if you cancel.
             </p>
           </div>
@@ -178,7 +178,7 @@ export default function FulfillmentPage() {
                 us and we will make it right. Brandon personally guarantees that
                 if you are unhappy with the service, we will refund your most
                 recent monthly payment and provide you with all of your website
-                files to keep — no questions asked.
+                files to keep, no questions asked.
               </p>
               <p className="text-gray-600 leading-relaxed mb-4">
                 Refund requests must be submitted within 30 days of your website

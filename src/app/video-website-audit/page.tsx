@@ -73,7 +73,7 @@ function AuditRequestForm() {
           <strong>1–2 business days</strong>.
         </p>
         <p className="text-sm text-gray-500 mb-6">
-          Check your inbox — and your spam folder just in case.
+          Check your inbox, and your spam folder just in case.
         </p>
         <a
           href="tel:5592823075"
@@ -200,7 +200,7 @@ function AuditRequestForm() {
 const faqs = [
   {
     q: "Is the video audit really free?",
-    a: "Yes — 100% free. Brandon personally records a video reviewing your website and emails it to you. No obligation, no sales pitch, no credit card. You keep the video regardless of what you decide.",
+    a: "Yes, 100% free. Brandon personally records a video reviewing your website and emails it to you. No obligation, no sales pitch, no credit card. You keep the video regardless of what you decide.",
   },
   {
     q: "How long does it take to receive my audit?",
@@ -208,7 +208,7 @@ const faqs = [
   },
   {
     q: "How long is the video?",
-    a: "Typically 5–15 minutes, depending on how much there is to cover. Brandon keeps it focused and actionable — not a 45-minute lecture.",
+    a: "Typically 5–15 minutes, depending on how much there is to cover. Brandon keeps it focused and actionable, not a 45-minute lecture.",
   },
   {
     q: "What does the audit cover?",
@@ -216,15 +216,15 @@ const faqs = [
   },
   {
     q: "Do I need to have an existing website to get an audit?",
-    a: "Yes. The free video audit is for businesses that already have a website up. If you're starting from scratch, head over to the pricing page — your new site will be live in 5–7 business days for $99/month.",
+    a: "Yes. The free video audit is for businesses that already have a website up. If you're starting from scratch, head over to the pricing page. Your new site will be live in 5–7 business days for $99/month.",
   },
   {
     q: "Will you try to sell me something?",
-    a: "The audit is honest feedback, period. If your site needs work, Brandon will tell you what and why. If you're interested in having CalTech Web fix it, great — but there is no pressure and no follow-up sales calls.",
+    a: "The audit is honest feedback, period. If your site needs work, Brandon will tell you what and why. If you're interested in having CalTech Web fix it, great, but there is no pressure and no follow-up sales calls.",
   },
   {
     q: "What if my site is already good?",
-    a: "Then Brandon will tell you that too. The goal is honest, useful feedback — not manufactured criticism to drum up business.",
+    a: "Then Brandon will tell you that too. The goal is honest, useful feedback, not manufactured criticism to drum up business.",
   },
 ];
 
@@ -390,7 +390,7 @@ export default function VideoWebsiteAuditPage() {
 
             <p className="text-lg sm:text-xl text-blue-100 mb-8 max-w-2xl mx-auto leading-relaxed">
               Brandon personally records a screen-share video reviewing your
-              website — design, mobile, speed, SEO, and conversions. You get the
+              website, covering design, mobile, speed, SEO, and conversions. You get the
               video. No sales pitch. No obligation.
             </p>
 
@@ -420,7 +420,7 @@ export default function VideoWebsiteAuditPage() {
               {[
                 { icon: Clock, text: "Delivered within 1–2 business days" },
                 { icon: Star, text: "800+ websites reviewed" },
-                { icon: Shield, text: "100% free — no credit card needed" },
+                { icon: Shield, text: "100% free, no credit card needed" },
                 { icon: Play, text: "5–15 minute personal video" },
               ].map(({ icon: Icon, text }) => (
                 <div key={text} className="flex items-center gap-2 text-sm text-gray-600 font-medium">
@@ -448,7 +448,7 @@ export default function VideoWebsiteAuditPage() {
                   </h2>
                   <p className="text-gray-500 leading-relaxed">
                     Brandon screen-records himself navigating your website and
-                    narrates everything he notices — the good and the bad. You
+                    narrates everything he notices, the good and the bad. You
                     get an expert eye on your site for free.
                   </p>
                 </div>
@@ -475,7 +475,7 @@ export default function VideoWebsiteAuditPage() {
                     <p className="text-sm text-gray-700 leading-relaxed italic">
                       &ldquo;Most business owners have no idea what their
                       website visitors experience. I record myself going through
-                      your site as if I&rsquo;m a customer — and I tell you
+                      your site as if I&rsquo;m a customer, and I tell you
                       exactly what I see.&rdquo;
                     </p>
                     <p className="text-xs text-gray-400 mt-2 font-semibold">
@@ -512,7 +512,7 @@ export default function VideoWebsiteAuditPage() {
                 How the Free Audit Works
               </h2>
               <p className="text-gray-500 max-w-xl mx-auto">
-                From request to video in your inbox — here&apos;s what to expect.
+                From request to video in your inbox, here&apos;s what to expect.
               </p>
             </div>
 
@@ -542,7 +542,7 @@ export default function VideoWebsiteAuditPage() {
                   lightBg: "bg-green-50",
                   accent: "text-green-600",
                   title: "Watch & Act on the Feedback",
-                  body: "You receive a video link by email. Watch it, take notes, and use the feedback however you like — whether that's with us or anyone else.",
+                  body: "You receive a video link by email. Watch it, take notes, and use the feedback however you like, whether that's with us or anyone else.",
                   detail: "No strings attached",
                 },
               ].map(({ step, color, lightBg, accent, title, body, detail }) => (
