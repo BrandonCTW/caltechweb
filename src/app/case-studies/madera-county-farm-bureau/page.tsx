@@ -16,6 +16,7 @@ import {
   CreditCard,
   Trophy,
   Globe,
+  ExternalLink,
 } from "lucide-react";
 import Image from "next/image";
 import Header from "@/components/Header";
@@ -113,46 +114,56 @@ function Hero() {
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <a
-                href="tel:5592823075"
+                href="https://maderafb.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border-2 border-white/20 text-white font-semibold text-base hover:border-white/40 hover:bg-white/5 transition-colors"
               >
-                <Phone className="w-4 h-4" />
-                (559) 282-3075
+                <ExternalLink className="w-4 h-4" />
+                View Live Site
               </a>
             </div>
           </div>
 
           {/* Right: Screenshot */}
-          <div className="rounded-2xl border border-white/10 shadow-2xl overflow-hidden bg-gray-800">
+          <a
+            href="https://maderafb.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group rounded-2xl border border-white/10 shadow-2xl overflow-hidden bg-gray-800 block hover:border-white/30 transition-colors"
+          >
             <div className="bg-gray-800 px-4 py-3 flex items-center gap-3 border-b border-white/10">
               <div className="flex gap-1.5">
                 <div className="w-3 h-3 rounded-full bg-red-400/80" />
                 <div className="w-3 h-3 rounded-full bg-yellow-400/80" />
                 <div className="w-3 h-3 rounded-full bg-green-400/80" />
               </div>
-              <a
-                href="https://maderafb.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-1 bg-gray-700 rounded-lg h-7 px-3 flex items-center gap-2 hover:bg-gray-600 transition-colors group"
-              >
+              <div className="flex-1 bg-gray-700 rounded-lg h-7 px-3 flex items-center gap-2">
                 <Shield className="w-3 h-3 text-green-400 shrink-0" />
-                <span className="text-xs text-gray-300 font-medium group-hover:text-white transition-colors">
+                <span className="text-xs text-gray-300 font-medium">
                   maderafb.com
                 </span>
-                <Globe className="w-3 h-3 text-gray-500 group-hover:text-gray-300 transition-colors ml-auto shrink-0" />
-              </a>
+                <ExternalLink className="w-3 h-3 text-gray-500 ml-auto shrink-0 opacity-0 group-hover:opacity-100 transition-opacity" />
+              </div>
             </div>
-            <Image
-              src="/portfolio/madera-county-farm-bureau.png"
-              alt="Madera County Farm Bureau website designed by CalTech Web"
-              width={1280}
-              height={800}
-              priority
-              className="w-full h-auto"
-              sizes="(max-width: 1024px) 100vw, 50vw"
-            />
-          </div>
+            <div className="relative">
+              <Image
+                src="/portfolio/madera-county-farm-bureau.png"
+                alt="Madera County Farm Bureau website designed by CalTech Web"
+                width={1280}
+                height={800}
+                priority
+                className="w-full h-auto"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center">
+                <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white text-gray-900 font-bold text-sm shadow-lg">
+                  Visit Live Site
+                  <ExternalLink className="w-4 h-4" />
+                </span>
+              </div>
+            </div>
+          </a>
         </div>
       </div>
     </section>
