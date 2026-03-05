@@ -49,6 +49,7 @@ type CaseStudy = {
   testimonial: string;
   testimonialAuthor: string;
   testimonialRole: string;
+  testimonialImage?: string;
   timeToLaunch: string;
   related: string[];
 };
@@ -237,6 +238,7 @@ const caseStudies: CaseStudy[] = [
       "CalTech Web helped us with our domain, new website, and even solved a situation with image copyright! I highly recommend them for all nonprofit organization websites.",
     testimonialAuthor: "Christina Beckstead",
     testimonialRole: "Executive Director, Madera County Farm Bureau",
+    testimonialImage: "/testimonials/christina-beckstead.jpg",
     timeToLaunch: "7 days",
     related: ["california-women-for-agriculture", "calvary-chapel-los-alamitos", "central-baptist-church"],
   },
@@ -912,9 +914,13 @@ function Testimonial({ cs }: { cs: CaseStudy }) {
           </blockquote>
         </div>
         <div className="flex items-center justify-center gap-3">
+          {cs.testimonialImage ? (
+            <Image src={cs.testimonialImage} alt={cs.testimonialAuthor} width={44} height={44} className="w-11 h-11 rounded-full object-cover shrink-0" />
+          ) : (
           <div className={`w-11 h-11 rounded-full ${cs.accentBg} flex items-center justify-center ${cs.accentColor} font-bold text-sm`}>
             {cs.initials}
           </div>
+          )}
           <div className="text-left">
             <div className="font-semibold text-gray-900 text-sm">{cs.testimonialAuthor}</div>
             <div className="text-gray-500 text-xs">{cs.testimonialRole}</div>

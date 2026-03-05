@@ -402,9 +402,7 @@ function Testimonial() {
         </blockquote>
 
         <div className="flex items-center justify-center gap-4">
-          <div className="w-14 h-14 rounded-full bg-emerald-500/30 border-2 border-emerald-400/50 flex items-center justify-center text-xl font-bold text-emerald-200">
-            CB
-          </div>
+          <Image src="/testimonials/christina-beckstead.jpg" alt="Christina Beckstead" width={56} height={56} className="w-14 h-14 rounded-full object-cover border-2 border-emerald-400/50" />
           <div className="text-left">
             <div className="font-bold text-lg">Christina Beckstead</div>
             <div className="text-emerald-200 text-sm">

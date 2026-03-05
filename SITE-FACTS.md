@@ -202,6 +202,7 @@
 - Results: 40% traffic increase, doubled conversions in 3 months, 11 monthly leads (average)
 
 ### Christina Beckstead, Executive Director — Madera County Farm Bureau
+**Headshot:** `/public/testimonials/christina-beckstead.jpg`
 > "CalTech Web helped us with our domain, new website, and even solved a situation with image copyright! I highly recommend them for all nonprofit organization websites."
 - Results: 55% traffic increase, 3 years as a client
 - Project scope: Scholarship system, membership management, payments, raffles, social media integration, 1,000+ pages

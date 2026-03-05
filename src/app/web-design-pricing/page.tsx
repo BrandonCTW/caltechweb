@@ -1026,6 +1026,7 @@ const testimonials = [
     role: "Executive Director, Madera County Farm Bureau",
     initials: "CB",
     bg: "bg-green-600",
+    image: "/testimonials/christina-beckstead.jpg",
   },
 ];
 

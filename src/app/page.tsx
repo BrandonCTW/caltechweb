@@ -1344,6 +1344,7 @@ function Testimonials() {
       role: "Executive Director, Madera County Farm Bureau",
       initials: "CB",
       color: "bg-green-600",
+      image: "/testimonials/christina-beckstead.jpg",
     },
     {
       quote:
