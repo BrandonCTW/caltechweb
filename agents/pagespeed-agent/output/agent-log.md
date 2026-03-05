@@ -1132,3 +1132,87 @@ Additional findings this run:
 **Starting score (first Opus run): 79 -> Current score: 94-99 (varies with Lighthouse conditions)**
 
 The site is at its practical performance ceiling. The score varies between 94-99 due to normal Lighthouse variance. No deterministic single-line fix exists that would consistently push the score higher. The remaining issues are all framework-level structural constraints.
+**Run #9 complete.**
+
+**Before:** 94 (Mobile) — FCP 1.4s, LCP 2.6s, TBT 40ms, SI 4.1s
+
+**Fix attempted:** Removed Geist font preload (28.4 KiB) to reduce bandwidth competition with CSS on slow 4G. LCP improved -75ms but FCP regressed +150ms. Score unchanged at 94. **Reverted.**
+
+**After:** 94 (Mobile) — no net change.
+
+The site is at its practical performance ceiling (94-99, varying with Lighthouse conditions). All remaining flagged issues are **Unscored** diagnostics — render-blocking CSS, legacy JS, unused framework JS, and 1 React hydration task — none of which contribute to the Performance score and none of which can be fixed without changing frameworks.
+[2026-03-05 11:21:26] Run #9 finished
+[2026-03-05 11:21:31] Run #10 starting (model: opus)
+
+---
+
+## 2026-03-05 — Run #10 (Opus): Remove dead CSS theme variables — ceiling confirmed
+
+**Site URL:** https://caltechweb.vercel.app
+**Before Score:** 95 (Mobile)
+**After Score:** 95 (Mobile) — no change, fix kept (dead code removal)
+**Net Change:** 0
+
+### Before Metrics (baseline)
+| Metric | Value |
+|---|---|
+| Performance | 95 |
+| FCP | 1.4s (1,378ms) |
+| LCP | 2.5s (2,476ms) |
+| TBT | 20ms (17ms) |
+| CLS | 0 |
+| Speed Index | 4.1s (4,054ms) |
+| TTI | 2,484ms |
+
+### Fix Applied
+
+Removed dead CSS from `src/app/globals.css`:
+- 16 unused shadcn color variables from `@theme inline` (card, popover, primary, secondary, muted, accent, destructive, border, input, ring)
+- 16 corresponding `:root` CSS custom properties
+- The entire `.dark` block (18 dark-mode variable overrides)
+- `@custom-variant dark` registration line
+
+None of these were referenced by any Tailwind utility class or inline style anywhere in the codebase. 56 lines removed total.
+
+**Commit:** `c783f24`
+
+### After Metrics
+| Metric | Value |
+|---|---|
+| Performance | 95 |
+| FCP | 1.7s (1,667ms) |
+| LCP | 2.5s (2,476ms) |
+| TBT | 20ms (22ms) |
+| CLS | 0 |
+| Speed Index | 4.2s (4,187ms) |
+| TTI | 2,484ms |
+
+### Result
+
+Score held at 95. LCP and TTI are identical to baseline. FCP and SI regressed slightly (+289ms, +133ms respectively) — within normal Lighthouse variance on slow 4G. Change kept because it's objectively correct dead code removal, not a speculative optimization.
+
+### Analysis
+
+The site remains at its practical performance ceiling (94–99). All remaining flagged issues are **Unscored** diagnostics:
+1. **Render blocking CSS** (16.x KiB, 450ms est) — single CSS chunk, standard Next.js behavior
+2. **Legacy JavaScript** (14 KiB) — Turbopack internal polyfills, unfixable
+3. **Unused JavaScript** (47 KiB) — React/Next.js framework chunks
+4. **1 long main-thread task** — React hydration
+
+### Cumulative Improvements (all Opus runs)
+| Run | Fix | Before | After | Change |
+|---|---|---|---|---|
+| #1 | Defer GA to lazyOnload | 79 | 92 | +13 |
+| #2 | Dynamic import below-fold components | 89 | 93 | +4 |
+| #3 | Dynamic import MobileNav | 95 | 87 | -8 (reverted) |
+| #4 | font-display: optional | 86 | 91 | +5 |
+| #5 | Defer Zendesk to interaction | 90 | 95 | +5 |
+| #6 | content-visibility: auto | 95 | 95 | 0 (metrics improved) |
+| #7 | Defer GA to interaction | 94 | 95 | +1 |
+| #8 | No fix needed — ceiling reached | 99 | 99 | 0 |
+| #9 | Font preload removal | 94 | 94 | 0 (reverted) |
+| #10 | Remove dead CSS theme variables | 95 | 95 | 0 (kept, dead code) |
+
+**Starting score (first Opus run): 79 → Current score: 95 (94–99 range)**
+
+The site is at its practical performance ceiling for a Next.js App Router site on simulated slow 4G. No further optimizations are viable without major architectural changes.
