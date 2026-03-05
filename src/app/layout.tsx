@@ -75,12 +75,8 @@ export default function RootLayout({
     <html lang="en" style={{ scrollBehavior: "smooth" }}>
       <body className={`${geist.className} antialiased bg-background text-foreground min-h-screen`}>
         {children}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-16KYJVW780"
-          strategy="lazyOnload"
-        />
-        <Script id="gtag-init" strategy="lazyOnload">
-          {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-16KYJVW780');`}
+        <Script id="ga-lazy" strategy="lazyOnload">
+          {`(function(){var d=false;function l(){if(d)return;d=true;var s=document.createElement('script');s.src='https://www.googletagmanager.com/gtag/js?id=G-16KYJVW780';s.async=true;document.head.appendChild(s);window.dataLayer=window.dataLayer||[];function g(){dataLayer.push(arguments);}g('js',new Date());g('config','G-16KYJVW780');}['click','scroll','touchstart','mouseover'].forEach(function(e){window.addEventListener(e,l,{once:true,passive:true});});setTimeout(l,12000);})();`}
         </Script>
         <Script id="ze-lazy" strategy="lazyOnload">
           {`(function(){var d=false;function l(){if(d)return;d=true;var s=document.createElement('script');s.id='ze-snippet';s.src='https://static.zdassets.com/ekr/snippet.js?key=20e06cbb-5338-45fc-93ba-6e1621dc8d52';document.body.appendChild(s);}['click','scroll','touchstart','mouseover'].forEach(function(e){window.addEventListener(e,l,{once:true,passive:true});});setTimeout(l,12000);})();`}
