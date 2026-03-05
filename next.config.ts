@@ -84,10 +84,6 @@ const nextConfig: NextConfig = {
       { source: "/fulfillment", destination: "/terms-and-conditions/", permanent: true },
       { source: "/fulfillment/", destination: "/terms-and-conditions/", permanent: true },
 
-      // Medical practice case study → canonical case-studies URL
-      { source: "/medical-practice-website-design", destination: "/case-studies/medical-practice-website-design/", permanent: true },
-      { source: "/medical-practice-website-design/", destination: "/case-studies/medical-practice-website-design/", permanent: true },
-
       // Old blog post slugs → new canonical slugs
       { source: "/dr-kanuri-40-percent-traffic-increase", destination: "/case-studies/medical-practice-website-design/", permanent: true },
       { source: "/dr-kanuri-40-percent-traffic-increase/", destination: "/case-studies/medical-practice-website-design/", permanent: true },
