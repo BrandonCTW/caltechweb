@@ -82,11 +82,9 @@ export default function RootLayout({
         <Script id="gtag-init" strategy="lazyOnload">
           {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-16KYJVW780');`}
         </Script>
-        <Script
-          id="ze-snippet"
-          src="https://static.zdassets.com/ekr/snippet.js?key=20e06cbb-5338-45fc-93ba-6e1621dc8d52"
-          strategy="lazyOnload"
-        />
+        <Script id="ze-lazy" strategy="lazyOnload">
+          {`(function(){var d=false;function l(){if(d)return;d=true;var s=document.createElement('script');s.id='ze-snippet';s.src='https://static.zdassets.com/ekr/snippet.js?key=20e06cbb-5338-45fc-93ba-6e1621dc8d52';document.body.appendChild(s);}['click','scroll','touchstart','mouseover'].forEach(function(e){window.addEventListener(e,l,{once:true,passive:true});});setTimeout(l,12000);})();`}
+        </Script>
       </body>
     </html>
   );
