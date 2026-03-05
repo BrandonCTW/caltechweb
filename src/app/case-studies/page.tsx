@@ -24,6 +24,19 @@ const caseStudies = [
       { value: "3+ yrs", label: "Partnership" },
     ],
   },
+  {
+    href: "/medical-practice-website-design/",
+    client: "Dr. Arjun Kanuri",
+    industry: "Medical Practice",
+    headline: "40% Traffic Increase & 2× Appointment Conversions in 90 Days",
+    description:
+      "A busy plastic surgery practice with an outdated website. Here's exactly what we changed and the measurable results: 40% more organic traffic, doubled appointment conversions, and 12+ additional patient inquiries per month, all within 90 days.",
+    stats: [
+      { value: "+40%", label: "Organic Traffic" },
+      { value: "2×", label: "Conversions" },
+      { value: "5 days", label: "Launch Time" },
+    ],
+  },
 ];
 
 export default function CaseStudiesPage() {
