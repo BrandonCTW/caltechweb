@@ -21,11 +21,12 @@ import {
   Sparkles,
 } from "lucide-react";
 import dynamic from "next/dynamic";
-import FAQ from "@/components/FAQ";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import SavingsCalculator from "@/components/SavingsCalculator";
-import TrustBar from "@/components/TrustBar";
+
+const TrustBar = dynamic(() => import("@/components/TrustBar"));
+const SavingsCalculator = dynamic(() => import("@/components/SavingsCalculator"));
+const FAQ = dynamic(() => import("@/components/FAQ"));
 import Image from "next/image";
 import Link from "next/link";
 
