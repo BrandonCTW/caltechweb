@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   title:
     "Madera County Farm Bureau Case Study | 55% Traffic Increase | CalTech Web",
   description:
-    "See how CalTech Web helped Madera County Farm Bureau grow traffic by 55%, build 1,000+ pages, and streamline membership management — all for $99/month.",
+    "See how CalTech Web helped Madera County Farm Bureau grow traffic by 55%, build 1,000+ pages, and streamline membership management, all for $99/month.",
   alternates: {
     canonical:
       "https://caltechweb.com/case-studies/madera-county-farm-bureau/",
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     title:
       "Madera County Farm Bureau Case Study | 55% Traffic Increase | CalTech Web",
     description:
-      "See how CalTech Web helped Madera County Farm Bureau grow traffic by 55%, build 1,000+ pages, and streamline membership management — all for $99/month.",
+      "See how CalTech Web helped Madera County Farm Bureau grow traffic by 55%, build 1,000+ pages, and streamline membership management, all for $99/month.",
     images: [
       {
         url: "/portfolio/madera-county-farm-bureau.png",
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     title:
       "Madera County Farm Bureau Case Study | 55% Traffic Increase",
     description:
-      "See how CalTech Web helped Madera County Farm Bureau grow traffic by 55% and build 1,000+ pages — all for $99/month.",
+      "See how CalTech Web helped Madera County Farm Bureau grow traffic by 55% and build 1,000+ pages, all for $99/month.",
     images: ["/portfolio/madera-county-farm-bureau.png"],
   },
 };
@@ -101,7 +101,7 @@ function Hero() {
             <p className="text-lg text-white/80 leading-relaxed mb-8 max-w-xl">
               How CalTech Web helped the Madera County Farm Bureau transform
               their online presence with membership management, a scholarship
-              system, and payment processing — all included in one flat fee.
+              system, and payment processing, all included in one flat fee.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
@@ -175,7 +175,7 @@ const results = [
   {
     stat: "3 yrs",
     label: "Client Since",
-    description: "Long-term partnership and ongoing support",
+    description: "Ongoing partnership and support",
     Icon: Clock,
     color: "text-amber-500",
     bg: "bg-amber-500/10",
@@ -183,7 +183,7 @@ const results = [
   {
     stat: "$99/mo",
     label: "Total Cost",
-    description: "Everything included — no hidden fees",
+    description: "Everything included, no hidden fees",
     Icon: CreditCard,
     color: "text-green-500",
     bg: "bg-green-500/10",
@@ -278,8 +278,8 @@ function ChallengeAndSolution() {
             </h3>
             <p className="text-gray-600 leading-relaxed mb-6">
               CalTech Web built a comprehensive 1,000+ page website that
-              handles everything the Farm Bureau needs — from membership
-              management to scholarship applications — and resolved their
+              handles everything the Farm Bureau needs, from membership
+              management to scholarship applications, and resolved their
               image copyright issues along the way.
             </p>
             <ul className="space-y-3">
@@ -327,7 +327,7 @@ const features = [
   {
     title: "Payment Processing",
     description:
-      "Integrated payment collection for membership dues, event fees, and raffle tickets — all processed securely online.",
+      "Integrated payment collection for membership dues, event fees, and raffle tickets, all processed securely online.",
     Icon: CreditCard,
   },
   {
@@ -359,8 +359,8 @@ function Features() {
             What We Built
           </h2>
           <p className="text-gray-500 max-w-2xl mx-auto">
-            Every feature below is included in the $99/month plan — no add-ons,
-            no upsells, no surprise invoices.
+            Every feature below is included in the $99/month plan, with no add-ons,
+            no upsells, and no surprise invoices.
           </p>
         </div>
 
@@ -429,14 +429,14 @@ function Testimonial() {
 // ─── Why CalTech Web ──────────────────────────────────────────────────────────
 
 const whyReasons = [
-  "Custom design — no templates or cookie-cutter layouts",
+  "Custom design with no templates or cookie-cutter layouts",
   "Hosting, SSL, and domain included",
   "Unlimited updates and content changes",
   "Scholarship systems, membership portals, payment processing",
   "5-7 day average launch time",
   "93% of updates completed in under 1 hour",
   "Money-back guarantee",
-  "No contracts — cancel anytime",
+  "No contracts, cancel anytime",
 ];
 
 function WhyCalTechWeb() {
@@ -454,7 +454,7 @@ function WhyCalTechWeb() {
             </h2>
             <p className="text-gray-500 leading-relaxed mb-8">
               Whether you need membership management, event registration,
-              donation processing, or a scholarship portal — CalTech Web builds
+              donation processing, or a scholarship portal, CalTech Web builds
               it all into one flat monthly fee. No per-feature pricing. No
               hourly billing. Just results.
             </p>
@@ -577,7 +577,7 @@ function FinalCTA() {
         </h2>
         <p className="text-gray-400 text-base leading-relaxed mb-8">
           Tell us about your organization and we&apos;ll get started on your
-          website. Custom design, hosting, and support — all for $99/month.
+          website. Custom design, hosting, and support, all for $99/month.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Link
