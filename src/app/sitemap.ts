@@ -30,6 +30,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { slug: "church-website-design-essentials", date: "2026-01-20" },
     { slug: "post-sermons-online", date: "2026-01-05" },
     { slug: "ultimate-guide-christian-ministry-websites", date: "2025-12-15" },
+    { slug: "best-church-website-builder", date: "2026-02-25" },
   ];
 
   const portfolioSlugs = [

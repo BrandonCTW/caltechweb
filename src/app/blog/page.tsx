@@ -90,6 +90,14 @@ const resources: ResourceItem[] = [
     description:
       "Everything a ministry needs from its website: mission clarity, devotional content, online giving, outreach tools, and sermon streaming. A complete guide.",
   },
+  {
+    type: "guide",
+    slug: "best-church-website-builder",
+    tag: "Church Websites",
+    title: "Best Church Website Builder in 2026: Honest Comparison for Small and Mid-Size Churches",
+    description:
+      "Squarespace, Wix, Faithlife, Ministry Designs, Ekklesia360, or a custom-built site? Here's an honest comparison of every major option — pricing, features, and who each one is right for.",
+  },
 ];
 
 // ─── Structured Data ──────────────────────────────────────────────────────────
