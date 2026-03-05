@@ -613,16 +613,34 @@ const caseStudyJsonLd = {
     "How Madera County Farm Bureau Grew Traffic 55% with a $99/month Website",
   description:
     "Case study: CalTech Web helped Madera County Farm Bureau build 1,000+ pages, integrate membership management, and increase traffic by 55%.",
-  image: "https://caltechweb.com/portfolio/madera-county-farm-bureau.png",
+  image: {
+    "@type": "ImageObject",
+    url: "https://caltechweb.com/portfolio/madera-county-farm-bureau.png",
+    width: 1200,
+    height: 800,
+  },
+  datePublished: "2026-02-01",
+  dateModified: "2026-02-01",
+  url: "https://caltechweb.com/case-studies/madera-county-farm-bureau/",
+  mainEntityOfPage: {
+    "@type": "WebPage",
+    "@id": "https://caltechweb.com/case-studies/madera-county-farm-bureau/",
+  },
   author: {
-    "@type": "Organization",
-    name: "CalTech Web",
-    url: "https://caltechweb.com",
+    "@type": "Person",
+    name: "Brandon Hopkins",
+    url: "https://caltechweb.com/brandon-hopkins/",
   },
   publisher: {
     "@type": "Organization",
     name: "CalTech Web",
     url: "https://caltechweb.com",
+    logo: {
+      "@type": "ImageObject",
+      url: "https://caltechweb.com/logo.png",
+      width: 1520,
+      height: 512,
+    },
   },
 };
 
