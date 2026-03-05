@@ -9,7 +9,7 @@ export default function AnnouncementBar() {
       <span>Unlimited updates, hosting &amp; support all included.</span>
       <span className="opacity-60 mx-1.5 hidden sm:inline">·</span>
       <Link
-        href="/web-design-pricing/"
+        href="/contact-us/"
         className="hidden sm:inline underline font-semibold hover:text-blue-100 transition-colors ml-0.5"
       >
         Schedule a Call →

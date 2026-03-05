@@ -58,6 +58,7 @@ export default function Footer() {
                 { label: "Portfolio", href: "/web-design-portfolio/" },
                 { label: "Pricing", href: "/web-design-pricing/" },
                 { label: "Case Studies", href: "/case-studies/" },
+                { label: "Contact Us", href: "/contact-us/" },
                 { label: "Free Report Card", href: "/free-website-report-card/" },
                 { label: "Support", href: "/support/" },
               ].map(({ label, href }) => (

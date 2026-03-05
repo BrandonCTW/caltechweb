@@ -12,7 +12,7 @@ const navLinks = [
   { label: "Case Studies", href: "/case-studies/" },
   { label: "About", href: "/brandon-hopkins/" },
   { label: "Free Site Analysis", href: "/free-website-report-card/" },
-  { label: "Support", href: "/support/" },
+  { label: "Contact", href: "/contact-us/" },
 ];
 
 export default function MobileNav() {
@@ -119,11 +119,11 @@ export default function MobileNav() {
             Call Now
           </a>
           <Link
-            href="/web-design-pricing/"
+            href="/contact-us/"
             onClick={() => setOpen(false)}
             className="flex items-center justify-center gap-2 w-full px-4 py-3 rounded-full bg-orange-500 text-white font-bold text-sm hover:bg-orange-600 transition-colors shadow-md"
           >
-            Get My Website
+            Contact Us
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>

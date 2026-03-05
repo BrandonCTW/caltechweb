@@ -10,7 +10,7 @@ const navLinks = [
   { label: "Pricing", href: "/web-design-pricing/" },
   { label: "Case Studies", href: "/case-studies/" },
   { label: "About", href: "/brandon-hopkins/" },
-  { label: "Support", href: "/support/" },
+  { label: "Contact", href: "/contact-us/" },
 ];
 
 export default function Header() {
@@ -24,7 +24,7 @@ export default function Header() {
         <span>Unlimited updates, hosting &amp; support all included.</span>
         <span className="opacity-60 mx-1.5 hidden sm:inline">·</span>
         <Link
-          href="/web-design-pricing/"
+          href="/contact-us/"
           className="hidden sm:inline underline font-semibold hover:text-blue-100 transition-colors ml-0.5"
         >
           Schedule a Call →
@@ -68,10 +68,10 @@ export default function Header() {
                 Free Site Analysis
               </Link>
               <Link
-                href="/web-design-pricing/"
+                href="/contact-us/"
                 className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-orange-500 text-white text-sm font-semibold hover:bg-orange-600 transition-colors shadow-sm"
               >
-                Schedule a Call
+                Contact Us
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>
