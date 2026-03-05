@@ -1074,7 +1074,6 @@ function FeaturedLaunch() {
                   width={1280}
                   height={800}
                   className="w-full h-auto"
-                  priority
                 />
                 {/* Hover overlay */}
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center">
