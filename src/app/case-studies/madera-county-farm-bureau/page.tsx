@@ -133,7 +133,7 @@ function Hero() {
               <div className="flex-1 bg-gray-700 rounded-lg h-7 px-3 flex items-center gap-2">
                 <Shield className="w-3 h-3 text-green-400 shrink-0" />
                 <span className="text-xs text-gray-300 font-medium">
-                  maderacountyfarmbureau.com
+                  maderafb.com
                 </span>
               </div>
             </div>
@@ -159,7 +159,7 @@ const results = [
   {
     stat: "+55%",
     label: "Traffic Increase",
-    description: "Organic search traffic growth after launch",
+    description: "Website traffic growth after launch",
     Icon: TrendingUp,
     color: "text-emerald-500",
     bg: "bg-emerald-500/10",
@@ -619,8 +619,8 @@ const caseStudyJsonLd = {
     width: 1200,
     height: 800,
   },
-  datePublished: "2026-02-01",
-  dateModified: "2026-02-01",
+  datePublished: "2026-03-05",
+  dateModified: "2026-03-05",
   url: "https://caltechweb.com/case-studies/madera-county-farm-bureau/",
   mainEntityOfPage: {
     "@type": "WebPage",
