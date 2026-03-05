@@ -3,7 +3,7 @@ import { Geist } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 
-const geist = Geist({ subsets: ["latin"], display: "optional" });
+const geist = Geist({ subsets: ["latin"], display: "optional", preload: false });
 
 const siteUrl = "https://caltechweb.com/";
 const siteTitle = "CalTech Web | Affordable Website Design at $99/month";
