@@ -41,8 +41,6 @@ export default function Footer() {
                 { label: "Small Businesses", href: "/affordable-web-design-company/" },
                 { label: "Church Websites", href: "/affordable-church-websites/" },
                 { label: "Non-Profits", href: "/nonprofit-website-design/" },
-                { label: "Construction", href: "/affordable-construction-company-website/" },
-                { label: "Real Estate", href: "/affordable-real-estate-company-website/" },
               ].map(({ label, href }) => (
                 <li key={label}>
                   <Link href={href} className="hover:text-white transition-colors">{label}</Link>

@@ -652,69 +652,6 @@ function ChurchFAQ() {
   );
 }
 
-// --- Church Resources Section ---
-
-function ChurchResources() {
-  const articles = [
-    {
-      href: "/church-website-design-essentials/",
-      title: "Church Website Design: 7 Things Every Church Website Needs",
-      excerpt:
-        "Your church website is often the first thing a visitor sees before they ever walk through your doors. Here's what it needs to say, and do.",
-    },
-    {
-      href: "/ultimate-guide-christian-ministry-websites/",
-      title: "The Ultimate Guide to Christian Ministry Websites",
-      excerpt:
-        "A comprehensive guide to building ministry websites that grow your reach, covering devotional content, donation systems, and outreach tools.",
-    },
-    {
-      href: "/post-sermons-online/",
-      title: "How to Post Sermons Online: A Complete Guide for Churches",
-      excerpt:
-        "60% of people prefer engaging with faith content online. Here's how to get your sermons on your website with YouTube, podcasts, and searchable archives.",
-    },
-    {
-      href: "/church-website-support/",
-      title: "Church Website Support: Why Your Ministry Needs More Than a Template",
-      excerpt:
-        "Church websites have unique needs: online giving, sermon streaming, event management. Here's why a template won't cut it.",
-    },
-  ];
-
-  return (
-    <section className="py-16 sm:py-20 bg-white">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-10">
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900">
-            Church Website Resources
-          </h2>
-          <p className="text-gray-500 mt-3 max-w-xl mx-auto">
-            Practical guides written for pastors and church administrators.
-          </p>
-        </div>
-        <div className="grid sm:grid-cols-2 gap-5">
-          {articles.map(({ href, title, excerpt }) => (
-            <Link
-              key={href}
-              href={href}
-              className="group flex flex-col gap-3 bg-gray-50 border border-gray-100 rounded-2xl p-6 hover:bg-blue-50/50 hover:border-blue-100 transition-all"
-            >
-              <h3 className="font-bold text-gray-900 text-base leading-snug group-hover:text-blue-700 transition-colors">
-                {title}
-              </h3>
-              <p className="text-sm text-gray-500 leading-relaxed flex-1">{excerpt}</p>
-              <span className="inline-flex items-center gap-1.5 text-blue-600 text-sm font-semibold">
-                Read article <ArrowRight className="w-4 h-4" />
-              </span>
-            </Link>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 // --- CTA Section ---
 
 function CTASection() {
@@ -810,7 +747,6 @@ export default function AffordableChurchWebsitesPage() {
         <HowItWorks />
         <Testimonials />
         <ChurchFAQ />
-        <ChurchResources />
         <CTASection />
       </main>
       <Footer />

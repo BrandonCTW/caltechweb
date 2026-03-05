@@ -26,10 +26,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { slug: "affordable-web-design-for-small-businesses", date: "2026-02-12" },
     { slug: "website-maintenance-requirements", date: "2026-01-30" },
     { slug: "medical-practice-website-design", date: "2026-01-28" },
-    { slug: "church-website-support", date: "2026-01-22" },
-    { slug: "church-website-design-essentials", date: "2026-01-20" },
-    { slug: "post-sermons-online", date: "2026-01-05" },
-    { slug: "ultimate-guide-christian-ministry-websites", date: "2025-12-15" },
     { slug: "best-church-website-builder", date: "2026-02-25" },
   ];
 
