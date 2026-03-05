@@ -130,12 +130,18 @@ function Hero() {
                 <div className="w-3 h-3 rounded-full bg-yellow-400/80" />
                 <div className="w-3 h-3 rounded-full bg-green-400/80" />
               </div>
-              <div className="flex-1 bg-gray-700 rounded-lg h-7 px-3 flex items-center gap-2">
+              <a
+                href="https://maderafb.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 bg-gray-700 rounded-lg h-7 px-3 flex items-center gap-2 hover:bg-gray-600 transition-colors group"
+              >
                 <Shield className="w-3 h-3 text-green-400 shrink-0" />
-                <span className="text-xs text-gray-300 font-medium">
+                <span className="text-xs text-gray-300 font-medium group-hover:text-white transition-colors">
                   maderafb.com
                 </span>
-              </div>
+                <Globe className="w-3 h-3 text-gray-500 group-hover:text-gray-300 transition-colors ml-auto shrink-0" />
+              </a>
             </div>
             <Image
               src="/portfolio/madera-county-farm-bureau.png"
