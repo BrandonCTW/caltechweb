@@ -22,6 +22,7 @@ import {
   XCircle,
   Globe,
 } from "lucide-react";
+import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
@@ -612,6 +613,7 @@ const testimonials = [
       "CalTech Web helped us with our domain, new website, and even solved a situation with image copyright! I highly recommend them for all nonprofit organization websites.",
     name: "Christina Beckstead",
     role: "Executive Director, Madera County Farm Bureau",
+    image: "/testimonials/christina-beckstead.jpg",
     initials: "CB",
     color: "bg-blue-600",
     result: "55% traffic increase · 1,000+ page site",
@@ -621,6 +623,7 @@ const testimonials = [
       "Wow! I'm blown away by the new website and how easy it has been to work with CalTech Web!",
     name: "Ryan McWherter",
     role: "Executive Director, Madera County Food Bank",
+    image: "/testimonials/ryan-mcwherter.jpg",
     initials: "RM",
     color: "bg-green-600",
     result: "Fast launch · Zero tech headaches",
@@ -630,6 +633,7 @@ const testimonials = [
       "CalTech Web gave our organization a professional online home that our members love. The event registration and chapter pages have made it so much easier to stay connected across the state.",
     name: "California Women for Agriculture",
     role: "Member-based nonprofit organization",
+    image: null,
     initials: "CW",
     color: "bg-purple-600",
     result: "Member portal · Event pages · Statewide reach",
@@ -655,7 +659,7 @@ function Testimonials() {
         </div>
 
         <div className="grid sm:grid-cols-3 gap-6">
-          {testimonials.map(({ quote, name, role, initials, color, result }) => (
+          {testimonials.map(({ quote, name, role, image, initials, color, result }) => (
             <div
               key={name}
               className="bg-gray-50 rounded-2xl p-7 border border-gray-100 flex flex-col gap-5"
@@ -670,11 +674,21 @@ function Testimonials() {
               </blockquote>
               <div className="pt-4 border-t border-gray-200 space-y-3">
                 <div className="flex items-center gap-3">
-                  <div
-                    className={`w-10 h-10 rounded-full ${color} flex items-center justify-center text-white text-sm font-bold shrink-0`}
-                  >
-                    {initials}
-                  </div>
+                  {image ? (
+                    <Image
+                      src={image}
+                      alt={name}
+                      width={40}
+                      height={40}
+                      className="w-10 h-10 rounded-full object-cover shrink-0"
+                    />
+                  ) : (
+                    <div
+                      className={`w-10 h-10 rounded-full ${color} flex items-center justify-center text-white text-sm font-bold shrink-0`}
+                    >
+                      {initials}
+                    </div>
+                  )}
                   <div>
                     <div className="font-semibold text-gray-900 text-sm">{name}</div>
                     <div className="text-xs text-gray-400">{role}</div>
