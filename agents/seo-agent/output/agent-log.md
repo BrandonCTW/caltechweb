@@ -1,3 +1,131 @@
+[2026-03-04] === SEO AGENT RUN #9 ===
+
+## Fix: New Blog Post Targeting "best church website builder" (29,000 vol, difficulty 34)
+
+### Opportunity Identified
+
+Ahrefs data showed caltechweb.com had **99 organic keywords** and **321 monthly traffic**. The site had zero content targeting "best church website builder" — a keyword with:
+- **29,000 monthly searches** in the US
+- **Difficulty: 34** (achievable for a DR 56 domain)
+- **Traffic potential: 14,000/month**
+
+This is 90× the current total site traffic as the upside ceiling. Church websites is a core niche for CalTech Web, but no comparison/review content existed for the primary informational keyword in that niche.
+
+**Fix:** Created a new blog post at `/best-church-website-builder/` with:
+- H1, title tag, and meta description directly targeting "best church website builder"
+- Honest comparison of 6 platforms: Squarespace, Wix, Faithlife Sites, Ekklesia360, Ministry Designs, and CalTech Web
+- Specific pros/cons and "who it's for" guidance for each option
+- Decision framework section targeting secondary intents
+- 9 min read, 7 content sections — depth comparable to what ranks for this query
+- Added to sitemap.ts with date `2026-02-25`
+- Added to blog listing page (blog/page.tsx)
+- Linked from `church-website-support` and `church-website-design-essentials` related arrays
+
+### Why This Works
+
+The search intent is clearly comparison/informational. Google rewards depth and genuine helpfulness over thin promotional content. The post honestly evaluates competing platforms before positioning CalTech Web for a specific use case (small churches that don't want to DIY). This pattern is consistent with what ranks for "best [category] tool" queries.
+
+Secondary keywords the post can rank for: "church website builder" (1,200 vol, difficulty 21), "church website design" (700 vol, difficulty 30), "church website examples" (250 vol, difficulty 5).
+
+---
+
+[2026-03-04] === SEO AGENT RUN #8 ===
+
+## Fix 1: Sitemap Had 16 Broken URLs (404 Waste of Crawl Budget)
+
+### Problem Identified
+
+`sitemap.ts` listed 20 blog post URLs, but only 4 blog posts actually existed in `[slug]/page.tsx`. The other 16 URLs returned 404 errors. Google's documentation explicitly states sitemaps should only contain URLs that return HTTP 200 responses. Crawl budget spent on 404s:
+- Wastes Googlebot's crawl budget on dead pages
+- Signals to Google that the sitemap is unreliable
+- The actual Dr. Kanuri post (slug: `medical-practice-website-design`) had NO sitemap entry, while the incorrect slug `dr-kanuri-40-percent-traffic-increase` was listed instead
+- `/video-website-audit/` was a real page with proper metadata but completely absent from the sitemap
+
+**Fix:** Removed 12 non-existent slugs, corrected the Dr. Kanuri slug, and added `/video-website-audit/`.
+
+---
+
+## Fix 2: 4 Broken Internal Links on Church Websites Landing Page
+
+### Problem Identified
+
+`/affordable-church-websites/page.tsx` featured a "Church Website Resources" section linking to 4 blog posts that didn't exist:
+- `/church-website-design-essentials/`
+- `/ultimate-guide-christian-ministry-websites/`
+- `/post-sermons-online/`
+- `/church-website-support/`
+
+Internal links to 404 pages waste link equity, frustrate users, and are a confirmed negative signal per Google's guidelines.
+
+**Fix:** Wrote all 4 missing church blog posts as full-length articles in `[slug]/page.tsx`, added them to the blog listing page, and kept their sitemap entries (now valid).
+
+---
+
+## Fix 3: Broken `related` Arrays in Existing Blog Posts
+
+### Problem Identified
+
+Three existing blog posts referenced non-existent post slugs in their `related` arrays:
+- `affordable-web-design-company` → referenced `99-month-vs-diy-website-builders`, `1-hour-support-why-it-matters`
+- `affordable-web-design-for-small-businesses` → referenced `99-month-vs-diy-website-builders`, `small-business-website-redesign-signs`
+- `website-maintenance-requirements` → referenced `web-design-vs-web-hosting`, `who-updates-a-website-after-the-web-designer-finishes`
+
+These silently fail (no related posts shown), missing internal linking opportunities.
+
+**Fix:** Updated all three to reference only existing posts.
+
+---
+
+[2026-03-04] === SEO AGENT RUN #7 ===
+
+## Fix 1: Case Study Page Missing from Sitemap
+
+### Problem Identified
+
+`/case-studies/madera-county-farm-bureau/` existed and had proper metadata, BreadcrumbList schema, and Article schema — but it was **completely absent from `sitemap.ts`**. All other static pages (homepage, pricing, portfolio, blog, contact, church websites, competitor comparison, quote page, RFP page, report card) were listed in the sitemap. This page was the only one omitted.
+
+Google's documentation on XML sitemaps states that the sitemap is one of two primary ways Googlebot discovers URLs (the other being internal links). While the page was reachable via internal links from the portfolio page, omitting it from the sitemap means:
+- Google has no lastmod signal for the page, so it can't prioritize recrawls
+- The page is lower-priority in Googlebot's crawl queue compared to sitemap-listed URLs
+
+**Fix:** Added `/case-studies/madera-county-farm-bureau/` to the `staticPages` array in `src/app/sitemap.ts`.
+
+---
+
+## Fix 2: Incomplete Article Schema on Case Study Page
+
+### Problem Identified
+
+`src/app/case-studies/madera-county-farm-bureau/page.tsx` had an Article schema declaration but it was missing **four fields that Google requires or strongly recommends for Article rich result eligibility**:
+
+| Missing Field | Google's Requirement |
+|---|---|
+| `datePublished` | **Required** for Article rich results |
+| `dateModified` | Recommended; Google uses it for freshness signals |
+| `url` | Recommended; identifies the canonical URL |
+| `mainEntityOfPage` | Recommended; ties the schema to the page itself |
+
+The existing schema also used a plain string for `image` instead of an `ImageObject` (which Google's Article spec recommends for providing dimensions), and used `@type: Organization` for `author` instead of `@type: Person`. Google's Article rich results documentation specifies that `author` should be a `Person` for authored content.
+
+### What Was Changed
+
+**`src/app/case-studies/madera-county-farm-bureau/page.tsx`**
+
+1. Added `datePublished: "2026-02-01"` and `dateModified: "2026-02-01"`
+2. Added `url` pointing to the canonical case study URL
+3. Added `mainEntityOfPage` with `@type: WebPage` and `@id` matching the canonical URL
+4. Changed `image` from a plain string to an `ImageObject` with `width` and `height`
+5. Changed `author` from `@type: Organization` to `@type: Person` (Brandon Hopkins) with URL to his bio page
+6. Added `logo` to the `publisher` Organization object (consistent with the blog post schema pattern already in use on `[slug]/page.tsx`)
+
+### Why It Matters
+
+Google's Article rich results (star ratings, image thumbnails, publish date) require `datePublished` at minimum. Sites that qualify for Article rich results get a visually richer SERP listing — a thumbnail image and date appear inline — which increases CTR. The case study page is a high-quality, conversion-focused page targeting "non-profit website design" and "farm bureau website" queries. Getting it into rich result eligibility increases its SERP footprint.
+
+TypeScript check: exit 0, no errors. Deployed to production (Ready).
+
+---
+
 [2026-02-25] === SEO AGENT RUN #6 ===
 
 ## Fix: FAQPage Schema + FAQ Section on Competitor Comparison Page
@@ -1924,3 +2052,70 @@ Done. Here's what was done this run:
 **Why it matters:** Google's FAQPage rich results expand the SERP listing to show Q&A pairs directly under the page title — a larger footprint that pushes competitors' listings down and pre-answers the objections that determine whether someone clicks. TypeScript: exit 0.
 [2026-02-25 18:26:24] Run #15 finished
 [2026-02-25 18:26:24] Reached max loops (15). Stopping.
+[2026-03-04 17:28:14] ==========================================
+[2026-03-04 17:28:14] Agent: Seo Agent
+[2026-03-04 17:28:14] Model: sonnet
+[2026-03-04 17:28:14] Workspace: /Users/brandonhopkins/Projects/caltechweb/agents/seo-agent
+[2026-03-04 17:28:14] Stop on complete: false
+[2026-03-04 17:28:14] Max loops: 3 (0=infinite)
+[2026-03-04 17:28:14] ==========================================
+[2026-03-04 17:28:14] Run #1 starting (model: sonnet)
+Two fixes deployed:
+
+**Fix 1 — Missing sitemap entry (`sitemap.ts`)**
+`/case-studies/madera-county-farm-bureau/` was absent from the XML sitemap despite being a real, indexed-worthy page. Added it to `staticPages`. Google uses the sitemap both for discovery and for lastmod-based recrawl prioritization.
+
+**Fix 2 — Incomplete Article schema (`case-studies/madera-county-farm-bureau/page.tsx`)**
+The Article structured data was missing fields Google requires/recommends for Article rich result eligibility:
+- `datePublished` — **required** per Google's spec
+- `dateModified` — used for freshness signals
+- `url` and `mainEntityOfPage` — tie the schema to the canonical URL
+- `image` upgraded from a plain string to `ImageObject` with dimensions
+- `author` corrected from `Organization` to `Person` (Brandon Hopkins)
+- `publisher.logo` added to match the pattern already used on blog posts
+[2026-03-04 17:33:19] Run #1 finished
+[2026-03-04 17:33:24] Run #2 starting (model: sonnet)
+Deployment is live (`● Ready`). Here's what was fixed this run:
+
+---
+
+**Problem:** The sitemap was pointing Google at 16 URLs that return 404 — a direct waste of crawl budget that Google's documentation explicitly says to avoid.
+
+**Fixes made:**
+
+1. **Sitemap cleaned up** — Removed 12 non-existent blog post slugs. Fixed the Dr. Kanuri slug (`dr-kanuri-40-percent-traffic-increase` → `medical-practice-website-design`, which is the actual page slug). Added `/video-website-audit/` which had full metadata and schema but was completely missing from the sitemap.
+
+2. **4 church blog posts written** — The `/affordable-church-websites/` landing page had a "Resources" section with 4 links all going to 404s. Wrote real content for all 4:
+   - `church-website-design-essentials` — 7 things every church site needs
+   - `church-website-support` — why templates fail churches
+   - `post-sermons-online` — YouTube, podcasts, on-site archives + SEO
+   - `ultimate-guide-christian-ministry-websites` — full ministry site guide
+
+3. **Broken `related` arrays fixed** — Three existing posts referenced non-existent slugs in their related sections. Updated to point to real posts.
+[2026-03-04 17:43:46] Run #2 finished
+[2026-03-04 17:43:51] Run #3 starting (model: sonnet)
+Done. Here's what was done and why:
+
+---
+
+## SEO Action: New Blog Post — "Best Church Website Builder"
+
+**Keyword target**: `best church website builder`  
+**Monthly volume**: 29,000 | **Difficulty**: 34 | **Traffic potential**: 14,000/month
+
+**Why this keyword**: Ahrefs showed the site has only 321 total monthly organic traffic across 99 keywords. Church websites is a core niche for CalTech Web, but there was zero content targeting the primary informational/comparison search in that space. A DR 56 domain can rank for difficulty 34 with substantive content.
+
+**What was created** (`/best-church-website-builder/`):
+- 9-minute read comparing 6 platforms: Squarespace, Wix, Faithlife Sites, Ekklesia360, Ministry Designs, and CalTech Web
+- Genuine pros/cons for each option — not a promotional listicle
+- Decision framework by church size/capacity
+- Keyword in H1, title, URL, and meta description
+
+**Supporting changes**:
+- Added to `sitemap.ts`
+- Added to blog listing page
+- Linked from `church-website-support` and `church-website-design-essentials` related posts (internal link equity flows to new post)
+
+**Secondary keyword upside**: "church website builder" (1,200 vol, difficulty 21), "church website design" (700 vol, difficulty 30), "how to create a church website" (200 vol, difficulty 3).
+[2026-03-04 17:51:37] Run #3 finished
+[2026-03-04 17:51:37] Reached max loops (3). Stopping.
