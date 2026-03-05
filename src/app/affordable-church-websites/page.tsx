@@ -500,6 +500,7 @@ const churchTestimonials = [
     role: "Pastor, Calvary Chapel Los Alamitos",
     initials: "BN",
     color: "bg-indigo-600",
+    image: "/testimonials/bryan-newberry.jpg",
   },
   {
     quote:
@@ -529,7 +530,7 @@ function Testimonials() {
         </div>
 
         <div className="grid sm:grid-cols-3 gap-6">
-          {churchTestimonials.map(({ quote, name, role, initials, color }) => (
+          {churchTestimonials.map(({ quote, name, role, initials, color, image }) => (
             <div
               key={name}
               className="bg-gray-50 rounded-2xl p-7 border border-gray-100 flex flex-col gap-5"
@@ -548,11 +549,15 @@ function Testimonials() {
               </blockquote>
 
               <div className="flex items-center gap-3 pt-4 border-t border-gray-200">
+                {image ? (
+                  <Image src={image} alt={name} width={40} height={40} className="w-10 h-10 rounded-full object-cover shrink-0" />
+                ) : (
                 <div
                   className={`w-10 h-10 rounded-full ${color} flex items-center justify-center text-white text-sm font-bold shrink-0`}
                 >
                   {initials}
                 </div>
+                )}
                 <div>
                   <div className="font-semibold text-gray-900 text-sm">
                     {name}

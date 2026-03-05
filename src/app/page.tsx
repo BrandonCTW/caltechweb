@@ -1353,6 +1353,7 @@ function Testimonials() {
       role: "Pastor, Calvary Chapel Los Alamitos",
       initials: "BN",
       color: "bg-purple-600",
+      image: "/testimonials/bryan-newberry.jpg",
     },
     {
       quote:
