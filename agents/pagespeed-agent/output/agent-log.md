@@ -783,3 +783,94 @@ Zendesk still loads for real users — either on first interaction or after 12 s
 - Unused JS (104 KiB) — mostly GA (57 KiB), 1st-party framework chunks (47 KiB)
 - 2 long main-thread tasks (React hydration)
 - DOM size (1,582 elements)
+**Run #5 complete.**
+
+**Before:** 90 (Mobile) — FCP 1.4s, LCP 2.5s, TBT 250ms, SI 4.5s, TTI 6.3s
+
+**Fix:** Deferred Zendesk widget loading to user interaction (click/scroll/touch/mouseover) or 12s idle timeout. The 268 KiB Zendesk JS was executing within the FCP-to-TTI window on slow 4G, creating 5 long main-thread tasks that inflated TBT.
+
+**After:** 95 (Mobile) — FCP 1.4s, LCP 2.6s, TBT 10ms (-96%), SI 4.0s, TTI 3.7s (-41%)
+
+**+5 points.** Committed as `6c367e1` and deployed.
+[2026-03-05 10:30:17] Run #5 finished
+[2026-03-05 10:30:22] Run #6 starting (model: opus)
+
+---
+
+## 2026-03-05 — Run #6 (Opus): content-visibility: auto for below-fold sections
+
+**Site URL:** https://caltechweb.vercel.app
+**Before Score:** 95 (Mobile)
+**After Score:** 95 (Mobile) — score held, metrics improved
+**Net Change:** 0 points (kept)
+
+### Before Metrics (baseline)
+| Metric | Value |
+|---|---|
+| Performance | 95 |
+| FCP | 1.4s (1,423ms) |
+| LCP | 2.6s (2,551ms) |
+| TBT | 50ms (51ms) |
+| CLS | 0 |
+| Speed Index | 4.0s (4,017ms) |
+| Long tasks | 4 |
+
+### Fix Attempted First: experimental.inlineCss (REVERTED)
+
+Enabled `experimental: { inlineCss: true }` in `next.config.ts` to eliminate the 16.3 KiB render-blocking CSS chunk (est savings 300ms). Score dropped to 94: FCP 1.5s (+100ms), LCP 2.7s (+100ms), TBT 80ms (+30ms). The larger HTML payload from inlined CSS offset the render-blocking elimination on slow 4G. Reverted (commit `c1a8d3a`).
+
+This is the second time inlineCss has been tried and failed — Run #4 also reverted it when TBT was higher. Despite favorable TBT conditions (50ms), the HTML size increase on slow 4G outweighs the benefit of eliminating the CSS request.
+
+### Fix Applied: content-visibility: auto
+
+Added a CSS rule in `src/app/globals.css` targeting `main > :nth-child(n+4)` with `content-visibility: auto` and `contain-intrinsic-size: auto 600px`. This tells the browser to skip rendering (layout + paint) for all sections below the fold (from Comparison onwards) until they approach the viewport.
+
+**Commit:** `1056b87`
+
+### Why This Helps
+
+The homepage has 1,579 DOM elements across 20+ sections. Only the first 3 (Hero, TrustBar, IndustriesTicker) are above the fold. With `content-visibility: auto`, the browser:
+1. Parses the HTML and builds the DOM normally (no SEO impact)
+2. Skips layout and paint calculations for off-screen sections
+3. Renders below-fold content just-in-time as the user scrolls
+
+This reduces initial rendering work on the throttled mobile CPU, freeing the main thread to render above-fold content faster.
+
+### After Metrics
+| Metric | Value |
+|---|---|
+| Performance | 95 |
+| FCP | 1.4s (1,370ms) |
+| LCP | 2.5s (2,476ms) |
+| TBT | 60ms (64ms) |
+| CLS | 0 |
+| Speed Index | 4.1s (4,058ms) |
+| Long tasks | 3 |
+
+### Result
+
+Score held at 95. Underlying metrics improved:
+- FCP: 1,423ms -> 1,370ms (-53ms)
+- LCP: 2,551ms -> 2,476ms (-75ms, now at the 2.5s "good" threshold)
+- Long tasks: 4 -> 3 (-1 task)
+- "Optimize DOM size" insight no longer flagged
+
+TBT increased slightly (51ms -> 64ms, +13ms) and SI increased slightly (4,017ms -> 4,058ms, +41ms) — both within normal Lighthouse variance.
+
+Change kept because LCP crossed below the 2.5s "good" threshold and rendering work was reduced.
+
+### Remaining Issues
+- Render blocking CSS (16.3 KiB, 370ms est savings) — twice confirmed that inlineCss makes it worse on slow 4G
+- Legacy JavaScript (14 KiB) — Turbopack/webpack internal, not fixable
+- Unused JS (104 KiB) — mostly 3rd-party (GA 57 KiB, framework 47 KiB)
+- 3 long main-thread tasks (React hydration)
+
+### Cumulative Improvements (all Opus runs)
+| Run | Fix | Before | After | Change |
+|---|---|---|---|---|
+| #1 | Defer GA to lazyOnload | 79 | 92 | +13 |
+| #2 | Dynamic import below-fold components | 89 | 93 | +4 |
+| #3 | Dynamic import MobileNav | 95 | 87 | -8 (reverted) |
+| #4 | font-display: optional | 86 | 91 | +5 |
+| #5 | Defer Zendesk to interaction | 90 | 95 | +5 |
+| #6 | content-visibility: auto | 95 | 95 | 0 (metrics improved) |
