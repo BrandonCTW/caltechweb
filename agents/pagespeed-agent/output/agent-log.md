@@ -219,3 +219,490 @@ The Google PageSpeed Insights API free-tier daily quota has been at zero for all
 [2026-03-05 08:49:33] ==========================================
 [2026-03-05 08:49:33] Run #1 starting (model: sonnet)
 [2026-03-05 08:49:35] Claude command interrupted or failed
+[2026-03-05 08:54:11] ==========================================
+[2026-03-05 08:54:11] Agent: Pagespeed Agent
+[2026-03-05 08:54:11] Model: sonnet
+[2026-03-05 08:54:11] Workspace: /Users/brandonhopkins/Projects/caltechweb/agents/pagespeed-agent
+[2026-03-05 08:54:11] Stop on complete: false
+[2026-03-05 08:54:11] Max loops: 3 (0=infinite)
+[2026-03-05 08:54:11] ==========================================
+[2026-03-05 08:54:11] Run #1 starting (model: sonnet)
+
+---
+
+## 2026-03-05 — Run #1: font-display fix attempted and reverted
+
+**Site URL:** https://caltechweb.vercel.app
+**Before Score:** 74 (Mobile)
+**After Score:** 73 (Mobile) — score DECREASED, change reverted
+**Net Change:** -1 point (reverted)
+
+### Before Metrics (baseline)
+| Metric | Value |
+|---|---|
+| Performance | 74 |
+| FCP | 2.5s |
+| LCP | 4.2s |
+| TBT | 240ms |
+| CLS | 0 |
+| Speed Index | 5.1s |
+
+### Fix Attempted
+Changed `Geist({ subsets: ["latin"] })` to `Geist({ subsets: ["latin"], display: "optional" })` in `src/app/layout.tsx` — commit `fda3dbe`.
+
+**Hypothesis:** The h1 hero heading uses `font-extrabold` (weight 800). Only one of the three Geist font files is preloaded (the `.p.` variant). The other two variants (14KB and 15KB) are discovered lazily. On slow 4G with CPU throttling, these variants load late, causing a font-swap at ~4.2s that re-registers the h1 as a new LCP candidate. Changing to `font-display: optional` would eliminate the swap period.
+
+### After Metrics (with font-display: optional)
+| Metric | Value |
+|---|---|
+| Performance | 73 |
+| FCP | 2.6s |
+| LCP | 4.2s |
+| TBT | 280ms |
+| CLS | 0 |
+| Speed Index | 4.9s |
+
+### Result
+LCP unchanged at 4.2s — font-swap is NOT the cause of the late LCP. Score decreased by 1 point (within normal Lighthouse variance but in the wrong direction). Reverted per agent rules.
+
+### Key Findings from Investigation
+- **CSS chunk:** 16.3 KiB compressed / 99 KB uncompressed — render-blocking, 541ms critical path
+- **Geist font files:** 3 woff2 files; only one preloaded (28KB); other two (14KB, 15KB) are NOT preloaded
+- **LCP breakdown:** h1 element render delay = ~2.4s, but reported LCP = 4.2s (consistent ~1.8s gap)
+- **LCP root cause unknown:** The h1 renders at ~2.4s but something LARGER renders at ~4.2s. Not font-swap. Could be:
+  1. A large client-side rendered element appearing after React hydration completes (~4.2s)
+  2. `madera-men-of-integrity.png` (100KB+ preloaded due to `priority`) causing bandwidth competition that delays critical resources, indirectly affecting when the true LCP element renders
+  3. The large 421KB HTML (uncompressed) requiring extensive CPU parsing time on throttled mobile
+- **Unnecessary preload:** `madera-men-of-integrity.png` (line 1077, `src/app/page.tsx`) has `priority` set — it's in the `FeaturedLaunch` section far below the fold. This causes an unnecessary `<link rel="preload">` for a 100KB+ image competing with the CSS and fonts on slow 4G.
+
+### Reverted
+Commit `69c8018` — restored `font-display: swap` (next/font/google default).
+
+### Next Fix to Try
+Remove `priority` from `madera-men-of-integrity.png` in `src/app/page.tsx:1077`. This is a clear performance antipattern — below-fold images must never use `priority`. Removing it:
+1. Eliminates the unnecessary `<link rel="preload">` for a 100KB+ non-critical image
+2. Frees bandwidth for critical CSS, fonts, and hero content
+3. May reduce FCP and indirectly reduce the main-thread bottleneck
+
+Run complete. Here's the summary:
+
+---
+
+**Before:** Score 74, LCP 4.2s, FCP 2.5s, TBT 240ms
+
+**Fix attempted:** Changed Geist `font-display` from `swap` to `optional` to eliminate a theorized font-swap at 4.2s causing LCP re-measurement.
+
+**Result:** Score 73, LCP 4.2s (unchanged). Font-swap was NOT the cause. Change reverted per rules.
+
+**Key finding:** There's a consistent ~1.8s gap between when the h1 first renders (~2.4s) and the reported LCP (4.2s). The LCP element at 4.2s is something OTHER than the h1 text — likely caused by:
+- React hydration completing at ~4.2s and rendering a large client-side element, OR
+- The `madera-men-of-integrity.png` having an unnecessary `priority` prop (100KB+ preload competing for bandwidth on slow 4G)
+
+**Next run should fix:** Remove `priority` from `src/app/page.tsx:1077` — a below-fold portfolio image should never be preloaded.
+[2026-03-05 09:13:33] Run #1 finished
+[2026-03-05 09:13:38] Run #2 starting (model: sonnet)
+
+---
+
+## 2026-03-05 — Run #2: Remove below-fold priority prop
+
+**Site URL:** https://caltechweb.vercel.app
+**Before Score:** 70 (Mobile)
+**After Score:** 73 (Mobile)
+**Net Change:** +3 points
+
+### Before Metrics
+| Metric | Value |
+|---|---|
+| Performance | 70 |
+| FCP | 2.9s |
+| LCP | 4.2s |
+| TBT | 340ms |
+| CLS | 0 |
+| Speed Index | 5.2s |
+
+### Fix Applied
+
+Removed `priority` prop from the `madera-men-of-integrity.png` portfolio image in `src/app/page.tsx:1072`. This image is in the `FeaturedLaunch` section well below the fold. The `priority` prop was causing Next.js to emit a `<link rel="preload">` for a 100KB+ non-critical image, competing for bandwidth with CSS, fonts, and hero content on slow 4G.
+
+**Commit:** `524049f`
+
+### After Metrics
+| Metric | Value |
+|---|---|
+| Performance | 73 |
+| FCP | 2.6s |
+| LCP | 4.1s |
+| TBT | 320ms |
+| CLS | 0 |
+| Speed Index | 4.7s |
+
+### Result
+
+Score improved +3 points. Every metric improved:
+- FCP: 2.9s → 2.6s (-300ms)
+- LCP: 4.2s → 4.1s (-100ms)
+- TBT: 340ms → 320ms (-20ms)
+- Speed Index: 5.2s → 4.7s (-500ms)
+
+Removing the unnecessary preload freed bandwidth for critical resources on the slow 4G emulated connection.
+
+### Remaining Top Issues (for next run)
+- **Render blocking requests** — Est savings of 150ms (CSS chunk)
+- **Legacy JavaScript** — Est savings of 14 KiB
+- **Reduce unused JavaScript** — Est savings of 219 KiB
+- **LCP still 4.1s** — root cause unknown; h1 renders ~2.4s but something else registers LCP at 4.1s
+Run complete. Here's the summary:
+
+---
+
+**Before:** Score 70, FCP 2.9s, LCP 4.2s, TBT 340ms, SI 5.2s
+
+**Fix:** Removed `priority` from `madera-men-of-integrity.png` (`src/app/page.tsx:1072`) — a below-fold portfolio image that was emitting an unnecessary `<link rel="preload">` for a 100KB+ image, competing with critical CSS and fonts on slow 4G.
+
+**After:** Score 73 (+3), FCP 2.6s, LCP 4.1s, TBT 320ms, SI 4.7s
+
+**Committed:** `524049f` — deployed to https://caltechweb.vercel.app
+[2026-03-05 09:18:08] Run #2 finished
+[2026-03-05 09:18:13] Run #3 starting (model: sonnet)
+
+---
+
+## 2026-03-05 — Run #3: browserslist fix attempted and reverted
+
+**Site URL:** https://caltechweb.vercel.app
+**Before Score:** 78 (Mobile)
+**After Score:** 76 (Mobile) — score DECREASED, change reverted
+**Net Change:** -2 points (reverted)
+
+### Before Metrics (baseline)
+| Metric | Value |
+|---|---|
+| Performance | 78 |
+| FCP | 2.5s |
+| LCP | 4.1s |
+| TBT | 150ms |
+| CLS | 0 |
+| Speed Index | 5.1s |
+
+### LCP Breakdown (from before analysis)
+- TTFB subpart: 0ms (navigation-to-HTML ~1.5s is the unlisted portion)
+- Element render delay: 2,570ms
+- LCP element: `h1.text-4xl` "Professional Website Design for Just $99/month"
+- Total LCP: 4,064ms (TTFB ~1.5s + element render delay 2.57s)
+
+### Fix Attempted
+Added `"browserslist"` to `package.json` targeting Chrome 93+, Edge 93+, Firefox 92+, Safari 15.4+ to eliminate 13.7 KiB of legacy polyfills (Array.prototype.at/flat/flatMap, Object.fromEntries/hasOwn, String.prototype.trimStart/trimEnd).
+
+**Hypothesis:** Removing legacy polyfills would reduce JavaScript parse/execution time, lowering TBT and potentially improving LCP.
+
+### After Metrics
+| Metric | Value |
+|---|---|
+| Performance | 76 |
+| FCP | 2.6s |
+| LCP | 4.1s |
+| TBT | 220ms |
+| CLS | 0 |
+| Speed Index | 5.1s |
+
+### Result
+Score decreased by 2 points. TBT worsened from 150ms to 220ms. The "Legacy JavaScript" insight still appeared at 14 KiB unchanged — confirming that **Turbopack does not respect `browserslist` in `package.json`** for polyfill decisions. The fix had no effect on the polyfills but may have altered bundle splitting in a way that increased TBT.
+
+### Reverted
+Commits `dd5b26c` (add) and `41dc864` (revert) — restored to baseline on main.
+
+### Key Findings
+- Turbopack's polyfill behavior is NOT controlled by `browserslist` in `package.json`
+- The "Legacy JavaScript" polyfills come from Next.js/Turbopack's internal polyfill system
+- The 2,570ms element render delay is the dominant LCP subpart — driven by render-blocking CSS (190ms) + JavaScript hydration time (~2s+)
+- LCP element is confirmed as the h1 heading (text node, no image resource to optimize)
+
+### Next Fix Candidates
+1. **Render-blocking CSS (190ms)**: The 16.3 KiB CSS chunk is the only render-blocking resource. Inlining critical CSS above the fold would allow the h1 to paint earlier. This is complex in Next.js App Router.
+2. **JavaScript hydration delay**: The ~2s element render delay post-TTFB suggests the h1 may be in a client component, delaying its render until after hydration. If the hero section can be converted to a pure server component with no client boundary, it would render in the initial HTML paint.
+3. **DOM size reduction**: "Optimize DOM size" insight present — the 421KB HTML is very large for a marketing page.
+
+**Run #3 complete.**
+
+---
+
+**Before:** 78 (Mobile) — FCP 2.5s, LCP 4.1s, TBT 150ms
+
+**Fix attempted:** Added `browserslist` to `package.json` targeting Chrome/Edge 93+, Firefox 92+, Safari 15.4+ to eliminate 13.7 KiB of legacy polyfills.
+
+**After:** 76 (Mobile) — TBT increased to 220ms. Score **decreased by 2**. Change **reverted**.
+
+**Root cause:** Turbopack does not use `browserslist` from `package.json` for polyfill decisions. The legacy JS chunk was identical before and after. The score drop was within variance but in the wrong direction.
+
+**Key finding from LCP breakdown:** The h1 has a 2,570ms element render delay from TTFB — the bottleneck is JavaScript hydration time, not font loading. The next run should investigate whether the hero section contains a client component boundary that delays initial render.
+[2026-03-05 09:27:40] Run #3 finished
+[2026-03-05 09:27:40] Reached max loops (3). Stopping.
+[2026-03-05 09:33:45] ==========================================
+[2026-03-05 09:33:45] Agent: Pagespeed Agent
+[2026-03-05 09:33:45] Model: opus
+[2026-03-05 09:33:45] Workspace: /Users/brandonhopkins/Projects/caltechweb/agents/pagespeed-agent
+[2026-03-05 09:33:45] Stop on complete: false
+[2026-03-05 09:33:45] Max loops: 10 (0=infinite)
+[2026-03-05 09:33:45] ==========================================
+[2026-03-05 09:33:45] Run #1 starting (model: opus)
+
+---
+
+## 2026-03-05 — Run (Opus): Defer Google Analytics to lazyOnload
+
+**Site URL:** https://caltechweb.vercel.app
+**Before Score:** 79 (Mobile)
+**After Score:** 92 (Mobile)
+**Net Change:** +13 points
+
+### Before Metrics (baseline)
+| Metric | Value |
+|---|---|
+| Performance | 79 |
+| FCP | 2.5s |
+| LCP | 4.2s |
+| TBT | 90ms |
+| CLS | 0 |
+| Speed Index | 5.1s |
+
+### Fix Applied
+
+Changed Google Analytics scripts in `src/app/layout.tsx` from `strategy="afterInteractive"` to `strategy="lazyOnload"`. This matches the existing Zendesk widget strategy.
+
+**Commit:** `c093e03`
+
+### Why This Helped
+
+The GA script (139.4 KiB transfer) was loading with `afterInteractive`, which injects a `<script defer>` in `<head>`. On slow 4G (1.6 Mbps), this 139 KiB download competed for bandwidth with the render-blocking CSS (16.3 KiB) and font files during the critical rendering phase. By deferring GA to `lazyOnload` (loads after the window `load` event), the CSS and fonts got the full bandwidth, dramatically reducing both FCP and LCP.
+
+### After Metrics
+| Metric | Value |
+|---|---|
+| Performance | 92 |
+| FCP | 1.4s |
+| LCP | 2.6s |
+| TBT | 120ms |
+| CLS | 0 |
+| Speed Index | 5.1s |
+
+### Result
+
+Score improved +13 points, crossing into the green zone (90+). Key improvements:
+- FCP: 2.5s -> 1.4s (-1.1s, 44% faster)
+- LCP: 4.2s -> 2.6s (-1.6s, 38% faster)
+- TBT: 90ms -> 120ms (+30ms, within variance, still green)
+
+### Remaining Issues
+- Render blocking requests (CSS, 370ms est savings)
+- Legacy JavaScript (14 KiB est savings)
+- Reduce unused JavaScript (219 KiB est savings)
+- Optimize DOM size (1,582 elements)
+- 7 long main-thread tasks
+Done. Here's the summary:
+
+**Before:** 79 (Mobile) — FCP 2.5s, LCP 4.2s, TBT 90ms
+
+**Fix:** Changed Google Analytics from `afterInteractive` to `lazyOnload` in `src/app/layout.tsx`. The GA script (139 KiB) was competing for bandwidth with CSS and fonts on slow 4G during the critical rendering phase.
+
+**After:** 92 (Mobile) — FCP 1.4s (-1.1s), LCP 2.6s (-1.6s), TBT 120ms
+
+**+13 points**, now in the green zone. Committed as `c093e03` and deployed.
+[2026-03-05 09:44:23] Run #1 finished
+[2026-03-05 09:44:28] Run #2 starting (model: opus)
+
+---
+
+## 2026-03-05 — Run #2 (Opus): Dynamic import below-fold client components
+
+**Site URL:** https://caltechweb.vercel.app
+**Before Score:** 89 (Mobile)
+**After Score:** 93 (Mobile)
+**Net Change:** +4 points
+
+### Before Metrics (baseline)
+| Metric | Value |
+|---|---|
+| Performance | 89 |
+| FCP | 1.4s |
+| LCP | 2.5s |
+| TBT | 290ms |
+| CLS | 0 |
+| Speed Index | 4.5s |
+
+### Fix Applied
+
+Converted three statically-imported `"use client"` components to `next/dynamic` imports in `src/app/page.tsx`:
+- `FAQ` (accordion with `useState`)
+- `SavingsCalculator` (interactive calculator with `useState`)
+- `TrustBar` (count-up animation with `useEffect`/`useState`/IntersectionObserver)
+
+All three are well below the fold (lines 2055+). Static imports included their JS in the initial page bundle; dynamic imports code-split them into separate async chunks.
+
+**Commit:** `eb04fd2`
+
+### After Metrics
+| Metric | Value |
+|---|---|
+| Performance | 93 |
+| FCP | 1.1s |
+| LCP | 2.2s |
+| TBT | 240ms |
+| CLS | 0 |
+| Speed Index | 3.2s |
+
+### Result
+
+Score improved +4 points, staying in the green zone (90+). Every metric improved:
+- FCP: 1.4s -> 1.1s (-300ms, 21% faster)
+- LCP: 2.5s -> 2.2s (-300ms, 12% faster)
+- TBT: 290ms -> 240ms (-50ms, 17% less blocking)
+- Speed Index: 4.5s -> 3.2s (-1.3s, 29% faster)
+
+Render blocking requests estimated savings also dropped from 330ms to 80ms — less JS in the initial bundle means the CSS chunk has less competition for bandwidth.
+
+### Remaining Issues
+- Legacy JavaScript (14 KiB est savings)
+- Render blocking requests (80ms est savings)
+- Reduce unused JavaScript (218 KiB est savings)
+- 7 long main-thread tasks (mostly 3rd party: ZenDesk, GA)
+**Before:** 89 (Mobile) — FCP 1.4s, LCP 2.5s, TBT 290ms, SI 4.5s
+
+**Fix:** Dynamically imported three below-fold client components (FAQ, SavingsCalculator, TrustBar) in `src/app/page.tsx`. Their JS was bundled in the initial page load despite being far below the fold. `next/dynamic` code-splits them into async chunks.
+
+**After:** 93 (Mobile) — FCP 1.1s (-300ms), LCP 2.2s (-300ms), TBT 240ms (-50ms), SI 3.2s (-1.3s)
+
+**+4 points**, still in the green zone. Committed as `eb04fd2` and deployed.
+[2026-03-05 09:50:28] Run #2 finished
+[2026-03-05 09:50:33] Run #3 starting (model: opus)
+
+---
+
+## 2026-03-05 — Run #3 (Opus): Dynamic import MobileNav — REVERTED
+
+**Site URL:** https://caltechweb.vercel.app
+**Before Score:** 95 (Mobile)
+**After Score:** 87 (Mobile) — score DECREASED, change reverted
+**Net Change:** -8 points (reverted)
+
+### Before Metrics (baseline)
+| Metric | Value |
+|---|---|
+| Performance | 95 |
+| FCP | 1.1s |
+| LCP | 2.2s |
+| TBT | 180ms |
+| CLS | 0 |
+| Speed Index | 3.4s |
+
+### Fix Attempted
+
+Changed `MobileNav` from a static import to a `next/dynamic` import in `src/components/Header.tsx`. The hypothesis was that deferring MobileNav's client JS (useState, useEffect, 5 lucide-react icons) would reduce initial bundle size and TBT.
+
+**Commit:** `0eaea7d`
+
+### After Metrics (with dynamic MobileNav)
+| Metric | Value |
+|---|---|
+| Performance | 87 |
+| FCP | 1.4s |
+| LCP | 2.6s |
+| TBT | 310ms |
+| CLS | 0 |
+| Speed Index | 4.4s |
+
+### Result
+
+Score decreased by 8 points. Every metric worsened:
+- FCP: 1.1s → 1.4s (+300ms)
+- LCP: 2.2s → 2.6s (+400ms)
+- TBT: 180ms → 310ms (+130ms)
+- Speed Index: 3.4s → 4.4s (+1.0s)
+
+The dynamic import created an additional async chunk request that added network overhead on slow 4G. The extra waterfall step (load page → discover chunk → fetch chunk → execute) increased total blocking time significantly. Render blocking requests est savings also jumped from 70ms to 330ms, suggesting the additional chunk added a new render-blocking dependency.
+
+### Reverted
+
+Commit `7da9ae0` — restored static MobileNav import. Pushed to main.
+
+### Key Learning
+
+Dynamic imports only help when the deferred code is large enough to offset the cost of an additional network request on slow 4G. MobileNav is too small (~134 lines) for the trade-off to be worthwhile. The overhead of an extra chunk request outweighed the savings from deferring its execution.
+
+### Remaining Optimization Candidates
+
+At score 95, the site is well into the green zone. Remaining issues are mostly:
+- Legacy JavaScript (14 KiB) — Turbopack ignores browserslist, not fixable
+- Render blocking CSS (16.3 KiB, 70ms) — single CSS chunk, standard Next.js behavior
+- Unused JS (218 KiB) — mostly 3rd party (ZenDesk 115 KiB, GA 57 KiB), already lazyOnload
+- 1st party unused JS (46 KiB) — React/Next.js framework chunks, not easily reducible
+- DOM size (1,582 elements) — would require content changes
+**Run #3 complete.**
+
+**Before:** 95 (Mobile) — FCP 1.1s, LCP 2.2s, TBT 180ms, SI 3.4s
+
+**Fix attempted:** Dynamic import of MobileNav in Header.tsx to defer its client JS from the initial bundle.
+
+**After:** 87 (Mobile) — every metric worsened. The extra async chunk request added network overhead on slow 4G, increasing TBT from 180ms to 310ms. Change **reverted** (commit `7da9ae0`).
+
+**Key learning:** Dynamic imports only help when the deferred code is large enough to offset the cost of an additional HTTP request on slow 4G. MobileNav is too small for the trade-off. The site remains at ~95 with most remaining issues being 3rd-party scripts and framework-level constraints that can't be easily optimized further.
+[2026-03-05 09:59:23] Run #3 finished
+[2026-03-05 09:59:28] Run #4 starting (model: opus)
+
+---
+
+## 2026-03-05 — Run #4 (Opus): font-display: optional + inlineCss attempted
+
+**Site URL:** https://caltechweb.vercel.app
+**Before Score:** 86 (Mobile)
+**After Score:** 91 (Mobile)
+**Net Change:** +5 points
+
+### Before Metrics (baseline)
+| Metric | Value |
+|---|---|
+| Performance | 86 |
+| FCP | 1.8s |
+| LCP | 2.6s |
+| TBT | 310ms |
+| CLS | 0 |
+| Speed Index | 4.7s |
+
+### Fixes Attempted
+
+**1. experimental.inlineCss (REVERTED):** Enabled `experimental: { inlineCss: true }` in `next.config.ts` to inline all CSS into the HTML, eliminating the render-blocking CSS request. FCP improved (1.8s -> 1.5s) but TBT worsened significantly (310ms -> 400ms) — the larger HTML increased main-thread parsing work. Score dropped from 86 to 84. Reverted per agent rules.
+
+**2. experimental.optimizeCss with critters (ABANDONED):** Attempted critical CSS extraction via critters, but it doesn't work with Turbopack. No CSS was inlined in build output. Reverted without deploying.
+
+**3. font-display: optional (KEPT):** Changed `Geist({ subsets: ["latin"] })` to `Geist({ subsets: ["latin"], display: "optional" })` in `src/app/layout.tsx`. This was tried before (Run #1, Sonnet session) at score 74 with no effect — but now with GA deferred and FCP at ~1.5s, the font may not load in time for first paint on slow 4G. `optional` prevents the font swap from re-triggering LCP measurement.
+
+**Commit:** `81dd305`
+
+### After Metrics (with font-display: optional)
+| Metric | Value |
+|---|---|
+| Performance | 91 |
+| FCP | 1.4s |
+| LCP | 2.5s |
+| TBT | 210ms |
+| CLS | 0 |
+| Speed Index | 4.6s |
+
+### Result
+
+Score improved +5 points, back in the green zone (90+). All metrics improved:
+- FCP: 1.8s -> 1.4s (-400ms, 22% faster)
+- LCP: 2.6s -> 2.5s (-100ms)
+- TBT: 310ms -> 210ms (-100ms, 32% less blocking)
+- Speed Index: 4.7s -> 4.6s (-100ms)
+
+### Why This Worked Now (but not before)
+
+In the earlier Sonnet Run #1, `font-display: optional` was tested when FCP was 2.5s (before the GA lazyOnload fix). At 2.5s FCP, the Geist font (28KB, preloaded) had plenty of time to load, so `optional` vs `swap` made no difference. Now with GA deferred and FCP at ~1.5s, the font file is still downloading when the browser first paints. With `swap`, the browser paints with fallback then re-renders at ~2.5s when the font loads (re-triggering LCP). With `optional`, the browser paints once with whatever is available and doesn't re-trigger LCP.
+
+### Remaining Issues
+- Render blocking CSS (16.3 KiB, 330ms est savings) — standard Next.js behavior, not fixable without Turbopack support for critical CSS extraction
+- Legacy JavaScript (14 KiB) — Turbopack ignores browserslist
+- Unused JS (219 KiB) — mostly 3rd-party (ZenDesk, GA), already lazyOnload
+- 7 long main-thread tasks
+- DOM size (1,582 elements)
