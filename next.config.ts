@@ -1,6 +1,19 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  async headers() {
+    return [
+      {
+        source: "/(.*)",
+        headers: [
+          {
+            key: "Strict-Transport-Security",
+            value: "max-age=31536000; includeSubDomains; preload",
+          },
+        ],
+      },
+    ];
+  },
   trailingSlash: true,
   turbopack: {
     root: __dirname,
@@ -90,6 +103,12 @@ const nextConfig: NextConfig = {
 
       // Old WordPress sitemap redirect
       { source: "/sitemap_index.xml", destination: "/sitemap.xml", permanent: true },
+
+      // Removed pages
+      { source: "/video-website-audit", destination: "/contact-us/", permanent: true },
+      { source: "/video-website-audit/", destination: "/contact-us/", permanent: true },
+      { source: "/portfolio/kingdom-international", destination: "/web-design-portfolio/", permanent: true },
+      { source: "/portfolio/kingdom-international/", destination: "/web-design-portfolio/", permanent: true },
     ];
   },
 };

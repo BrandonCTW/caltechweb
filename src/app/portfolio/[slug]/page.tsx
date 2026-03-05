@@ -130,7 +130,7 @@ const caseStudies: CaseStudy[] = [
     testimonialRole: "Pastor, Calvary Chapel Los Alamitos",
     testimonialImage: "/testimonials/bryan-newberry.jpg",
     timeToLaunch: "7 days",
-    related: ["kingdom-international", "central-baptist-church", "madera-county-farm-bureau"],
+    related: ["central-baptist-church", "madera-county-farm-bureau", "calvary-chapel-los-alamitos"],
   },
   {
     slug: "fuentes-concrete",
@@ -283,43 +283,6 @@ const caseStudies: CaseStudy[] = [
     related: ["fuentes-concrete", "longhorn-fire-alarm-design", "dr-arjun-kanuri"],
   },
   {
-    slug: "kingdom-international",
-    name: "Kingdom International",
-    category: "Church",
-    tagline: "Ministry site with outreach & event calendar",
-    gradient: "from-violet-600 to-purple-500",
-    accentColor: "text-violet-700",
-    accentBg: "bg-violet-50",
-    Icon: Heart,
-    initials: "KI",
-    challenge:
-      "Kingdom International needed a website that reflected the scope of their ministry and outreach programs. Their existing site was outdated and didn't effectively communicate their mission or make it easy for visitors to connect.",
-    solution:
-      "We designed a welcoming ministry site that clearly communicates Kingdom International's mission, outreach programs, and upcoming events. The site makes it easy for visitors to learn about the ministry, find service information, and get connected through contact forms and social media links.",
-    results: [
-      { stat: "Expanded", label: "Online Reach", color: "text-violet-600" },
-      { stat: "Active", label: "Event Calendar", color: "text-blue-600" },
-      { stat: "5 days", label: "Launch Time", color: "text-orange-500" },
-      { stat: "$99/mo", label: "Total Cost", color: "text-green-600" },
-    ],
-    features: [
-      "Mission & vision pages",
-      "Outreach program descriptions",
-      "Events calendar",
-      "Sermon & teaching archive",
-      "Online giving integration",
-      "Ministry team profiles",
-      "Contact & connect form",
-      "Social media integration",
-    ],
-    testimonial:
-      "CalTech Web helped us get our ministry online in a way that truly represents who we are. The site is professional, welcoming, and easy for our community to navigate.",
-    testimonialAuthor: "Kingdom International",
-    testimonialRole: "Church / Ministry",
-    timeToLaunch: "5 days",
-    related: ["calvary-chapel-los-alamitos", "central-baptist-church", "madera-county-farm-bureau"],
-  },
-  {
     slug: "turbothao-nails",
     name: "TurboThao Nails",
     category: "Small Business",
@@ -428,7 +391,7 @@ const caseStudies: CaseStudy[] = [
     testimonialAuthor: "California Women for Agriculture",
     testimonialRole: "Non-Profit Organization, est. 1975",
     timeToLaunch: "6 days",
-    related: ["madera-county-farm-bureau", "kingdom-international", "central-baptist-church"],
+    related: ["madera-county-farm-bureau", "central-baptist-church", "calvary-chapel-los-alamitos"],
   },
   {
     slug: "longhorn-fire-alarm-design",
@@ -502,7 +465,7 @@ const caseStudies: CaseStudy[] = [
     testimonialAuthor: "Central Baptist Church",
     testimonialRole: "Church, Port Saint Lucie, FL",
     timeToLaunch: "7 days",
-    related: ["calvary-chapel-los-alamitos", "kingdom-international", "california-women-for-agriculture"],
+    related: ["calvary-chapel-los-alamitos", "madera-county-farm-bureau", "california-women-for-agriculture"],
   },
   {
     slug: "custom-cabling-solutions",
@@ -553,7 +516,6 @@ export function generateStaticParams() {
 const caseStudyImages: Record<string, string> = {
   "dr-arjun-kanuri": "/portfolio/arjun-kanuri.png",
   "alv-floors": "/portfolio/alv-floors.png",
-  "kingdom-international": "/portfolio/kingdom-international.png",
   "turbothao-nails": "/portfolio/turbothao-nails.png",
   "specialized-plastic-surgery": "/portfolio/specialized-plastic-surgery.png",
   "longhorn-fire-alarm-design": "/portfolio/longhorn-fire-alarm-design.png",

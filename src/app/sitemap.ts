@@ -16,7 +16,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/website-design-rfp-rfq/",
     "/free-website-report-card/",
     "/case-studies/madera-county-farm-bureau/",
-    "/video-website-audit/",
   ];
 
   // Blog posts with actual publication dates so Google can trust lastmod
@@ -36,7 +35,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "origami-owl-chrissy-weems",
     "madera-county-farm-bureau",
     "alv-floors",
-    "kingdom-international",
     "turbothao-nails",
     "specialized-plastic-surgery",
     "california-women-for-agriculture",
