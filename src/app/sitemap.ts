@@ -16,31 +16,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/website-design-rfp-rfq/",
     "/free-website-report-card/",
     "/case-studies/madera-county-farm-bureau/",
+    "/video-website-audit/",
   ];
 
   // Blog posts with actual publication dates so Google can trust lastmod
   // and prioritize recrawling newer content
   const blogPosts: { slug: string; date: string }[] = [
     { slug: "affordable-web-design-company", date: "2026-02-18" },
-    { slug: "small-business-website-redesign-signs", date: "2026-02-12" },
     { slug: "affordable-web-design-for-small-businesses", date: "2026-02-12" },
-    { slug: "web-design-vs-web-hosting", date: "2026-02-05" },
-    { slug: "99-month-vs-diy-website-builders", date: "2026-02-03" },
     { slug: "website-maintenance-requirements", date: "2026-01-30" },
-    { slug: "dr-kanuri-40-percent-traffic-increase", date: "2026-01-28" },
+    { slug: "medical-practice-website-design", date: "2026-01-28" },
     { slug: "church-website-support", date: "2026-01-22" },
     { slug: "church-website-design-essentials", date: "2026-01-20" },
-    { slug: "who-updates-a-website-after-the-web-designer-finishes", date: "2026-01-15" },
-    { slug: "website-speed-local-seo", date: "2026-01-12" },
     { slug: "post-sermons-online", date: "2026-01-05" },
-    { slug: "nonprofit-website-design", date: "2025-12-30" },
-    { slug: "affordable-construction-company-website", date: "2025-12-28" },
-    { slug: "affordable-real-estate-company-website", date: "2025-12-20" },
     { slug: "ultimate-guide-christian-ministry-websites", date: "2025-12-15" },
-    { slug: "1-hour-support-why-it-matters", date: "2025-12-18" },
-    { slug: "mobile-first-website-design", date: "2025-12-05" },
-    { slug: "contact-page-converts", date: "2025-11-22" },
-    { slug: "google-business-profile-website", date: "2025-11-10" },
   ];
 
   const portfolioSlugs = [

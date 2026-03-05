@@ -58,6 +58,38 @@ const resources: ResourceItem[] = [
     description:
       "Your website needs regular maintenance to stay secure, fast, and visible on Google. Here's what's required — and how CalTech Web handles all of it for $99/month.",
   },
+  {
+    type: "guide",
+    slug: "church-website-support",
+    tag: "Church Websites",
+    title: "Church Website Support: Why Your Ministry Needs More Than a Template",
+    description:
+      "Templates can't handle online giving, sermon archives, or event management. Here's what real church website support looks like — and why it matters for your ministry.",
+  },
+  {
+    type: "guide",
+    slug: "church-website-design-essentials",
+    tag: "Church Websites",
+    title: "Church Website Design: 7 Things Every Church Website Needs",
+    description:
+      "Your church website is often the first thing a visitor sees before they walk through your doors. Here are 7 essential elements that every church website must have.",
+  },
+  {
+    type: "guide",
+    slug: "post-sermons-online",
+    tag: "Church Websites",
+    title: "How to Post Sermons Online: A Complete Guide for Churches",
+    description:
+      "60% of people engage with faith content online before visiting in person. Here's how to post sermons via YouTube, podcast, and on-site archive — and help people find them.",
+  },
+  {
+    type: "guide",
+    slug: "ultimate-guide-christian-ministry-websites",
+    tag: "Church Websites",
+    title: "The Ultimate Guide to Christian Ministry Websites",
+    description:
+      "Everything a ministry needs from its website: mission clarity, devotional content, online giving, outreach tools, and sermon streaming. A complete guide.",
+  },
 ];
 
 // ─── Structured Data ──────────────────────────────────────────────────────────

@@ -198,9 +198,8 @@ const blogPosts: BlogPost[] = [
     conclusion:
       "If you're looking for an affordable web design company, you have options. You can gamble on a freelancer, wrestle with a DIY builder, or pay an agency thousands of dollars. Or you can get a custom, professional website for $99/month with everything included and a guarantee that you'll be satisfied.\n\nCall or email me. I'll review your current site for free and tell you exactly what I'd do differently. No pressure, no pitch.",
     related: [
-      "99-month-vs-diy-website-builders",
       "affordable-web-design-for-small-businesses",
-      "1-hour-support-why-it-matters",
+      "website-maintenance-requirements",
     ],
   },
   {
@@ -271,8 +270,7 @@ const blogPosts: BlogPost[] = [
       "Affordable web design for small businesses is not about finding the cheapest option. It's about finding the option that delivers the most value for the least cost and hassle. That's what $99/month is designed to do.\n\nIf your current website isn't pulling its weight, or if you don't have one yet, let's talk. I'll give you an honest assessment of what you need and what it would look like. No pressure, no obligation.",
     related: [
       "affordable-web-design-company",
-      "99-month-vs-diy-website-builders",
-      "small-business-website-redesign-signs",
+      "website-maintenance-requirements",
     ],
   },
   {
@@ -339,8 +337,307 @@ const blogPosts: BlogPost[] = [
       "Website maintenance isn't optional; it's the difference between a site that works for your business and one that quietly becomes a liability. Hosting, security, backups, updates, and monitoring all need to happen consistently.\n\nIf you're currently responsible for your own website maintenance and you'd rather not be, CalTech Web's $99/month plan covers all of it. No surprises, no extra charges, no forgotten renewals.",
     related: [
       "affordable-web-design-company",
-      "web-design-vs-web-hosting",
-      "who-updates-a-website-after-the-web-designer-finishes",
+      "affordable-web-design-for-small-businesses",
+    ],
+  },
+  {
+    slug: "church-website-support",
+    category: "Church Websites",
+    categoryColor: "bg-purple-100 text-purple-700",
+    title:
+      "Church Website Support: Why Your Ministry Needs More Than a Template",
+    metaTitle:
+      "Church Website Support | CalTech Web",
+    metaDescription:
+      "Church websites have unique needs: online giving, sermon streaming, and event management. See why a template won't cut it and what real church website support looks like.",
+    excerpt:
+      "A template can give you a website. But church websites have ongoing needs that templates can't handle. Here's what real church website support looks like.",
+    readTime: "5 min read",
+    date: "January 22, 2026",
+    intro:
+      "Most churches start in the same place: they find a template, fill in their name and service times, and call it done. And for a while, it works. But then a problem surfaces. The online giving button doesn't work on mobile. The sermon archive is impossible to update. Easter is coming and nobody knows how to add a special event to the home page.\n\nThe honest truth is that church websites have unique needs that standard templates aren't built for. And when those needs go unmet, the church's digital presence starts working against its mission instead of for it.\n\nHere's what real church website support looks like, and why it matters more than most ministry leaders realize.",
+    sections: [
+      {
+        heading: "Where Templates Fall Short for Churches",
+        body: [
+          "A template is built for a generic audience. A church is not generic. Your site needs to welcome first-time visitors who may be searching from a place of spiritual need, keep regular members connected to your community, and support your ministry's specific programs and events.",
+          "Templates don't include integrated online giving that works seamlessly on mobile. They don't have sermon archive systems that are easy to update week after week. They don't make it simple to manage a rotating calendar of small groups, youth events, mission trips, and seasonal services.",
+          "Beyond features, templates don't adapt. When your church grows, starts a new ministry, or needs to communicate something urgent to your congregation, you're stuck either paying a developer by the hour or wrestling with a builder that wasn't designed for your needs.",
+        ],
+        list: [
+          "Online giving integrations: many templates either don't include them or use clunky third-party embeds that break on mobile",
+          "Sermon archives: uploading weekly messages to a searchable, browsable library requires ongoing management most templates don't support",
+          "Event management: rotating seasonal and recurring events need a system, not just a static page",
+          "Staff and ministry updates: congregations grow, staff changes, new ministries launch — these need regular updates",
+          "Streaming integration: embedding live services and archived video requires technical setup, not just a YouTube link",
+        ],
+      },
+      {
+        heading: "What Ongoing Church Website Support Actually Involves",
+        body: [
+          "Church websites are not set-and-forget. They need regular attention throughout the year, and especially around key moments in the church calendar.",
+          "A typical month might include updating the events calendar, adding a new sermon to the archive, swapping out the home page banner for an upcoming series, and updating a staff bio when a new associate pastor joins. None of these are difficult, but all of them require someone with access to the site who knows what they're doing.",
+          "Around Easter and Christmas, the workload spikes. Special service schedules, invitation landing pages, volunteer sign-up forms, and promotional images all need to go up quickly and come down after the season ends. That kind of responsive support is hard to get from a freelancer who's juggling dozens of other clients.",
+        ],
+        tip: "The average church updates its website at least 2-3 times per month outside of busy seasons. At 93% of updates completed in under 1 hour, CalTech Web's support model is built for exactly that kind of ongoing relationship.",
+      },
+      {
+        heading: "The Technical Side That Churches Can't Ignore",
+        body: [
+          "Beyond content, church websites have technical maintenance needs that most ministry leaders are not equipped to handle: hosting reliability, SSL certificate renewals, security updates, and backup systems.",
+          "A church website that goes down on Saturday night before a Sunday service, or that shows a security warning when a visitor tries to make a donation, does real damage to trust. These aren't hypothetical problems — they happen regularly to sites that aren't actively maintained.",
+          "Donation security is especially important. When people give online, they need to trust that their financial information is protected. That means proper HTTPS encryption, secure payment processing integration, and a site that doesn't look like it was abandoned in 2018.",
+        ],
+      },
+      {
+        heading: "What Church Website Support at CalTech Web Looks Like",
+        body: [
+          "Our $99/month plan was designed with organizations like churches in mind: ongoing needs, limited budgets, and no internal staff to handle the technical side of a website.",
+          "You contact Brandon directly — not a ticket system, not a support queue — and 93% of updates are done in under an hour. Sermon added. Event updated. Banner changed. Giving page adjusted. Done.",
+          "We handle hosting, SSL, security, and backups in the background. You never have to think about whether your site is secure or whether the hosting bill was paid. We take care of it so you can focus on ministry.",
+          "We've built websites for churches of every size, from small congregations meeting in rented spaces to established multi-campus ministries. The needs are different in scale, but the principle is the same: your website should support your mission, not create more work for your team.",
+        ],
+      },
+    ],
+    conclusion:
+      "A template can give you a website. But ongoing support, fast updates, and technical reliability are what make a church website an actual ministry tool.\n\nIf your church is struggling with a template that can't keep up, or if you're spending too much time managing your own site, let's talk. I'll review your current site for free and show you what a supported church website looks like.",
+    related: [
+      "church-website-design-essentials",
+      "post-sermons-online",
+      "ultimate-guide-christian-ministry-websites",
+    ],
+  },
+  {
+    slug: "church-website-design-essentials",
+    category: "Church Websites",
+    categoryColor: "bg-purple-100 text-purple-700",
+    title:
+      "Church Website Design: 7 Things Every Church Website Needs",
+    metaTitle:
+      "Church Website Design: 7 Things Every Church Needs | CalTech Web",
+    metaDescription:
+      "A church website needs more than a service schedule. Here are 7 essential elements every church website must have to welcome visitors and serve your congregation.",
+    excerpt:
+      "Your church website is often the first thing a visitor sees before they walk through your doors. Here are 7 things it must have to do its job.",
+    readTime: "6 min read",
+    date: "January 20, 2026",
+    intro:
+      "Before a first-time visitor ever walks through your church doors, they've almost certainly visited your website. They looked for service times, checked out the staff page, maybe watched a sermon clip — and made a gut-level decision about whether your church felt right for them.\n\nThat moment matters. A church website that is confusing, outdated, or impersonal can turn away someone who needed exactly what your congregation offers.\n\nHere are the 7 things every church website needs to do its job.",
+    sections: [
+      {
+        heading: "1. A Welcoming First Impression",
+        body: [
+          "The moment someone lands on your home page, they should feel something. Not confusion, not a wall of text, not a stock photo of empty pews — but a genuine sense of who you are as a community.",
+          "That means real photos of your congregation: people worshipping, small groups meeting, kids in ministry. It means a clear, human headline that tells a visitor what to expect. And it means a design that reflects your church's personality — whether you're a traditional congregation or a contemporary one.",
+          "First impressions are formed in about 8 seconds. If your home page doesn't communicate \"you belong here\" in that window, the visitor is likely already gone.",
+        ],
+        tip: "Use actual photos of your congregation, not stock photography. Real people build real trust. A candid shot from last Sunday's service does more for a visitor's decision than any professionally staged image.",
+      },
+      {
+        heading: "2. Service Times and Location — Immediately Visible",
+        body: [
+          "This sounds obvious, but the number of church websites where I have to hunt for service times is remarkable. It should be on the home page, above the fold, visible without scrolling.",
+          "Include all service times, your physical address, and a link to Google Maps directions. If you have multiple campuses, list them all with their own times and locations. If services vary by season, say so clearly.",
+          "A visitor who can't find when or where you meet in 10 seconds will not dig deeper to find it. They'll close the tab.",
+        ],
+      },
+      {
+        heading: "3. Online Giving with Secure, Mobile-Friendly Processing",
+        body: [
+          "For most churches, online giving has become a primary channel for tithes and offerings. It needs to work perfectly — especially on mobile, where a growing majority of church website traffic comes from.",
+          "The giving experience should be simple: a clear button from the home page, a short form with multiple payment options, and a confirmation that reassures the donor their gift was received. Complicated or broken giving flows cost churches real revenue.",
+          "Security matters here more than anywhere else on your site. Donors need to see that your site is encrypted (https://) and that their financial information is handled by a reputable processor, not a sketchy embed.",
+        ],
+        included: "CalTech Web integrates with trusted giving platforms like Pushpay, Tithely, and Stripe. Your online giving will be mobile-optimized, secure, and easy to use.",
+      },
+      {
+        heading: "4. A Sermon Archive Visitors Can Actually Use",
+        body: [
+          "Your sermons are often the first content a spiritual seeker engages with before committing to visit. A usable sermon archive — searchable, browsable, and updated weekly — extends your ministry's reach far beyond Sunday morning.",
+          "This means more than just a YouTube channel link. It means an on-site archive where sermons are organized by series, topic, or date. Each message should have a title, a brief description, and an easy way to watch or listen.",
+          "The sermon archive is also one of the most frequently updated sections of a church website. It needs to be easy to maintain, whether that's your communications team adding messages weekly or your web provider handling it for you.",
+        ],
+      },
+      {
+        heading: "5. An Events Calendar That Stays Current",
+        body: [
+          "Nothing signals a neglected website faster than an events calendar showing a VBS from three years ago. Your events section needs to be actively maintained and genuinely useful to your congregation.",
+          "The best church event calendars include all major ministry events, link to registration forms when needed, and are easy to filter by ministry (women's ministry, youth, small groups). They're updated far in advance so members can plan ahead.",
+          "For seasonal events like Easter services and Christmas Eve, consider creating dedicated landing pages rather than just a calendar entry. These are often your highest-traffic moments and deserve more than a one-line listing.",
+        ],
+      },
+      {
+        heading: "6. Pastor and Staff Bios with Real Photos",
+        body: [
+          "People connect with people before they connect with institutions. A strong staff page — with professional or high-quality candid photos, real bios that share each person's story, and contact information — does more for trust than almost anything else on your site.",
+          "The pastor's bio in particular should feel personal. Where did they grow up? What led them to ministry? What's their family like? These details make your leadership human and approachable to someone who is considering visiting for the first time.",
+          "Keep it current. When staff changes, the website needs to reflect it immediately. An outdated staff page with someone who left two years ago is confusing and erodes trust.",
+        ],
+      },
+      {
+        heading: "7. Mobile-First Design",
+        body: [
+          "More than half of church website traffic comes from smartphones. If your site doesn't work well on mobile — if text is too small to read, buttons are hard to tap, or the giving form doesn't load properly on iOS — you are failing the majority of your visitors.",
+          "Mobile-first design means the site is designed and tested for small screens first, then scaled up for desktop. Not the other way around. Service times should be readable without zooming. The give button should be easy to tap with a thumb. The sermon player should work without needing a plugin.",
+          "Google also uses mobile-friendliness as a ranking factor. A site that isn't optimized for mobile will rank lower in search results, meaning fewer people find your church when they're searching for one.",
+        ],
+      },
+    ],
+    conclusion:
+      "A church website that checks all seven of these boxes does something powerful: it removes friction between a person in spiritual need and your congregation. It makes it easy to find you, trust you, engage with your content, and walk through your doors for the first time.\n\nIf your current site is missing any of these elements, or if it's been a few years since you've given it a real look, we'd be happy to do a free review and show you what's possible.",
+    related: [
+      "church-website-support",
+      "post-sermons-online",
+      "ultimate-guide-christian-ministry-websites",
+    ],
+  },
+  {
+    slug: "post-sermons-online",
+    category: "Church Websites",
+    categoryColor: "bg-purple-100 text-purple-700",
+    title:
+      "How to Post Sermons Online: A Complete Guide for Churches",
+    metaTitle:
+      "How to Post Sermons Online: A Church Guide | CalTech Web",
+    metaDescription:
+      "Learn how to post sermons online for your church: YouTube embeds, podcast RSS feeds, on-site sermon archives, and SEO tips to help people find your messages.",
+    excerpt:
+      "60% of people engage with faith content online before visiting in person. Here's how to post your sermons where they'll actually be found and watched.",
+    readTime: "6 min read",
+    date: "January 5, 2026",
+    intro:
+      "The Sunday sermon doesn't have to end when the service does. For churches that make their messages available online, a single Sunday's content can reach members who were sick at home, families who moved away, people in different time zones, and spiritual seekers who haven't yet set foot in your building.\n\nBut posting sermons online effectively is more than just uploading a video. It involves the right platforms, a usable archive structure, and basic SEO so your content actually gets found.\n\nHere is a complete guide to getting your sermons online in a way that extends your ministry's reach.",
+    sections: [
+      {
+        heading: "Start With YouTube: The Most Powerful Platform for Sermon Distribution",
+        body: [
+          "YouTube is the second-largest search engine in the world. People actively search for sermons, biblical topics, and messages on specific passages — and YouTube surfaces this content to people who have never heard of your church.",
+          "Every sermon should be uploaded to a church YouTube channel with a descriptive title (not just \"Sunday Sermon — Week 14\"), a paragraph description that includes the biblical text and key themes, and appropriate tags. This is the difference between a video that lives only in your playlist and one that gets discovered by someone searching for a message on anxiety or forgiveness.",
+          "YouTube is also free, handles all the video hosting and bandwidth, and embeds cleanly on any website. For churches just starting to post sermons online, this is the right first step.",
+        ],
+        tip: "Sermon titles should be descriptive and searchable. \"Finding Peace in Uncertain Times — Philippians 4:6-7\" will get found. \"Week 14: Part 3 of Our Series\" will not.",
+      },
+      {
+        heading: "Add a Podcast Feed for Audio Listeners",
+        body: [
+          "A significant portion of sermon listeners prefer audio — driving to work, exercising, or following along on a podcast app. Creating a podcast feed from your sermon audio takes one afternoon to set up and gives you a permanent presence on Spotify, Apple Podcasts, and Google Podcasts.",
+          "Services like Buzzsprout, Anchor (now Spotify for Podcasters), or Podbean handle the RSS feed generation and submission to major platforms. Upload the audio file, add a title and description, and the distribution happens automatically.",
+          "A podcast feed also creates a searchable archive that listeners can browse by topic or date — something that's harder to replicate on YouTube.",
+        ],
+      },
+      {
+        heading: "Build an On-Site Sermon Archive",
+        body: [
+          "Your church website should have its own sermon archive, even if you're also on YouTube and podcast platforms. An on-site archive serves your congregation directly — they come to your website for information, and the sermon library should be right there alongside service times and ministry pages.",
+          "The most useful sermon archives are organized by series, with each series having a cover image, description, and list of individual messages. Each sermon entry should include the title, speaker, date, biblical text, and options to watch (embedded YouTube), listen (embedded or linked podcast), or download the audio.",
+          "Make it searchable. A congregation member who remembers a message about marriage or grief from six months ago should be able to find it in 30 seconds, not have to scroll through a chronological list of 200 entries.",
+        ],
+        list: [
+          "Organize by series, not just chronologically — it's easier to browse and matches how people remember messages",
+          "Include the biblical text in every entry — members searching for specific passages will find them",
+          "Embed YouTube video directly on the page instead of just linking out — keep people on your site",
+          "Show the speaker's name for churches with multiple preachers",
+          "Add a search bar if you have more than 50 sermons in the archive",
+        ],
+      },
+      {
+        heading: "SEO for Sermons: Help People Find Your Messages",
+        body: [
+          "People search for sermons about specific topics: grief, forgiveness, marriage, fear, purpose. If your sermons match these topics and are properly optimized, they can rank in Google search results and reach people who have never heard of your church.",
+          "The basics: give every sermon page a descriptive title tag (the sermon title plus your church name), a meta description that summarizes the content, and header tags that include the topic and biblical reference. These are the same fundamentals that apply to any web page, and they apply just as much to sermon content.",
+          "For maximum reach, also include a brief written summary or outline with each sermon. This gives Google text to index and gives visitors a preview of the content before they decide to watch or listen.",
+        ],
+      },
+    ],
+    conclusion:
+      "Getting sermons online is one of the most impactful things a church can do for both its congregation and its outreach. Members stay connected when they miss a Sunday. Seekers discover your content through search. People who have moved away maintain a connection to the teaching.\n\nIf your church isn't posting sermons online yet, or if your current setup is difficult to maintain week after week, reach out. We've built sermon archive systems for dozens of churches and can make the process simple.",
+    related: [
+      "church-website-design-essentials",
+      "church-website-support",
+      "ultimate-guide-christian-ministry-websites",
+    ],
+  },
+  {
+    slug: "ultimate-guide-christian-ministry-websites",
+    category: "Church Websites",
+    categoryColor: "bg-purple-100 text-purple-700",
+    title:
+      "The Ultimate Guide to Christian Ministry Websites",
+    metaTitle:
+      "Ultimate Guide to Christian Ministry Websites | CalTech Web",
+    metaDescription:
+      "Everything a ministry needs from its website: mission clarity, devotional content, online giving, outreach tools, and sermon streaming. A complete guide.",
+    excerpt:
+      "A ministry website does more than share a schedule. Here's a complete guide to building a site that grows your reach, deepens engagement, and supports your mission.",
+    readTime: "8 min read",
+    date: "December 15, 2025",
+    intro:
+      "A ministry website is unlike any other website. It isn't trying to sell a product or generate leads in the conventional sense. It's trying to connect people — people searching for faith, community, support, or answers — with something that can genuinely change their lives.\n\nThat's a significant responsibility. And it means the decisions you make about your website — the content, the structure, the way you communicate your mission — carry real weight.\n\nThis guide covers everything a Christian ministry needs from its website, from the foundational elements to the more advanced features that help your ministry grow its reach and deepen its impact.",
+    sections: [
+      {
+        heading: "Start With Your Mission: Say What You Stand For",
+        body: [
+          "The most important question a ministry website answers is: what is this place, and is it for me? Visitors make this judgment within seconds of landing on your home page. If your messaging is unclear, institutional, or buried in church jargon, you've lost them.",
+          "Your mission statement should be front and center — not the formal version from your bylaws, but a human, plain-language version that tells a first-time visitor what your ministry is about and who it's for. \"We help people find hope, community, and purpose through faith in Jesus Christ\" communicates more than \"Our mission is to fulfill the Great Commission through discipleship, worship, and outreach.\"",
+          "Vision matters too. Where is God leading your ministry? What does the future look like? A ministry with a clear, compelling vision attracts both committed members and new visitors who want to be part of something with direction.",
+        ],
+        tip: "Read your current home page out loud. If it sounds like a corporate mission statement or church committee language, rewrite it. Aim for the words you'd actually use to explain your church to a friend.",
+      },
+      {
+        heading: "Devotional Content: Serving Your Congregation Between Sundays",
+        body: [
+          "The ministry week doesn't end at Sunday noon. A website with devotional content — written reflections, reading plans, prayer guides, and blog posts on faith topics — serves your congregation throughout the week and gives spiritual seekers a reason to return to your site.",
+          "Devotional content also has significant SEO benefits. Articles on prayer, grief, marriage, parenting from a faith perspective, and other spiritually relevant topics attract organic search traffic from people who are seeking answers and may not yet have a church home.",
+          "You don't need to publish daily to make this effective. Even two to four well-written articles per month, consistently maintained, builds a library over time that continues working for your ministry long after publication.",
+        ],
+      },
+      {
+        heading: "Online Giving: Making Generosity Simple",
+        body: [
+          "For most ministries, online giving has overtaken the offering plate as the primary channel for financial generosity. Members who give online tend to give more consistently and at higher levels than those who give exclusively in person, because the friction of carrying cash or writing a check is removed.",
+          "An effective online giving experience is mobile-first, takes fewer than three minutes to complete, offers recurring giving options, and confirms the gift immediately with a receipt. Donors should be able to designate gifts to specific funds (general, missions, building fund) if your ministry tracks these separately.",
+          "The giving platform you choose matters. Pushpay, Tithely, and Stripe are trusted options with proven track records in ministry contexts. Avoid less-recognized processors — donors will notice if the giving page looks unfamiliar or untrustworthy.",
+        ],
+        included: "CalTech Web integrates online giving from Pushpay, Tithely, Stripe, and other trusted platforms. We'll build the giving experience directly into your site so it feels native, not like an afterthought.",
+      },
+      {
+        heading: "Outreach Tools: Welcoming Visitors Before They Arrive",
+        body: [
+          "Your website is your most powerful outreach tool because it operates around the clock. Someone searching for a church at 11pm on a Wednesday will find your site before they find your building.",
+          "An effective outreach-oriented website includes a dedicated \"I'm New\" or \"Plan Your Visit\" page that tells first-time visitors exactly what to expect: parking, what to wear, what happens during services, where to bring kids, and where to go when they arrive. This page reduces the anxiety that keeps people from walking through the door.",
+          "Online connect cards — a simple digital form where a visitor can share their name, email, and how they'd like to get connected — are the digital equivalent of a visitor card in the pew. They capture interest at the highest-intent moment (when someone is actively engaging with your site) and give your ministry team a way to follow up.",
+        ],
+        list: [
+          "\"Plan Your Visit\" page: what to expect, parking, children's ministry, what people wear",
+          "Online connect card: name, email, how they'd like to connect, prayer requests",
+          "Small group finder: searchable by neighborhood, day, or interest area",
+          "Volunteer sign-up: ministry areas, current needs, easy commitment form",
+          "Prayer request form: let visitors and members submit requests privately",
+        ],
+      },
+      {
+        heading: "Sermon Streaming and Media Library",
+        body: [
+          "Live streaming and an on-demand sermon library extend your ministry's reach far beyond the walls of your building. Members who travel for work, families with sick children, and people who haven't yet committed to attending in person all benefit from access to your teaching content online.",
+          "For live streaming, most churches use YouTube Live or Facebook Live as their primary platform, with the stream embedded on their website. This keeps visitors on your site during the service rather than sending them to a third-party platform.",
+          "The media library — organized by series, searchable by topic, and updated weekly — is one of the highest-value sections of any ministry website. A robust library demonstrates the depth and history of your teaching ministry and gives seekers hours of content to engage with before they decide to visit.",
+        ],
+      },
+      {
+        heading: "Growing Membership Engagement Through Your Website",
+        body: [
+          "Beyond attracting new visitors, your website should serve your existing congregation. This means member resources, ministry sign-ups, giving history access, and communication tools that keep your community connected.",
+          "A church app or member portal can handle the deepest engagement needs, but your website can do a lot with a well-organized members section: small group listings with contact information, ministry teams with sign-up forms, upcoming events with registration, and a giving page where members can manage recurring gifts.",
+          "The goal is a website that your congregation visits regularly — not just when they're checking service times — because it's genuinely useful for staying connected to the life of the church.",
+        ],
+      },
+    ],
+    conclusion:
+      "A Christian ministry website that does all of this well becomes one of your most powerful ministry tools. It welcomes the spiritually curious, serves your congregation, supports your generosity, and extends your teaching far beyond Sunday morning.\n\nBuilding this doesn't require a massive budget or a full-time communications team. It requires thoughtful design, quality content, and ongoing support from people who understand what ministry websites are trying to accomplish.\n\nWe've built websites for churches of every size and tradition. If you'd like to see what's possible for your ministry, reach out for a free conversation.",
+    related: [
+      "church-website-design-essentials",
+      "church-website-support",
+      "post-sermons-online",
     ],
   },
 ];
