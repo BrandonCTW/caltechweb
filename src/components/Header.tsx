@@ -1,10 +1,8 @@
 import { Phone, ArrowRight } from "lucide-react";
-import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
 import NavLink from "@/components/NavLink";
-
-const MobileNav = dynamic(() => import("@/components/MobileNav"));
+import MobileNav from "@/components/MobileNav";
 
 const navLinks = [
   { label: "Home", href: "/" },
