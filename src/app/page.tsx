@@ -1623,7 +1623,7 @@ function SupportDemo() {
             </div>
             <p className="text-sm text-gray-500 mt-4">
               Already a customer?{" "}
-              <a href="/support" className="text-blue-600 hover:underline font-medium">
+              <a href="/support/" className="text-blue-600 hover:underline font-medium">
                 Visit our support page &rarr;
               </a>
             </p>
