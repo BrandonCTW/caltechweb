@@ -631,8 +631,8 @@ const testimonials = [
   {
     quote:
       "CalTech Web gave our organization a professional online home that our members love. The event registration and chapter pages have made it so much easier to stay connected across the state.",
-    name: "California Women for Agriculture",
-    role: "Member-based nonprofit organization",
+    name: "Sharron Zoller",
+    role: "President, California Women for Agriculture",
     image: null,
     initials: "CW",
     color: "bg-purple-600",
