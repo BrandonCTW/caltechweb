@@ -39,6 +39,31 @@ const items = [
     title: "TurboThao Nails website went live",
     subtitle: "Booking page included",
   },
+  {
+    icon: "globe" as const,
+    title: "New website live: Madera Men of Integrity",
+    subtitle: "Launched in under 5 days",
+  },
+  {
+    icon: "star" as const,
+    title: "\"Business is thriving like never before\"",
+    subtitle: "Dr. Arjun Kanuri, MD · 9-year client",
+  },
+  {
+    icon: "star" as const,
+    title: "Sharron Zoller, California Women for Agriculture",
+    subtitle: "Member portal · Statewide reach",
+  },
+  {
+    icon: "globe" as const,
+    title: "New website live: Central Baptist Church",
+    subtitle: "Online giving integrated",
+  },
+  {
+    icon: "globe" as const,
+    title: "New website live: Longhorn Fire Alarm Design",
+    subtitle: "Launched in under a week",
+  },
 ];
 
 const IconMap = {
