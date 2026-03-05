@@ -30,13 +30,13 @@ export const metadata: Metadata = {
   keywords:
     "medical practice website design, doctor website design, physician website, medical website design, healthcare website design",
   alternates: {
-    canonical: "https://caltechweb.com/medical-practice-website-design/",
+    canonical: "https://caltechweb.com/case-studies/medical-practice-website-design/",
   },
   openGraph: {
     title: "Medical Practice Website Design | $99/month | CalTech Web",
     description:
       "See how a plastic surgery practice got 40% more traffic and 2x appointment conversions after a 5-day redesign. $99/month includes everything.",
-    url: "https://caltechweb.com/medical-practice-website-design/",
+    url: "https://caltechweb.com/case-studies/medical-practice-website-design/",
     images: [
       {
         url: "/brandon-hopkins.jpg",
@@ -56,7 +56,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Service",
   name: "Medical Practice Website Design",
-  url: "https://caltechweb.com/medical-practice-website-design/",
+  url: "https://caltechweb.com/case-studies/medical-practice-website-design/",
   provider: {
     "@type": "Organization",
     name: "CalTech Web",
@@ -114,7 +114,7 @@ const breadcrumbJsonLd = {
       "@type": "ListItem",
       position: 2,
       name: "Medical Practice Website Design",
-      item: "https://caltechweb.com/medical-practice-website-design/",
+      item: "https://caltechweb.com/case-studies/medical-practice-website-design/",
     },
   ],
 };

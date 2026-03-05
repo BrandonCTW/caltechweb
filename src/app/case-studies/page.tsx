@@ -25,7 +25,7 @@ const caseStudies = [
     ],
   },
   {
-    href: "/medical-practice-website-design/",
+    href: "/case-studies/medical-practice-website-design/",
     client: "Dr. Arjun Kanuri",
     industry: "Medical Practice",
     headline: "40% Traffic Increase & 2× Appointment Conversions in 90 Days",
