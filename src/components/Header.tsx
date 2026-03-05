@@ -8,7 +8,7 @@ const navLinks = [
   { label: "Home", href: "/" },
   { label: "Portfolio", href: "/web-design-portfolio/" },
   { label: "Pricing", href: "/web-design-pricing/" },
-  { label: "Blog", href: "/blog/" },
+  { label: "Case Studies", href: "/case-studies/" },
   { label: "About", href: "/brandon-hopkins/" },
   { label: "Support", href: "/support/" },
 ];

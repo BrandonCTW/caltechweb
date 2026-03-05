@@ -57,7 +57,7 @@ export default function Footer() {
                 { label: "About", href: "/brandon-hopkins/" },
                 { label: "Portfolio", href: "/web-design-portfolio/" },
                 { label: "Pricing", href: "/web-design-pricing/" },
-                { label: "Blog", href: "/blog/" },
+                { label: "Case Studies", href: "/case-studies/" },
                 { label: "Free Report Card", href: "/free-website-report-card/" },
                 { label: "Support", href: "/support/" },
               ].map(({ label, href }) => (
