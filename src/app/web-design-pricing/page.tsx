@@ -1028,6 +1028,33 @@ const testimonials = [
     bg: "bg-green-600",
     image: "/testimonials/christina-beckstead.jpg",
   },
+  {
+    quote:
+      "Managing my church website was a significant time commitment, taking up at least 3 hours of my week. Since I enlisted the help of CalTech Web, they have been maintaining my website for many years now. Their services have been invaluable, saving me precious time that I can now devote to furthering my ministry.",
+    name: "Bryan Newberry",
+    role: "Pastor, Calvary Chapel Los Alamitos",
+    initials: "BN",
+    bg: "bg-purple-600",
+    image: "/testimonials/bryan-newberry.jpg",
+  },
+  {
+    quote:
+      "Caltech is very responsive with all of my requests. I'll often times have multiple requests per day and they are acting on all of them within a very short period of time.",
+    name: "Clint Borman",
+    role: "Oxygen Wellness & Physical Therapy",
+    initials: "CB2",
+    bg: "bg-blue-600",
+    image: "/testimonials/clint-borman.jpg",
+  },
+  {
+    quote:
+      "We had a fantastic experience working with CalTech Web on our website redesign! Brandon and his team were professional, responsive, and truly understood our vision. We are beyond happy with the results and highly recommend CalTech Web to anyone looking for high-quality web design.",
+    name: "Chris Devulapalli, MD",
+    role: "Specialized Plastic Surgery",
+    initials: "CD",
+    bg: "bg-indigo-600",
+    image: "/testimonials/chris-devulapalli.jpg",
+  },
 ];
 
 function Testimonials() {
@@ -1048,7 +1075,7 @@ function Testimonials() {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {testimonials.map(({ quote, name, role, initials, bg, image }) => (
             <div
               key={name}

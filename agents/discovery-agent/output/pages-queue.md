@@ -14,3 +14,4 @@
 - [x] /privacy-policy/ (legal / policy page)
 - [x] /terms-and-conditions/ (legal / policy page)
 - [x] /fulfillment/ (fulfillment policy page)
+- [x] /medical-practice-website-design/ (medical practice case study blog post)

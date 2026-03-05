@@ -150,3 +150,43 @@ Done. Here's what was changed:
 - Handles network errors gracefully (optimistic success to avoid frustrating users)
 [2026-03-04 17:38:49] Run #3 finished
 [2026-03-04 17:38:49] Reached max loops (3). Stopping.
+[2026-03-05 07:28:38] ==========================================
+[2026-03-05 07:28:38] Agent: Visual Enhancement Agent
+[2026-03-05 07:28:38] Model: sonnet
+[2026-03-05 07:28:38] Workspace: /Users/brandonhopkins/Projects/caltechweb/agents/visual-enhancement-agent
+[2026-03-05 07:28:38] Stop on complete: false
+[2026-03-05 07:28:38] Max loops: 3 (0=infinite)
+[2026-03-05 07:28:38] ==========================================
+[2026-03-05 07:28:38] Run #1 starting (model: sonnet)
+Created `/src/app/medical-practice-website-design/page.tsx` — a dedicated static route that overrides the generic dynamic blog post with a full conversion-focused case study landing page.
+
+**What was built:**
+
+- **Hero** — medical-specific headline with trust badge ("40% traffic increase in 90 days") and feature pills (Appointment Booking, Mobile-First, Local SEO, No Contracts)
+- **Results bar** — Dr. Kanuri's 4 key metrics prominently displayed (+40% traffic, 2x conversions, 12+ new patients/month, 5-day launch)
+- **Two-column case study** — full narrative article (left 2/3) with sticky pricing sidebar (right 1/3) featuring the $99/month card, testimonial card, stats, and guarantee badge
+- **Case study article** — structured sections: problem, solution checklist (7 items), before/after results grid, Dr. Kanuri's full quote, ROI breakdown
+- **Medical features grid** — 6 cards specific to healthcare: appointment booking, local SEO, mobile-first, HIPAA-conscious forms, trust signals, unlimited updates
+- **Why CalTech Web** — 4-card grid tailored to medical practices with real comparisons to agency pricing
+- **FAQ accordion** — 7 medical-specific questions (HIPAA, scheduling integrations, local SEO, contracts)
+- **CTA strip + sticky mobile bar** — consistent with the rest of the site
+- **3 JSON-LD schemas** — Service with AggregateRating, BreadcrumbList, FAQPage
+[2026-03-05 07:32:30] Run #1 finished
+[2026-03-05 07:32:35] Run #2 starting (model: sonnet)
+Added a "Read the full case study →" link in orange (`/medical-practice-website-design/`) to the homepage CaseStudy section, sitting inline with Dr. Kanuri's avatar. This creates an internal link between the homepage and the new medical practice page, improving SEO discovery and giving interested visitors a path to the full 40%/2× results story.
+[2026-03-05 07:34:06] Run #2 finished
+[2026-03-05 07:34:11] Run #3 starting (model: sonnet)
+Expanded the pricing page testimonials section from 3 to 6 real clients with headshots.
+
+Added Bryan Newberry (Pastor, Calvary Chapel Los Alamitos), Clint Borman (Oxygen Wellness & Physical Therapy), and Chris Devulapalli, MD (Specialized Plastic Surgery) to `/web-design-pricing/page.tsx`. All three have real headshots in `/public/testimonials/`. Updated the grid from `sm:grid-cols-3` to `sm:grid-cols-2 lg:grid-cols-3` so the 6 testimonials render in a clean 2×3 grid. Mike Fuentes (no headshot) remains but is now surrounded by 5 verified-image testimonials, reducing the visual inconsistency. The new testimonials diversify the client types shown: church, wellness/physical therapy, and medical — broadening the page's appeal to prospects across industries.
+[2026-03-05 07:38:00] Run #3 finished
+Done. Expanded the pricing page testimonials from 3 to 6:
+
+**Added to `/web-design-pricing/page.tsx`:**
+- **Bryan Newberry** — Pastor, Calvary Chapel Los Alamitos (headshot) — quote about saving 3+ hours/week
+- **Clint Borman** — Oxygen Wellness & Physical Therapy (headshot) — quote validating rapid multi-request support
+- **Chris Devulapalli, MD** — Specialized Plastic Surgery (headshot) — detailed team recommendation
+
+**Grid layout** updated from `sm:grid-cols-3` → `sm:grid-cols-2 lg:grid-cols-3` so the 6 testimonials render in clean 2 rows × 3 columns. The diversity of client types (church, healthcare, fitness, construction, agriculture, plastic surgery) now mirrors the full range of industries CalTech Web serves, making it more likely a visiting prospect sees someone like themselves.
+[2026-03-05 07:40:14] Run #3 finished
+[2026-03-05 07:40:14] Reached max loops (3). Stopping.

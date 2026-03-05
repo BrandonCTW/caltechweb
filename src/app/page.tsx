@@ -1287,12 +1287,21 @@ function CaseStudy() {
               </div>
             </div>
 
-            <div className="flex items-center gap-4">
-              <Image src="/testimonials/arjun-kanuri.jpg" alt="Dr. Arjun Kanuri" width={48} height={48} className="w-12 h-12 rounded-full object-cover shrink-0" />
-              <div>
-                <div className="font-semibold text-white">Dr. Arjun Kanuri</div>
-                <div className="text-sm text-blue-300">CalTech Web Client</div>
+            <div className="flex items-center justify-between gap-4 flex-wrap">
+              <div className="flex items-center gap-4">
+                <Image src="/testimonials/arjun-kanuri.jpg" alt="Dr. Arjun Kanuri" width={48} height={48} className="w-12 h-12 rounded-full object-cover shrink-0" />
+                <div>
+                  <div className="font-semibold text-white">Dr. Arjun Kanuri</div>
+                  <div className="text-sm text-blue-300">CalTech Web Client</div>
+                </div>
               </div>
+              <Link
+                href="/medical-practice-website-design/"
+                className="inline-flex items-center gap-1.5 text-sm font-semibold text-orange-400 hover:text-orange-300 transition-colors shrink-0"
+              >
+                Read the full case study
+                <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
           </div>
 
