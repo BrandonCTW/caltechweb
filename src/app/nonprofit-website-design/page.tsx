@@ -678,13 +678,13 @@ function Testimonials() {
                     <Image
                       src={image}
                       alt={name}
-                      width={40}
-                      height={40}
-                      className="w-10 h-10 rounded-full object-cover shrink-0"
+                      width={56}
+                      height={56}
+                      className="w-14 h-14 rounded-full object-cover shrink-0"
                     />
                   ) : (
                     <div
-                      className={`w-10 h-10 rounded-full ${color} flex items-center justify-center text-white text-sm font-bold shrink-0`}
+                      className={`w-14 h-14 rounded-full ${color} flex items-center justify-center text-white text-sm font-bold shrink-0`}
                     >
                       {initials}
                     </div>
