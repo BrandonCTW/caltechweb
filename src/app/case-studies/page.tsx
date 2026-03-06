@@ -37,6 +37,19 @@ const caseStudies = [
       { value: "5 days", label: "Launch Time" },
     ],
   },
+  {
+    href: "/case-studies/sutoer-solutions/",
+    client: "Sutoer Solutions",
+    industry: "Staffing & Recruiting",
+    headline: "Custom Job Database with a Password-Protected Admin Portal",
+    description:
+      "A 25-year-old IT and finance staffing firm needed a modern website and a way to manage job listings without calling a developer. CalTech Web built a custom job database with a clean admin backend, all for $99/month.",
+    stats: [
+      { value: "Custom", label: "Job Database" },
+      { value: "0", label: "Developers Needed" },
+      { value: "$99/mo", label: "Total Cost" },
+    ],
+  },
 ];
 
 export default function CaseStudiesPage() {
