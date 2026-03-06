@@ -13,6 +13,14 @@ export const metadata: Metadata = {
     description:
       "How CalTech Web delivers its $99/month web design service, website launch, updates, hosting, and cancellation.",
     url: "https://caltechweb.com/fulfillment/",
+    images: [
+      {
+        url: "/brandon-hopkins.jpg",
+        width: 2400,
+        height: 1600,
+        alt: "Brandon Hopkins, Founder of CalTech Web",
+      },
+    ],
   },
 };
 

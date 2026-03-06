@@ -13,6 +13,14 @@ export const metadata: Metadata = {
     description:
       "CalTech Web privacy policy. Learn how we collect, use, and protect your personal information.",
     url: "https://caltechweb.com/privacy-policy/",
+    images: [
+      {
+        url: "/brandon-hopkins.jpg",
+        width: 2400,
+        height: 1600,
+        alt: "Brandon Hopkins, Founder of CalTech Web",
+      },
+    ],
   },
 };
 

@@ -39,16 +39,16 @@ export const metadata: Metadata = {
     url: "https://caltechweb.com/case-studies/medical-practice-website-design/",
     images: [
       {
-        url: "/brandon-hopkins.jpg",
-        width: 2400,
-        height: 1600,
-        alt: "Brandon Hopkins, Founder of CalTech Web",
+        url: "/portfolio/arjun-kanuri-after.png",
+        width: 1200,
+        height: 630,
+        alt: "Dr. Arjun Kanuri medical practice website redesign by CalTech Web",
       },
     ],
   },
   twitter: {
-    card: "summary",
-    images: ["/brandon-hopkins.jpg"],
+    card: "summary_large_image",
+    images: ["/portfolio/arjun-kanuri-after.png"],
   },
 };
 

@@ -288,7 +288,7 @@ const portfolioItems: PortfolioItem[] = [
       "Unlimited updates included",
     ],
     screenshot: "/portfolio/alv-floors-after.png",
-    website: "https://alvfloors.com",
+    website: "https://www.alvfloors.com",
     caseStudySlug: "alv-floors",
     beforeScreenshot: "/portfolio/alv-floors-before.png",
   },

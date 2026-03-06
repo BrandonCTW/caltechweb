@@ -9,6 +9,30 @@ export const metadata: Metadata = {
   title: "Case Studies | CalTech Web",
   description:
     "See real results from CalTech Web clients. From traffic growth to custom features, these case studies show what's possible for $99/month.",
+  alternates: { canonical: "https://caltechweb.com/case-studies/" },
+  openGraph: {
+    type: "website",
+    url: "https://caltechweb.com/case-studies/",
+    siteName: "CalTech Web",
+    title: "Case Studies | CalTech Web",
+    description:
+      "See real results from CalTech Web clients. From traffic growth to custom features, these case studies show what's possible for $99/month.",
+    images: [
+      {
+        url: "/portfolio/madera-county-farm-bureau.png",
+        width: 1200,
+        height: 630,
+        alt: "CalTech Web Case Studies",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Case Studies | CalTech Web",
+    description:
+      "See real results from CalTech Web clients. From traffic growth to custom features, these case studies show what's possible for $99/month.",
+    images: ["/portfolio/madera-county-farm-bureau.png"],
+  },
 };
 
 const caseStudies: {

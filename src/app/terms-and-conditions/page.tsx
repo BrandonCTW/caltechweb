@@ -13,6 +13,14 @@ export const metadata: Metadata = {
     description:
       "Terms and conditions for CalTech Web's $99/month web design service.",
     url: "https://caltechweb.com/terms-and-conditions/",
+    images: [
+      {
+        url: "/brandon-hopkins.jpg",
+        width: 2400,
+        height: 1600,
+        alt: "Brandon Hopkins, Founder of CalTech Web",
+      },
+    ],
   },
 };
 
