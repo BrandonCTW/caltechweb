@@ -7,7 +7,7 @@ import Link from "next/link";
 export default function InlineQuoteForm() {
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
-  const [fields, setFields] = useState({ name: "", business: "", contact: "" });
+  const [fields, setFields] = useState({ name: "", business: "", contact: "", website: "" });
 
   function handleChange(
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -27,7 +27,8 @@ export default function InlineQuoteForm() {
           site: "caltechweb.com",
           name: fields.name,
           email: fields.contact,
-          message: `Business Type: ${fields.business || "not specified"}\nContact: ${fields.contact}`,
+          website: fields.website,
+          message: `Business Type: ${fields.business || "not specified"}\nContact: ${fields.contact}${fields.website ? `\nWebsite: ${fields.website}` : ""}`,
           source: "homepage-quote",
         }),
       });
@@ -86,7 +87,7 @@ export default function InlineQuoteForm() {
           onSubmit={handleSubmit}
           className="bg-white rounded-3xl p-8 sm:p-10 shadow-2xl"
         >
-          <div className="grid sm:grid-cols-3 gap-4 mb-6">
+          <div className="grid sm:grid-cols-2 gap-4 mb-6">
             <div>
               <label
                 htmlFor="name"
@@ -141,6 +142,23 @@ export default function InlineQuoteForm() {
                 type="text"
                 placeholder="you@yourbusiness.com"
                 value={fields.contact}
+                onChange={handleChange}
+                className="w-full px-4 py-3 rounded-xl border border-gray-200 text-gray-900 placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all text-sm"
+              />
+            </div>
+            <div>
+              <label
+                htmlFor="website"
+                className="block text-sm font-semibold text-gray-700 mb-2"
+              >
+                Current Website URL
+              </label>
+              <input
+                id="website"
+                name="website"
+                type="url"
+                placeholder="https://www.yourbusiness.com"
+                value={fields.website}
                 onChange={handleChange}
                 className="w-full px-4 py-3 rounded-xl border border-gray-200 text-gray-900 placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all text-sm"
               />

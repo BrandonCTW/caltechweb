@@ -21,6 +21,7 @@ function ContactForm() {
     email: "",
     phone: "",
     businessType: "",
+    website: "",
     message: "",
   });
 
@@ -44,7 +45,8 @@ function ContactForm() {
           site: "caltechweb.com",
           name: fields.name,
           email: fields.email,
-          message: `${fields.phone ? `Phone: ${fields.phone}\n` : ""}${fields.businessType ? `Business Type: ${fields.businessType}\n\n` : "\n"}${fields.message}`,
+          website: fields.website,
+          message: `${fields.phone ? `Phone: ${fields.phone}\n` : ""}${fields.businessType ? `Business Type: ${fields.businessType}\n` : ""}${fields.website ? `Website: ${fields.website}\n\n` : "\n"}${fields.message}`,
           source: "contact-page",
         }),
       });
@@ -60,7 +62,7 @@ function ContactForm() {
       `Website inquiry from ${fields.name}${fields.businessType ? ` (${fields.businessType})` : ""}`
     );
     const body = encodeURIComponent(
-      `Name: ${fields.name}\nEmail: ${fields.email}\nPhone: ${fields.phone || "Not provided"}\nBusiness Type: ${fields.businessType || "Not specified"}\n\nMessage:\n${fields.message}`
+      `Name: ${fields.name}\nEmail: ${fields.email}\nPhone: ${fields.phone || "Not provided"}\nBusiness Type: ${fields.businessType || "Not specified"}\nCurrent Website: ${fields.website || "None"}\n\nMessage:\n${fields.message}`
     );
     window.location.href = `mailto:Brandon@CalTechWeb.com?subject=${subject}&body=${body}`;
     setSubmitted(true);
@@ -159,6 +161,21 @@ function ContactForm() {
             <option value="Other">Other</option>
           </select>
         </div>
+      </div>
+
+      <div>
+        <label htmlFor="website" className="block text-sm font-semibold text-gray-700 mb-1.5">
+          Current Website URL
+        </label>
+        <input
+          id="website"
+          name="website"
+          type="url"
+          value={fields.website}
+          onChange={handleChange}
+          placeholder="https://www.yourbusiness.com"
+          className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+        />
       </div>
 
       <div>
