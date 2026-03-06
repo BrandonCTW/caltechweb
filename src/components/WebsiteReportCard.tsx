@@ -15,7 +15,6 @@ import {
   ChevronDown,
   ChevronUp,
   Phone,
-  Mail,
   Zap,
   Shield,
   Smartphone,
@@ -440,9 +439,10 @@ function ScanningState({ phase }: { phase: number }) {
 
 // ─── ReportContactForm ──────────────────────────────────────────────────────
 
-function ReportContactForm({ websiteUrl }: { websiteUrl: string }) {
+function ReportContactForm({ websiteUrl, score }: { websiteUrl: string; score: number }) {
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
+  const [website, setWebsite] = useState(websiteUrl);
   const [fields, setFields] = useState({
     name: "",
     email: "",
@@ -465,8 +465,8 @@ function ReportContactForm({ websiteUrl }: { websiteUrl: string }) {
           site: "caltechweb.com",
           name: fields.name,
           email: fields.email,
-          website: websiteUrl,
-          message: `Phone: ${fields.phone || "Not provided"}\nWebsite: ${websiteUrl}\n\nSubmitted from Free Website Report Card after scanning their site.`,
+          website: website,
+          message: `Phone: ${fields.phone || "Not provided"}\nWebsite: ${website}\nReport Card Score: ${score}/100\n\nSubmitted from Free Website Report Card after scanning their site.`,
           source: "report-card",
         }),
       });
@@ -493,7 +493,7 @@ function ReportContactForm({ websiteUrl }: { websiteUrl: string }) {
         </h3>
         <p className="text-sm text-gray-600 max-w-md mx-auto">
           Brandon will personally review your report card for{" "}
-          <span className="font-semibold">{websiteUrl}</span> and reach out
+          <span className="font-semibold">{website}</span> and reach out
           within a few hours with a plan to fix the issues we found.
         </p>
       </div>
@@ -510,6 +510,25 @@ function ReportContactForm({ websiteUrl }: { websiteUrl: string }) {
           We&apos;ll review your report and show you exactly how we&apos;d fix
           these issues for $99/month. No obligation.
         </p>
+      </div>
+
+      {/* Score visual */}
+      <div className="flex items-center justify-center gap-3 sm:gap-5 mb-6">
+        <div className="text-center">
+          <div className="text-xs font-semibold text-blue-300 mb-1">Your Score</div>
+          <div className={`text-3xl font-extrabold ${score >= 80 ? "text-blue-300" : score >= 60 ? "text-yellow-300" : "text-red-400"}`}>
+            {score}
+          </div>
+        </div>
+        <div className="flex items-center gap-2">
+          <div className="w-10 sm:w-16 h-0.5 bg-blue-700" />
+          <ArrowRight className="w-5 h-5 text-orange-400" />
+          <div className="w-10 sm:w-16 h-0.5 bg-blue-700" />
+        </div>
+        <div className="text-center">
+          <div className="text-xs font-semibold text-orange-300 mb-1">Our Goal</div>
+          <div className="text-3xl font-extrabold text-green-400">95+</div>
+        </div>
       </div>
 
       <form onSubmit={handleSubmit} className="max-w-2xl mx-auto space-y-4">
@@ -559,13 +578,17 @@ function ReportContactForm({ websiteUrl }: { websiteUrl: string }) {
             />
           </div>
           <div>
-            <label className="block text-xs font-semibold text-blue-200 mb-1.5">
-              Website Scanned
+            <label htmlFor="rc-website" className="block text-xs font-semibold text-blue-200 mb-1.5">
+              Website URL
             </label>
-            <div className="w-full px-4 py-2.5 rounded-xl border border-white/10 bg-white/5 text-sm text-blue-200 flex items-center gap-2">
-              <Mail className="w-3.5 h-3.5 text-blue-400 shrink-0" />
-              <span className="truncate">{websiteUrl}</span>
-            </div>
+            <input
+              id="rc-website"
+              type="url"
+              value={website}
+              onChange={(e) => setWebsite(e.target.value)}
+              placeholder="https://www.yourbusiness.com"
+              className="w-full px-4 py-2.5 rounded-xl border border-white/20 bg-white/10 text-sm text-white placeholder-blue-300/50 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition"
+            />
           </div>
         </div>
 
@@ -823,7 +846,7 @@ export default function WebsiteReportCard() {
           )}
 
           {/* Bottom Contact Form */}
-          <ReportContactForm websiteUrl={url} />
+          <ReportContactForm websiteUrl={url} score={report.overallScore} />
         </div>
       )}
     </div>
