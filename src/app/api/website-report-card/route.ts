@@ -442,11 +442,14 @@ function analyzeLeadCapture(html: string): WebsiteCheck[] {
   const hasForms = matchAll(html, /<form[^>]*>/gi).length
   const hasInputs = matchAll(html, /<input[^>]*type\s*=\s*["'](?:text|email|tel)["'][^>]*>/gi).length
   const hasTextarea = /<textarea/i.test(html)
+  const hasContactPageLink = /href\s*=\s*["'][^"']*\/contact(?:[\s"'/?#]|$)/i.test(html)
 
   if (hasForms > 0 && (hasInputs > 0 || hasTextarea)) {
     checks.push({ label: 'Contact Form', status: 'pass', detail: `${hasForms} form${hasForms > 1 ? 's' : ''} found with input fields. Visitors can easily submit inquiries.` })
   } else if (hasForms > 0) {
     checks.push({ label: 'Contact Form', status: 'warning', detail: 'Form element found but missing visible input fields. Make sure the form is functional and easy to fill out.' })
+  } else if (hasContactPageLink) {
+    checks.push({ label: 'Contact Form', status: 'pass', detail: 'A contact page is linked from this site. Visitors can navigate to it to submit inquiries.' })
   } else {
     checks.push({ label: 'Contact Form', status: 'fail', detail: 'No contact form found. A form is one of the most important ways to capture leads from your website.' })
   }
@@ -504,6 +507,8 @@ function analyzeLeadCapture(html: string): WebsiteCheck[] {
     } else {
       checks.push({ label: 'Form Usability', status: 'fail', detail: `Only ${contextPct}% of form inputs have labels or placeholders. Visitors cannot tell what to type in bare input fields.` })
     }
+  } else if (hasContactPageLink) {
+    checks.push({ label: 'Form Usability', status: 'pass', detail: 'Contact form is on a dedicated contact page. Make sure it has clear labels and placeholders so visitors know what to fill in.' })
   } else {
     checks.push({ label: 'Form Usability', status: 'warning', detail: 'No form with input fields found to evaluate. A well-labeled contact form is essential for capturing leads.' })
   }
