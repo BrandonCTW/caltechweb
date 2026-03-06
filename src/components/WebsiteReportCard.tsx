@@ -583,10 +583,10 @@ function ReportContactForm({ websiteUrl, score }: { websiteUrl: string; score: n
             </label>
             <input
               id="rc-website"
-              type="url"
+              type="text"
               value={website}
               onChange={(e) => setWebsite(e.target.value)}
-              placeholder="https://www.yourbusiness.com"
+              placeholder="yourbusiness.com"
               className="w-full px-4 py-2.5 rounded-xl border border-white/20 bg-white/10 text-sm text-white placeholder-blue-300/50 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition"
             />
           </div>

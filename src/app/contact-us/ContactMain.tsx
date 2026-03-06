@@ -170,10 +170,10 @@ function ContactForm() {
         <input
           id="website"
           name="website"
-          type="url"
+          type="text"
           value={fields.website}
           onChange={handleChange}
-          placeholder="https://www.yourbusiness.com"
+          placeholder="yourbusiness.com"
           className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
         />
       </div>

@@ -156,8 +156,8 @@ export default function InlineQuoteForm() {
               <input
                 id="website"
                 name="website"
-                type="url"
-                placeholder="https://www.yourbusiness.com"
+                type="text"
+                placeholder="yourbusiness.com"
                 value={fields.website}
                 onChange={handleChange}
                 className="w-full px-4 py-3 rounded-xl border border-gray-200 text-gray-900 placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all text-sm"
