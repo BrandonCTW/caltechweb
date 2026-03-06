@@ -96,7 +96,7 @@ function checkScore(checks: WebsiteCheck[]): number {
   if (checks.length === 0) return 0
   const total = checks.reduce((sum, c) => {
     if (c.status === 'pass') return sum + 100
-    if (c.status === 'warning') return sum + 50
+    if (c.status === 'warning') return sum + 40
     return sum
   }, 0)
   return Math.round(total / checks.length)
@@ -126,10 +126,10 @@ function analyzeFirstImpression(html: string, responseTimeMs: number): WebsiteCh
   const checks: WebsiteCheck[] = []
 
   // Response time (TTFB)
-  if (responseTimeMs <= 600) {
+  if (responseTimeMs <= 1000) {
     checks.push({ label: 'Response Time', status: 'pass', detail: `Server responded in ${responseTimeMs}ms. Fast initial response.` })
-  } else if (responseTimeMs <= 1500) {
-    checks.push({ label: 'Response Time', status: 'warning', detail: `Server responded in ${responseTimeMs}ms. Aim for under 600ms for the best first impression.` })
+  } else if (responseTimeMs <= 2500) {
+    checks.push({ label: 'Response Time', status: 'warning', detail: `Server responded in ${responseTimeMs}ms. Aim for under 1 second for the best first impression.` })
   } else {
     checks.push({ label: 'Response Time', status: 'fail', detail: `Server took ${responseTimeMs}ms to respond. Visitors may leave before the page even starts loading.` })
   }
@@ -138,10 +138,12 @@ function analyzeFirstImpression(html: string, responseTimeMs: number): WebsiteCh
   const hasGoogleFonts = /fonts\.googleapis\.com|fonts\.gstatic\.com/i.test(html)
   const hasFontFace = /@font-face/i.test(html)
   const hasPreloadFont = /<link[^>]*rel\s*=\s*["']preload["'][^>]*as\s*=\s*["']font["']/i.test(html)
-  if (hasPreloadFont) {
-    checks.push({ label: 'Font Loading', status: 'pass', detail: 'Fonts are preloaded for fast rendering. Text appears quickly without layout shifts.' })
+  const hasNextFont = /__className|data-nf/i.test(html)
+  const hasInlinedFont = /data:font|font-display\s*:\s*swap/i.test(html)
+  if (hasPreloadFont || hasNextFont || hasInlinedFont) {
+    checks.push({ label: 'Font Loading', status: 'pass', detail: 'Fonts are optimized for fast rendering. Text appears quickly without layout shifts.' })
   } else if (hasGoogleFonts || hasFontFace) {
-    checks.push({ label: 'Font Loading', status: 'warning', detail: 'Custom fonts detected but not preloaded. Text may flash or shift during loading (FOUT).' })
+    checks.push({ label: 'Font Loading', status: 'warning', detail: 'Custom fonts detected but not optimized. Text may flash or shift during loading (FOUT).' })
   } else {
     checks.push({ label: 'Font Loading', status: 'pass', detail: 'Using system fonts. Text renders instantly without additional network requests.' })
   }
@@ -204,9 +206,12 @@ function analyzeFirstImpression(html: string, responseTimeMs: number): WebsiteCh
   // Above-the-fold CTA — check hero/header area for an actionable button or link
   const heroArea = html.match(/<(?:header|section|div)[^>]*(?:hero|banner|jumbotron)[^>]*>[\s\S]*?<\/(?:header|section|div)>/i)?.[0] ||
     html.match(/<header[^>]*>[\s\S]*?<\/header>/i)?.[0] || ''
-  const heroCtas = matchAll(heroArea, /<(?:a|button)[^>]*>[\s\S]*?<\/(?:a|button)>/gi)
+  // Also check the first ~3000 chars of body for CTAs (modern sites use components, not semantic hero sections)
+  const bodyStart = html.match(/<body[^>]*>([\s\S]{0,3000})/i)?.[1] || ''
+  const ctaSearchArea = heroArea || bodyStart
+  const heroCtas = matchAll(ctaSearchArea, /<(?:a|button)[^>]*>[\s\S]*?<\/(?:a|button)>/gi)
     .map(tag => stripTags(tag).toLowerCase())
-  const ctaWords = ['get', 'start', 'contact', 'call', 'quote', 'free', 'schedule', 'book', 'learn', 'sign', 'try', 'buy', 'order', 'shop']
+  const ctaWords = ['get', 'start', 'contact', 'call', 'quote', 'free', 'schedule', 'book', 'learn', 'sign', 'try', 'buy', 'order', 'shop', 'view', 'see', 'explore', 'request']
   const heroCtaCount = heroCtas.filter(text => ctaWords.some(kw => text.includes(kw))).length
   if (heroCtaCount >= 1) {
     checks.push({ label: 'Above-the-Fold CTA', status: 'pass', detail: 'Call-to-action found in the hero area. Visitors immediately see what action to take.' })
@@ -221,9 +226,9 @@ function analyzeFirstImpression(html: string, responseTimeMs: number): WebsiteCh
   const blockingScripts = matchAll(headHtml, /<script(?![^>]*(?:async|defer|type\s*=\s*["']module["']))[^>]*src\s*=[^>]*>/gi)
   const blockingStyles = matchAll(headHtml, /<link[^>]*rel\s*=\s*["']stylesheet["'][^>]*>/gi)
   const totalBlocking = blockingScripts.length + blockingStyles.length
-  if (totalBlocking <= 3) {
+  if (totalBlocking <= 5) {
     checks.push({ label: 'Render-Blocking Resources', status: 'pass', detail: `Only ${totalBlocking} render-blocking resource${totalBlocking !== 1 ? 's' : ''} in the head. Page can start rendering quickly.` })
-  } else if (totalBlocking <= 8) {
+  } else if (totalBlocking <= 12) {
     checks.push({ label: 'Render-Blocking Resources', status: 'warning', detail: `${totalBlocking} render-blocking resources found. The browser must download all of these before showing anything to visitors.` })
   } else {
     checks.push({ label: 'Render-Blocking Resources', status: 'fail', detail: `${totalBlocking} render-blocking resources found. This many blocking scripts and stylesheets can delay your page by several seconds.` })
@@ -250,12 +255,13 @@ function analyzeMobileExperience(html: string): WebsiteCheck[] {
   // Media queries (responsive CSS)
   const mediaQueries = matchAll(html, /@media[^{]*\{/gi)
   const hasExternalResponsive = /<link[^>]*media\s*=\s*["'][^"']*max-width[^"']*["']/i.test(html)
-  if (mediaQueries.length >= 3 || hasExternalResponsive) {
-    checks.push({ label: 'Responsive Design', status: 'pass', detail: `Found ${mediaQueries.length} media queries. Site has responsive CSS for different screen sizes.` })
+  const hasTailwindResponsive = /(?:sm:|md:|lg:|xl:)[\w-]+/i.test(html)
+  if (mediaQueries.length >= 3 || hasExternalResponsive || hasTailwindResponsive) {
+    checks.push({ label: 'Responsive Design', status: 'pass', detail: `Responsive CSS detected. Site adapts to different screen sizes.` })
   } else if (mediaQueries.length >= 1) {
     checks.push({ label: 'Responsive Design', status: 'warning', detail: `Only ${mediaQueries.length} media query found. Site may not fully adapt to all screen sizes.` })
   } else {
-    checks.push({ label: 'Responsive Design', status: 'fail', detail: 'No media queries detected in inline styles. The site may not be responsive to different screen sizes.' })
+    checks.push({ label: 'Responsive Design', status: 'fail', detail: 'No responsive CSS detected. The site may not adapt to different screen sizes.' })
   }
 
   // Flex/grid usage (modern layout)
@@ -301,9 +307,9 @@ function analyzeMobileExperience(html: string): WebsiteCheck[] {
   const fixedWidthPatterns = /(?:width\s*:\s*(?:1[0-9]{3,}|[2-9]\d{3,})px)|(?:min-width\s*:\s*(?:1[0-9]{3,}|[2-9]\d{3,})px)/gi
   const hasFixedWidthInline = fixedWidthPatterns.test(html)
   const hasTable = /<table/i.test(html)
-  const hasTableResponsive = /overflow-x|table-responsive|overflow-auto/i.test(html)
+  const hasTableResponsive = /overflow-x|table-responsive|overflow-auto|w-full|max-w-/i.test(html)
   if (hasTable && !hasTableResponsive) {
-    checks.push({ label: 'No Horizontal Overflow', status: 'fail', detail: 'HTML tables found without responsive wrapping. Tables cause horizontal scrolling on phones, frustrating visitors.' })
+    checks.push({ label: 'No Horizontal Overflow', status: 'warning', detail: 'HTML tables found without responsive wrapping. Tables can cause horizontal scrolling on phones.' })
   } else if (hasFixedWidthInline) {
     checks.push({ label: 'No Horizontal Overflow', status: 'warning', detail: 'Fixed-width elements over 1000px detected. These can cause horizontal scrolling on mobile devices.' })
   } else {
@@ -375,9 +381,9 @@ function analyzeTrustCredibility(html: string, url: string): WebsiteCheck[] {
   if (foundSocials.length >= 2) {
     checks.push({ label: 'Social Media Presence', status: 'pass', detail: `${foundSocials.length} social platform links found. Active social presence builds credibility.` })
   } else if (foundSocials.length === 1) {
-    checks.push({ label: 'Social Media Presence', status: 'warning', detail: 'Only 1 social platform link found. Add more social profiles to build trust.' })
+    checks.push({ label: 'Social Media Presence', status: 'warning', detail: 'Only 1 social platform link found. Link to at least 2 profiles to build trust.' })
   } else {
-    checks.push({ label: 'Social Media Presence', status: 'fail', detail: 'No social media links found. Social profiles prove your business is real and active.' })
+    checks.push({ label: 'Social Media Presence', status: 'fail', detail: 'No social media links found. Social profiles prove your business is real and active. This is a trust red flag.' })
   }
 
   // Testimonials / reviews
@@ -394,7 +400,7 @@ function analyzeTrustCredibility(html: string, url: string): WebsiteCheck[] {
   const hasPrivacy = /privacy[\s-]*policy|privacy\.html|\/privacy/i.test(html)
   checks.push({
     label: 'Privacy Policy',
-    status: hasPrivacy ? 'pass' : 'warning',
+    status: hasPrivacy ? 'pass' : 'fail',
     detail: hasPrivacy
       ? 'Privacy policy link found. Shows professionalism and legal compliance.'
       : 'No privacy policy link detected. Required by law for sites that collect any user data.',
@@ -404,7 +410,7 @@ function analyzeTrustCredibility(html: string, url: string): WebsiteCheck[] {
   const hasHours = /hours|mon(?:day)?[\s\-–:]+|tue(?:sday)?[\s\-–:]+|wed(?:nesday)?[\s\-–:]+|thu(?:rsday)?[\s\-–:]+|fri(?:day)?[\s\-–:]+|sat(?:urday)?[\s\-–:]+|sun(?:day)?[\s\-–:]+|(?:\d{1,2}\s*(?:am|pm)\s*[-–]\s*\d{1,2}\s*(?:am|pm))|open\s*(?:daily|24)/i.test(html)
   checks.push({
     label: 'Business Hours',
-    status: hasHours ? 'pass' : 'fail',
+    status: hasHours ? 'pass' : 'warning',
     detail: hasHours
       ? 'Business hours found on the page. Visitors know when they can reach you.'
       : 'No business hours listed. Customers want to know when you are open before calling or visiting.',
@@ -589,9 +595,9 @@ function analyzeSeoBasics(html: string): WebsiteCheck[] {
     checks.push({ label: 'Image Alt Text', status: 'pass', detail: 'No images found (may be fine for text-heavy content).' })
   } else {
     const altPercent = Math.round((imgsWithAlt.length / imgTags.length) * 100)
-    if (altPercent === 100) {
-      checks.push({ label: 'Image Alt Text', status: 'pass', detail: `All ${imgTags.length} images have alt text. Great for accessibility and image search.` })
-    } else if (altPercent >= 70) {
+    if (altPercent >= 80) {
+      checks.push({ label: 'Image Alt Text', status: 'pass', detail: `${altPercent}% of images (${imgsWithAlt.length}/${imgTags.length}) have alt text. Great for accessibility and image search.` })
+    } else if (altPercent >= 50) {
       checks.push({ label: 'Image Alt Text', status: 'warning', detail: `${imgsWithAlt.length} of ${imgTags.length} images (${altPercent}%) have alt text. Add alt attributes to the rest.` })
     } else {
       checks.push({ label: 'Image Alt Text', status: 'fail', detail: `Only ${imgsWithAlt.length} of ${imgTags.length} images (${altPercent}%) have alt text. Search engines can't understand untagged images.` })
@@ -606,7 +612,7 @@ function analyzeSeoBasics(html: string): WebsiteCheck[] {
   } else if (hasMicrodata) {
     checks.push({ label: 'Structured Data', status: 'pass', detail: 'Microdata structured data found on the page.' })
   } else {
-    checks.push({ label: 'Structured Data', status: 'warning', detail: 'No structured data (JSON-LD) found. Adding LocalBusiness schema can show your address and phone in search results.' })
+    checks.push({ label: 'Structured Data', status: 'fail', detail: 'No structured data (JSON-LD) found. Without it, Google cannot show rich results like star ratings, FAQs, or your business info in search.' })
   }
 
   // Canonical URL
