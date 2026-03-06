@@ -26,6 +26,8 @@ export const metadata: Metadata = {
     "Meet Brandon Hopkins, founder of CalTech Web. Professional websites for small businesses at $99/month with fast support and a personal guarantee.",
   alternates: { canonical: "https://caltechweb.com/brandon-hopkins/" },
   openGraph: {
+    type: "website",
+    siteName: "CalTech Web",
     title: "About Brandon Hopkins | Founder of CalTech Web",
     description:
       "Brandon Hopkins built CalTech Web to give small businesses access to professional web design without the big-agency price tag. $99/month, 800+ sites, and counting.",
@@ -40,7 +42,7 @@ export const metadata: Metadata = {
     ],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     images: ["/brandon-hopkins.jpg"],
   },
 };

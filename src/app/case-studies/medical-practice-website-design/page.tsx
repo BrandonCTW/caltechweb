@@ -26,13 +26,15 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Medical Practice Website Design | $99/month | CalTech Web",
   description:
-    "Medical practice website design that gets results. See how Dr. Kanuri got 40% more traffic and doubled appointment conversions in 90 days. $99/month, no contracts.",
+    "Medical practice website design that gets results. See how Dr. Kanuri got 40% more traffic and doubled conversions in 90 days. $99/month, no contracts.",
   keywords:
     "medical practice website design, doctor website design, physician website, medical website design, healthcare website design",
   alternates: {
     canonical: "https://caltechweb.com/case-studies/medical-practice-website-design/",
   },
   openGraph: {
+    type: "website",
+    siteName: "CalTech Web",
     title: "Medical Practice Website Design | $99/month | CalTech Web",
     description:
       "See how a plastic surgery practice got 40% more traffic and 2x appointment conversions after a 5-day redesign. $99/month includes everything.",

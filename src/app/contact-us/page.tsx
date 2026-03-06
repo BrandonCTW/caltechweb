@@ -8,7 +8,7 @@ import ContactFAQ from "./ContactFAQ";
 export const metadata: Metadata = {
   title: "Contact Us | Get a Free Consultation | CalTech Web",
   description:
-    "Get in touch with Brandon Hopkins at CalTech Web. Affordable website design starting at $99/month for small businesses, churches, and non-profits. Call (559) 282-3075.",
+    "Contact Brandon Hopkins at CalTech Web. Affordable website design for $99/month for small businesses, churches, and non-profits. Call (559) 282-3075.",
   alternates: { canonical: "https://caltechweb.com/contact-us/" },
   openGraph: {
     type: "website",

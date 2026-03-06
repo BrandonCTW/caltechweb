@@ -6,6 +6,7 @@ export const metadata: Metadata = {
     "Get an instant, no-obligation quote for your custom website. See exactly what you'll pay, $99/month, all-inclusive. Takes 60 seconds.",
   alternates: { canonical: "https://caltechweb.com/get-a-free-instant-quote/" },
   openGraph: {
+    siteName: "CalTech Web",
     title: "Get a Free Instant Website Quote | CalTech Web",
     description:
       "Instant, no-obligation website quote. Custom web design, hosting, and unlimited updates for $99/month. See your price in 60 seconds.",

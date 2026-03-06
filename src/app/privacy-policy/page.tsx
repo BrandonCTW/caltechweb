@@ -9,6 +9,8 @@ export const metadata: Metadata = {
     "CalTech Web privacy policy. Learn how we collect, use, and protect your personal information when you use our website and web design services.",
   alternates: { canonical: "https://caltechweb.com/privacy-policy/" },
   openGraph: {
+    type: "website",
+    siteName: "CalTech Web",
     title: "Privacy Policy | CalTech Web",
     description:
       "CalTech Web privacy policy. Learn how we collect, use, and protect your personal information.",

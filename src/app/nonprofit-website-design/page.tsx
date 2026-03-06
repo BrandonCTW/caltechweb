@@ -30,11 +30,13 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Nonprofit Website Design | $99/month | CalTech Web",
   description:
-    "Professional nonprofit website design for $99/month. Membership management, donation integration, event registration, and unlimited updates. We handle everything.",
+    "Professional nonprofit website design for $99/month. Membership management, donation integration, event registration, and unlimited updates included.",
   keywords:
     "nonprofit website design, nonprofit web design, nonprofit website builder, affordable nonprofit website, charity website design",
   alternates: { canonical: "https://caltechweb.com/nonprofit-website-design/" },
   openGraph: {
+    type: "website",
+    siteName: "CalTech Web",
     title: "Nonprofit Website Design | $99/month | CalTech Web",
     description:
       "You run a nonprofit. You're already stretched thin. We build and manage your entire website for $99/month so you can focus on your mission.",

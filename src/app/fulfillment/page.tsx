@@ -6,9 +6,11 @@ import Footer from "@/components/Footer";
 export const metadata: Metadata = {
   title: "Fulfillment Policy | CalTech Web",
   description:
-    "CalTech Web fulfillment policy. Learn how we deliver our $99/month web design service, including website launch timelines, update turnaround, and cancellation terms.",
+    "CalTech Web fulfillment policy. How we deliver our $99/month web design service: launch timelines, update turnaround, and cancellation terms.",
   alternates: { canonical: "https://caltechweb.com/fulfillment/" },
   openGraph: {
+    type: "website",
+    siteName: "CalTech Web",
     title: "Fulfillment Policy | CalTech Web",
     description:
       "How CalTech Web delivers its $99/month web design service, website launch, updates, hosting, and cancellation.",

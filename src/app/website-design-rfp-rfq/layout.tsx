@@ -4,11 +4,12 @@ import { rfpFaqs } from "./faq-data";
 export const metadata: Metadata = {
   title: "Website Design RFP & RFQ | $99/Month Proposals | CalTech Web",
   description:
-    "Submit your website design RFP or RFQ to CalTech Web. Flat $99/month pricing simplifies procurement for government, non-profit, and business projects. 800+ sites delivered.",
+    "Submit your website design RFP or RFQ to CalTech Web. Flat $99/month pricing for government, non-profit, and business projects. 800+ sites delivered.",
   alternates: {
     canonical: "https://caltechweb.com/website-design-rfp-rfq/",
   },
   openGraph: {
+    siteName: "CalTech Web",
     title: "Website Design RFP & RFQ | Flat $99/Month | CalTech Web",
     description:
       "Simple, transparent website design proposals. $99/month all-inclusive. No large upfront costs. 800+ websites delivered for government, non-profit, and business clients.",

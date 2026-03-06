@@ -11,6 +11,8 @@ export const metadata: Metadata = {
     "Case studies, how-to guides, and industry-specific advice from Brandon Hopkins at CalTech Web. Real results from 800+ websites built.",
   alternates: { canonical: "https://caltechweb.com/blog/" },
   openGraph: {
+    type: "website",
+    siteName: "CalTech Web",
     title: "Web Design Resources | Guides & Case Studies | CalTech Web",
     description:
       "Case studies, how-to guides, and industry-specific advice from Brandon Hopkins at CalTech Web.",

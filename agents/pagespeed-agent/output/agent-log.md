@@ -1216,3 +1216,14 @@ The site remains at its practical performance ceiling (94–99). All remaining f
 **Starting score (first Opus run): 79 → Current score: 95 (94–99 range)**
 
 The site is at its practical performance ceiling for a Next.js App Router site on simulated slow 4G. No further optimizations are viable without major architectural changes.
+**Run #10 complete.**
+
+**Before:** 95 (Mobile) — FCP 1.4s, LCP 2.5s, TBT 20ms, SI 4.1s
+
+**Fix:** Removed 56 lines of dead CSS from `globals.css` — 16 unused shadcn color theme variables, 16 unused `:root` custom properties, the entire `.dark` block, and the `@custom-variant dark` line. None were referenced anywhere in the codebase.
+
+**After:** 95 (Mobile) — LCP 2.5s (identical), TBT 20ms, TTI 2,484ms (identical). FCP 1.7s (+300ms, Lighthouse variance). Score unchanged.
+
+The site remains at its practical ceiling (94–99). All remaining issues are unscored diagnostics — render-blocking CSS, legacy JS polyfills, framework chunks, and 1 React hydration task — none fixable without changing frameworks.
+[2026-03-05 11:32:50] Run #10 finished
+[2026-03-05 11:32:50] Reached max loops (10). Stopping.

@@ -30,6 +30,8 @@ export const metadata: Metadata = {
     "Transparent web design pricing at $99/month. Custom design, unlimited updates, hosting, SSL, and priority support included. No contracts.",
   alternates: { canonical: "https://caltechweb.com/web-design-pricing/" },
   openGraph: {
+    type: "website",
+    siteName: "CalTech Web",
     title: "Web Design Pricing | $99/month All-Inclusive | CalTech Web",
     description:
       "Everything your website needs for one flat monthly fee. Custom design, unlimited updates, hosting, and fast support, all for $99/month.",

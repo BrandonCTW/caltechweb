@@ -33,6 +33,8 @@ export const metadata: Metadata = {
     "affordable church websites, church website design, church web design, church website builder, church website hosting",
   alternates: { canonical: "https://caltechweb.com/affordable-church-websites/" },
   openGraph: {
+    type: "website",
+    siteName: "CalTech Web",
     title: "Affordable Church Websites | $99/month | CalTech Web",
     description:
       "Everything your church needs online for $99/month. Custom design, online giving, sermon streaming, event calendars, hosting, SSL, and unlimited updates.",

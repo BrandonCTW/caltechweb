@@ -21,7 +21,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/case-studies/sutoer-solutions/",
     "/nonprofit-website-design/",
     "/support/",
-    "/fulfillment/",
   ];
 
   // Blog posts with actual publication dates so Google can trust lastmod

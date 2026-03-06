@@ -39,9 +39,11 @@ const InlineQuoteForm = dynamic(() => import("@/components/InlineQuoteForm"));
 export const metadata: Metadata = {
   title: "Affordable Web Design for Small Businesses | $99/month | CalTech Web",
   description:
-    "Get a professional website for just $99/month, custom design, unlimited updates, hosting, SSL, and fast support all included. 800+ sites built for small businesses, churches, and non-profits. No contracts.",
+    "Professional website design for $99/month. Custom design, unlimited updates, hosting, SSL, and fast support included. 800+ sites built for small businesses, churches, and non-profits.",
   alternates: { canonical: "https://caltechweb.com/" },
   openGraph: {
+    type: "website",
+    siteName: "CalTech Web",
     title: "Affordable Web Design for Small Businesses | $99/month | CalTech Web",
     description:
       "Custom website design, unlimited updates, hosting, and priority support, all for $99/month. Serving 800+ small businesses, churches, and non-profits nationwide. No contracts, money-back guarantee.",

@@ -24,7 +24,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Sutoer Solutions Case Study | Custom Job Database | CalTech Web",
   description:
-    "How CalTech Web built a modern staffing website with a password-protected job listings database for Sutoer Solutions — a 25-year-old IT and finance staffing firm.",
+    "How CalTech Web built a staffing website with a password-protected job database for Sutoer Solutions, a 25-year-old IT and finance staffing firm.",
   alternates: {
     canonical: "https://caltechweb.com/case-studies/sutoer-solutions/",
   },

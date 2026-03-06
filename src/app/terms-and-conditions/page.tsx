@@ -9,6 +9,8 @@ export const metadata: Metadata = {
     "Terms and conditions for CalTech Web's $99/month web design service. Covers service description, billing, cancellation policy, intellectual property, and more.",
   alternates: { canonical: "https://caltechweb.com/terms-and-conditions/" },
   openGraph: {
+    type: "website",
+    siteName: "CalTech Web",
     title: "Terms and Conditions | CalTech Web",
     description:
       "Terms and conditions for CalTech Web's $99/month web design service.",

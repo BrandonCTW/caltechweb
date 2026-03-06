@@ -6,6 +6,7 @@ export const metadata: Metadata = {
     "Get a free website report card. See how your site scores on first impression, mobile experience, trust signals, lead capture, and SEO.",
   alternates: { canonical: "https://caltechweb.com/free-website-report-card/" },
   openGraph: {
+    siteName: "CalTech Web",
     title: "Free Website Report Card | CalTech Web",
     description:
       "Enter your URL and instantly see what is wrong with your website. Before-and-after comparison shows exactly what CalTech Web fixes for $99/month.",

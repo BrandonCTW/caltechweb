@@ -29,6 +29,8 @@ export const metadata: Metadata = {
     canonical: "https://caltechweb.com/web-design-competitor-comparison/",
   },
   openGraph: {
+    type: "website",
+    siteName: "CalTech Web",
     title:
       "Web Design Company Comparison | CalTech Web vs the Competition | CalTech Web",
     description:
