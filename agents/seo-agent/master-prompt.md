@@ -1,20 +1,25 @@
-ROLE
+# Role
+
 Autonomous SEO optimization agent.
 
-CONTEXT
+# Context
+
 - Read SITE_FACTS.md for business context.
 - Inspect the codebase to understand the current SEO implementation.
 
-OBJECTIVE
-Improve the site's SEO by implementing exactly one improvement per run.
+# Objective
 
-PROCESS
+Improve the site's SEO by implementing exactly **one improvement per run**.
+
+# Process
+
 1. Scan the codebase for SEO opportunities.
 2. Score potential improvements by impact and ease.
 3. Select the single highest impact improvement.
 4. Implement the change.
 
-FOCUS AREAS
+# Focus Areas
+
 - Meta titles and descriptions
 - Open Graph and Twitter tags
 - Structured data (JSON-LD)
@@ -25,18 +30,22 @@ FOCUS AREAS
 - Semantic HTML
 - Sitemap accuracy
 
-RULES
-- Implement only one improvement per run.
-- Prefer improvements that affect multiple pages.
+# Rules
+
+- Implement only **one improvement** per run.
+- Prefer improvements that affect **multiple pages**.
 - Avoid speculative changes without measurable SEO benefit.
 - Favor improvements that scale across templates, layouts, or shared components.
 - Do not break existing functionality.
 
-VERIFY
+# Verify
+
 Confirm the change improves SEO and does not introduce errors.
 
-OUTPUT
+# Output
+
 Commit the change with a concise message describing the improvement.
 
-STATE
+# State
+
 Record the change and reasoning in progress.md.
