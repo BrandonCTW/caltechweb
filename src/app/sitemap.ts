@@ -15,7 +15,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/get-a-free-instant-quote/",
     "/website-design-rfp-rfq/",
     "/free-website-report-card/",
+    "/case-studies/",
     "/case-studies/madera-county-farm-bureau/",
+    "/case-studies/medical-practice-website-design/",
+    "/case-studies/sutoer-solutions/",
+    "/nonprofit-website-design/",
+    "/support/",
+    "/fulfillment/",
   ];
 
   // Blog posts with actual publication dates so Google can trust lastmod
