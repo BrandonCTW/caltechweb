@@ -106,6 +106,22 @@ type PortfolioItem = {
 
 const portfolioItems: PortfolioItem[] = [
   {
+    name: "Sutoer Solutions",
+    category: "Staffing & Recruiting",
+    description:
+      "A 25-year-old IT and finance staffing firm needed a modern website and a way to manage job listings without calling a developer. We built a bold, dark-themed site with a custom job database and a password-protected admin portal — all for $99/month.",
+    highlights: [
+      "Custom job database with admin portal",
+      "Password-protected backend — no developer needed",
+      "Dark, modern design with animated hero",
+      "25+ years, 1K+ placements, 500+ clients showcased",
+      "Mobile-responsive across all pages",
+      "Launched and managed by CalTech Web",
+    ],
+    screenshot: "/portfolio/sutoer-solutions.png",
+    website: "https://sutoer-pqpg44b12-brandon-7928s-projects.vercel.app",
+  },
+  {
     name: "Madera Men of Integrity",
     category: "Church & Ministry",
     description:

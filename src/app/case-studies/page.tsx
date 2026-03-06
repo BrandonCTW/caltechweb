@@ -11,7 +11,17 @@ export const metadata: Metadata = {
     "See real results from CalTech Web clients. From traffic growth to custom features, these case studies show what's possible for $99/month.",
 };
 
-const caseStudies = [
+const caseStudies: {
+  href: string;
+  client: string;
+  industry: string;
+  industryColor: string;
+  headline: string;
+  description: string;
+  image: string;
+  imagePosition: string;
+  stats: { value: string; label: string }[];
+}[] = [
   {
     href: "/case-studies/madera-county-farm-bureau/",
     client: "Madera County Farm Bureau",
@@ -21,6 +31,7 @@ const caseStudies = [
     description:
       "How CalTech Web helped the Madera County Farm Bureau transform their digital presence with a custom scholarship portal, membership management, and comprehensive content — all for $99/month.",
     image: "/portfolio/madera-county-farm-bureau.png",
+    imagePosition: "object-top",
     stats: [
       { value: "55%", label: "Traffic Growth" },
       { value: "1,000+", label: "Pages Built" },
@@ -36,6 +47,7 @@ const caseStudies = [
     description:
       "A busy plastic surgery practice with an outdated website. Here's exactly what we changed and the measurable results: 40% more organic traffic, doubled appointment conversions, and 12+ additional patient inquiries per month, all within 90 days.",
     image: "/portfolio/arjun-kanuri-after.png",
+    imagePosition: "object-top",
     stats: [
       { value: "+40%", label: "Organic Traffic" },
       { value: "2×", label: "Conversions" },
@@ -51,6 +63,7 @@ const caseStudies = [
     description:
       "A 25-year-old IT and finance staffing firm needed a modern website and a way to manage job listings without calling a developer. CalTech Web built a custom job database with a clean admin backend, all for $99/month.",
     image: "/portfolio/sutoer-solutions.png",
+    imagePosition: "object-left-top",
     stats: [
       { value: "Custom", label: "Job Database" },
       { value: "0", label: "Developers Needed" },
@@ -96,7 +109,7 @@ export default function CaseStudiesPage() {
         {/* Case Study Cards */}
         <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
           <div className="max-w-5xl mx-auto space-y-10">
-            {caseStudies.map(({ href, client, industry, industryColor, headline, description, image, stats }, index) => (
+            {caseStudies.map(({ href, client, industry, industryColor, headline, description, image, imagePosition, stats }, index) => (
               <Link
                 key={href}
                 href={href}
@@ -109,7 +122,7 @@ export default function CaseStudiesPage() {
                       src={image}
                       alt={`${client} website`}
                       fill
-                      className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                      className={`object-cover ${imagePosition} group-hover:scale-105 transition-transform duration-500`}
                       sizes="(max-width: 1024px) 100vw, 50vw"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
