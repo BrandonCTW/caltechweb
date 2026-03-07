@@ -96,9 +96,51 @@ const caseStudies: {
   },
 ];
 
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://caltechweb.com/" },
+    { "@type": "ListItem", position: 2, name: "Case Studies", item: "https://caltechweb.com/case-studies/" },
+  ],
+};
+
+const collectionJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: "Case Studies | CalTech Web",
+  description: "Real results from CalTech Web clients. From traffic growth to custom features, these case studies show what's possible for $99/month.",
+  url: "https://caltechweb.com/case-studies/",
+  mainEntity: {
+    "@type": "ItemList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        url: "https://caltechweb.com/case-studies/madera-county-farm-bureau/",
+        name: "Madera County Farm Bureau: 55% Traffic Increase & 1,000+ Pages Built",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        url: "https://caltechweb.com/case-studies/medical-practice-website-design/",
+        name: "Dr. Arjun Kanuri: 40% Traffic Increase & 2× Appointment Conversions",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        url: "https://caltechweb.com/case-studies/sutoer-solutions/",
+        name: "Sutoer Solutions: Custom Job Database with Admin Portal",
+      },
+    ],
+  },
+};
+
 export default function CaseStudiesPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionJsonLd) }} />
       <Header />
       <main>
         {/* Hero */}

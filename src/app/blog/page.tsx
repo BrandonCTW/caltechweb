@@ -81,6 +81,24 @@ const breadcrumbJsonLd = {
   ],
 };
 
+const collectionPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: "Web Design Resources | Guides & Case Studies | CalTech Web",
+  description: "Case studies, how-to guides, and industry-specific advice from Brandon Hopkins at CalTech Web. Real results from 800+ websites built.",
+  url: "https://caltechweb.com/blog/",
+  mainEntity: {
+    "@type": "ItemList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, url: "https://caltechweb.com/medical-practice-website-design/", name: "Dr. Arjun Kanuri: 40% Traffic Increase & 2× Conversions in 3 Months" },
+      { "@type": "ListItem", position: 2, url: "https://caltechweb.com/affordable-web-design-company/", name: "Why CalTech Web Is the Most Affordable Web Design Company That Doesn't Cut Corners" },
+      { "@type": "ListItem", position: 3, url: "https://caltechweb.com/affordable-web-design-for-small-businesses/", name: "Affordable Web Design for Small Businesses: What $99/Month Actually Gets You" },
+      { "@type": "ListItem", position: 4, url: "https://caltechweb.com/website-maintenance-requirements/", name: "Website Maintenance Requirements: What Every Business Owner Needs to Know" },
+      { "@type": "ListItem", position: 5, url: "https://caltechweb.com/best-church-website-builder/", name: "Best Church Website Builder in 2026: Honest Comparison for Small and Mid-Size Churches" },
+    ],
+  },
+};
+
 // ─── Hero ─────────────────────────────────────────────────────────────────────
 
 function Hero() {
@@ -140,6 +158,10 @@ export default function BlogPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionPageJsonLd) }}
       />
       <Header />
       <main className="pb-[76px] md:pb-0">

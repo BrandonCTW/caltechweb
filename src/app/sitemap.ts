@@ -48,20 +48,44 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "custom-cabling-solutions",
   ];
 
-  const siteLaunchDate = new Date("2026-02-01");
+  // Priority map for key pages
+  const priorityMap: Record<string, number> = {
+    "/": 1.0,
+    "/web-design-pricing/": 0.9,
+    "/contact-us/": 0.9,
+    "/get-a-free-instant-quote/": 0.9,
+    "/free-website-report-card/": 0.8,
+    "/web-design-portfolio/": 0.8,
+    "/case-studies/": 0.8,
+    "/affordable-church-websites/": 0.8,
+    "/nonprofit-website-design/": 0.8,
+    "/brandon-hopkins/": 0.7,
+    "/blog/": 0.7,
+    "/web-design-competitor-comparison/": 0.7,
+    "/website-design-rfp-rfq/": 0.7,
+  };
+
+  const lastUpdated = new Date("2026-03-07");
+  const blogLastUpdated = new Date("2026-02-25");
 
   return [
     ...staticPages.map((path) => ({
       url: `${baseUrl}${path}`,
-      lastModified: siteLaunchDate,
+      lastModified: path === "/blog/" ? blogLastUpdated : lastUpdated,
+      priority: priorityMap[path] ?? 0.6,
+      changeFrequency: (path === "/" || path === "/blog/" ? "weekly" : "monthly") as "weekly" | "monthly",
     })),
     ...blogPosts.map(({ slug, date }) => ({
       url: `${baseUrl}/${slug}/`,
       lastModified: new Date(date),
+      priority: 0.7,
+      changeFrequency: "monthly" as const,
     })),
     ...portfolioSlugs.map((slug) => ({
       url: `${baseUrl}/portfolio/${slug}/`,
-      lastModified: siteLaunchDate,
+      lastModified: lastUpdated,
+      priority: 0.6,
+      changeFrequency: "monthly" as const,
     })),
   ];
 }
