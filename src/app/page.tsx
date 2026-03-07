@@ -39,7 +39,7 @@ const InlineQuoteForm = dynamic(() => import("@/components/InlineQuoteForm"));
 export const metadata: Metadata = {
   title: "Affordable Web Design for Small Businesses | $99/month | CalTech Web",
   description:
-    "Professional website design for $99/month. Custom design, unlimited updates, hosting, SSL, and fast support included. 800+ sites built for small businesses, churches, and non-profits.",
+    "Professional website design for $99/month. Custom design, unlimited updates, hosting, SSL, and support. 800+ sites built for small businesses and non-profits.",
   alternates: { canonical: "https://caltechweb.com/" },
   openGraph: {
     type: "website",
