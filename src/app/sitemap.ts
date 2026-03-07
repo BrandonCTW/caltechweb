@@ -21,6 +21,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/case-studies/sutoer-solutions/",
     "/nonprofit-website-design/",
     "/support/",
+    "/privacy-policy/",
+    "/terms-and-conditions/",
   ];
 
   // Blog posts with actual publication dates so Google can trust lastmod
@@ -63,6 +65,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/blog/": 0.7,
     "/web-design-competitor-comparison/": 0.7,
     "/website-design-rfp-rfq/": 0.7,
+    "/privacy-policy/": 0.3,
+    "/terms-and-conditions/": 0.3,
   };
 
   const lastUpdated = new Date("2026-03-07");

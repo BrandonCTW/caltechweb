@@ -25,7 +25,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title:
-    "Madera County Farm Bureau Case Study | 55% Traffic Increase | CalTech Web",
+    "Madera County Farm Bureau | +55% Traffic | CalTech Web",
   description:
     "See how CalTech Web helped Madera County Farm Bureau grow traffic by 55%, build 1,000+ pages, and streamline membership management, all for $99/month.",
   alternates: {
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     url: "https://caltechweb.com/case-studies/madera-county-farm-bureau/",
     siteName: "CalTech Web",
     title:
-      "Madera County Farm Bureau Case Study | 55% Traffic Increase | CalTech Web",
+      "Madera County Farm Bureau | +55% Traffic | CalTech Web",
     description:
       "See how CalTech Web helped Madera County Farm Bureau grow traffic by 55%, build 1,000+ pages, and streamline membership management, all for $99/month.",
     images: [

@@ -56,7 +56,7 @@ const blogPosts: BlogPost[] = [
     metaTitle:
       "Medical Practice Website Design Case Study | CalTech Web",
     metaDescription:
-      "See how we redesigned Dr. Kanuri's medical website in 5 days: 40% more organic traffic, 2× appointment conversions, and 12+ new patient inquiries per month.",
+      "Dr. Kanuri's medical site redesign: +40% organic traffic, 2× appointment conversions, 12+ new patients/month. See exactly what we changed in 5 days.",
     excerpt:
       "A plastic surgery practice with an outdated site was losing new patients to a slow, untrustworthy website. Here is exactly what we built and what changed in 90 days.",
     readTime: "6 min read",
@@ -349,7 +349,7 @@ const blogPosts: BlogPost[] = [
     metaTitle:
       "Best Church Website Builder (2026) | Honest Comparison | CalTech Web",
     metaDescription:
-      "Compare the top church website builders for 2026: Squarespace, Wix, Faithlife, Ministry Designs, Ekklesia360, and CalTech Web. Pricing, features, and best fit.",
+      "Top church website builders (2026): Squarespace, Wix, Faithlife, Ministry Designs, Ekklesia360, CalTech Web. Pricing, features, and who each one is right for.",
     excerpt:
       "There are dozens of church website builders on the market, but most aren't built for how churches actually work. Here is an honest comparison of the top options, what each gets right, what it gets wrong, and who each one is best for.",
     readTime: "9 min read",
