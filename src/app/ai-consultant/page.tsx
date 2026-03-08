@@ -1754,28 +1754,70 @@ function ApplyForm() {
         <div className="grid lg:grid-cols-5 gap-10 items-start">
           {/* Left CTA panel */}
           <div className="lg:col-span-2 text-white">
-            <span className="inline-block text-xs font-bold uppercase tracking-widest text-blue-400 mb-5">
-              Limited Availability
-            </span>
-            <h2 className="text-3xl font-extrabold leading-tight mb-5">
+            {/* Intake status badge */}
+            <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-green-500/15 border border-green-400/30 mb-6">
+              <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+              <span className="text-green-300 text-xs font-bold uppercase tracking-wide">
+                Now Accepting Applications
+              </span>
+            </div>
+
+            <h2 className="text-3xl font-extrabold leading-tight mb-3">
               Apply for Your AI Strategy Session
             </h2>
             <p className="text-blue-200 text-sm leading-relaxed mb-7">
-              We review every application personally. If we&apos;re a fit, you&apos;ll hear from Brandon directly within 24 hours.
+              Only <strong className="text-white">1 spot remaining</strong> for new engagements. We review every application personally.
             </p>
-            <div className="space-y-4 text-sm">
-              {[
-                { icon: Clock, text: "Response within 24 hours" },
-                { icon: Shield, text: "Starts with a paid $1,500 AI Readiness Assessment" },
-                { icon: Users, text: "Only 1–2 new clients accepted at a time" },
-                { icon: Phone, text: "Prefer to call? (559) 282-3075" },
-              ].map(({ icon: Icon, text }) => (
-                <div key={text} className="flex items-center gap-3 text-blue-200">
-                  <Icon className="w-4 h-4 text-blue-400 shrink-0" />
-                  <span>{text}</span>
-                </div>
-              ))}
+
+            {/* What happens next timeline */}
+            <div className="mb-7">
+              <p className="text-xs font-bold uppercase tracking-widest text-blue-400 mb-4">
+                After You Apply
+              </p>
+              <div className="relative pl-5 space-y-5">
+                {/* Vertical line */}
+                <div className="absolute left-[7px] top-1 bottom-1 w-px bg-blue-700" aria-hidden="true" />
+                {[
+                  {
+                    step: "Today",
+                    title: "Submit your application",
+                    desc: "Takes less than 2 minutes. No obligation.",
+                  },
+                  {
+                    step: "Within 24 hrs",
+                    title: "Brandon reviews personally",
+                    desc: "Every application is read by Brandon — never a sales team.",
+                  },
+                  {
+                    step: "This week",
+                    title: "15-min fit call (free)",
+                    desc: "A quick call to discuss your goals and confirm mutual fit.",
+                  },
+                  {
+                    step: "Next step",
+                    title: "$1,500 AI Readiness Assessment",
+                    desc: "A standalone deliverable you keep. Applied to month 1 if you continue.",
+                  },
+                ].map(({ step, title, desc }) => (
+                  <div key={step} className="relative">
+                    <div className="absolute -left-5 top-0.5 w-3.5 h-3.5 rounded-full bg-blue-600 border-2 border-blue-400" />
+                    <div>
+                      <span className="text-[10px] font-bold uppercase tracking-wide text-blue-400">{step}</span>
+                      <p className="text-sm font-semibold text-white leading-snug">{title}</p>
+                      <p className="text-xs text-blue-300 leading-relaxed mt-0.5">{desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
+
+            <a
+              href="tel:5592823075"
+              className="inline-flex items-center gap-2 text-sm text-blue-200 hover:text-white transition-colors"
+            >
+              <Phone className="w-4 h-4" />
+              Prefer to call? (559) 282-3075
+            </a>
           </div>
 
           {/* Form panel */}
