@@ -23,6 +23,7 @@ import {
   AlertTriangle,
   Award,
   Globe,
+  ChevronDown,
 } from "lucide-react";
 
 // ─── Schema / SEO ─────────────────────────────────────────────────────────────
@@ -1213,6 +1214,98 @@ function Results() {
   );
 }
 
+function FAQ() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const faqs = [
+    {
+      q: "What happens during the $1,500 AI Readiness Assessment?",
+      a: "We audit your current tools, workflows, team structure, and data to identify the highest-ROI AI opportunities specific to your business. You receive a prioritized report with concrete recommendations. If you move forward with an engagement, the $1,500 is applied toward your first month.",
+    },
+    {
+      q: "Why do you only take 1\u20132 clients at a time?",
+      a: "AI implementation done right requires deep involvement \u2014 not surface-level advice. By limiting our client load, Brandon works directly with your team, builds custom tools, and stays embedded in your operations. This is hands-on consulting, not a course or a slide deck.",
+    },
+    {
+      q: "What if AI doesn\u2019t work for my industry?",
+      a: "AI is not industry-specific \u2014 it\u2019s workflow-specific. Every business has repetitive tasks, data processing, customer communication, and reporting. We\u2019ve served 800+ businesses across healthcare, legal, construction, retail, finance, nonprofits, and more. The Readiness Assessment identifies exactly where AI fits your operations.",
+    },
+    {
+      q: "Do I need technical staff to work with you?",
+      a: "No. We handle the technical implementation and train your existing team to use the tools we build. Most of our clients are non-technical business owners who want AI results without hiring developers.",
+    },
+    {
+      q: "What\u2019s the difference between on-site and remote?",
+      a: "Both engagements include the full 6-step process: assessment, strategy, governance, implementation, training, and optimization. On-site ($8,000/mo) adds bi-weekly or monthly in-person visits at your office. Remote ($5,500/mo) is fully virtual with weekly video calls and async collaboration. Both deliver the same depth of work.",
+    },
+    {
+      q: "How long before I see results?",
+      a: "Most clients see their first working AI implementation within 60\u201390 days. The pilot phase (Month 2\u20133) deploys 1\u20132 high-impact use cases with measurable outcomes so you get proof before we scale. Full transformation unfolds over the 6\u201312 month engagement.",
+    },
+    {
+      q: "Can I cancel if it\u2019s not working?",
+      a: "Our contracts include clear milestones and deliverables at each phase. If we\u2019re not delivering measurable value, we\u2019ll work with you to adjust. We stake our reputation on results \u2014 that\u2019s why we only take on clients where we\u2019re confident we can make an impact.",
+    },
+  ];
+
+  return (
+    <section className="py-16 sm:py-20 bg-white">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <span className="inline-block text-xs font-bold uppercase tracking-widest text-blue-600 mb-4">
+            Common Questions
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4">
+            Frequently Asked Questions
+          </h2>
+          <p className="text-lg text-gray-600">
+            Honest answers to the questions we hear most from business owners considering AI consulting.
+          </p>
+        </div>
+
+        <div className="space-y-3">
+          {faqs.map(({ q, a }, i) => (
+            <div
+              key={i}
+              className="border border-gray-200 rounded-2xl overflow-hidden transition-all"
+            >
+              <button
+                onClick={() => setOpenIndex(openIndex === i ? null : i)}
+                className="flex items-center justify-between w-full text-left px-6 py-5 hover:bg-gray-50 transition-colors"
+              >
+                <span className="font-semibold text-gray-900 text-sm pr-4">{q}</span>
+                <ChevronDown
+                  className={`w-5 h-5 text-gray-400 shrink-0 transition-transform duration-200 ${
+                    openIndex === i ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+              {openIndex === i && (
+                <div className="px-6 pb-5">
+                  <p className="text-sm text-gray-600 leading-relaxed">{a}</p>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-10 text-center">
+          <p className="text-gray-600 text-sm mb-4">
+            Still have questions? Talk to Brandon directly.
+          </p>
+          <a
+            href="tel:5592823075"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-orange-500 text-white font-bold hover:bg-orange-600 transition-all shadow-md text-sm"
+          >
+            <Phone className="w-4 h-4" />
+            Call (559) 282-3075
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function ApplyForm() {
   return (
     <section id="apply" className="py-16 sm:py-20 bg-gradient-to-br from-blue-950 to-gray-950">
@@ -1299,6 +1392,7 @@ export default function AIConsultantPage() {
         <Process />
         <Results />
         <Pricing />
+        <FAQ />
         <ApplyForm />
       </main>
       <Footer />
