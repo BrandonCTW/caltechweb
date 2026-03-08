@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -1667,6 +1667,65 @@ function ApplyForm() {
   );
 }
 
+function StickyDesktopCTA() {
+  const [visible, setVisible] = useState(false);
+  const heroRef = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    // Find the hero section (first <section> in main)
+    const hero = document.querySelector("main > section:first-child");
+    if (hero) heroRef.current = hero as HTMLElement;
+
+    function onScroll() {
+      if (!heroRef.current) return;
+      const heroBottom = heroRef.current.getBoundingClientRect().bottom;
+      setVisible(heroBottom < 0);
+    }
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  return (
+    <div
+      className={`fixed top-0 left-0 right-0 z-50 hidden md:block transition-transform duration-300 ${
+        visible ? "translate-y-0" : "-translate-y-full"
+      }`}
+    >
+      <div className="bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-14">
+          <div className="flex items-center gap-3">
+            <span className="font-bold text-gray-900 text-sm">Brandon Hopkins</span>
+            <span className="text-gray-300">|</span>
+            <span className="text-sm text-gray-500">AI Consultant for Small Business</span>
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-orange-50 border border-orange-200 text-orange-700 text-xs font-semibold ml-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-orange-400 animate-pulse" />
+              1–2 Spots Available
+            </span>
+          </div>
+          <div className="flex items-center gap-3">
+            <a
+              href="tel:5592823075"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-gray-300 text-gray-700 font-semibold hover:bg-gray-50 transition-colors text-sm"
+            >
+              <Phone className="w-3.5 h-3.5" />
+              (559) 282-3075
+            </a>
+            <a
+              href="#apply"
+              className="inline-flex items-center gap-1.5 px-5 py-2 rounded-full bg-orange-500 text-white font-bold hover:bg-orange-600 transition-colors text-sm shadow-sm"
+            >
+              Apply Now
+              <ArrowRight className="w-3.5 h-3.5" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function StickyMobileCTA() {
   return (
     <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden">
@@ -1719,6 +1778,7 @@ export default function AIConsultantPage() {
         <ApplyForm />
       </main>
       <Footer />
+      <StickyDesktopCTA />
       <StickyMobileCTA />
     </>
   );
