@@ -645,7 +645,7 @@ function MultiStepForm() {
 
 function Hero() {
   return (
-    <section className="bg-gradient-to-br from-gray-950 via-blue-950 to-gray-900 text-white py-20 sm:py-28 relative overflow-hidden">
+    <section id="hero" className="bg-gradient-to-br from-gray-950 via-blue-950 to-gray-900 text-white py-20 sm:py-28 relative overflow-hidden">
       {/* Subtle grid overlay */}
       <div
         aria-hidden="true"
@@ -716,7 +716,7 @@ function Hero() {
 
 function PainSection() {
   return (
-    <section className="py-16 sm:py-20 bg-gray-50">
+    <section id="pain" className="py-16 sm:py-20 bg-gray-50">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center mb-14">
           <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4">
@@ -811,7 +811,7 @@ function SavingsCalculator() {
   }
 
   return (
-    <section className="py-16 sm:py-20 bg-white">
+    <section id="calculator" className="py-16 sm:py-20 bg-white">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <span className="inline-block text-xs font-bold uppercase tracking-widest text-blue-600 mb-4">
@@ -978,7 +978,7 @@ function AboutBrandon() {
   ];
 
   return (
-    <section className="py-16 sm:py-20">
+    <section id="about" className="py-16 sm:py-20">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           {/* Photo + Stats */}
@@ -1115,7 +1115,7 @@ function ClientTestimonials() {
   ];
 
   return (
-    <section className="py-16 sm:py-20 bg-gray-50">
+    <section id="testimonials" className="py-16 sm:py-20 bg-gray-50">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center mb-14">
           <span className="inline-block text-sm font-bold text-blue-600 tracking-wide uppercase mb-3">
@@ -1233,7 +1233,7 @@ function Capabilities() {
   ];
 
   return (
-    <section className="py-16 sm:py-20 bg-gray-950 text-white">
+    <section id="capabilities" className="py-16 sm:py-20 bg-gray-950 text-white">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
           <span className="inline-block text-xs font-bold uppercase tracking-widest text-blue-400 mb-4">
@@ -1268,7 +1268,7 @@ function Capabilities() {
 
 function WhoThisIsFor() {
   return (
-    <section className="py-16 sm:py-20 bg-white">
+    <section id="fit" className="py-16 sm:py-20 bg-white">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
           <span className="inline-block text-xs font-bold uppercase tracking-widest text-blue-600 mb-4">
@@ -1401,7 +1401,7 @@ function Process() {
   ];
 
   return (
-    <section className="py-16 sm:py-20">
+    <section id="process" className="py-16 sm:py-20">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
           <span className="inline-block text-xs font-bold uppercase tracking-widest text-blue-600 mb-4">
@@ -1504,7 +1504,7 @@ function CompareAlternatives() {
   ];
 
   return (
-    <section className="py-16 sm:py-20 bg-gray-50">
+    <section id="compare" className="py-16 sm:py-20 bg-gray-50">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
           <span className="inline-block text-xs font-bold uppercase tracking-widest text-blue-600 mb-4">
@@ -1605,7 +1605,7 @@ function CompareAlternatives() {
 
 function Pricing() {
   return (
-    <section className="py-16 sm:py-20 bg-gray-50">
+    <section id="pricing" className="py-16 sm:py-20 bg-gray-50">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
           <span className="inline-block text-xs font-bold uppercase tracking-widest text-blue-600 mb-4">
@@ -1785,7 +1785,7 @@ function Results() {
   ];
 
   return (
-    <section className="py-16 sm:py-20 bg-white border-t border-b border-gray-100">
+    <section id="results" className="py-16 sm:py-20 bg-white border-t border-b border-gray-100">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <span className="inline-block text-xs font-bold uppercase tracking-widest text-blue-600 mb-4">
@@ -1912,7 +1912,7 @@ function FAQ() {
   ];
 
   return (
-    <section className="py-16 sm:py-20 bg-white">
+    <section id="faq" className="py-16 sm:py-20 bg-white">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <span className="inline-block text-xs font-bold uppercase tracking-widest text-blue-600 mb-4">
@@ -1971,7 +1971,7 @@ function FAQ() {
 
 function Guarantee() {
   return (
-    <section className="py-16 sm:py-20 bg-gray-50">
+    <section id="guarantee" className="py-16 sm:py-20 bg-gray-50">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <span className="inline-block text-xs font-bold uppercase tracking-widest text-blue-600 mb-4">
@@ -2320,6 +2320,89 @@ function StickyMobileCTA() {
   );
 }
 
+function SectionNav() {
+  const [activeSection, setActiveSection] = useState("");
+
+  const sections = [
+    { id: "hero", label: "Overview" },
+    { id: "pain", label: "The Problem" },
+    { id: "calculator", label: "Calculator" },
+    { id: "about", label: "About Brandon" },
+    { id: "testimonials", label: "Testimonials" },
+    { id: "capabilities", label: "Capabilities" },
+    { id: "fit", label: "Is This For You?" },
+    { id: "process", label: "Process" },
+    { id: "results", label: "Results" },
+    { id: "compare", label: "Alternatives" },
+    { id: "pricing", label: "Pricing" },
+    { id: "faq", label: "FAQ" },
+    { id: "guarantee", label: "Guarantee" },
+    { id: "apply", label: "Apply" },
+  ];
+
+  useEffect(() => {
+    const sectionEls = sections
+      .map((s) => document.getElementById(s.id))
+      .filter(Boolean) as HTMLElement[];
+
+    if (sectionEls.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        // Find the entry with the highest intersection ratio that is intersecting
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+        if (visible.length > 0) {
+          setActiveSection(visible[0].target.id);
+        }
+      },
+      { rootMargin: "-20% 0px -60% 0px", threshold: [0, 0.25, 0.5] }
+    );
+
+    sectionEls.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  return (
+    <nav
+      className="fixed right-4 top-1/2 -translate-y-1/2 z-40 hidden lg:flex flex-col items-end gap-3"
+      aria-label="Page sections"
+    >
+      {sections.map((s) => (
+        <a
+          key={s.id}
+          href={`#${s.id}`}
+          onClick={(e) => {
+            e.preventDefault();
+            document.getElementById(s.id)?.scrollIntoView({ behavior: "smooth" });
+          }}
+          className="group flex items-center gap-2"
+          aria-label={s.label}
+        >
+          <span
+            className={`text-xs font-medium transition-all duration-200 whitespace-nowrap px-2 py-1 rounded-md ${
+              activeSection === s.id
+                ? "opacity-100 bg-blue-50 text-blue-700 translate-x-0"
+                : "opacity-0 group-hover:opacity-100 text-gray-500 translate-x-2 group-hover:translate-x-0"
+            }`}
+          >
+            {s.label}
+          </span>
+          <span
+            className={`block rounded-full transition-all duration-200 ${
+              activeSection === s.id
+                ? "w-3 h-3 bg-blue-600 shadow-md shadow-blue-600/30"
+                : "w-2 h-2 bg-gray-300 group-hover:bg-gray-500"
+            }`}
+          />
+        </a>
+      ))}
+    </nav>
+  );
+}
+
 function ExitIntentPopup() {
   const [show, setShow] = useState(false);
   const firedRef = useRef(false);
@@ -2483,6 +2566,7 @@ export default function AIConsultantPage() {
       <Footer />
       <StickyDesktopCTA />
       <StickyMobileCTA />
+      <SectionNav />
       <ExitIntentPopup />
     </>
   );
