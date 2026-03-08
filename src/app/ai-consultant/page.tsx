@@ -262,6 +262,12 @@ function MultiStepForm() {
 
   return (
     <div>
+      {/* Time estimate badge */}
+      <div className="flex items-center gap-2 mb-5 text-xs text-gray-500">
+        <Clock className="w-3.5 h-3.5 text-blue-500" />
+        <span>Takes less than 2 minutes · <strong className="text-gray-700">No obligation</strong></span>
+      </div>
+
       {/* Progress Bar */}
       <div className="mb-8">
         <div className="flex items-center justify-between mb-2">
@@ -614,6 +620,18 @@ function MultiStepForm() {
             {!submitting && <ArrowRight className="w-4 h-4" />}
           </button>
         )}
+      </div>
+
+      {/* Trust / security assurance */}
+      <div className="mt-5 flex items-center justify-center gap-4 text-[11px] text-gray-400">
+        <span className="flex items-center gap-1">
+          <Shield className="w-3 h-3" />
+          Your info is secure
+        </span>
+        <span>·</span>
+        <span>No credit card required</span>
+        <span>·</span>
+        <span>24-hour response</span>
       </div>
     </div>
   );
