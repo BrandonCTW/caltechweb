@@ -77,8 +77,8 @@ function ContactForm() {
         </div>
         <h3 className="text-xl font-bold text-gray-900 mb-2">Message Sent!</h3>
         <p className="text-gray-500 text-sm leading-relaxed mb-6">
-          Thanks for reaching out. Brandon personally reviews every message and
-          typically responds within a few hours.
+          Thanks for reaching out. We personally review every message and
+          typically respond within a few hours.
         </p>
         <Link
           href="/"
@@ -204,7 +204,7 @@ function ContactForm() {
 
       <p className="text-center text-xs text-gray-400 flex items-center justify-center gap-1.5">
         <Shield className="w-3.5 h-3.5" />
-        Your info is never shared or sold. Brandon reads every message personally.
+        Your info is never shared or sold. Our team reads every message personally.
       </p>
     </form>
   );
@@ -275,7 +275,7 @@ export default function ContactMain() {
               <h3 className="text-sm font-bold text-blue-900 mb-3">What Happens Next</h3>
               <ol className="space-y-2.5">
                 {[
-                  "Brandon reviews your message personally",
+                  "Our team reviews your message personally",
                   "We schedule a quick call to discuss your goals",
                   "You receive a custom design mockup to review",
                   "Your site is live in 5–7 business days",

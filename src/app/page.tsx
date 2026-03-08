@@ -219,7 +219,7 @@ const homepageFaqJsonLd = {
       name: "What if I'm not happy with the design?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Brandon personally guarantees your satisfaction. If you're not happy, you get a full refund, and you keep your website. No questions asked. We've maintained this guarantee since day one because we stand behind our work.",
+        text: "Brandon personally guarantees your satisfaction. If you're not happy, you get a full refund and you keep your website. No questions asked. We've maintained this guarantee since day one because we stand behind our work.",
       },
     },
     {
@@ -1545,11 +1545,11 @@ function MeetBrandon() {
               </div>
 
               <blockquote className="text-xl text-gray-800 font-medium leading-relaxed mb-6 italic">
-                &ldquo;I started CalTech Web because small businesses deserve a great website, not just the ones who can afford a $5,000 agency. At $99 a month, you get my personal attention, fast responses, and a site that actually works for your business.&rdquo;
+                &ldquo;I started CalTech Web because small businesses deserve a great website, not just the ones who can afford a $5,000 agency. At $99 a month, you get our team&apos;s personal attention, fast responses, and a site that actually works for your business.&rdquo;
               </blockquote>
 
               <p className="text-gray-600 text-sm leading-relaxed mb-8">
-                I personally review every project and guarantee your satisfaction. If you&apos;re not happy, you get a full refund, and you keep your website. I&apos;ve held that promise with every single client since day one.
+                Our team reviews every project and I personally guarantee your satisfaction. If you&apos;re not happy, you get a full refund and you keep your website. We&apos;ve held that promise with every single client since day one.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 items-start">
@@ -1611,7 +1611,7 @@ function SupportDemo() {
                 </div>
                 <div>
                   <div className="font-semibold text-gray-900 text-sm">5,000+ support tickets closed</div>
-                  <div className="text-xs text-gray-500">Every single one handled personally</div>
+                  <div className="text-xs text-gray-500">Handled by our team, personally</div>
                 </div>
               </div>
               <div className="flex items-center gap-3 bg-white border border-gray-100 rounded-xl px-4 py-3 shadow-sm">
@@ -1738,7 +1738,7 @@ function Guarantee() {
               Brandon&apos;s Personal Guarantee
             </h2>
             <p className="text-xl text-blue-100 mb-6 max-w-2xl mx-auto leading-relaxed">
-              I personally stand behind every website we build. If you&apos;re not
+              I personally stand behind every website our team builds. If you&apos;re not
               100% satisfied, I&apos;ll give you a full refund, and you keep your
               website. No questions asked.
             </p>
@@ -1992,10 +1992,10 @@ function FinalCTA() {
         <div className="flex flex-col sm:flex-row items-center gap-4 bg-white border border-gray-100 rounded-2xl px-6 py-5 max-w-2xl mx-auto shadow-sm">
           <Image src="/brandon-hopkins.jpg" alt="Brandon Hopkins" width={88} height={88} sizes="44px" className="w-11 h-11 rounded-full object-cover shrink-0" />
           <p className="text-sm text-gray-600 italic leading-relaxed text-center sm:text-left">
-            &ldquo;I personally review every new project and stand behind every
+            &ldquo;Our team personally reviews every new project and I stand behind every
             website we build.{" "}
             <span className="font-semibold text-gray-800 not-italic">
-              If you&apos;re not satisfied, you get a full refund, and keep your
+              If you&apos;re not satisfied, you get a full refund and keep your
               site.
             </span>{" "}
             That&apos;s my promise.&rdquo;

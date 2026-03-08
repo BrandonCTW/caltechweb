@@ -687,7 +687,7 @@ function CTASection() {
           Ready to stop losing patients to a slow website?
         </h2>
         <p className="text-blue-100 text-lg max-w-2xl mx-auto mb-8 leading-relaxed">
-          Dr. Kanuri&apos;s new site launched in 5 days and costs $99/month. The results were measurable within 90 days. Call Brandon for a free, honest review of your current site.
+          Dr. Kanuri&apos;s new site launched in 5 days and costs $99/month. The results were measurable within 90 days. Call us for a free, honest review of your current site.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">

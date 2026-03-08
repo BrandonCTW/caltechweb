@@ -858,7 +858,7 @@ function HowItWorks() {
     {
       step: "01",
       title: "Sign Up & Share Your Vision",
-      desc: "Click 'Get My Website' and you're in. Brandon personally reaches out within 24 hours to learn about your business, brand, and goals.",
+      desc: "Click 'Get My Website' and you're in. Our team reaches out within 24 hours to learn about your business, brand, and goals.",
       detail: "Personal call within 24 hours",
       gradient: "from-blue-500 to-blue-600",
       lightBg: "bg-blue-50",

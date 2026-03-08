@@ -52,7 +52,7 @@ export default function InlineQuoteForm() {
               Got it, we'll be in touch soon!
             </h2>
             <p className="text-gray-500 mb-6 max-w-md mx-auto">
-              Brandon personally reviews every request. Expect to hear back within a few hours, usually sooner.
+              Our team personally reviews every request. Expect to hear back within a few hours, usually sooner.
             </p>
             <a
               href="tel:5592823075"

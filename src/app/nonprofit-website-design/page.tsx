@@ -516,7 +516,7 @@ const steps = [
     lightBg: "bg-blue-50",
     accent: "text-blue-600",
     title: "Tell Us About Your Organization",
-    body: "Sign up and Brandon personally reaches out within 24 hours. Share your mission, programs, logo, and any photos. No lengthy forms or onboarding calls.",
+    body: "Sign up and our team reaches out within 24 hours. Share your mission, programs, logo, and any photos. No lengthy forms or onboarding calls.",
     detail: "Personal call within 24 hours",
   },
   {

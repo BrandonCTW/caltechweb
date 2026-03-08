@@ -26,7 +26,7 @@ const faqs = [
   },
   {
     q: "What if I'm not happy with the design?",
-    a: "Brandon personally guarantees your satisfaction. If you're not happy, you get a full refund, and you keep your website. No questions asked. We've maintained this guarantee since day one because we stand behind our work.",
+    a: "Brandon personally guarantees your satisfaction. If you're not happy, you get a full refund and you keep your website. No questions asked. We've maintained this guarantee since day one because we stand behind our work.",
   },
   {
     q: "Does $99/month include hosting?",
@@ -90,7 +90,7 @@ export default function FAQ() {
             href="mailto:Brandon@CalTechWeb.com"
             className="text-blue-600 font-semibold hover:underline"
           >
-            Email Brandon directly
+            Email us directly
           </a>{" "}
           or call{" "}
           <a

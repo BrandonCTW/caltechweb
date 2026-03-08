@@ -389,7 +389,7 @@ const howItWorksSteps = [
     lightBg: "bg-blue-50",
     accent: "text-blue-600",
     title: "Tell Us About Your Church",
-    body: "Sign up and Brandon personally reaches out within 24 hours. Share your church's name, service times, logo, photos, and any vision you have for the site.",
+    body: "Sign up and our team reaches out within 24 hours. Share your church's name, service times, logo, photos, and any vision you have for the site.",
     detail: "Personal call within 24 hours",
   },
   {
@@ -674,7 +674,7 @@ function CTASection() {
         </h2>
         <p className="text-blue-100 text-lg max-w-2xl mx-auto mb-8 leading-relaxed">
           Join hundreds of churches already using CalTech Web. Your new website
-          can be live in as little as 5-7 business days. Call Brandon directly or
+          can be live in as little as 5-7 business days. Call us or
           check out the pricing page to get started.
         </p>
 

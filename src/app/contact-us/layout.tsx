@@ -57,7 +57,7 @@ const faqPageJsonLd = {
       name: "How quickly will I hear back?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Brandon personally responds to every inquiry, usually within a few hours on business days. If your need is urgent, the fastest way to reach us is by phone: (559) 282-3075.",
+        text: "Our team personally responds to every inquiry, usually within a few hours on business days. If your need is urgent, the fastest way to reach us is by phone: (559) 282-3075.",
       },
     },
     {

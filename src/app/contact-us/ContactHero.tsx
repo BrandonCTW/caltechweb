@@ -8,7 +8,7 @@ export default function ContactHero() {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="inline-flex items-center gap-2 bg-blue-800/60 border border-blue-700/50 rounded-full px-4 py-1.5 text-xs font-semibold text-blue-200 mb-6">
           <MessageSquare className="w-3.5 h-3.5" />
-          Brandon reads every message personally
+          We respond to every message personally
         </div>
         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight mb-4">
           Let&apos;s Talk About Your Website

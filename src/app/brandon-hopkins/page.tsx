@@ -146,11 +146,11 @@ function Hero() {
             </h1>
 
             <p className="text-lg sm:text-xl text-blue-100 mb-6 leading-relaxed max-w-2xl">
-              I started CalTech Web because great websites shouldn&apos;t cost a
+              I founded CalTech Web because great websites shouldn&apos;t cost a
               fortune. For <strong className="text-white">$99/month</strong>,
               your small business, church, or non-profit gets a custom
               professional website, with hosting, unlimited updates, and fast
-              personal support from me directly.
+              personal support from our team.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
@@ -226,7 +226,7 @@ const milestones = [
     year: "Today",
     icon: Globe,
     heading: "800+ websites and counting",
-    body: "Today we manage 800+ websites for small businesses, churches, and non-profits across the country. My team closes 93% of support requests in under an hour. We get new sites live in 5\u20137 business days. And every client has my personal email and cell number.",
+    body: "Today our team manages 800+ websites for small businesses, churches, and non-profits across the country. Saif, our lead designer and developer, and the rest of the team close 93% of support requests in under an hour. We get new sites live in 5\u20137 business days. And every client has my personal email and cell number.",
   },
   {
     year: "Always",
@@ -308,7 +308,7 @@ const values = [
     icon: Users,
     title: "Personal Relationship",
     description:
-      "You're not a ticket number. You get my direct email and number. If something's not right, you reach me, not a call center.",
+      "You're not a ticket number. You get my direct email and number. If something's not right, you reach a real person on our team, not a call center.",
   },
   {
     icon: Award,
@@ -401,7 +401,7 @@ function Testimonials() {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4">
-            What Clients Say About Working With Me
+            What Clients Say About Working With Us
           </h2>
           <p className="text-lg text-gray-600 max-w-xl mx-auto">
             Real stories from small businesses, churches, and non-profits across
@@ -447,6 +447,55 @@ function Testimonials() {
               </div>
             </div>
           ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─── Meet the Team ────────────────────────────────────────────────────────────
+
+function MeetTheTeam() {
+  return (
+    <section className="py-16 sm:py-20 bg-gray-50">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4">
+            The Team Behind CalTech Web
+          </h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            I lead the company, but CalTech Web is a team effort. Every site we build and every support request we handle reflects the work of talented people who care about getting it right.
+          </p>
+        </div>
+
+        <div className="grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
+          {/* Brandon */}
+          <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm flex flex-col items-center text-center">
+            <Image
+              src="/brandon-hopkins.jpg"
+              alt="Brandon Hopkins, CEO and Founder of CalTech Web"
+              width={96}
+              height={96}
+              className="w-20 h-20 rounded-full object-cover border-2 border-blue-100 mb-4"
+            />
+            <div className="font-bold text-gray-900 text-lg mb-0.5">Brandon Hopkins</div>
+            <div className="text-sm text-blue-600 font-semibold mb-3">CEO &amp; Founder</div>
+            <p className="text-sm text-gray-600 leading-relaxed">
+              20 years in web design, SEO, and online marketing. Brandon sets the strategy, reviews every new project, and personally guarantees your satisfaction.
+            </p>
+          </div>
+
+          {/* Saif */}
+          <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm flex flex-col items-center text-center">
+            <div className="w-20 h-20 rounded-full bg-blue-100 flex items-center justify-center mb-4 border-2 border-blue-100">
+              <Users className="w-10 h-10 text-blue-500" />
+            </div>
+            <div className="font-bold text-gray-900 text-lg mb-0.5">Saif</div>
+            <div className="text-sm text-blue-600 font-semibold mb-3">Lead Designer &amp; Developer</div>
+            <p className="text-sm text-gray-600 leading-relaxed">
+              Saif handles the design and development side, building custom sites and turning around client updates fast. You&apos;ve probably seen his work praised in our testimonials.
+            </p>
+          </div>
         </div>
       </div>
     </section>
@@ -500,7 +549,7 @@ function Guarantee() {
         </Link>
 
         <p className="mt-4 text-sm text-blue-300">
-          Or call me directly:{" "}
+          Or call us:{" "}
           <a
             href="tel:5592823075"
             className="text-white font-semibold hover:underline"
@@ -528,7 +577,7 @@ function StickyMobileCTA() {
             className="flex-1 flex items-center justify-center gap-2 py-3 rounded-full border-2 border-blue-600 text-blue-600 font-bold text-sm hover:bg-blue-50 transition-colors"
           >
             <Phone className="w-4 h-4" />
-            Call Brandon
+            Call Us
           </a>
           <Link
             href="/web-design-pricing/"
@@ -566,6 +615,7 @@ export default function AboutPage() {
         <Story />
         <Values />
         <Testimonials />
+        <MeetTheTeam />
         <BrandonFAQ />
         <Guarantee />
       </main>

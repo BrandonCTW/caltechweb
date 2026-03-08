@@ -1070,7 +1070,7 @@ const comparisonFaqs = [
   },
   {
     q: "What's the real difference between CalTech Web and a freelancer?",
-    a: "Three main things: ongoing support, predictable pricing, and reliability. A freelancer charges $2,000–$10,000 upfront, then bills hourly for any change. When they move on or get busy, you're left managing it alone. CalTech Web is $99/month with unlimited updates, and Brandon personally handles every request, often within the hour. You're not managing a vendor relationship; you're getting a dedicated service.",
+    a: "Three main things: ongoing support, predictable pricing, and reliability. A freelancer charges $2,000–$10,000 upfront, then bills hourly for any change. When they move on or get busy, you're left managing it alone. CalTech Web is $99/month with unlimited updates, and our team handles every request, often within the hour. You're not managing a vendor relationship; you're getting a dedicated service.",
   },
   {
     q: "Can I switch to CalTech Web if I already have a Wix or Squarespace site?",

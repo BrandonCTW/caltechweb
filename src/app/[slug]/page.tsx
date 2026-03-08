@@ -196,7 +196,7 @@ const blogPosts: BlogPost[] = [
       },
     ],
     conclusion:
-      "If you're looking for an affordable web design company, you have options. You can gamble on a freelancer, wrestle with a DIY builder, or pay an agency thousands of dollars. Or you can get a custom, professional website for $99/month with everything included and a guarantee that you'll be satisfied.\n\nCall or email me. I'll review your current site for free and tell you exactly what I'd do differently. No pressure, no pitch.",
+      "If you're looking for an affordable web design company, you have options. You can gamble on a freelancer, wrestle with a DIY builder, or pay an agency thousands of dollars. Or you can get a custom, professional website for $99/month with everything included and a guarantee that you'll be satisfied.\n\nCall or email us. We'll review your current site for free and tell you exactly what we'd do differently. No pressure, no pitch.",
     related: [
       "affordable-web-design-for-small-businesses",
       "website-maintenance-requirements",
@@ -328,7 +328,7 @@ const blogPosts: BlogPost[] = [
         body: [
           "This is the part where everything clicks. All of the maintenance I just described (hosting, SSL, security updates, backups, content updates, performance monitoring) is included in CalTech Web's $99/month plan.",
           "You don't have to think about hosting. You don't have to remember to renew your SSL certificate. You don't have to worry about whether your WordPress plugins have a vulnerability. You don't have to learn how to make a backup. All of it is handled.",
-          "When you need a content update, you email or call me directly and 93% of the time it's done in under an hour. When something needs a security patch, it's applied proactively. You never even know about it because you don't have to.",
+          "When you need a content update, you email or call us and 93% of the time it's done in under an hour. When something needs a security patch, it's applied proactively. You never even know about it because you don't have to.",
           "That's the difference between having a website and having a website that's actually maintained. One is an asset. The other is a liability waiting to become a problem.",
         ],
       },
@@ -703,7 +703,7 @@ function ArticleContent({ post }: { post: BlogPost }) {
               className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full border border-blue-200 text-blue-700 text-sm font-semibold hover:bg-blue-50 transition-colors"
             >
               <Phone className="w-4 h-4" />
-              Call Brandon: (559) 282-3075
+              Call Us: (559) 282-3075
             </a>
           </div>
         </div>

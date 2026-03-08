@@ -8,7 +8,7 @@ import type { ReactNode } from "react";
 const faqs: { q: string; a: ReactNode }[] = [
   {
     q: "How quickly will I hear back?",
-    a: "Brandon personally responds to every inquiry, usually within a few hours on business days. If your need is urgent, the fastest way to reach us is by phone: (559) 282-3075.",
+    a: "Our team personally responds to every inquiry, usually within a few hours on business days. If your need is urgent, the fastest way to reach us is by phone: (559) 282-3075.",
   },
   {
     q: "Is there a setup fee or contract?",
@@ -50,7 +50,7 @@ const faqs: { q: string; a: ReactNode }[] = [
   },
   {
     q: "What if I'm not happy with the design?",
-    a: "Brandon personally guarantees your satisfaction. If you're not happy, you get a full refund and keep your website. No questions asked.",
+    a: "Brandon personally guarantees your satisfaction. If you&apos;re not happy, you get a full refund and keep your website. No questions asked.",
   },
 ];
 
@@ -104,7 +104,7 @@ export default function ContactFAQ() {
         <p className="text-center text-sm text-gray-400 mt-8">
           Still have a question?{" "}
           <a href="mailto:Brandon@CalTechWeb.com" className="text-blue-600 font-semibold hover:underline">
-            Email Brandon
+            Email us
           </a>{" "}
           or call{" "}
           <a href="tel:5592823075" className="text-blue-600 font-semibold hover:underline">
