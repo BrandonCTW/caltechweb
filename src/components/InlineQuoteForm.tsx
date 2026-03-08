@@ -77,6 +77,15 @@ export default function InlineQuoteForm() {
           <p className="text-blue-200 text-lg max-w-xl mx-auto">
             Tell us your name and how to reach you &mdash; we&apos;ll handle the rest.
           </p>
+          <div className="flex items-center justify-center gap-2 mt-4">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-green-400" />
+            </span>
+            <span className="text-sm text-blue-100">
+              We limit new projects each month to ensure quality &mdash; spots are first come, first served
+            </span>
+          </div>
         </div>
 
         <form

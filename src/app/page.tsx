@@ -318,6 +318,17 @@ function Hero() {
                 </span>
               ))}
             </div>
+
+            {/* Availability indicator */}
+            <div className="mt-5 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-500/15 border border-green-400/25">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-green-400" />
+              </span>
+              <span className="text-sm text-green-300 font-medium">
+                {new Date().toLocaleString("en-US", { month: "long" })} openings available &mdash; limited spots
+              </span>
+            </div>
           </div>
 
           {/* Right: stacked client showcase */}
@@ -1882,6 +1893,9 @@ function Pricing() {
               <p className="text-center text-xs text-gray-400 mt-4">
                 No contracts · Cancel anytime · Refund guaranteed
               </p>
+              <p className="text-center text-xs text-green-600 font-semibold mt-2">
+                Your $99/mo rate is locked in for as long as you&apos;re a client
+              </p>
             </div>
 
             {/* Social proof strip at bottom */}
@@ -1957,7 +1971,7 @@ function FinalCTA() {
 
         <p className="text-lg text-gray-500 mb-10 max-w-xl mx-auto text-center leading-relaxed">
           Join 800+ small businesses, churches, and non-profits who trust CalTech
-          Web. Getting started is easy. Schedule a call and we'll take it from there.
+          Web. Don&apos;t let another month go by without a professional website &mdash; getting started takes less than 30 seconds.
         </p>
 
         {/* Three quick reasons */}
