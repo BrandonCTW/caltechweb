@@ -24,6 +24,7 @@ import {
   Award,
   Globe,
   ChevronDown,
+  Quote,
 } from "lucide-react";
 
 // ─── Schema / SEO ─────────────────────────────────────────────────────────────
@@ -883,6 +884,134 @@ function AboutBrandon() {
                 Talk to Brandon Directly
               </a>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ClientTestimonials() {
+  const testimonials = [
+    {
+      name: "Dr. Arjun Kanuri, MD, MBA",
+      role: "Plastic & Reconstructive Surgeon",
+      location: "Washington DC / MD / VA",
+      photo: "/testimonials/arjun-kanuri.jpg",
+      quote:
+        "Brandon's expertise and genuine care for my success have been game-changers. Thanks to CalTech Web, my professional image has never looked better, and my business is thriving like never before.",
+      stat: "40% traffic increase",
+      years: "9-year client",
+    },
+    {
+      name: "Chris Devulapalli, MD",
+      role: "Specialized Plastic Surgery",
+      location: "Medical Practice",
+      photo: "/testimonials/chris-devulapalli.jpg",
+      quote:
+        "Brandon and his team were professional, responsive, and truly understood our vision. Every detail was executed beautifully. We are beyond happy with the results.",
+      stat: "Doubled conversions",
+      years: "",
+    },
+    {
+      name: "Clint Borman",
+      role: "Oxygen Wellness & Physical Therapy",
+      location: "Healthcare",
+      photo: "/testimonials/clint-borman.jpg",
+      quote:
+        "Caltech is very responsive with all of my requests. I'll often have multiple requests per day and they are acting on all of them within a very short period of time.",
+      stat: "Same-day turnaround",
+      years: "",
+    },
+    {
+      name: "Christina Beckstead",
+      role: "Executive Director",
+      location: "Madera County Farm Bureau",
+      photo: "/testimonials/christina-beckstead.jpg",
+      quote:
+        "CalTech Web helped us with our domain, new website, and even solved a situation with image copyright! I highly recommend them for all nonprofit organization websites.",
+      stat: "55% traffic increase",
+      years: "3-year client",
+    },
+  ];
+
+  return (
+    <section className="py-16 sm:py-20 bg-gray-50">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-3xl mx-auto text-center mb-14">
+          <span className="inline-block text-sm font-bold text-blue-600 tracking-wide uppercase mb-3">
+            800+ Businesses Served
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4">
+            What Business Owners Say About Working With Brandon
+          </h2>
+          <p className="text-lg text-gray-600 leading-relaxed">
+            Brandon has spent 20 years earning the trust of business owners across
+            industries. Here&apos;s what they have to say.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-6">
+          {testimonials.map((t) => (
+            <div
+              key={t.name}
+              className="bg-white rounded-2xl border border-gray-100 p-6 sm:p-8 shadow-sm hover:shadow-md transition-shadow relative"
+            >
+              <Quote className="w-8 h-8 text-blue-100 absolute top-6 right-6" />
+              <div className="flex items-center gap-4 mb-5">
+                <Image
+                  src={t.photo}
+                  alt={t.name}
+                  width={56}
+                  height={56}
+                  className="rounded-full object-cover w-14 h-14"
+                />
+                <div>
+                  <p className="font-bold text-gray-900 text-sm">{t.name}</p>
+                  <p className="text-xs text-gray-500">{t.role}</p>
+                  <p className="text-xs text-gray-400">{t.location}</p>
+                </div>
+              </div>
+              <p className="text-gray-700 leading-relaxed text-sm mb-5">
+                &ldquo;{t.quote}&rdquo;
+              </p>
+              <div className="flex items-center gap-3 flex-wrap">
+                {t.stat && (
+                  <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-green-700 bg-green-50 border border-green-100 rounded-full px-3 py-1">
+                    <TrendingUp className="w-3 h-3" />
+                    {t.stat}
+                  </span>
+                )}
+                {t.years && (
+                  <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-700 bg-blue-50 border border-blue-100 rounded-full px-3 py-1">
+                    <Clock className="w-3 h-3" />
+                    {t.years}
+                  </span>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="text-center mt-10">
+          <p className="text-sm text-gray-500 mb-5">
+            Ready to experience the same responsiveness and results for your AI transformation?
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a
+              href="#apply"
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-blue-600 text-white font-bold hover:bg-blue-700 transition-all shadow-md"
+            >
+              Apply for Consulting
+              <ArrowRight className="w-4 h-4" />
+            </a>
+            <a
+              href="tel:5592823075"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full border-2 border-gray-200 text-gray-700 font-semibold hover:bg-gray-50 transition-colors"
+            >
+              <Phone className="w-4 h-4" />
+              Call (559) 282-3075
+            </a>
           </div>
         </div>
       </div>
@@ -2009,6 +2138,7 @@ export default function AIConsultantPage() {
         <Hero />
         <PainSection />
         <AboutBrandon />
+        <ClientTestimonials />
         <Capabilities />
         <WhoThisIsFor />
         <Process />
