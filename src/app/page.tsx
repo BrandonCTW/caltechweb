@@ -305,11 +305,19 @@ function Hero() {
               </a>
             </div>
 
-            {/* Guarantee note */}
-            <p className="mt-6 text-sm text-blue-200 flex items-center gap-1.5">
-              <Shield className="w-4 h-4 text-green-400" />
-              Not satisfied? Get a full refund, and keep your website.
-            </p>
+            {/* Risk-reversal strip */}
+            <div className="mt-8 flex flex-wrap gap-x-6 gap-y-2">
+              {[
+                { icon: Shield, text: "Money-back guarantee" },
+                { icon: Check, text: "No contracts, cancel anytime" },
+                { icon: Zap, text: "Live in 5–7 days" },
+              ].map(({ icon: Icon, text }) => (
+                <span key={text} className="flex items-center gap-1.5 text-sm text-blue-200">
+                  <Icon className="w-4 h-4 text-green-400 shrink-0" />
+                  {text}
+                </span>
+              ))}
+            </div>
           </div>
 
           {/* Right: stacked client showcase */}
@@ -596,7 +604,7 @@ function Comparison() {
                   <td key={name} className="pt-6 text-center px-1">
                     {highlight ? (
                       <Link
-                        href="/web-design-pricing/"
+                        href="#get-started"
                         className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-orange-500 text-white text-sm font-bold hover:bg-orange-600 transition-all shadow-md"
                       >
                         Get My Website
@@ -791,7 +799,7 @@ function HowItWorks() {
 
         <div className="text-center mt-12">
           <Link
-            href="/web-design-pricing/"
+            href="#get-started"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-blue-600 text-white text-lg font-bold hover:bg-blue-700 transition-all shadow-md hover:-translate-y-0.5"
           >
             Get My Website
@@ -1002,7 +1010,7 @@ function Transformation() {
             Ready to make the switch? Your new website can be live in 5–7 days.
           </p>
           <Link
-            href="/web-design-pricing/"
+            href="#get-started"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-orange-500 text-white text-lg font-bold hover:bg-orange-600 transition-all shadow-md hover:-translate-y-0.5"
           >
             Get My Website
@@ -1554,7 +1562,7 @@ function MeetBrandon() {
 
               <div className="flex flex-col sm:flex-row gap-4 items-start">
                 <Link
-                  href="/web-design-pricing/"
+                  href="#get-started"
                   className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-orange-500 text-white font-bold text-sm hover:bg-orange-600 transition-all shadow-md hover:-translate-y-0.5"
                 >
                   Get My Website
@@ -1752,7 +1760,7 @@ function Guarantee() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                href="/web-design-pricing/"
+                href="#get-started"
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white text-blue-700 text-lg font-bold hover:bg-blue-50 transition-all shadow-md"
               >
                 Get My Website
@@ -1864,7 +1872,7 @@ function Pricing() {
               </ul>
 
               <Link
-                href="/web-design-pricing/"
+                href="#get-started"
                 className="flex items-center justify-center gap-2 w-full px-8 py-4 rounded-full bg-orange-500 text-white text-lg font-bold hover:bg-orange-600 transition-all shadow-lg hover:shadow-orange-500/25 hover:-translate-y-0.5"
               >
                 Get My Website
@@ -1973,7 +1981,7 @@ function FinalCTA() {
         {/* CTA buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
           <Link
-            href="/web-design-pricing/"
+            href="#get-started"
             className="inline-flex items-center justify-center gap-2 px-10 py-4 rounded-full bg-orange-500 text-white text-lg font-bold hover:bg-orange-600 transition-all shadow-lg hover:-translate-y-0.5"
           >
             Get My Website
