@@ -56,6 +56,7 @@ export default function Footer() {
             <ul className="space-y-2 text-sm">
               {[
                 { label: "About", href: "/brandon-hopkins/" },
+                { label: "AI Consulting", href: "/ai-consultant/" },
                 { label: "Portfolio", href: "/web-design-portfolio/" },
                 { label: "Pricing", href: "/web-design-pricing/" },
                 { label: "Case Studies", href: "/case-studies/" },
