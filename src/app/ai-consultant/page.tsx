@@ -1423,10 +1423,48 @@ function Results() {
     { value: "100+", label: "Publications", sub: "Cited as an industry authority" },
   ];
 
+  const implementations = [
+    {
+      title: "Automated Client Reporting",
+      icon: BarChart3,
+      before: "8+ hours/week pulling data manually into spreadsheets",
+      after: "Real-time dashboards that generate themselves from live data",
+      metric: "40+ hours/month saved",
+      metricColor: "text-green-600",
+    },
+    {
+      title: "AI Customer Service Bot",
+      icon: Bot,
+      before: "24–48 hour email response times, missed after-hours inquiries",
+      after: "Instant 24/7 responses handling 80%+ of common questions",
+      metric: "24/7 coverage, zero added headcount",
+      metricColor: "text-green-600",
+    },
+    {
+      title: "AI-Powered Content Pipeline",
+      icon: Target,
+      before: "2 blog posts/month, 4+ hours each to research and write",
+      after: "12+ posts/month, AI-drafted and human-reviewed in minutes",
+      metric: "6x content output",
+      metricColor: "text-green-600",
+    },
+    {
+      title: "Proposal & Document Automation",
+      icon: Zap,
+      before: "3–5 hours per proposal, inconsistent formatting and quality",
+      after: "AI-generated first drafts in 15 minutes, polished and on-brand",
+      metric: "90% faster turnaround",
+      metricColor: "text-green-600",
+    },
+  ];
+
   return (
     <section className="py-16 sm:py-20 bg-white border-t border-b border-gray-100">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
+          <span className="inline-block text-xs font-bold uppercase tracking-widest text-blue-600 mb-4">
+            Proven Track Record
+          </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4">
             A Track Record That Speaks for Itself
           </h2>
@@ -1434,7 +1472,7 @@ function Results() {
             Brandon has spent two decades building, growing, and exiting digital businesses. That experience is what he brings to your AI transformation.
           </p>
         </div>
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-14">
           {stats.map(({ value, label, sub }) => (
             <div key={label} className="text-center p-6 rounded-2xl bg-gray-50 border border-gray-100">
               <div className="text-3xl sm:text-4xl font-extrabold text-blue-600 mb-2 leading-none">{value}</div>
@@ -1442,6 +1480,71 @@ function Results() {
               <div className="text-xs text-gray-500">{sub}</div>
             </div>
           ))}
+        </div>
+
+        {/* Implementation Outcomes */}
+        <div className="text-center mb-10">
+          <h3 className="text-2xl sm:text-3xl font-extrabold text-gray-900 mb-3">
+            What AI Implementation Actually Looks Like
+          </h3>
+          <p className="text-base text-gray-600 max-w-2xl mx-auto">
+            These are the types of transformations we deliver. Not theoretical — built and deployed for real businesses with real deadlines.
+          </p>
+        </div>
+
+        <div className="grid sm:grid-cols-2 gap-5 mb-10">
+          {implementations.map(({ title, icon: Icon, before, after, metric, metricColor }) => (
+            <div key={title} className="bg-gray-50 rounded-2xl border border-gray-200 p-6 hover:border-blue-200 hover:shadow-sm transition-all">
+              <div className="flex items-center gap-3 mb-5">
+                <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center shrink-0">
+                  <Icon className="w-5 h-5 text-blue-600" />
+                </div>
+                <h4 className="font-bold text-gray-900 text-sm">{title}</h4>
+              </div>
+              <div className="space-y-3 mb-4">
+                <div className="flex items-start gap-2.5">
+                  <span className="shrink-0 mt-1.5 w-2 h-2 rounded-full bg-red-400" />
+                  <div>
+                    <span className="text-[10px] font-bold uppercase tracking-wide text-red-500">Before</span>
+                    <p className="text-sm text-gray-600 leading-relaxed">{before}</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-2.5">
+                  <span className="shrink-0 mt-1.5 w-2 h-2 rounded-full bg-green-500" />
+                  <div>
+                    <span className="text-[10px] font-bold uppercase tracking-wide text-green-600">After</span>
+                    <p className="text-sm text-gray-600 leading-relaxed">{after}</p>
+                  </div>
+                </div>
+              </div>
+              <div className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-green-50 border border-green-100 text-xs font-bold ${metricColor}`}>
+                <TrendingUp className="w-3 h-3" />
+                {metric}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="text-center">
+          <p className="text-gray-600 text-base mb-5">
+            Ready to see what these kinds of results would look like for your business?
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="#apply"
+              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-orange-500 text-white font-bold hover:bg-orange-600 transition-all shadow-md text-sm"
+            >
+              Apply for Consulting
+              <ArrowRight className="w-4 h-4" />
+            </a>
+            <a
+              href="tel:5592823075"
+              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full border-2 border-gray-300 text-gray-700 font-semibold hover:bg-gray-50 transition-colors text-sm"
+            >
+              <Phone className="w-4 h-4" />
+              Call (559) 282-3075
+            </a>
+          </div>
         </div>
       </div>
     </section>
