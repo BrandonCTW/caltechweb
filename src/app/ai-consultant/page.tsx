@@ -1015,6 +1015,28 @@ function Process() {
             ))}
           </div>
         </div>
+
+        <div className="mt-12 text-center">
+          <p className="text-gray-600 text-base mb-5">
+            Ready to see what AI can do for your business? Every engagement starts with a structured assessment — no guesswork, no wasted time.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="#apply"
+              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-orange-500 text-white font-bold hover:bg-orange-600 transition-all shadow-md text-sm"
+            >
+              Apply for Consulting
+              <ArrowRight className="w-4 h-4" />
+            </a>
+            <a
+              href="tel:5592823075"
+              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full border-2 border-gray-300 text-gray-700 font-semibold hover:bg-gray-50 transition-colors text-sm"
+            >
+              <Phone className="w-4 h-4" />
+              Call (559) 282-3075
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -1068,9 +1090,16 @@ function Pricing() {
                   </li>
                 ))}
               </ul>
-              <div className="text-xs text-gray-500 bg-gray-50 rounded-xl p-4 leading-relaxed">
+              <div className="text-xs text-gray-500 bg-gray-50 rounded-xl p-4 leading-relaxed mb-5">
                 <strong>Travel beyond 60 miles:</strong> Within CA: $0.67/mile billed at cost. Beyond CA: airfare + hotel + per diem at cost, always quoted in advance (e.g., SF visit &#8776; $400, NYC &#8776; $700).
               </div>
+              <a
+                href="#apply"
+                className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl bg-blue-600 text-white font-bold hover:bg-blue-700 transition-colors text-sm"
+              >
+                Apply for On-Site Consulting
+                <ArrowRight className="w-4 h-4" />
+              </a>
             </div>
           </div>
 
@@ -1111,9 +1140,16 @@ function Pricing() {
                   </li>
                 ))}
               </ul>
-              <div className="text-xs text-gray-500 bg-gray-50 rounded-xl p-4 leading-relaxed">
+              <div className="text-xs text-gray-500 bg-gray-50 rounded-xl p-4 leading-relaxed mb-5">
                 <strong>Note:</strong> Remote-only engagement. US clients only. No international clients at this time.
               </div>
+              <a
+                href="#apply"
+                className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl bg-orange-500 text-white font-bold hover:bg-orange-600 transition-colors text-sm shadow-lg"
+              >
+                Apply for Remote Consulting
+                <ArrowRight className="w-4 h-4" />
+              </a>
             </div>
           </div>
         </div>
