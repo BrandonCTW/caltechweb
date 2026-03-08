@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -27,6 +27,7 @@ import {
   Quote,
   Calculator,
   DollarSign,
+  X,
 } from "lucide-react";
 
 // ─── Schema / SEO ─────────────────────────────────────────────────────────────
@@ -2302,6 +2303,139 @@ function StickyMobileCTA() {
   );
 }
 
+function ExitIntentPopup() {
+  const [show, setShow] = useState(false);
+  const firedRef = useRef(false);
+
+  const dismiss = useCallback(() => {
+    setShow(false);
+    try {
+      sessionStorage.setItem("ctw_exit_dismissed", "1");
+    } catch {}
+  }, []);
+
+  useEffect(() => {
+    // Don't show if already dismissed this session
+    try {
+      if (sessionStorage.getItem("ctw_exit_dismissed")) return;
+    } catch {}
+
+    // Desktop: mouse leaves viewport toward top
+    function handleMouseLeave(e: MouseEvent) {
+      if (e.clientY <= 0 && !firedRef.current) {
+        firedRef.current = true;
+        setShow(true);
+      }
+    }
+
+    // Wait 5 seconds before arming so we don't trigger on quick bounces
+    const timer = setTimeout(() => {
+      document.addEventListener("mouseleave", handleMouseLeave);
+    }, 5000);
+
+    return () => {
+      clearTimeout(timer);
+      document.removeEventListener("mouseleave", handleMouseLeave);
+    };
+  }, []);
+
+  if (!show) return null;
+
+  return (
+    <div className="fixed inset-0 z-[60] flex items-center justify-center p-4">
+      {/* Backdrop */}
+      <div
+        className="absolute inset-0 bg-black/60 backdrop-blur-sm animate-[fadeIn_200ms_ease-out]"
+        onClick={dismiss}
+      />
+
+      {/* Modal */}
+      <div className="relative w-full max-w-lg bg-white rounded-3xl shadow-2xl overflow-hidden animate-[slideUp_300ms_ease-out]">
+        {/* Close button */}
+        <button
+          onClick={dismiss}
+          className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 text-gray-500 hover:text-gray-700 transition-colors z-10"
+          aria-label="Close"
+        >
+          <X className="w-4 h-4" />
+        </button>
+
+        {/* Top accent bar */}
+        <div className="h-1.5 bg-gradient-to-r from-orange-500 via-blue-500 to-orange-500" />
+
+        <div className="px-7 pt-7 pb-8 text-center">
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-50 border border-green-200 text-green-700 text-xs font-bold mb-5">
+            <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+            No Obligation · Completely Free
+          </div>
+
+          <h3 className="text-2xl sm:text-3xl font-extrabold text-gray-900 mb-3 leading-tight">
+            Before You Go &mdash;<br />
+            <span className="text-blue-600">Get a Free 15-Minute Fit Call</span>
+          </h3>
+
+          <p className="text-gray-600 text-sm leading-relaxed max-w-sm mx-auto mb-6">
+            Not ready to apply? No problem. Talk to Brandon directly for 15 minutes &mdash;
+            he&apos;ll tell you honestly whether AI consulting makes sense for your business.
+            No sales pitch, no commitment.
+          </p>
+
+          {/* Value bullets */}
+          <div className="flex flex-col gap-2.5 text-left max-w-xs mx-auto mb-7">
+            {[
+              "Get honest advice on your AI readiness",
+              "Learn which processes to automate first",
+              "Walk away with actionable next steps",
+            ].map((item) => (
+              <div key={item} className="flex items-start gap-2.5 text-sm text-gray-700">
+                <CheckCircle className="w-4 h-4 text-green-500 shrink-0 mt-0.5" />
+                {item}
+              </div>
+            ))}
+          </div>
+
+          {/* CTAs */}
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <a
+              href="tel:5592823075"
+              onClick={dismiss}
+              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-orange-500 text-white font-bold hover:bg-orange-600 transition-all shadow-lg hover:shadow-orange-500/30 text-sm"
+            >
+              <Phone className="w-4 h-4" />
+              Call Brandon Now
+            </a>
+            <a
+              href="#apply"
+              onClick={dismiss}
+              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full border-2 border-gray-300 text-gray-700 font-semibold hover:bg-gray-50 transition-colors text-sm"
+            >
+              Apply Instead
+              <ArrowRight className="w-4 h-4" />
+            </a>
+          </div>
+
+          <p className="text-xs text-gray-400 mt-5">
+            Brandon responds to every call personally &mdash; no sales team, no gatekeepers.
+          </p>
+        </div>
+      </div>
+
+      {/* Animations */}
+      <style jsx>{`
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+        @keyframes slideUp {
+          from { opacity: 0; transform: translateY(24px) scale(0.97); }
+          to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+      `}</style>
+    </div>
+  );
+}
+
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default function AIConsultantPage() {
@@ -2332,6 +2466,7 @@ export default function AIConsultantPage() {
       <Footer />
       <StickyDesktopCTA />
       <StickyMobileCTA />
+      <ExitIntentPopup />
     </>
   );
 }
