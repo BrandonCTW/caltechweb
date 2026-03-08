@@ -1540,6 +1540,92 @@ function FAQ() {
   );
 }
 
+function Guarantee() {
+  return (
+    <section className="py-16 sm:py-20 bg-gray-50">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <span className="inline-block text-xs font-bold uppercase tracking-widest text-blue-600 mb-4">
+            Zero-Risk Start
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4">
+            You Don&apos;t Pay for Promises. You Pay for Proof.
+          </h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            We&apos;ve structured every engagement so you see value before you commit — not after.
+          </p>
+        </div>
+
+        <div className="grid sm:grid-cols-3 gap-5 mb-10">
+          {[
+            {
+              step: "1",
+              title: "Start With a $1,500 Assessment",
+              desc: "A standalone AI Readiness Assessment that delivers a prioritized report of your highest-ROI opportunities. You get the full report regardless of whether you continue — it\u2019s yours to keep.",
+              highlight: "Applied to your first month if you move forward",
+            },
+            {
+              step: "2",
+              title: "See Results in 60\u201390 Days",
+              desc: "Your pilot implementation deploys 1\u20132 high-impact AI use cases with measurable outcomes. You get working tools and real data before we scale — proof, not promises.",
+              highlight: "Working AI tools, not slide decks",
+            },
+            {
+              step: "3",
+              title: "Milestone-Based Accountability",
+              desc: "Every phase has clear deliverables and measurable outcomes. If we\u2019re not delivering value, we adjust. Brandon\u2019s reputation is built on results — that\u2019s why he only takes clients where he\u2019s confident he can deliver.",
+              highlight: "Clear milestones at every phase",
+            },
+          ].map(({ step, title, desc, highlight }) => (
+            <div
+              key={step}
+              className="bg-white rounded-2xl border border-gray-200 p-6 flex flex-col"
+            >
+              <div className="w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-sm mb-4 shrink-0">
+                {step}
+              </div>
+              <h3 className="font-bold text-gray-900 text-base mb-2">{title}</h3>
+              <p className="text-sm text-gray-600 leading-relaxed mb-4 flex-1">{desc}</p>
+              <div className="flex items-start gap-2 text-sm font-semibold text-green-700 bg-green-50 rounded-xl px-4 py-3 border border-green-100">
+                <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 shrink-0" />
+                {highlight}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="bg-blue-950 text-white rounded-2xl p-7 sm:p-8 text-center">
+          <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-white/10 border border-white/20 mb-5">
+            <Shield className="w-7 h-7 text-blue-300" />
+          </div>
+          <h3 className="text-xl font-extrabold mb-3">
+            The Bottom Line: You Never Risk More Than $1,500
+          </h3>
+          <p className="text-blue-200 text-sm leading-relaxed max-w-2xl mx-auto mb-6">
+            The assessment is a standalone deliverable — if it&apos;s not a fit to continue, you keep the full report and walk away. If you do continue, that $1,500 is credited toward your first month. Every phase after that has clear milestones, so you always know exactly what you&apos;re getting before you pay for the next step.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="#apply"
+              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-orange-500 text-white font-bold hover:bg-orange-600 transition-all shadow-lg text-sm"
+            >
+              Start With Your Assessment
+              <ArrowRight className="w-4 h-4" />
+            </a>
+            <a
+              href="tel:5592823075"
+              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full border border-white/20 text-white font-semibold hover:bg-white/10 transition-colors text-sm"
+            >
+              <Phone className="w-4 h-4" />
+              Call to Learn More
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function ApplyForm() {
   return (
     <section id="apply" className="py-16 sm:py-20 bg-gradient-to-br from-blue-950 to-gray-950">
@@ -1629,6 +1715,7 @@ export default function AIConsultantPage() {
         <CompareAlternatives />
         <Pricing />
         <FAQ />
+        <Guarantee />
         <ApplyForm />
       </main>
       <Footer />
