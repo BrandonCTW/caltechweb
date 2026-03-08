@@ -33,6 +33,7 @@ import Link from "next/link";
 const SocialProofToast = dynamic(() => import("@/components/SocialProofToast"));
 const AnimatedChat = dynamic(() => import("@/components/AnimatedChat"));
 const InlineQuoteForm = dynamic(() => import("@/components/InlineQuoteForm"));
+const CompactLeadForm = dynamic(() => import("@/components/CompactLeadForm"));
 
 // ─── Page Metadata ────────────────────────────────────────────────────────────
 
@@ -1992,22 +1993,9 @@ function FinalCTA() {
           ))}
         </div>
 
-        {/* CTA buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
-          <Link
-            href="#get-started"
-            className="inline-flex items-center justify-center gap-2 px-10 py-4 rounded-full bg-orange-500 text-white text-lg font-bold hover:bg-orange-600 transition-all shadow-lg hover:-translate-y-0.5"
-          >
-            Get My Website
-            <ArrowRight className="w-5 h-5" />
-          </Link>
-          <a
-            href="tel:5592823075"
-            className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border-2 border-gray-200 text-gray-700 font-semibold hover:border-blue-300 hover:bg-blue-50 transition-colors"
-          >
-            <Phone className="w-5 h-5 text-blue-600" />
-            (559) 282-3075
-          </a>
+        {/* Embedded conversion form — captures visitors at peak conviction */}
+        <div className="mb-10">
+          <CompactLeadForm />
         </div>
 
         {/* Brandon's personal close */}
