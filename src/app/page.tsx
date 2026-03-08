@@ -1442,7 +1442,7 @@ function Testimonials() {
         <div className="mt-10 text-center">
           <p className="text-sm text-gray-400">
             Join 800+ businesses who trust CalTech Web.{" "}
-            <Link href="/web-design-pricing/" className="text-blue-600 font-semibold hover:underline">
+            <Link href="#get-started" className="text-blue-600 font-semibold hover:underline">
               Get started today →
             </Link>
           </p>
@@ -2072,6 +2072,9 @@ export default function HomePage() {
         <Pricing />
         <SavingsCalculator />
 
+        {/* ── Primary conversion: capture high-intent visitors after pricing ── */}
+        <InlineQuoteForm />
+
         {/* ── Process: how easy it is ── */}
         <HowItWorks />
 
@@ -2089,7 +2092,6 @@ export default function HomePage() {
 
         {/* ── Conversion: final push ── */}
         <ClientWinsTicker />
-        <InlineQuoteForm />
         <Guarantee />
         <FAQ />
         <FinalCTA />
