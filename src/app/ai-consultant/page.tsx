@@ -940,6 +940,100 @@ function Capabilities() {
   );
 }
 
+function WhoThisIsFor() {
+  return (
+    <section className="py-16 sm:py-20 bg-white">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-14">
+          <span className="inline-block text-xs font-bold uppercase tracking-widest text-blue-600 mb-4">
+            Is This Right for You?
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4">
+            We&apos;re Selective About Who We Work With
+          </h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            With only 1&ndash;2 client slots available, we need to ensure every engagement is a great fit. Here&apos;s how to know if this is right for your business.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-6">
+          {/* This IS for you */}
+          <div className="rounded-2xl border-2 border-green-200 bg-green-50/50 p-7">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-10 h-10 rounded-xl bg-green-100 flex items-center justify-center">
+                <CheckCircle className="w-5 h-5 text-green-600" />
+              </div>
+              <h3 className="text-lg font-bold text-gray-900">This Is For You If&hellip;</h3>
+            </div>
+            <ul className="space-y-4">
+              {[
+                "You run a US-based business doing $500K+ in annual revenue",
+                "You know AI could help but don\u2019t have the expertise to implement it",
+                "You want a hands-on partner, not a slide deck or a course",
+                "You\u2019re ready to commit 6\u201312 months to real transformation",
+                "You want measurable ROI — hours saved, costs cut, revenue gained",
+                "You\u2019re a decision-maker who can greenlight implementation",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-3 text-sm text-gray-700">
+                  <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 shrink-0" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* This is NOT for you */}
+          <div className="rounded-2xl border border-gray-200 bg-gray-50/50 p-7">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-10 h-10 rounded-xl bg-red-50 flex items-center justify-center">
+                <AlertTriangle className="w-5 h-5 text-red-500" />
+              </div>
+              <h3 className="text-lg font-bold text-gray-900">This Is NOT For You If&hellip;</h3>
+            </div>
+            <ul className="space-y-4">
+              {[
+                "You\u2019re looking for a one-time ChatGPT tutorial or workshop",
+                "You want cheap, outsourced AI development with no strategy",
+                "You\u2019re not willing to invest at least 6 months in the process",
+                "You need a full-time CTO or developer (we\u2019re consultants, not staff)",
+                "You\u2019re outside the United States",
+                "You want to \u201Cwait and see\u201D before taking action",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-3 text-sm text-gray-600">
+                  <span className="mt-1 shrink-0 w-1.5 h-1.5 rounded-full bg-red-400" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <div className="mt-10 text-center">
+          <p className="text-gray-600 text-base mb-5">
+            Sound like your situation? Let&apos;s talk about what AI can do for your business.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="#apply"
+              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-orange-500 text-white font-bold hover:bg-orange-600 transition-all shadow-md text-sm"
+            >
+              Apply for Consulting
+              <ArrowRight className="w-4 h-4" />
+            </a>
+            <a
+              href="tel:5592823075"
+              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full border-2 border-gray-300 text-gray-700 font-semibold hover:bg-gray-50 transition-colors text-sm"
+            >
+              <Phone className="w-4 h-4" />
+              Call to Discuss Fit
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Process() {
   const steps = [
     {
@@ -1389,6 +1483,7 @@ export default function AIConsultantPage() {
         <PainSection />
         <AboutBrandon />
         <Capabilities />
+        <WhoThisIsFor />
         <Process />
         <Results />
         <Pricing />
