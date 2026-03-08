@@ -34,6 +34,7 @@ const SocialProofToast = dynamic(() => import("@/components/SocialProofToast"));
 const AnimatedChat = dynamic(() => import("@/components/AnimatedChat"));
 const InlineQuoteForm = dynamic(() => import("@/components/InlineQuoteForm"));
 const CompactLeadForm = dynamic(() => import("@/components/CompactLeadForm"));
+const StickyPricingCTA = dynamic(() => import("@/components/StickyPricingCTA"));
 
 // ─── Page Metadata ────────────────────────────────────────────────────────────
 
@@ -2100,6 +2101,7 @@ export default function HomePage() {
       </main>
       <Footer />
       <StickyMobileCTA />
+      <StickyPricingCTA />
       <SocialProofToast />
     </>
   );
