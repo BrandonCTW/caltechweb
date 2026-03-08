@@ -1137,6 +1137,146 @@ function Process() {
   );
 }
 
+function CompareAlternatives() {
+  const alternatives = [
+    {
+      option: "Hire In-House AI Staff",
+      cost: "$150K–$250K/yr",
+      costSub: "salary + benefits + recruiting",
+      pros: ["Full-time dedicated resource", "On-site availability"],
+      cons: [
+        "6+ months to hire the right person",
+        "No guarantee they can execute strategy AND implementation",
+        "You still need someone to manage them",
+        "Expensive to course-correct if it\u2019s not the right fit",
+      ],
+    },
+    {
+      option: "Big Consulting Firm",
+      cost: "$50K–$200K+",
+      costSub: "per engagement",
+      pros: ["Brand recognition", "Large team"],
+      cons: [
+        "You get junior analysts, not senior strategists",
+        "Deliverable is usually a PDF, not working software",
+        "Engagements are project-based with no ongoing support",
+        "No skin in the game once the invoice is paid",
+      ],
+    },
+    {
+      option: "DIY / Figure It Out",
+      cost: "$0 upfront",
+      costSub: "but 12–18 months of lost time",
+      pros: ["No cash outlay", "Learn at your own pace"],
+      cons: [
+        "Your competitors are moving NOW, not in 18 months",
+        "Trial-and-error wastes thousands in employee hours",
+        "High risk of adopting the wrong tools or approach",
+        "No governance or policy \u2014 legal and data risks",
+      ],
+    },
+  ];
+
+  return (
+    <section className="py-16 sm:py-20 bg-gray-50">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-14">
+          <span className="inline-block text-xs font-bold uppercase tracking-widest text-blue-600 mb-4">
+            Compare Your Options
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4">
+            Why Businesses Choose Brandon Over the Alternatives
+          </h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            You have options for bringing AI into your business. Here&apos;s how they stack up against a dedicated AI consultant who actually ships.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-5 mb-8">
+          {alternatives.map(({ option, cost, costSub, pros, cons }) => (
+            <div key={option} className="bg-white rounded-2xl border border-gray-200 p-6">
+              <h3 className="font-bold text-gray-900 text-base mb-1">{option}</h3>
+              <div className="text-lg font-extrabold text-gray-900 mb-0.5">{cost}</div>
+              <p className="text-xs text-gray-500 mb-5">{costSub}</p>
+              {pros.length > 0 && (
+                <div className="mb-4">
+                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Upside</p>
+                  <ul className="space-y-2">
+                    {pros.map((p) => (
+                      <li key={p} className="flex items-start gap-2 text-sm text-gray-600">
+                        <CheckCircle className="w-3.5 h-3.5 text-green-500 mt-0.5 shrink-0" />
+                        {p}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+              <div>
+                <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Downside</p>
+                <ul className="space-y-2">
+                  {cons.map((c) => (
+                    <li key={c} className="flex items-start gap-2 text-sm text-gray-600">
+                      <AlertTriangle className="w-3.5 h-3.5 text-red-400 mt-0.5 shrink-0" />
+                      {c}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Brandon's offer */}
+        <div className="bg-blue-950 text-white rounded-2xl p-7 sm:p-8">
+          <div className="flex flex-col sm:flex-row gap-6 items-start">
+            <div className="flex-1">
+              <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-orange-500/20 border border-orange-400/30 text-orange-300 text-xs font-semibold mb-4">
+                <Star className="w-3 h-3 fill-orange-300" />
+                The Better Path
+              </div>
+              <h3 className="text-xl font-extrabold mb-3">Work With Brandon — $5,500&ndash;$8,000/mo</h3>
+              <p className="text-blue-200 text-sm leading-relaxed mb-5">
+                A senior strategist who also builds. You get 20 years of digital strategy experience, hands-on implementation, team training, and ongoing optimization — all from someone who has built and exited two agencies and served 800+ businesses. No juniors. No PDFs. No guesswork.
+              </p>
+              <div className="grid sm:grid-cols-2 gap-3">
+                {[
+                  "Strategy AND hands-on implementation",
+                  "Custom AI tools built for your stack",
+                  "Team training so adoption actually sticks",
+                  "Ongoing optimization for the full contract",
+                  "$1,500 assessment applied to first month",
+                  "Results in 60\u201390 days, not 12\u201318 months",
+                ].map((item) => (
+                  <div key={item} className="flex items-start gap-2 text-sm text-blue-100">
+                    <CheckCircle className="w-4 h-4 text-green-400 mt-0.5 shrink-0" />
+                    {item}
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="shrink-0 flex flex-col gap-3 sm:mt-6">
+              <a
+                href="#apply"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-orange-500 text-white font-bold hover:bg-orange-600 transition-all shadow-lg text-sm whitespace-nowrap"
+              >
+                Apply for Consulting
+                <ArrowRight className="w-4 h-4" />
+              </a>
+              <a
+                href="tel:5592823075"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full border border-white/20 text-white font-semibold hover:bg-white/10 transition-colors text-sm whitespace-nowrap"
+              >
+                <Phone className="w-4 h-4" />
+                Call Brandon
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Pricing() {
   return (
     <section className="py-16 sm:py-20 bg-gray-50">
@@ -1486,6 +1626,7 @@ export default function AIConsultantPage() {
         <WhoThisIsFor />
         <Process />
         <Results />
+        <CompareAlternatives />
         <Pricing />
         <FAQ />
         <ApplyForm />
