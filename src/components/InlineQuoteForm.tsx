@@ -1,17 +1,14 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { ArrowRight, Check, Zap } from "lucide-react";
-import Link from "next/link";
+import { ArrowRight, Check, Zap, Users } from "lucide-react";
 
 export default function InlineQuoteForm() {
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
-  const [fields, setFields] = useState({ name: "", business: "", contact: "", website: "" });
+  const [fields, setFields] = useState({ name: "", contact: "" });
 
-  function handleChange(
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
-  ) {
+  function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     setFields((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   }
 
@@ -27,8 +24,8 @@ export default function InlineQuoteForm() {
           site: "caltechweb.com",
           name: fields.name,
           email: fields.contact,
-          website: fields.website,
-          message: `Business Type: ${fields.business || "not specified"}\nContact: ${fields.contact}${fields.website ? `\nWebsite: ${fields.website}` : ""}`,
+          website: "",
+          message: `Contact: ${fields.contact}`,
           source: "homepage-quote",
         }),
       });
@@ -68,18 +65,17 @@ export default function InlineQuoteForm() {
 
   return (
     <section id="get-started" className="py-20 bg-blue-600">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/15 border border-white/25 text-sm font-semibold text-blue-100 mb-4">
             <Zap className="w-4 h-4 text-yellow-300" />
-            Takes less than 60 seconds
+            Takes less than 30 seconds
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-3">
             Get Your Website Started
           </h2>
           <p className="text-blue-200 text-lg max-w-xl mx-auto">
-            Tell us a little about your business and we&apos;ll get your
-            new website underway, no obligation, no sales pressure.
+            Tell us your name and how to reach you &mdash; we&apos;ll handle the rest.
           </p>
         </div>
 
@@ -87,7 +83,7 @@ export default function InlineQuoteForm() {
           onSubmit={handleSubmit}
           className="bg-white rounded-3xl p-8 sm:p-10 shadow-2xl"
         >
-          <div className="grid sm:grid-cols-2 gap-4 mb-6">
+          <div className="space-y-4 mb-6">
             <div>
               <label
                 htmlFor="name"
@@ -99,35 +95,12 @@ export default function InlineQuoteForm() {
                 id="name"
                 name="name"
                 type="text"
+                required
                 placeholder="Jane Smith"
                 value={fields.name}
                 onChange={handleChange}
-                className="w-full px-4 py-3 rounded-xl border border-gray-200 text-gray-900 placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all text-sm"
+                className="w-full px-4 py-3.5 rounded-xl border border-gray-200 text-gray-900 placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all text-base"
               />
-            </div>
-            <div>
-              <label
-                htmlFor="business"
-                className="block text-sm font-semibold text-gray-700 mb-2"
-              >
-                Business Type
-              </label>
-              <select
-                id="business"
-                name="business"
-                value={fields.business}
-                onChange={handleChange}
-                className="w-full px-4 py-3 rounded-xl border border-gray-200 text-gray-900 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all text-sm bg-white"
-              >
-                <option value="">Select your type…</option>
-                <option value="restaurant">Restaurant / Food</option>
-                <option value="church">Church / Non-Profit</option>
-                <option value="healthcare">Healthcare / Medical</option>
-                <option value="retail">Retail / Shop</option>
-                <option value="contractor">Contractor / Trades</option>
-                <option value="professional">Professional Services</option>
-                <option value="other">Other</option>
-              </select>
             </div>
             <div>
               <label
@@ -140,50 +113,41 @@ export default function InlineQuoteForm() {
                 id="contact"
                 name="contact"
                 type="text"
-                placeholder="you@yourbusiness.com"
+                required
+                placeholder="you@yourbusiness.com or (555) 123-4567"
                 value={fields.contact}
                 onChange={handleChange}
-                className="w-full px-4 py-3 rounded-xl border border-gray-200 text-gray-900 placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all text-sm"
-              />
-            </div>
-            <div>
-              <label
-                htmlFor="website"
-                className="block text-sm font-semibold text-gray-700 mb-2"
-              >
-                Current Website URL
-              </label>
-              <input
-                id="website"
-                name="website"
-                type="text"
-                placeholder="yourbusiness.com"
-                value={fields.website}
-                onChange={handleChange}
-                className="w-full px-4 py-3 rounded-xl border border-gray-200 text-gray-900 placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all text-sm"
+                className="w-full px-4 py-3.5 rounded-xl border border-gray-200 text-gray-900 placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all text-base"
               />
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-center gap-4">
-            <button
-              type="submit"
-              disabled={sending}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-10 py-4 rounded-full bg-orange-500 text-white text-lg font-bold hover:bg-orange-600 transition-all shadow-md hover:-translate-y-0.5 cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed"
-            >
-              {sending ? "Sending…" : "Get My Website"}
-              {!sending && <ArrowRight className="w-5 h-5" />}
-            </button>
-            <p className="text-sm text-gray-400">
-              Or call us directly at{" "}
-              <a
-                href="tel:5592823075"
-                className="text-blue-600 font-semibold hover:underline"
-              >
-                (559) 282-3075
-              </a>
-            </p>
+          <button
+            type="submit"
+            disabled={sending}
+            className="w-full inline-flex items-center justify-center gap-2 px-10 py-4 rounded-full bg-orange-500 text-white text-lg font-bold hover:bg-orange-600 transition-all shadow-md hover:-translate-y-0.5 cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed"
+          >
+            {sending ? "Sending…" : "Get My Website"}
+            {!sending && <ArrowRight className="w-5 h-5" />}
+          </button>
+
+          {/* Social proof inside the form */}
+          <div className="mt-5 flex items-center justify-center gap-2 text-sm text-gray-500">
+            <Users className="w-4 h-4 text-blue-500 shrink-0" />
+            <span>
+              <span className="font-semibold text-gray-700">800+</span> businesses already trust us with their websites
+            </span>
           </div>
+
+          <p className="text-center text-sm text-gray-400 mt-3">
+            Or call us directly at{" "}
+            <a
+              href="tel:5592823075"
+              className="text-blue-600 font-semibold hover:underline"
+            >
+              (559) 282-3075
+            </a>
+          </p>
         </form>
 
         {/* Trust row */}
