@@ -1747,6 +1747,85 @@ function Guarantee() {
   );
 }
 
+function PersonalNote() {
+  return (
+    <section className="py-16 sm:py-20 bg-white">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative bg-gradient-to-br from-gray-50 to-white rounded-3xl border border-gray-200 p-8 sm:p-10 shadow-sm">
+          {/* Decorative quote mark */}
+          <div className="absolute -top-4 left-8 w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center text-lg font-serif leading-none shadow-md">
+            &ldquo;
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-6 items-start mb-6">
+            <div className="shrink-0">
+              <Image
+                src="/brandon-hopkins.jpg"
+                alt="Brandon Hopkins"
+                width={80}
+                height={80}
+                className="w-20 h-20 rounded-2xl object-cover shadow-md"
+              />
+            </div>
+            <div>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900 mb-1 leading-tight">
+                A Quick Word Before You Apply
+              </h2>
+              <p className="text-sm text-gray-500">From Brandon Hopkins, personally</p>
+            </div>
+          </div>
+
+          <div className="space-y-4 text-gray-700 leading-relaxed text-[15px]">
+            <p>
+              I know what you&apos;re thinking. <em>&ldquo;Another consultant promising the world.&rdquo;</em>
+            </p>
+            <p>
+              I get it. I&apos;ve been a business owner for 20 years, and I&apos;ve hired
+              my share of consultants who delivered nothing but invoices. That experience is
+              exactly why I structured this engagement the way I did &mdash; you start with a
+              $1,500 assessment you keep no matter what, you see working AI tools in 60&ndash;90
+              days, and every phase has clear deliverables.
+            </p>
+            <p>
+              I only take on 1&ndash;2 companies at a time because I actually embed in your
+              operations. I learn your workflows, your team&apos;s strengths, your bottlenecks.
+              I&apos;m not handing you a playbook and wishing you luck &mdash; I&apos;m building
+              the tools, training your people, and making sure the AI actually sticks.
+            </p>
+            <p>
+              If your application is a fit, I&apos;ll call you personally within 24 hours. If
+              it&apos;s not the right match, I&apos;ll tell you that too &mdash; and I&apos;ll
+              point you in the right direction. Either way, you&apos;ll know quickly.
+            </p>
+            <p className="font-semibold text-gray-900">
+              The companies that move first on AI win. That&apos;s not hype &mdash; that&apos;s
+              what I&apos;ve seen across 800+ businesses. The only question is whether
+              you&apos;ll be leading your industry or chasing the ones who did.
+            </p>
+          </div>
+
+          <div className="mt-8 flex flex-col sm:flex-row gap-4">
+            <a
+              href="#apply"
+              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-orange-500 text-white font-bold hover:bg-orange-600 transition-all shadow-md text-sm"
+            >
+              Submit Your Application
+              <ArrowRight className="w-4 h-4" />
+            </a>
+            <a
+              href="tel:5592823075"
+              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full border-2 border-gray-300 text-gray-700 font-semibold hover:bg-gray-50 transition-colors text-sm"
+            >
+              <Phone className="w-4 h-4" />
+              Or Call Me Directly
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function ApplyForm() {
   return (
     <section id="apply" className="py-16 sm:py-20 bg-gradient-to-br from-blue-950 to-gray-950">
@@ -1938,6 +2017,7 @@ export default function AIConsultantPage() {
         <Pricing />
         <FAQ />
         <Guarantee />
+        <PersonalNote />
         <ApplyForm />
       </main>
       <Footer />
