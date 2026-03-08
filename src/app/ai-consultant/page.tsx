@@ -25,6 +25,8 @@ import {
   Globe,
   ChevronDown,
   Quote,
+  Calculator,
+  DollarSign,
 } from "lucide-react";
 
 // ─── Schema / SEO ─────────────────────────────────────────────────────────────
@@ -784,6 +786,182 @@ function PainSection() {
             Let&apos;s Build Your AI Strategy
             <ArrowRight className="w-4 h-4" />
           </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function SavingsCalculator() {
+  const [employees, setEmployees] = useState(10);
+  const [hoursWasted, setHoursWasted] = useState(15);
+  const [avgHourlyRate, setAvgHourlyRate] = useState(35);
+  const [showResults, setShowResults] = useState(false);
+
+  const annualWaste = employees * hoursWasted * avgHourlyRate * 52;
+  const aiSavings = Math.round(annualWaste * 0.6); // 60% of wasted time can be automated
+  const monthlySavings = Math.round(aiSavings / 12);
+  const consultingCost = 5500 * 12; // remote annual cost
+  const netAnnualROI = aiSavings - consultingCost;
+  const roiMultiple = aiSavings > 0 ? Math.round((aiSavings / consultingCost) * 10) / 10 : 0;
+
+  function formatCurrency(n: number) {
+    return n.toLocaleString("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
+  }
+
+  return (
+    <section className="py-16 sm:py-20 bg-white">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <span className="inline-block text-xs font-bold uppercase tracking-widest text-blue-600 mb-4">
+            See Your Numbers
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4">
+            How Much Is Manual Work Costing Your Business?
+          </h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Adjust the sliders to match your business. Most owners are shocked by what they find.
+          </p>
+        </div>
+
+        <div className="bg-gradient-to-br from-gray-50 to-white rounded-3xl border border-gray-200 shadow-sm overflow-hidden">
+          <div className="p-7 sm:p-10">
+            {/* Sliders */}
+            <div className="space-y-8 mb-10">
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <label className="text-sm font-semibold text-gray-700">
+                    Employees doing repetitive tasks
+                  </label>
+                  <span className="text-lg font-extrabold text-blue-600 tabular-nums">{employees}</span>
+                </div>
+                <input
+                  type="range"
+                  min={1}
+                  max={50}
+                  value={employees}
+                  onChange={(e) => { setEmployees(Number(e.target.value)); setShowResults(true); }}
+                  className="w-full h-2 rounded-full appearance-none cursor-pointer bg-gray-200 accent-blue-600"
+                />
+                <div className="flex justify-between text-xs text-gray-400 mt-1">
+                  <span>1</span>
+                  <span>50</span>
+                </div>
+              </div>
+
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <label className="text-sm font-semibold text-gray-700">
+                    Hours/week each spends on automatable tasks
+                  </label>
+                  <span className="text-lg font-extrabold text-blue-600 tabular-nums">{hoursWasted} hrs</span>
+                </div>
+                <input
+                  type="range"
+                  min={2}
+                  max={30}
+                  value={hoursWasted}
+                  onChange={(e) => { setHoursWasted(Number(e.target.value)); setShowResults(true); }}
+                  className="w-full h-2 rounded-full appearance-none cursor-pointer bg-gray-200 accent-blue-600"
+                />
+                <div className="flex justify-between text-xs text-gray-400 mt-1">
+                  <span>2 hrs</span>
+                  <span>30 hrs</span>
+                </div>
+              </div>
+
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <label className="text-sm font-semibold text-gray-700">
+                    Average fully-loaded hourly cost per employee
+                  </label>
+                  <span className="text-lg font-extrabold text-blue-600 tabular-nums">${avgHourlyRate}</span>
+                </div>
+                <input
+                  type="range"
+                  min={15}
+                  max={100}
+                  step={5}
+                  value={avgHourlyRate}
+                  onChange={(e) => { setAvgHourlyRate(Number(e.target.value)); setShowResults(true); }}
+                  className="w-full h-2 rounded-full appearance-none cursor-pointer bg-gray-200 accent-blue-600"
+                />
+                <div className="flex justify-between text-xs text-gray-400 mt-1">
+                  <span>$15/hr</span>
+                  <span>$100/hr</span>
+                </div>
+              </div>
+            </div>
+
+            {!showResults && (
+              <div className="text-center">
+                <button
+                  onClick={() => setShowResults(true)}
+                  className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-blue-600 text-white font-bold hover:bg-blue-700 transition-all shadow-lg text-base"
+                >
+                  <Calculator className="w-5 h-5" />
+                  Calculate My Savings
+                </button>
+              </div>
+            )}
+
+            {/* Results */}
+            {showResults && (
+              <div className="border-t border-gray-200 pt-8">
+                <div className="grid sm:grid-cols-3 gap-4 mb-8">
+                  <div className="bg-red-50 rounded-2xl border border-red-100 p-5 text-center">
+                    <p className="text-xs font-bold uppercase tracking-wide text-red-500 mb-2">You&apos;re Losing</p>
+                    <p className="text-2xl sm:text-3xl font-extrabold text-red-600 leading-none mb-1">
+                      {formatCurrency(annualWaste)}
+                    </p>
+                    <p className="text-xs text-red-500">per year on manual work</p>
+                  </div>
+                  <div className="bg-green-50 rounded-2xl border border-green-100 p-5 text-center">
+                    <p className="text-xs font-bold uppercase tracking-wide text-green-600 mb-2">AI Could Save</p>
+                    <p className="text-2xl sm:text-3xl font-extrabold text-green-600 leading-none mb-1">
+                      {formatCurrency(aiSavings)}
+                    </p>
+                    <p className="text-xs text-green-600">per year ({formatCurrency(monthlySavings)}/mo)</p>
+                  </div>
+                  <div className="bg-blue-50 rounded-2xl border border-blue-100 p-5 text-center">
+                    <p className="text-xs font-bold uppercase tracking-wide text-blue-600 mb-2">Your ROI</p>
+                    <p className="text-2xl sm:text-3xl font-extrabold text-blue-600 leading-none mb-1">
+                      {roiMultiple}x
+                    </p>
+                    <p className="text-xs text-blue-600">return on consulting investment</p>
+                  </div>
+                </div>
+
+                {netAnnualROI > 0 && (
+                  <div className="bg-blue-950 text-white rounded-2xl p-6 sm:p-7 flex flex-col sm:flex-row gap-5 items-center">
+                    <div className="flex-1 text-center sm:text-left">
+                      <div className="flex items-center justify-center sm:justify-start gap-2 mb-2">
+                        <DollarSign className="w-5 h-5 text-green-400" />
+                        <p className="text-sm font-bold text-green-300">Net Annual Benefit</p>
+                      </div>
+                      <p className="text-2xl sm:text-3xl font-extrabold mb-1">
+                        {formatCurrency(netAnnualROI)}
+                      </p>
+                      <p className="text-blue-300 text-xs">
+                        After subtracting {formatCurrency(consultingCost)}/year consulting investment (remote rate)
+                      </p>
+                    </div>
+                    <a
+                      href="#apply"
+                      className="shrink-0 inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-orange-500 text-white font-bold hover:bg-orange-600 transition-all shadow-lg text-sm whitespace-nowrap"
+                    >
+                      Apply for Consulting
+                      <ArrowRight className="w-4 h-4" />
+                    </a>
+                  </div>
+                )}
+
+                <p className="text-xs text-gray-400 text-center mt-5">
+                  Based on 60% automation potential — a conservative estimate. Actual savings vary by industry and workflow complexity. Your AI Readiness Assessment will identify your specific opportunities.
+                </p>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </section>
@@ -2137,6 +2315,7 @@ export default function AIConsultantPage() {
       <main className="pb-[76px] md:pb-0">
         <Hero />
         <PainSection />
+        <SavingsCalculator />
         <AboutBrandon />
         <ClientTestimonials />
         <Capabilities />
