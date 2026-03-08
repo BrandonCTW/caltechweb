@@ -2219,6 +2219,7 @@ function ApplyForm() {
 
 function StickyDesktopCTA() {
   const [visible, setVisible] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
   const heroRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
@@ -2230,6 +2231,15 @@ function StickyDesktopCTA() {
       if (!heroRef.current) return;
       const heroBottom = heroRef.current.getBoundingClientRect().bottom;
       setVisible(heroBottom < 0);
+
+      // Calculate scroll progress toward the #apply section
+      const applySection = document.getElementById("apply");
+      if (applySection) {
+        const applyTop = applySection.getBoundingClientRect().top + window.scrollY;
+        const scrolled = window.scrollY;
+        const progress = Math.min(Math.max(scrolled / applyTop, 0), 1) * 100;
+        setScrollProgress(progress);
+      }
     }
 
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -2243,7 +2253,7 @@ function StickyDesktopCTA() {
         visible ? "translate-y-0" : "-translate-y-full"
       }`}
     >
-      <div className="bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm">
+      <div className="bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm relative">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-14">
           <div className="flex items-center gap-3">
             <span className="font-bold text-gray-900 text-sm">Brandon Hopkins</span>
@@ -2270,6 +2280,13 @@ function StickyDesktopCTA() {
               <ArrowRight className="w-3.5 h-3.5" />
             </a>
           </div>
+        </div>
+        {/* Scroll progress bar */}
+        <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gray-100">
+          <div
+            className="h-full bg-gradient-to-r from-blue-500 to-orange-500 transition-[width] duration-150 ease-out"
+            style={{ width: `${scrollProgress}%` }}
+          />
         </div>
       </div>
     </div>
