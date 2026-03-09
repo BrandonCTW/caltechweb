@@ -195,6 +195,79 @@ function AnimatedStat({ value }: { value: string }) {
   );
 }
 
+// ─── Return Visitor Banner ────────────────────────────────────────────────────
+
+function ReturnVisitorBanner({ onApply }: { onApply: () => void }) {
+  const [data, setData] = useState<{ daysSince: number; visitCount: number } | null>(null);
+  const [dismissed, setDismissed] = useState(false);
+  const deadline = useApplicationDeadline();
+
+  useEffect(() => {
+    try {
+      const stored = localStorage.getItem("cw_visit");
+      const now = Date.now();
+      if (stored) {
+        const parsed = JSON.parse(stored);
+        const daysSince = Math.max(1, Math.round((now - parsed.first) / (1000 * 60 * 60 * 24)));
+        const visitCount = (parsed.count || 1) + 1;
+        localStorage.setItem("cw_visit", JSON.stringify({ first: parsed.first, count: visitCount, last: now }));
+        // Only show for return visitors (dismissed banner stays dismissed for this session)
+        if (!sessionStorage.getItem("cw_rv_dismissed")) {
+          setData({ daysSince, visitCount });
+        }
+      } else {
+        localStorage.setItem("cw_visit", JSON.stringify({ first: now, count: 1, last: now }));
+      }
+    } catch {
+      // localStorage unavailable — silently skip
+    }
+  }, []);
+
+  if (!data || dismissed) return null;
+
+  const handleDismiss = () => {
+    setDismissed(true);
+    try { sessionStorage.setItem("cw_rv_dismissed", "1"); } catch {}
+  };
+
+  return (
+    <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 text-white relative overflow-hidden">
+      <div className="absolute inset-0 opacity-10" aria-hidden="true" style={{ backgroundImage: "radial-gradient(circle at 20% 50%, rgba(255,255,255,0.3) 0%, transparent 50%)" }} />
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5 flex items-center justify-between gap-4 relative">
+        <div className="flex items-center gap-3 min-w-0 flex-1">
+          <span className="shrink-0 w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+          <p className="text-xs sm:text-sm font-medium truncate">
+            <span className="hidden sm:inline">Welcome back — </span>
+            <span className="sm:hidden">Back again — </span>
+            {data.visitCount > 2
+              ? `you've visited ${data.visitCount} times. `
+              : `you were here ${data.daysSince === 1 ? "yesterday" : `${data.daysSince} days ago`}. `}
+            {deadline && (
+              <strong className="text-yellow-300">Only {deadline.daysLeft} days left to apply.</strong>
+            )}
+          </p>
+        </div>
+        <div className="flex items-center gap-2 shrink-0">
+          <button
+            onClick={onApply}
+            className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-white text-blue-700 font-bold text-xs hover:bg-blue-50 transition-colors shadow-sm"
+          >
+            Continue Your Application
+            <ArrowRight className="w-3 h-3" />
+          </button>
+          <button
+            onClick={handleDismiss}
+            className="w-6 h-6 flex items-center justify-center rounded-full hover:bg-white/20 text-white/70 hover:text-white transition-colors"
+            aria-label="Dismiss"
+          >
+            <X className="w-3.5 h-3.5" />
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // ─── Application Deadline Badge ──────────────────────────────────────────────
 
 function useApplicationDeadline() {
@@ -3445,6 +3518,7 @@ export default function AIConsultantPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <Header />
+      <ReturnVisitorBanner onApply={() => setDrawerOpen(true)} />
       <main className="pb-[76px] md:pb-0">
         <Hero />
         <RiskReversalStrip />
