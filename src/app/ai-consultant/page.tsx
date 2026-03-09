@@ -2900,9 +2900,13 @@ function SocialProofToast() {
   );
 }
 
-function ExitIntentPopup() {
+function ExitIntentPopup({ savings }: { savings?: { annualWaste: number; aiSavings: number; monthlySavings: number; roiMultiple: number } | null }) {
   const [show, setShow] = useState(false);
   const firedRef = useRef(false);
+
+  function fmt(n: number) {
+    return n.toLocaleString("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
+  }
 
   const dismiss = useCallback(() => {
     setShow(false);
@@ -2938,6 +2942,8 @@ function ExitIntentPopup() {
 
   if (!show) return null;
 
+  const hasCalcData = savings && savings.aiSavings > 0;
+
   return (
     <div className="fixed inset-0 z-[60] flex items-center justify-center p-4">
       {/* Backdrop */}
@@ -2958,63 +2964,127 @@ function ExitIntentPopup() {
         </button>
 
         {/* Top accent bar */}
-        <div className="h-1.5 bg-gradient-to-r from-orange-500 via-blue-500 to-orange-500" />
+        <div className={`h-1.5 ${hasCalcData ? "bg-gradient-to-r from-red-500 via-orange-500 to-red-500" : "bg-gradient-to-r from-orange-500 via-blue-500 to-orange-500"}`} />
 
         <div className="px-7 pt-7 pb-8 text-center">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-50 border border-green-200 text-green-700 text-xs font-bold mb-5">
-            <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-            No Obligation · Completely Free
-          </div>
-
-          <h3 className="text-2xl sm:text-3xl font-extrabold text-gray-900 mb-3 leading-tight">
-            Before You Go &mdash;<br />
-            <span className="text-blue-600">Get a Free 15-Minute Fit Call</span>
-          </h3>
-
-          <p className="text-gray-600 text-sm leading-relaxed max-w-sm mx-auto mb-6">
-            Not ready to apply? No problem. Talk to Brandon directly for 15 minutes &mdash;
-            he&apos;ll tell you honestly whether AI consulting makes sense for your business.
-            No sales pitch, no commitment.
-          </p>
-
-          {/* Value bullets */}
-          <div className="flex flex-col gap-2.5 text-left max-w-xs mx-auto mb-7">
-            {[
-              "Get honest advice on your AI readiness",
-              "Learn which processes to automate first",
-              "Walk away with actionable next steps",
-            ].map((item) => (
-              <div key={item} className="flex items-start gap-2.5 text-sm text-gray-700">
-                <CheckCircle className="w-4 h-4 text-green-500 shrink-0 mt-0.5" />
-                {item}
+          {hasCalcData ? (
+            <>
+              {/* Personalized variant — uses their calculator numbers */}
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-red-50 border border-red-200 text-red-700 text-xs font-bold mb-5">
+                <AlertTriangle className="w-3.5 h-3.5" />
+                Based on Your Numbers
               </div>
-            ))}
-          </div>
 
-          {/* CTAs */}
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <a
-              href="tel:5592823075"
-              onClick={dismiss}
-              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-orange-500 text-white font-bold hover:bg-orange-600 transition-all shadow-lg hover:shadow-orange-500/30 text-sm"
-            >
-              <Phone className="w-4 h-4" />
-              Call Brandon Now
-            </a>
-            <a
-              href="#apply"
-              onClick={dismiss}
-              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full border-2 border-gray-300 text-gray-700 font-semibold hover:bg-gray-50 transition-colors text-sm"
-            >
-              Apply Instead
-              <ArrowRight className="w-4 h-4" />
-            </a>
-          </div>
+              <h3 className="text-2xl sm:text-3xl font-extrabold text-gray-900 mb-3 leading-tight">
+                You&apos;re About to Walk Away From<br />
+                <span className="text-red-600">{fmt(savings.aiSavings)}/Year in Savings</span>
+              </h3>
 
-          <p className="text-xs text-gray-400 mt-5">
-            Brandon responds to every call personally &mdash; no sales team, no gatekeepers.
-          </p>
+              <p className="text-gray-600 text-sm leading-relaxed max-w-sm mx-auto mb-6">
+                Your calculator showed you&apos;re losing <strong className="text-red-600">{fmt(savings.monthlySavings)}/month</strong> on
+                manual work right now. Every month you wait is another <strong className="text-red-600">{fmt(savings.monthlySavings)}</strong> gone.
+              </p>
+
+              {/* Savings breakdown */}
+              <div className="bg-gray-50 rounded-2xl border border-gray-200 p-4 mb-6 max-w-xs mx-auto">
+                <div className="space-y-2.5">
+                  <div className="flex justify-between text-sm">
+                    <span className="text-gray-500">Annual waste</span>
+                    <span className="font-bold text-red-600">{fmt(savings.annualWaste)}</span>
+                  </div>
+                  <div className="flex justify-between text-sm">
+                    <span className="text-gray-500">Recoverable savings</span>
+                    <span className="font-bold text-green-600">{fmt(savings.aiSavings)}</span>
+                  </div>
+                  <div className="border-t border-gray-200 pt-2 flex justify-between text-sm">
+                    <span className="text-gray-500">Your ROI</span>
+                    <span className="font-extrabold text-green-700">{savings.roiMultiple}x return</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* CTAs */}
+              <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                <a
+                  href="#apply"
+                  onClick={dismiss}
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-orange-500 text-white font-bold hover:bg-orange-600 transition-all shadow-lg hover:shadow-orange-500/30 text-sm"
+                >
+                  Stop Losing {fmt(savings.monthlySavings)}/mo
+                  <ArrowRight className="w-4 h-4" />
+                </a>
+                <a
+                  href="tel:5592823075"
+                  onClick={dismiss}
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full border-2 border-gray-300 text-gray-700 font-semibold hover:bg-gray-50 transition-colors text-sm"
+                >
+                  <Phone className="w-4 h-4" />
+                  Talk to Brandon First
+                </a>
+              </div>
+
+              <p className="text-xs text-gray-400 mt-5">
+                Start with a $1,500 assessment &mdash; credited to your first month if you continue.
+              </p>
+            </>
+          ) : (
+            <>
+              {/* Generic variant — no calculator data */}
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-50 border border-green-200 text-green-700 text-xs font-bold mb-5">
+                <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+                No Obligation · Completely Free
+              </div>
+
+              <h3 className="text-2xl sm:text-3xl font-extrabold text-gray-900 mb-3 leading-tight">
+                Before You Go &mdash;<br />
+                <span className="text-blue-600">Get a Free 15-Minute Fit Call</span>
+              </h3>
+
+              <p className="text-gray-600 text-sm leading-relaxed max-w-sm mx-auto mb-6">
+                Not ready to apply? No problem. Talk to Brandon directly for 15 minutes &mdash;
+                he&apos;ll tell you honestly whether AI consulting makes sense for your business.
+                No sales pitch, no commitment.
+              </p>
+
+              {/* Value bullets */}
+              <div className="flex flex-col gap-2.5 text-left max-w-xs mx-auto mb-7">
+                {[
+                  "Get honest advice on your AI readiness",
+                  "Learn which processes to automate first",
+                  "Walk away with actionable next steps",
+                ].map((item) => (
+                  <div key={item} className="flex items-start gap-2.5 text-sm text-gray-700">
+                    <CheckCircle className="w-4 h-4 text-green-500 shrink-0 mt-0.5" />
+                    {item}
+                  </div>
+                ))}
+              </div>
+
+              {/* CTAs */}
+              <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                <a
+                  href="tel:5592823075"
+                  onClick={dismiss}
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-orange-500 text-white font-bold hover:bg-orange-600 transition-all shadow-lg hover:shadow-orange-500/30 text-sm"
+                >
+                  <Phone className="w-4 h-4" />
+                  Call Brandon Now
+                </a>
+                <a
+                  href="#apply"
+                  onClick={dismiss}
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full border-2 border-gray-300 text-gray-700 font-semibold hover:bg-gray-50 transition-colors text-sm"
+                >
+                  Apply Instead
+                  <ArrowRight className="w-4 h-4" />
+                </a>
+              </div>
+
+              <p className="text-xs text-gray-400 mt-5">
+                Brandon responds to every call personally &mdash; no sales team, no gatekeepers.
+              </p>
+            </>
+          )}
         </div>
       </div>
 
@@ -3235,7 +3305,7 @@ export default function AIConsultantPage() {
       <StickyMobileCTA />
       <SectionNav />
       <SocialProofToast />
-      <ExitIntentPopup />
+      <ExitIntentPopup savings={calcSavings} />
       <FormDrawer open={drawerOpen} onClose={() => setDrawerOpen(false)} />
     </>
   );
