@@ -2374,6 +2374,58 @@ function ApplyForm() {
               </div>
             </div>
 
+            {/* What Your Assessment Includes */}
+            <div className="mb-7">
+              <p className="text-xs font-bold uppercase tracking-widest text-blue-400 mb-4">
+                What Your Assessment Includes
+              </p>
+              <div className="space-y-3">
+                {[
+                  {
+                    icon: BarChart3,
+                    title: "AI Opportunity Audit",
+                    desc: "Full review of your tools, workflows, and data sources",
+                  },
+                  {
+                    icon: Target,
+                    title: "ROI Priority Map",
+                    desc: "Ranked list of highest-impact AI opportunities",
+                  },
+                  {
+                    icon: Layers,
+                    title: "Implementation Roadmap",
+                    desc: "Step-by-step plan with timelines and milestones",
+                  },
+                  {
+                    icon: Shield,
+                    title: "Risk & Governance Brief",
+                    desc: "Data handling rules and ethical AI guidelines",
+                  },
+                  {
+                    icon: Calculator,
+                    title: "Cost-Benefit Analysis",
+                    desc: "Projected savings vs. investment for each initiative",
+                  },
+                ].map(({ icon: Icon, title, desc }) => (
+                  <div key={title} className="flex items-start gap-3">
+                    <div className="shrink-0 w-7 h-7 rounded-lg bg-white/10 border border-white/15 flex items-center justify-center mt-0.5">
+                      <Icon className="w-3.5 h-3.5 text-blue-300" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold text-white leading-snug">{title}</p>
+                      <p className="text-xs text-blue-300/80 leading-relaxed">{desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-4 flex items-start gap-2.5 px-3 py-2.5 rounded-xl bg-green-500/10 border border-green-400/20">
+                <CheckCircle className="w-4 h-4 text-green-400 shrink-0 mt-0.5" />
+                <p className="text-xs text-green-300 leading-relaxed">
+                  <strong className="text-green-200">Yours to keep</strong> — the full report is yours regardless of whether you continue. $1,500 credited to Month 1 if you do.
+                </p>
+              </div>
+            </div>
+
             <a
               href="tel:5592823075"
               className="inline-flex items-center gap-2 text-sm text-blue-200 hover:text-white transition-colors"
