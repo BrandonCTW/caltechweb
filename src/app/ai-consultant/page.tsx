@@ -2877,6 +2877,7 @@ function StickyDesktopCTA() {
               <span className="w-1.5 h-1.5 rounded-full bg-orange-400 animate-pulse" />
               1–2 Spots Available
             </span>
+            <span className="text-xs text-gray-400 ml-1">· Closes March 31</span>
           </div>
           <div className="flex items-center gap-3">
             <a
