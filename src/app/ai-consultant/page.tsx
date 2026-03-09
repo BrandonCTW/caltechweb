@@ -195,6 +195,52 @@ function AnimatedStat({ value }: { value: string }) {
   );
 }
 
+// ─── Application Deadline Badge ──────────────────────────────────────────────
+
+function useApplicationDeadline() {
+  const [deadline, setDeadline] = useState<{ dateStr: string; daysLeft: number } | null>(null);
+
+  useEffect(() => {
+    const now = new Date();
+    const target = new Date(now);
+    target.setDate(target.getDate() + 10);
+    // Find the next Friday at least 10 days out
+    while (target.getDay() !== 5) target.setDate(target.getDate() + 1);
+    const daysLeft = Math.ceil((target.getTime() - now.getTime()) / (1000 * 60 * 60 * 24));
+    const dateStr = target.toLocaleDateString("en-US", { month: "long", day: "numeric" });
+    setDeadline({ dateStr, daysLeft });
+  }, []);
+
+  return deadline;
+}
+
+function DeadlineBadge() {
+  const deadline = useApplicationDeadline();
+  if (!deadline) return null;
+
+  return (
+    <div className="flex items-center gap-3 px-4 py-2.5 rounded-xl bg-red-500/10 border border-red-400/20 max-w-lg mb-8">
+      <Clock className="w-4 h-4 text-red-400 shrink-0" />
+      <p className="text-sm">
+        <strong className="text-red-300">Next intake closes {deadline.dateStr}</strong>
+        <span className="text-blue-200/50 ml-2">· {deadline.daysLeft} days left to apply</span>
+      </p>
+    </div>
+  );
+}
+
+function DrawerDeadlineNote() {
+  const deadline = useApplicationDeadline();
+  if (!deadline) return null;
+
+  return (
+    <p className="text-[10px] text-red-600 font-semibold mt-0.5 flex items-center gap-1">
+      <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
+      Intake closes {deadline.dateStr} · {deadline.daysLeft} days left
+    </p>
+  );
+}
+
 // ─── Multi-Step Form ───────────────────────────────────────────────────────────
 
 const INDUSTRIES = [
@@ -812,10 +858,12 @@ function Hero() {
           and builds a real competitive advantage.
         </p>
 
-        <p className="text-base text-blue-200/60 mb-10 max-w-xl">
+        <p className="text-base text-blue-200/60 mb-6 max-w-xl">
           We only take on <strong className="text-white">1&ndash;2 companies at a time</strong> on
           6&ndash;12 month contracts so we can be fully devoted to your success.
         </p>
+
+        <DeadlineBadge />
 
         <div className="flex flex-col sm:flex-row gap-4">
           <a
@@ -3066,6 +3114,7 @@ function FormDrawer({ open, onClose }: { open: boolean; onClose: () => void }) {
               </span>
             </div>
             <p className="text-xs text-gray-500 mt-0.5">Takes less than 2 minutes · No obligation</p>
+            <DrawerDeadlineNote />
           </div>
           <button
             onClick={onClose}
