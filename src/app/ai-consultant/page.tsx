@@ -1786,38 +1786,48 @@ function Results() {
     { value: "100+", label: "Publications", sub: "Cited as an industry authority" },
   ];
 
-  const implementations = [
+  const caseStudies = [
     {
-      title: "Automated Client Reporting",
-      icon: BarChart3,
-      before: "8+ hours/week pulling data manually into spreadsheets",
-      after: "Real-time dashboards that generate themselves from live data",
-      metric: "40+ hours/month saved",
-      metricColor: "text-green-600",
+      label: "Case Study #1",
+      industry: "National DTC Retail Brand",
+      icon: TrendingUp,
+      summary:
+        "The founder of a nationally recognized direct-to-consumer retail company came to Brandon with a familiar problem: employee costs were climbing year over year, margins were shrinking, and manual processes were eating into every department. Despite doing eight figures in revenue, the business was running on spreadsheets, manual customer service queues, and gut-feel inventory decisions.",
+      implementations: [
+        "AI-powered customer service handling 70% of inbound inquiries without human intervention",
+        "Automated inventory forecasting that cut overstock by 32% in the first quarter",
+        "AI-generated product descriptions and email campaigns, reducing marketing labor by 25 hours/week",
+        "Employee workflow automation that eliminated 3 redundant admin roles through natural attrition",
+      ],
+      results: [
+        { metric: "38%", desc: "reduction in operational costs within 6 months" },
+        { metric: "$420K", desc: "annual savings from eliminated manual processes" },
+        { metric: "12 pts", desc: "margin recovery in the first year" },
+      ],
+      quote:
+        "I was skeptical that AI could actually move the needle at our scale. Brandon didn\u2019t just show us tools \u2014 he rebuilt how we operate. The savings paid for the engagement three times over.",
+      quoteAttr: "Founder & CEO",
     },
     {
-      title: "AI Customer Service Bot",
-      icon: Bot,
-      before: "24–48 hour email response times, missed after-hours inquiries",
-      after: "Instant 24/7 responses handling 80%+ of common questions",
-      metric: "24/7 coverage, zero added headcount",
-      metricColor: "text-green-600",
-    },
-    {
-      title: "AI-Powered Content Pipeline",
-      icon: Target,
-      before: "2 blog posts/month, 4+ hours each to research and write",
-      after: "12+ posts/month, AI-drafted and human-reviewed in minutes",
-      metric: "6x content output",
-      metricColor: "text-green-600",
-    },
-    {
-      title: "Proposal & Document Automation",
+      label: "Case Study #2",
+      industry: "Regional E-Commerce Operations Firm",
       icon: Zap,
-      before: "3–5 hours per proposal, inconsistent formatting and quality",
-      after: "AI-generated first drafts in 15 minutes, polished and on-brand",
-      metric: "90% faster turnaround",
-      metricColor: "text-green-600",
+      summary:
+        "A fast-growing e-commerce operations company was drowning in volume: 500+ emails per day that required manual routing, categorization, and responses. Their team spent days batch-processing 150,000-row spreadsheets every month. Worst of all, there was no system to track whether employees were actually completing assigned work \u2014 tasks fell through the cracks constantly.",
+      implementations: [
+        "AI email triage system that auto-categorizes, routes, and drafts responses for 500+ daily emails",
+        "Batch processing automation that reduced 150K-row spreadsheet jobs from 3 days to under 2 hours",
+        "Employee accountability dashboards with AI-flagged task completion and escalation alerts",
+        "Custom reporting pipelines that eliminated 15+ hours/week of manual data compilation",
+      ],
+      results: [
+        { metric: "92%", desc: "reduction in email handling time (6 hrs/day \u2192 28 min)" },
+        { metric: "97%", desc: "faster batch processing (3 days \u2192 2 hours)" },
+        { metric: "100%", desc: "task visibility \u2014 nothing falls through the cracks" },
+      ],
+      quote:
+        "We were hiring people to do work that machines should have been doing. Brandon built systems that didn\u2019t just save us money \u2014 they gave us back control of our operations.",
+      quoteAttr: "COO",
     },
   ];
 
@@ -1845,44 +1855,67 @@ function Results() {
           ))}
         </div>
 
-        {/* Implementation Outcomes */}
+        {/* Client Case Studies */}
         <div className="text-center mb-10">
           <h3 className="text-2xl sm:text-3xl font-extrabold text-gray-900 mb-3">
-            What AI Implementation Actually Looks Like
+            Real Transformations. Real Businesses. Real Numbers.
           </h3>
           <p className="text-base text-gray-600 max-w-2xl mx-auto">
-            These are the types of transformations we deliver. Not theoretical — built and deployed for real businesses with real deadlines.
+            These are actual client engagements. Names withheld for confidentiality &mdash; results speak for themselves.
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 gap-5 mb-10">
-          {implementations.map(({ title, icon: Icon, before, after, metric, metricColor }) => (
-            <div key={title} className="bg-gray-50 rounded-2xl border border-gray-200 p-6 hover:border-blue-200 hover:shadow-sm transition-all">
-              <div className="flex items-center gap-3 mb-5">
-                <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center shrink-0">
-                  <Icon className="w-5 h-5 text-blue-600" />
+        <div className="space-y-6 mb-10">
+          {caseStudies.map(({ label, industry, icon: Icon, summary, implementations, results, quote, quoteAttr }) => (
+            <div key={label} className="bg-white rounded-3xl border border-gray-200 shadow-sm overflow-hidden">
+              {/* Header */}
+              <div className="bg-gradient-to-r from-blue-950 to-blue-900 text-white px-7 py-5 flex items-center gap-4">
+                <div className="w-10 h-10 rounded-xl bg-white/10 border border-white/20 flex items-center justify-center shrink-0">
+                  <Icon className="w-5 h-5 text-blue-300" />
                 </div>
-                <h4 className="font-bold text-gray-900 text-sm">{title}</h4>
-              </div>
-              <div className="space-y-3 mb-4">
-                <div className="flex items-start gap-2.5">
-                  <span className="shrink-0 mt-1.5 w-2 h-2 rounded-full bg-red-400" />
-                  <div>
-                    <span className="text-[10px] font-bold uppercase tracking-wide text-red-500">Before</span>
-                    <p className="text-sm text-gray-600 leading-relaxed">{before}</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-2.5">
-                  <span className="shrink-0 mt-1.5 w-2 h-2 rounded-full bg-green-500" />
-                  <div>
-                    <span className="text-[10px] font-bold uppercase tracking-wide text-green-600">After</span>
-                    <p className="text-sm text-gray-600 leading-relaxed">{after}</p>
-                  </div>
+                <div>
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-blue-400">{label}</span>
+                  <h4 className="font-bold text-white text-base">{industry}</h4>
                 </div>
               </div>
-              <div className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-green-50 border border-green-100 text-xs font-bold ${metricColor}`}>
-                <TrendingUp className="w-3 h-3" />
-                {metric}
+
+              <div className="p-7">
+                {/* The Challenge */}
+                <p className="text-sm text-gray-600 leading-relaxed mb-6">{summary}</p>
+
+                {/* What We Built */}
+                <div className="mb-6">
+                  <p className="text-xs font-bold uppercase tracking-wide text-blue-600 mb-3">What Brandon Implemented</p>
+                  <div className="grid sm:grid-cols-2 gap-2.5">
+                    {implementations.map((item) => (
+                      <div key={item} className="flex items-start gap-2.5 text-sm text-gray-700">
+                        <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 shrink-0" />
+                        {item}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Results */}
+                <div className="grid grid-cols-3 gap-3 mb-6">
+                  {results.map(({ metric, desc }) => (
+                    <div key={metric} className="bg-green-50 rounded-xl border border-green-100 p-4 text-center">
+                      <div className="text-2xl sm:text-3xl font-extrabold text-green-600 leading-none mb-1">{metric}</div>
+                      <p className="text-xs text-green-700 leading-snug">{desc}</p>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Client Quote */}
+                <div className="bg-gray-50 rounded-2xl border border-gray-100 p-5 flex gap-4">
+                  <Quote className="w-8 h-8 text-blue-200 shrink-0 mt-1" />
+                  <div>
+                    <p className="text-sm text-gray-700 leading-relaxed italic mb-2">
+                      &ldquo;{quote}&rdquo;
+                    </p>
+                    <p className="text-xs font-semibold text-gray-500">&mdash; {quoteAttr}, {industry}</p>
+                  </div>
+                </div>
               </div>
             </div>
           ))}
