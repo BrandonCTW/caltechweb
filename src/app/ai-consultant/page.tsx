@@ -2477,6 +2477,230 @@ function Results() {
   );
 }
 
+// ─── AI Readiness Quiz ────────────────────────────────────────────────────────
+
+function ReadinessQuiz({ onApply }: { onApply: () => void }) {
+  const questions = [
+    {
+      label: "What's your biggest operational bottleneck?",
+      options: [
+        { text: "Manual & repetitive tasks eating my team's time", score: 35 },
+        { text: "Email overload and communication chaos", score: 30 },
+        { text: "Data entry, reporting, or spreadsheet work", score: 30 },
+        { text: "Customer service not scaling with growth", score: 25 },
+      ],
+    },
+    {
+      label: "How does your team currently handle repetitive work?",
+      options: [
+        { text: "All manual — it's painful and expensive", score: 35 },
+        { text: "Some tools, but nothing really integrated", score: 28 },
+        { text: "Basic automation, but we need true AI", score: 20 },
+        { text: "Already using AI tools, need better strategy", score: 15 },
+      ],
+    },
+    {
+      label: "What's your timeline for implementing AI?",
+      options: [
+        { text: "ASAP — we're losing money every week we wait", score: 30 },
+        { text: "Within 3 months — actively researching now", score: 25 },
+        { text: "Within 6 months — building our roadmap", score: 15 },
+        { text: "Just exploring at this stage", score: 5 },
+      ],
+    },
+  ];
+
+  const [answers, setAnswers] = useState<number[]>([]); // score for each answered question
+  const [selections, setSelections] = useState<number[]>([-1, -1, -1]); // option index per question
+  const [revealed, setRevealed] = useState(false);
+  const resultRef = useRef<HTMLDivElement>(null);
+
+  const currentQ = answers.length; // index of current unanswered question
+  const totalScore = answers.reduce((s, v) => s + v, 0);
+
+  function handleSelect(optionIndex: number, score: number) {
+    const newSelections = [...selections];
+    newSelections[currentQ] = optionIndex;
+    setSelections(newSelections);
+    const newAnswers = [...answers, score];
+    setAnswers(newAnswers);
+    if (newAnswers.length === questions.length) {
+      setTimeout(() => {
+        setRevealed(true);
+        setTimeout(() => resultRef.current?.scrollIntoView({ behavior: "smooth", block: "center" }), 100);
+      }, 400);
+    }
+  }
+
+  function handleReset() {
+    setAnswers([]);
+    setSelections([-1, -1, -1]);
+    setRevealed(false);
+  }
+
+  const tier =
+    totalScore >= 85
+      ? { label: "Exceptional Candidate", color: "emerald", pct: 95, message: "Your business profile shows the highest AI ROI potential. You have clear, costly bottlenecks where AI delivers fast, measurable results. We'd prioritize your application." }
+      : totalScore >= 60
+      ? { label: "Strong Match", color: "blue", pct: 75, message: "You have meaningful inefficiencies AI can address with a structured engagement. Most clients in your situation recover the consulting cost within the first 90 days." }
+      : totalScore >= 35
+      ? { label: "Good Potential", color: "yellow", pct: 50, message: "You're at an early but promising stage. A Readiness Assessment would clarify exactly where AI fits your operations and what ROI to expect." }
+      : { label: "Early Exploration", color: "gray", pct: 25, message: "You're still scoping this space — that's okay. The $1,500 Assessment is designed precisely for businesses that aren't sure where to start." };
+
+  const colorMap: Record<string, { bar: string; badge: string; ring: string; btn: string }> = {
+    emerald: { bar: "bg-emerald-500", badge: "bg-emerald-50 text-emerald-700 border-emerald-200", ring: "ring-emerald-400", btn: "bg-emerald-600 hover:bg-emerald-700" },
+    blue: { bar: "bg-blue-500", badge: "bg-blue-50 text-blue-700 border-blue-200", ring: "ring-blue-400", btn: "bg-blue-600 hover:bg-blue-700" },
+    yellow: { bar: "bg-yellow-400", badge: "bg-yellow-50 text-yellow-700 border-yellow-200", ring: "ring-yellow-400", btn: "bg-orange-500 hover:bg-orange-600" },
+    gray: { bar: "bg-gray-400", badge: "bg-gray-50 text-gray-700 border-gray-200", ring: "ring-gray-400", btn: "bg-blue-600 hover:bg-blue-700" },
+  };
+  const c = colorMap[tier.color];
+
+  return (
+    <section className="py-16 sm:py-20 bg-gradient-to-b from-blue-950 to-blue-900 text-white">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-10">
+          <span className="inline-block text-xs font-bold uppercase tracking-widest text-blue-300 mb-3">
+            30-Second Self-Assessment
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-extrabold mb-3">
+            Is Your Business AI-Ready?
+          </h2>
+          <p className="text-blue-200 text-base max-w-xl mx-auto">
+            Answer 3 quick questions to see your AI Readiness Score and find out if you're a strong candidate for Brandon's consulting program.
+          </p>
+        </div>
+
+        {/* Step indicators */}
+        <div className="flex items-center justify-center gap-3 mb-10">
+          {questions.map((_, i) => {
+            const done = i < answers.length;
+            const active = i === answers.length && !revealed;
+            return (
+              <div key={i} className="flex items-center gap-3">
+                <div
+                  className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold transition-all duration-300 ${
+                    done
+                      ? "bg-emerald-500 text-white"
+                      : active
+                      ? "bg-white text-blue-900 ring-2 ring-white/50"
+                      : "bg-blue-800 text-blue-400"
+                  }`}
+                >
+                  {done ? "✓" : i + 1}
+                </div>
+                {i < questions.length - 1 && (
+                  <div className={`w-10 h-0.5 rounded-full transition-all duration-500 ${done ? "bg-emerald-500" : "bg-blue-800"}`} />
+                )}
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Questions */}
+        {!revealed && (
+          <div className="space-y-4">
+            {questions.map((q, qi) => {
+              const isDone = qi < answers.length;
+              const isActive = qi === answers.length;
+              if (!isActive && !isDone) return null;
+              return (
+                <div
+                  key={qi}
+                  className={`rounded-2xl transition-all duration-300 ${
+                    isActive
+                      ? "bg-white/10 backdrop-blur-sm border border-white/20 p-6 sm:p-8"
+                      : "bg-white/5 border border-white/10 p-4 sm:p-5 opacity-60"
+                  }`}
+                >
+                  <p className={`font-semibold mb-4 ${isActive ? "text-white text-base" : "text-blue-200 text-sm"}`}>
+                    <span className="text-blue-400 mr-2">{qi + 1}.</span>{q.label}
+                  </p>
+                  {isDone ? (
+                    <p className="text-sm text-emerald-400 font-medium flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4" />
+                      {q.options[selections[qi]]?.text}
+                    </p>
+                  ) : (
+                    <div className="grid sm:grid-cols-2 gap-3">
+                      {q.options.map((opt, oi) => (
+                        <button
+                          key={oi}
+                          onClick={() => handleSelect(oi, opt.score)}
+                          className="text-left px-4 py-3.5 rounded-xl bg-blue-900/60 border border-white/10 hover:border-white/40 hover:bg-blue-800/80 text-sm text-blue-100 hover:text-white transition-all duration-150 font-medium"
+                        >
+                          {opt.text}
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        )}
+
+        {/* Result panel */}
+        {revealed && (
+          <div ref={resultRef} className="rounded-2xl bg-white text-gray-900 p-7 sm:p-10 shadow-2xl animate-in fade-in slide-in-from-bottom-4 duration-500">
+            <div className="text-center mb-8">
+              <p className="text-sm font-semibold uppercase tracking-widest text-gray-500 mb-2">Your AI Readiness Score</p>
+              <div className="relative inline-flex items-center justify-center mb-5">
+                <svg className="w-32 h-32 -rotate-90" viewBox="0 0 120 120">
+                  <circle cx="60" cy="60" r="50" fill="none" stroke="#e5e7eb" strokeWidth="10" />
+                  <circle
+                    cx="60" cy="60" r="50" fill="none"
+                    stroke={tier.color === "emerald" ? "#10b981" : tier.color === "blue" ? "#3b82f6" : tier.color === "yellow" ? "#f59e0b" : "#9ca3af"}
+                    strokeWidth="10"
+                    strokeLinecap="round"
+                    strokeDasharray={`${2 * Math.PI * 50}`}
+                    strokeDashoffset={`${2 * Math.PI * 50 * (1 - tier.pct / 100)}`}
+                    style={{ transition: "stroke-dashoffset 1.2s cubic-bezier(0.16,1,0.3,1)" }}
+                  />
+                </svg>
+                <div className="absolute text-center">
+                  <span className="text-3xl font-extrabold text-gray-900">{tier.pct}</span>
+                  <span className="text-sm text-gray-400 block -mt-1">/ 100</span>
+                </div>
+              </div>
+              <span className={`inline-block px-4 py-1.5 rounded-full text-sm font-bold border ${c.badge}`}>
+                {tier.label}
+              </span>
+            </div>
+
+            <p className="text-gray-600 text-sm leading-relaxed text-center mb-8 max-w-md mx-auto">
+              {tier.message}
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-3 justify-center mb-5">
+              <button
+                onClick={onApply}
+                className={`inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full text-white font-bold transition-all shadow-md text-sm ${c.btn}`}
+              >
+                Claim Your Spot — Apply Now
+                <ArrowRight className="w-4 h-4" />
+              </button>
+              <a
+                href="tel:5592823075"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border-2 border-gray-200 text-gray-700 font-semibold hover:bg-gray-50 transition-colors text-sm"
+              >
+                <Phone className="w-4 h-4" />
+                Call (559) 282-3075
+              </a>
+            </div>
+
+            <p className="text-center text-xs text-gray-400">
+              Not ready yet?{" "}
+              <button onClick={handleReset} className="text-blue-500 hover:underline">
+                Retake the quiz
+              </button>
+            </p>
+          </div>
+        )}
+      </div>
+    </section>
+  );
+}
+
 function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
@@ -3571,6 +3795,7 @@ export default function AIConsultantPage() {
         <ScrollReveal><CompareAlternatives /></ScrollReveal>
         <ScrollReveal><Capabilities /></ScrollReveal>
         <ScrollReveal><WhoThisIsFor /></ScrollReveal>
+        <ReadinessQuiz onApply={() => setDrawerOpen(true)} />
         <ScrollReveal><FAQ /></ScrollReveal>
         <ScrollReveal><Guarantee /></ScrollReveal>
         <ScrollReveal><PersonalNote /></ScrollReveal>
