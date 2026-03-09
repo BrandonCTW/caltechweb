@@ -255,18 +255,44 @@ const defaultFormData: FormData = {
   howDidYouFindUs: "",
 };
 
+const FORM_STORAGE_KEY = "ctw_ai_form";
+
+function loadSavedForm(): { step: number; data: FormData } | null {
+  try {
+    const raw = sessionStorage.getItem(FORM_STORAGE_KEY);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw);
+    if (parsed && parsed.data && typeof parsed.step === "number") return parsed;
+  } catch {}
+  return null;
+}
+
 function MultiStepForm() {
-  const [step, setStep] = useState(1);
-  const [formData, setFormData] = useState<FormData>(defaultFormData);
+  const saved = useRef(loadSavedForm());
+  const [step, setStep] = useState(saved.current?.step ?? 1);
+  const [formData, setFormData] = useState<FormData>(saved.current?.data ?? defaultFormData);
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
+  const [showResumeBanner, setShowResumeBanner] = useState(saved.current !== null && (saved.current.step > 1 || saved.current.data.companyName.trim().length > 0));
 
   const totalSteps = 4;
   const progress = ((step - 1) / totalSteps) * 100;
 
+  // Persist form state to sessionStorage on every change
+  useEffect(() => {
+    if (submitted) {
+      try { sessionStorage.removeItem(FORM_STORAGE_KEY); } catch {}
+      return;
+    }
+    try {
+      sessionStorage.setItem(FORM_STORAGE_KEY, JSON.stringify({ step, data: formData }));
+    } catch {}
+  }, [step, formData, submitted]);
+
   function updateField(field: keyof FormData, value: string | string[]) {
     setFormData((prev) => ({ ...prev, [field]: value }));
+    setShowResumeBanner(false);
   }
 
   function toggleChallenge(challenge: string) {
@@ -277,6 +303,7 @@ function MultiStepForm() {
         : [...existing, challenge];
       return { ...prev, biggestChallenges: updated };
     });
+    setShowResumeBanner(false);
   }
 
   function canAdvance(): boolean {
@@ -362,6 +389,27 @@ function MultiStepForm() {
         <Clock className="w-3.5 h-3.5 text-blue-500" />
         <span>Takes less than 2 minutes · <strong className="text-gray-700">No obligation</strong></span>
       </div>
+
+      {/* Resume banner — shown when returning visitor has saved progress */}
+      {showResumeBanner && (
+        <div className="flex items-center justify-between gap-3 mb-5 px-4 py-3 rounded-xl bg-blue-50 border border-blue-200">
+          <div className="flex items-center gap-2 text-sm text-blue-800">
+            <CheckCircle className="w-4 h-4 text-blue-500 shrink-0" />
+            <span>Welcome back! We saved your progress.</span>
+          </div>
+          <button
+            onClick={() => {
+              setStep(1);
+              setFormData(defaultFormData);
+              setShowResumeBanner(false);
+              try { sessionStorage.removeItem(FORM_STORAGE_KEY); } catch {}
+            }}
+            className="text-xs text-blue-600 hover:text-blue-800 font-medium whitespace-nowrap"
+          >
+            Start over
+          </button>
+        </div>
+      )}
 
       {/* Progress Bar */}
       <div className="mb-8">
