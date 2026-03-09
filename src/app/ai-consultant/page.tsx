@@ -2555,14 +2555,14 @@ function SectionNav() {
     { id: "hero", label: "Overview" },
     { id: "pain", label: "The Problem" },
     { id: "calculator", label: "Calculator" },
-    { id: "about", label: "About Brandon" },
+    { id: "results", label: "Results" },
     { id: "testimonials", label: "Testimonials" },
+    { id: "about", label: "About Brandon" },
+    { id: "process", label: "Process" },
+    { id: "pricing", label: "Pricing" },
+    { id: "compare", label: "Alternatives" },
     { id: "capabilities", label: "Capabilities" },
     { id: "fit", label: "Is This For You?" },
-    { id: "process", label: "Process" },
-    { id: "results", label: "Results" },
-    { id: "compare", label: "Alternatives" },
-    { id: "pricing", label: "Pricing" },
     { id: "faq", label: "FAQ" },
     { id: "guarantee", label: "Guarantee" },
     { id: "apply", label: "Apply" },
@@ -2899,14 +2899,14 @@ export default function AIConsultantPage() {
         <RiskReversalStrip />
         <ScrollReveal><PainSection /></ScrollReveal>
         <ScrollReveal><SavingsCalculator /></ScrollReveal>
-        <ScrollReveal><AboutBrandon /></ScrollReveal>
+        <ScrollReveal><Results /></ScrollReveal>
         <ScrollReveal><ClientTestimonials /></ScrollReveal>
+        <ScrollReveal><AboutBrandon /></ScrollReveal>
+        <ScrollReveal><Process /></ScrollReveal>
+        <ScrollReveal><Pricing /></ScrollReveal>
+        <ScrollReveal><CompareAlternatives /></ScrollReveal>
         <ScrollReveal><Capabilities /></ScrollReveal>
         <ScrollReveal><WhoThisIsFor /></ScrollReveal>
-        <ScrollReveal><Process /></ScrollReveal>
-        <ScrollReveal><Results /></ScrollReveal>
-        <ScrollReveal><CompareAlternatives /></ScrollReveal>
-        <ScrollReveal><Pricing /></ScrollReveal>
         <ScrollReveal><FAQ /></ScrollReveal>
         <ScrollReveal><Guarantee /></ScrollReveal>
         <ScrollReveal><PersonalNote /></ScrollReveal>
