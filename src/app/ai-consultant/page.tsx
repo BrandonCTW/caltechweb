@@ -141,6 +141,60 @@ function ScrollReveal({ children, className = "", delay = 0 }: { children: React
   );
 }
 
+// ─── Animated Stat Counter ──────────────────────────────────────────────────
+
+function AnimatedStat({ value }: { value: string }) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const [started, setStarted] = useState(false);
+  const [count, setCount] = useState(0);
+  const [hydrated, setHydrated] = useState(false);
+
+  const match = value.match(/^([^0-9]*)(\d+)(.*)$/);
+  const prefix = match?.[1] || "";
+  const end = match ? parseInt(match[2], 10) : 0;
+  const suffix = match?.[3] || "";
+
+  useEffect(() => setHydrated(true), []);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || !hydrated) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setStarted(true);
+          observer.unobserve(el);
+        }
+      },
+      { threshold: 0.2 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [hydrated]);
+
+  useEffect(() => {
+    if (!started) return;
+    const duration = 1800;
+    const start = performance.now();
+    function tick(now: number) {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setCount(Math.round(eased * end));
+      if (progress < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }, [started, end]);
+
+  if (!match) return <>{value}</>;
+  if (!hydrated) return <>{value}</>;
+
+  return (
+    <span ref={ref}>
+      {prefix}{started ? count : 0}{suffix}
+    </span>
+  );
+}
+
 // ─── Multi-Step Form ───────────────────────────────────────────────────────────
 
 const INDUSTRIES = [
@@ -1900,7 +1954,7 @@ function Results() {
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-14">
           {stats.map(({ value, label, sub }) => (
             <div key={label} className="text-center p-6 rounded-2xl bg-gray-50 border border-gray-100">
-              <div className="text-3xl sm:text-4xl font-extrabold text-blue-600 mb-2 leading-none">{value}</div>
+              <div className="text-3xl sm:text-4xl font-extrabold text-blue-600 mb-2 leading-none"><AnimatedStat value={value} /></div>
               <div className="font-bold text-gray-900 text-sm mb-1">{label}</div>
               <div className="text-xs text-gray-500">{sub}</div>
             </div>
@@ -1952,7 +2006,7 @@ function Results() {
                 <div className="grid grid-cols-3 gap-3 mb-6">
                   {results.map(({ metric, desc }) => (
                     <div key={metric} className="bg-green-50 rounded-xl border border-green-100 p-4 text-center">
-                      <div className="text-2xl sm:text-3xl font-extrabold text-green-600 leading-none mb-1">{metric}</div>
+                      <div className="text-2xl sm:text-3xl font-extrabold text-green-600 leading-none mb-1"><AnimatedStat value={metric} /></div>
                       <p className="text-xs text-green-700 leading-snug">{desc}</p>
                     </div>
                   ))}
