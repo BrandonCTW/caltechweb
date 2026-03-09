@@ -751,6 +751,58 @@ function Hero() {
   );
 }
 
+function RiskReversalStrip() {
+  const items = [
+    {
+      icon: Shield,
+      title: "Start for Just $1,500",
+      desc: "Standalone AI Readiness Assessment — yours to keep no matter what.",
+    },
+    {
+      icon: Zap,
+      title: "Results in 60–90 Days",
+      desc: "Working AI tools deployed, not a slide deck delivered in 6 months.",
+    },
+    {
+      icon: DollarSign,
+      title: "Assessment Credited to Month 1",
+      desc: "If you move forward, your $1,500 is applied toward the first month.",
+    },
+    {
+      icon: Target,
+      title: "Milestone-Based Accountability",
+      desc: "Clear deliverables at every phase. You always see value before you pay.",
+    },
+  ];
+
+  return (
+    <section className="bg-blue-950 border-t border-blue-900/50 py-8 sm:py-10">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <p className="text-center text-xs font-bold uppercase tracking-widest text-blue-400 mb-6">
+          Zero-Risk Way to Get Started
+        </p>
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+          {items.map(({ icon: Icon, title, desc }) => (
+            <div
+              key={title}
+              className="bg-white/5 border border-white/10 rounded-2xl p-5 text-center hover:bg-white/8 transition-colors"
+            >
+              <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-orange-500/15 border border-orange-400/25 mb-3">
+                <Icon className="w-5 h-5 text-orange-400" />
+              </div>
+              <h3 className="font-bold text-white text-sm mb-1.5">{title}</h3>
+              <p className="text-xs text-blue-200/70 leading-relaxed">{desc}</p>
+            </div>
+          ))}
+        </div>
+        <p className="text-center text-xs text-blue-300/50 mt-5">
+          Your maximum risk is $1,500 — and you get a full AI opportunity report for it.
+        </p>
+      </div>
+    </section>
+  );
+}
+
 function PainSection() {
   return (
     <section id="pain" className="py-16 sm:py-20 bg-gray-50">
@@ -2738,6 +2790,7 @@ export default function AIConsultantPage() {
       <Header />
       <main className="pb-[76px] md:pb-0">
         <Hero />
+        <RiskReversalStrip />
         <ScrollReveal><PainSection /></ScrollReveal>
         <ScrollReveal><SavingsCalculator /></ScrollReveal>
         <ScrollReveal><AboutBrandon /></ScrollReveal>
