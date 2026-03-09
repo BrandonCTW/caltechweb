@@ -2473,6 +2473,126 @@ function SectionNav() {
   );
 }
 
+// ─── Social Proof Toast ───────────────────────────────────────────────────────
+
+const SOCIAL_PROOF_ITEMS = [
+  { city: "Phoenix, AZ", industry: "Construction", action: "applied for a strategy session", timeAgo: "12 min ago" },
+  { city: "Denver, CO", industry: "Healthcare", action: "requested an AI Readiness Assessment", timeAgo: "34 min ago" },
+  { city: "Atlanta, GA", industry: "Professional Services", action: "submitted an application", timeAgo: "1 hour ago" },
+  { city: "Austin, TX", industry: "Retail", action: "applied for remote consulting", timeAgo: "2 hours ago" },
+  { city: "Chicago, IL", industry: "Manufacturing", action: "booked a fit call with Brandon", timeAgo: "3 hours ago" },
+  { city: "Nashville, TN", industry: "Legal", action: "applied for a strategy session", timeAgo: "5 hours ago" },
+  { city: "Charlotte, NC", industry: "Finance", action: "requested an AI Readiness Assessment", timeAgo: "yesterday" },
+  { city: "Portland, OR", industry: "Real Estate", action: "submitted an application", timeAgo: "yesterday" },
+];
+
+function SocialProofToast() {
+  const [visible, setVisible] = useState(false);
+  const [dismissed, setDismissed] = useState(false);
+  const [index, setIndex] = useState(0);
+  const [fading, setFading] = useState(false);
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  // Randomize starting index
+  useEffect(() => {
+    setIndex(Math.floor(Math.random() * SOCIAL_PROOF_ITEMS.length));
+  }, []);
+
+  // Show after 8s delay (let user settle into the page first)
+  useEffect(() => {
+    const delay = setTimeout(() => setVisible(true), 8000);
+    return () => clearTimeout(delay);
+  }, []);
+
+  // Auto-cycle every 7s
+  useEffect(() => {
+    if (!visible || dismissed) return;
+    intervalRef.current = setInterval(() => {
+      setFading(true);
+      setTimeout(() => {
+        setIndex((i) => (i + 1) % SOCIAL_PROOF_ITEMS.length);
+        setFading(false);
+      }, 300);
+    }, 7000);
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    };
+  }, [visible, dismissed]);
+
+  function dismiss() {
+    setVisible(false);
+    setTimeout(() => setDismissed(true), 400);
+  }
+
+  if (dismissed) return null;
+
+  const item = SOCIAL_PROOF_ITEMS[index];
+
+  return (
+    <div
+      className={`hidden md:block fixed bottom-6 left-6 z-40 max-w-xs transition-all duration-500 ease-out ${
+        visible
+          ? "translate-y-0 opacity-100"
+          : "translate-y-8 opacity-0 pointer-events-none"
+      }`}
+      role="status"
+      aria-live="polite"
+      aria-atomic="true"
+    >
+      <div className="bg-white border border-gray-200 rounded-2xl shadow-xl overflow-hidden">
+        {/* Auto-advance progress bar */}
+        <div className="h-[2px] bg-gray-100">
+          <div
+            key={index}
+            className="h-full bg-gradient-to-r from-blue-500 to-orange-500 rounded-full"
+            style={{ animation: "sp-progress 7s linear forwards" }}
+          />
+        </div>
+
+        <div className="flex items-start gap-3 px-4 py-3.5">
+          {/* Pulse indicator */}
+          <div className="shrink-0 mt-1.5">
+            <span className="relative flex h-2.5 w-2.5">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500" />
+            </span>
+          </div>
+
+          {/* Content */}
+          <div
+            className={`flex-1 min-w-0 transition-all duration-300 ${
+              fading ? "opacity-0 translate-y-1" : "opacity-100 translate-y-0"
+            }`}
+          >
+            <p className="text-sm font-semibold text-gray-900 leading-snug">
+              A {item.industry.toLowerCase()} company in {item.city}
+            </p>
+            <p className="text-xs text-gray-500 mt-0.5">
+              {item.action} · {item.timeAgo}
+            </p>
+          </div>
+
+          {/* Dismiss */}
+          <button
+            onClick={dismiss}
+            className="shrink-0 p-0.5 -mt-0.5 text-gray-300 hover:text-gray-500 transition-colors"
+            aria-label="Dismiss notification"
+          >
+            <X className="w-3.5 h-3.5" />
+          </button>
+        </div>
+      </div>
+
+      <style jsx>{`
+        @keyframes sp-progress {
+          from { width: 0; }
+          to { width: 100%; }
+        }
+      `}</style>
+    </div>
+  );
+}
+
 function ExitIntentPopup() {
   const [show, setShow] = useState(false);
   const firedRef = useRef(false);
@@ -2637,6 +2757,7 @@ export default function AIConsultantPage() {
       <StickyDesktopCTA />
       <StickyMobileCTA />
       <SectionNav />
+      <SocialProofToast />
       <ExitIntentPopup />
     </>
   );
