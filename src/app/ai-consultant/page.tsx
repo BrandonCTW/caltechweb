@@ -408,22 +408,125 @@ function MultiStepForm() {
   }
 
   if (submitted) {
+    // Compute expected response time (24 hours from now)
+    const responseBy = new Date(Date.now() + 24 * 60 * 60 * 1000);
+    const responseByStr = responseBy.toLocaleDateString("en-US", {
+      weekday: "long",
+      month: "long",
+      day: "numeric",
+    });
+    const responseByTime = responseBy.toLocaleTimeString("en-US", {
+      hour: "numeric",
+      minute: "2-digit",
+    });
+
+    const firstName = formData.name.trim().split(/\s+/)[0] || "there";
+    const shareUrl = "https://caltechweb.com/ai-consultant/";
+    const shareText = `I just applied for an AI strategy session with Brandon Hopkins. If you're a business owner looking to implement AI, check this out:`;
+
     return (
-      <div className="text-center py-12 px-6">
-        <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-100 mb-6">
-          <CheckCircle className="w-8 h-8 text-green-600" />
+      <div className="py-8 px-4 sm:px-6">
+        {/* Success header */}
+        <div className="text-center mb-8">
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-100 mb-5">
+            <CheckCircle className="w-8 h-8 text-green-600" />
+          </div>
+          <h3 className="text-2xl font-extrabold text-gray-900 mb-2">
+            You&apos;re In, {firstName}!
+          </h3>
+          <p className="text-gray-600 leading-relaxed max-w-md mx-auto">
+            Your application is on Brandon&apos;s desk. Expect a personal call or email by{" "}
+            <strong className="text-gray-900">{responseByStr} at {responseByTime}</strong>.
+          </p>
         </div>
-        <h3 className="text-2xl font-extrabold text-gray-900 mb-3">Application Received</h3>
-        <p className="text-gray-600 leading-relaxed max-w-md mx-auto mb-6">
-          We&apos;ll review your application and reach out within 24 hours. We only take on
-          1&ndash;2 clients at a time, so if we&apos;re a fit, we&apos;ll move fast.
-        </p>
-        <p className="text-sm text-gray-500">
-          Prefer to talk now?{" "}
-          <a href="tel:5592823075" className="text-blue-600 font-semibold hover:underline">
+
+        {/* What to prepare */}
+        <div className="bg-blue-50 border border-blue-100 rounded-2xl p-5 mb-6">
+          <p className="text-xs font-bold uppercase tracking-widest text-blue-600 mb-3">
+            While You Wait — Prepare for Your Fit Call
+          </p>
+          <div className="space-y-3">
+            {[
+              "List your 3 most time-consuming daily tasks — Brandon will ask about these",
+              "Note which software tools your team uses (CRM, accounting, email, etc.)",
+              "Think about one process that frustrates you the most",
+            ].map((item) => (
+              <div key={item} className="flex items-start gap-2.5">
+                <div className="shrink-0 w-5 h-5 rounded-md border-2 border-blue-300 mt-0.5" />
+                <span className="text-sm text-gray-700 leading-snug">{item}</span>
+              </div>
+            ))}
+          </div>
+          <p className="text-xs text-blue-600/70 mt-3">
+            Coming prepared means Brandon can identify your highest-ROI opportunities faster.
+          </p>
+        </div>
+
+        {/* What happens next timeline */}
+        <div className="bg-gray-50 border border-gray-200 rounded-2xl p-5 mb-6">
+          <p className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-3">
+            What Happens Next
+          </p>
+          <div className="space-y-4">
+            {[
+              { time: "Within 24 hrs", action: "Brandon reviews your application personally", done: true },
+              { time: "This week", action: "15-minute fit call to discuss your goals (free)", done: false },
+              { time: "If it's a fit", action: "Start your $1,500 AI Readiness Assessment", done: false },
+            ].map(({ time, action, done }) => (
+              <div key={time} className="flex items-start gap-3">
+                <div className={`shrink-0 w-5 h-5 rounded-full flex items-center justify-center mt-0.5 ${done ? "bg-green-500" : "bg-gray-200"}`}>
+                  {done && <CheckCircle className="w-3 h-3 text-white" />}
+                </div>
+                <div>
+                  <span className="text-[10px] font-bold uppercase tracking-wide text-gray-400">{time}</span>
+                  <p className="text-sm text-gray-700 font-medium leading-snug">{action}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Referral prompt */}
+        <div className="bg-orange-50 border border-orange-100 rounded-2xl p-5 mb-6">
+          <p className="text-sm font-bold text-gray-900 mb-1">
+            Know another business owner who needs AI?
+          </p>
+          <p className="text-xs text-gray-500 mb-3">
+            Share this page — Brandon only takes 1&ndash;2 clients, so timing matters.
+          </p>
+          <div className="flex gap-2">
+            <a
+              href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-[#0A66C2] text-white text-xs font-semibold hover:bg-[#084d96] transition-colors"
+            >
+              Share on LinkedIn
+            </a>
+            <button
+              onClick={() => {
+                navigator.clipboard?.writeText(`${shareText} ${shareUrl}`);
+              }}
+              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-gray-200 text-gray-700 text-xs font-semibold hover:bg-gray-300 transition-colors"
+            >
+              Copy Link
+            </button>
+          </div>
+        </div>
+
+        {/* Direct call CTA */}
+        <div className="text-center">
+          <p className="text-sm text-gray-500 mb-2">
+            Can&apos;t wait? Talk to Brandon right now.
+          </p>
+          <a
+            href="tel:5592823075"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-orange-500 text-white font-bold hover:bg-orange-600 transition-all shadow-md text-sm"
+          >
+            <Phone className="w-4 h-4" />
             Call (559) 282-3075
           </a>
-        </p>
+        </div>
       </div>
     );
   }
