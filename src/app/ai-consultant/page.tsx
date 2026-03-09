@@ -936,7 +936,7 @@ function PainSection() {
   );
 }
 
-function SavingsCalculator() {
+function SavingsCalculator({ onResultsChange }: { onResultsChange?: (data: { annualWaste: number; aiSavings: number; monthlySavings: number; roiMultiple: number } | null) => void }) {
   const [employees, setEmployees] = useState(10);
   const [hoursWasted, setHoursWasted] = useState(15);
   const [avgHourlyRate, setAvgHourlyRate] = useState(35);
@@ -948,6 +948,13 @@ function SavingsCalculator() {
   const consultingCost = 5500 * 12; // remote annual cost
   const netAnnualROI = aiSavings - consultingCost;
   const roiMultiple = aiSavings > 0 ? Math.round((aiSavings / consultingCost) * 10) / 10 : 0;
+
+  // Notify parent when results are shown/updated
+  useEffect(() => {
+    if (showResults && onResultsChange) {
+      onResultsChange({ annualWaste, aiSavings, monthlySavings, roiMultiple });
+    }
+  }, [showResults, annualWaste, aiSavings, monthlySavings, roiMultiple, onResultsChange]);
 
   function formatCurrency(n: number) {
     return n.toLocaleString("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
@@ -2884,6 +2891,81 @@ function ExitIntentPopup() {
   );
 }
 
+// ─── Sticky Savings Banner ────────────────────────────────────────────────────
+
+function StickySavingsBanner({
+  savings,
+  onApply,
+}: {
+  savings: { annualWaste: number; aiSavings: number; monthlySavings: number; roiMultiple: number } | null;
+  onApply: () => void;
+}) {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    if (!savings) return;
+
+    function onScroll() {
+      const calcEl = document.getElementById("calculator");
+      const applyEl = document.getElementById("apply");
+      if (!calcEl) return;
+
+      const calcBottom = calcEl.getBoundingClientRect().bottom;
+      const applyTop = applyEl ? applyEl.getBoundingClientRect().top : Infinity;
+
+      // Show when calculator is scrolled past, hide when Apply section is in view
+      setVisible(calcBottom < 0 && applyTop > 200);
+    }
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [savings]);
+
+  if (!savings) return null;
+
+  function fmt(n: number) {
+    return n.toLocaleString("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
+  }
+
+  return (
+    <div
+      className={`fixed top-14 left-0 right-0 z-[49] hidden md:block transition-all duration-300 ${
+        visible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0 pointer-events-none"
+      }`}
+    >
+      <div className="bg-gradient-to-r from-blue-950 to-blue-900 border-b border-blue-800/50 shadow-sm">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-10">
+          <div className="flex items-center gap-4 text-sm">
+            <span className="flex items-center gap-1.5 text-blue-200">
+              <DollarSign className="w-3.5 h-3.5 text-orange-400" />
+              <span className="text-blue-300">Your numbers:</span>
+            </span>
+            <span className="font-bold text-red-300">
+              {fmt(savings.annualWaste)}/yr wasted
+            </span>
+            <span className="text-blue-700">|</span>
+            <span className="font-bold text-green-300">
+              {fmt(savings.aiSavings)}/yr saveable
+            </span>
+            <span className="text-blue-700">|</span>
+            <span className="font-bold text-white">
+              {savings.roiMultiple}x ROI
+            </span>
+          </div>
+          <button
+            onClick={onApply}
+            className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-orange-500 text-white font-bold hover:bg-orange-600 transition-colors text-xs shadow-sm"
+          >
+            Stop Losing {fmt(savings.monthlySavings)}/mo
+            <ArrowRight className="w-3 h-3" />
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // ─── Form Drawer (slide-out application panel) ───────────────────────────────
 
 function FormDrawer({ open, onClose }: { open: boolean; onClose: () => void }) {
@@ -2959,6 +3041,11 @@ function FormDrawer({ open, onClose }: { open: boolean; onClose: () => void }) {
 
 export default function AIConsultantPage() {
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [calcSavings, setCalcSavings] = useState<{ annualWaste: number; aiSavings: number; monthlySavings: number; roiMultiple: number } | null>(null);
+
+  const handleCalcResults = useCallback((data: { annualWaste: number; aiSavings: number; monthlySavings: number; roiMultiple: number } | null) => {
+    setCalcSavings(data);
+  }, []);
 
   // Intercept all "Apply" CTA clicks to open the drawer instead of scrolling
   useEffect(() => {
@@ -2985,7 +3072,7 @@ export default function AIConsultantPage() {
         <Hero />
         <RiskReversalStrip />
         <ScrollReveal><PainSection /></ScrollReveal>
-        <ScrollReveal><SavingsCalculator /></ScrollReveal>
+        <ScrollReveal><SavingsCalculator onResultsChange={handleCalcResults} /></ScrollReveal>
         <ScrollReveal><Results /></ScrollReveal>
         <ScrollReveal><ClientTestimonials /></ScrollReveal>
         <ScrollReveal><AboutBrandon /></ScrollReveal>
@@ -3001,6 +3088,7 @@ export default function AIConsultantPage() {
       </main>
       <Footer />
       <StickyDesktopCTA />
+      <StickySavingsBanner savings={calcSavings} onApply={() => setDrawerOpen(true)} />
       <StickyMobileCTA />
       <SectionNav />
       <SocialProofToast />
