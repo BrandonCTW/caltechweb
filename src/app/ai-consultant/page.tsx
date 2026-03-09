@@ -1263,7 +1263,8 @@ function SavingsCalculator({ onResultsChange }: { onResultsChange?: (data: { ann
   const [employees, setEmployees] = useState(10);
   const [hoursWasted, setHoursWasted] = useState(15);
   const [avgHourlyRate, setAvgHourlyRate] = useState(35);
-  const [showResults, setShowResults] = useState(false);
+  const [showResults, setShowResults] = useState(true);
+  const [hasInteracted, setHasInteracted] = useState(false);
 
   const annualWaste = employees * hoursWasted * avgHourlyRate * 52;
   const aiSavings = Math.round(annualWaste * 0.6); // 60% of wasted time can be automated
@@ -1314,7 +1315,7 @@ function SavingsCalculator({ onResultsChange }: { onResultsChange?: (data: { ann
                   min={1}
                   max={50}
                   value={employees}
-                  onChange={(e) => { setEmployees(Number(e.target.value)); setShowResults(true); }}
+                  onChange={(e) => { setEmployees(Number(e.target.value)); setShowResults(true); setHasInteracted(true); }}
                   className="w-full h-2 rounded-full appearance-none cursor-pointer bg-gray-200 accent-blue-600"
                 />
                 <div className="flex justify-between text-xs text-gray-400 mt-1">
@@ -1335,7 +1336,7 @@ function SavingsCalculator({ onResultsChange }: { onResultsChange?: (data: { ann
                   min={2}
                   max={30}
                   value={hoursWasted}
-                  onChange={(e) => { setHoursWasted(Number(e.target.value)); setShowResults(true); }}
+                  onChange={(e) => { setHoursWasted(Number(e.target.value)); setShowResults(true); setHasInteracted(true); }}
                   className="w-full h-2 rounded-full appearance-none cursor-pointer bg-gray-200 accent-blue-600"
                 />
                 <div className="flex justify-between text-xs text-gray-400 mt-1">
@@ -1357,7 +1358,7 @@ function SavingsCalculator({ onResultsChange }: { onResultsChange?: (data: { ann
                   max={100}
                   step={5}
                   value={avgHourlyRate}
-                  onChange={(e) => { setAvgHourlyRate(Number(e.target.value)); setShowResults(true); }}
+                  onChange={(e) => { setAvgHourlyRate(Number(e.target.value)); setShowResults(true); setHasInteracted(true); }}
                   className="w-full h-2 rounded-full appearance-none cursor-pointer bg-gray-200 accent-blue-600"
                 />
                 <div className="flex justify-between text-xs text-gray-400 mt-1">
@@ -1382,6 +1383,12 @@ function SavingsCalculator({ onResultsChange }: { onResultsChange?: (data: { ann
             {/* Results */}
             {showResults && (
               <div className="border-t border-gray-200 pt-8">
+                {!hasInteracted && (
+                  <div className="flex items-center gap-2 mb-5 px-4 py-2.5 rounded-xl bg-blue-50 border border-blue-100 text-xs text-blue-700">
+                    <Calculator className="w-3.5 h-3.5 shrink-0 text-blue-500" />
+                    <span>Estimated for a typical 10-person team — <strong className="text-blue-800">adjust the sliders above to see your numbers.</strong></span>
+                  </div>
+                )}
                 <div className="grid sm:grid-cols-3 gap-4 mb-8">
                   <div className="bg-red-50 rounded-2xl border border-red-100 p-5 text-center">
                     <p className="text-xs font-bold uppercase tracking-wide text-red-500 mb-2">You&apos;re Losing</p>
