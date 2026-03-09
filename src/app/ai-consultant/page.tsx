@@ -877,7 +877,7 @@ function Hero() {
             href="#apply"
             className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full border-2 border-white/20 text-white font-semibold hover:bg-white/10 transition-colors"
           >
-            Apply for Consulting
+            See If You Qualify
             <ArrowRight className="w-4 h-4" />
           </a>
         </div>
@@ -1026,6 +1026,7 @@ function PainSection() {
             Let&apos;s Build Your AI Strategy
             <ArrowRight className="w-4 h-4" />
           </a>
+          <p className="text-xs text-gray-400 mt-3">No commitment — takes less than 2 minutes</p>
         </div>
       </div>
     </section>
@@ -1193,13 +1194,16 @@ function SavingsCalculator({ onResultsChange }: { onResultsChange?: (data: { ann
                         After subtracting {formatCurrency(consultingCost)}/year consulting investment (remote rate)
                       </p>
                     </div>
-                    <a
-                      href="#apply"
-                      className="shrink-0 inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-orange-500 text-white font-bold hover:bg-orange-600 transition-all shadow-lg text-sm whitespace-nowrap"
-                    >
-                      Apply for Consulting
-                      <ArrowRight className="w-4 h-4" />
-                    </a>
+                    <div className="shrink-0 text-center">
+                      <a
+                        href="#apply"
+                        className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-orange-500 text-white font-bold hover:bg-orange-600 transition-all shadow-lg text-sm whitespace-nowrap"
+                      >
+                        Claim These Savings
+                        <ArrowRight className="w-4 h-4" />
+                      </a>
+                      <p className="text-[11px] text-blue-300 mt-2">Brandon reviews every application personally</p>
+                    </div>
                   </div>
                 )}
 
@@ -1427,7 +1431,7 @@ function ClientTestimonials() {
               href="#apply"
               className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-blue-600 text-white font-bold hover:bg-blue-700 transition-all shadow-md"
             >
-              Apply for Consulting
+              Work With Brandon
               <ArrowRight className="w-4 h-4" />
             </a>
             <a
@@ -1438,6 +1442,7 @@ function ClientTestimonials() {
               Call (559) 282-3075
             </a>
           </div>
+          <p className="text-xs text-gray-400 mt-3">24-hour personal response to every application</p>
         </div>
       </div>
     </section>
@@ -1589,7 +1594,7 @@ function WhoThisIsFor() {
               href="#apply"
               className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-orange-500 text-white font-bold hover:bg-orange-600 transition-all shadow-md text-sm"
             >
-              Apply for Consulting
+              Yes, This Is for Me
               <ArrowRight className="w-4 h-4" />
             </a>
             <a
@@ -1600,6 +1605,7 @@ function WhoThisIsFor() {
               Call to Discuss Fit
             </a>
           </div>
+          <p className="text-xs text-gray-400 mt-3">2-minute application · No obligation · No credit card</p>
         </div>
       </div>
     </section>
@@ -1692,7 +1698,7 @@ function Process() {
               href="#apply"
               className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-orange-500 text-white font-bold hover:bg-orange-600 transition-all shadow-md text-sm"
             >
-              Apply for Consulting
+              Start at Step 1
               <ArrowRight className="w-4 h-4" />
             </a>
             <a
@@ -1703,6 +1709,7 @@ function Process() {
               Call (559) 282-3075
             </a>
           </div>
+          <p className="text-xs text-gray-400 mt-3">Every engagement begins with your AI Readiness Assessment</p>
         </div>
       </div>
     </section>
@@ -1831,7 +1838,7 @@ function CompareAlternatives() {
                 href="#apply"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-orange-500 text-white font-bold hover:bg-orange-600 transition-all shadow-lg text-sm whitespace-nowrap"
               >
-                Apply for Consulting
+                Choose the Better Path
                 <ArrowRight className="w-4 h-4" />
               </a>
               <a
@@ -1841,6 +1848,7 @@ function CompareAlternatives() {
                 <Phone className="w-4 h-4" />
                 Call Brandon
               </a>
+              <p className="text-[11px] text-blue-300 text-center">No long-term risk — start with a $1,500 assessment</p>
             </div>
           </div>
         </div>
@@ -1953,6 +1961,7 @@ function Pricing({ savings }: { savings?: { annualWaste: number; aiSavings: numb
                 Apply for On-Site Consulting
                 <ArrowRight className="w-4 h-4" />
               </a>
+              <p className="text-[11px] text-gray-400 text-center mt-2">$1,500 assessment credited to your first month</p>
             </div>
           </div>
 
@@ -2003,6 +2012,7 @@ function Pricing({ savings }: { savings?: { annualWaste: number; aiSavings: numb
                 Apply for Remote Consulting
                 <ArrowRight className="w-4 h-4" />
               </a>
+              <p className="text-[11px] text-gray-400 text-center mt-2">$1,500 assessment credited to your first month</p>
             </div>
           </div>
         </div>
@@ -2185,7 +2195,7 @@ function Results() {
               href="#apply"
               className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-orange-500 text-white font-bold hover:bg-orange-600 transition-all shadow-md text-sm"
             >
-              Apply for Consulting
+              Get Results Like These
               <ArrowRight className="w-4 h-4" />
             </a>
             <a
@@ -2196,6 +2206,7 @@ function Results() {
               Call (559) 282-3075
             </a>
           </div>
+          <p className="text-xs text-gray-400 mt-3">Start with a $1,500 assessment — yours to keep no matter what</p>
         </div>
       </div>
     </section>
