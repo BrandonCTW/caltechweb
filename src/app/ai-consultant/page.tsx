@@ -1849,7 +1849,15 @@ function CompareAlternatives() {
   );
 }
 
-function Pricing() {
+function Pricing({ savings }: { savings?: { annualWaste: number; aiSavings: number; monthlySavings: number; roiMultiple: number } | null }) {
+  function fmt(n: number) {
+    return n.toLocaleString("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
+  }
+
+  const remoteCostAnnual = 5500 * 12;
+  const hasCalcData = savings && savings.aiSavings > 0;
+  const netSavings = hasCalcData ? savings.aiSavings - remoteCostAnnual : 0;
+
   return (
     <section id="pricing" className="py-16 sm:py-20 bg-gray-50">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1864,6 +1872,44 @@ function Pricing() {
             AI transformation is a 6&ndash;12 month journey. We price accordingly — no hourly billing, no surprise invoices. US clients only.
           </p>
         </div>
+
+        {/* Personalized ROI anchor — shown when visitor has used the calculator */}
+        {hasCalcData && netSavings > 0 ? (
+          <div className="mb-8 rounded-2xl bg-green-50 border border-green-200 p-5 sm:p-6">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+              <div className="shrink-0 w-11 h-11 rounded-xl bg-green-100 border border-green-200 flex items-center justify-center">
+                <Calculator className="w-5 h-5 text-green-600" />
+              </div>
+              <div className="flex-1">
+                <p className="font-bold text-gray-900 text-sm mb-1">Based on Your Numbers</p>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  Your calculator showed you&apos;re losing <strong className="text-red-600">{fmt(savings.annualWaste)}/year</strong> on
+                  manual work. At <strong>{fmt(5500)}/mo</strong> (remote), you&apos;d still net{" "}
+                  <strong className="text-green-700">{fmt(netSavings)}/year in savings</strong> — a{" "}
+                  <strong className="text-green-700">{savings.roiMultiple}x return</strong> on your consulting investment.
+                </p>
+              </div>
+              <a
+                href="#apply"
+                className="shrink-0 inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-green-600 text-white font-bold hover:bg-green-700 transition-colors text-sm whitespace-nowrap"
+              >
+                Claim Your ROI
+                <ArrowRight className="w-4 h-4" />
+              </a>
+            </div>
+          </div>
+        ) : (
+          <div className="mb-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-gray-500">
+            <span className="flex items-center gap-1.5">
+              <DollarSign className="w-4 h-4 text-blue-500" />
+              <strong className="text-gray-700">~$275/business day</strong> (remote)
+            </span>
+            <span className="text-gray-300">|</span>
+            <span>Less than half the cost of a junior AI hire</span>
+            <span className="text-gray-300">|</span>
+            <span>Results in 60&ndash;90 days, not 12&ndash;18 months</span>
+          </div>
+        )}
 
         <div className="grid md:grid-cols-2 gap-6 mb-8">
           {/* Local */}
@@ -3174,7 +3220,7 @@ export default function AIConsultantPage() {
         <ScrollReveal><ClientTestimonials /></ScrollReveal>
         <ScrollReveal><AboutBrandon /></ScrollReveal>
         <ScrollReveal><Process /></ScrollReveal>
-        <ScrollReveal><Pricing /></ScrollReveal>
+        <ScrollReveal><Pricing savings={calcSavings} /></ScrollReveal>
         <ScrollReveal><CompareAlternatives /></ScrollReveal>
         <ScrollReveal><Capabilities /></ScrollReveal>
         <ScrollReveal><WhoThisIsFor /></ScrollReveal>
