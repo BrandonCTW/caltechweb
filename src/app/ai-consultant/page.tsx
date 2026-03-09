@@ -1052,6 +1052,40 @@ function MultiStepForm() {
   );
 }
 
+// ─── Intake Capacity Meter ────────────────────────────────────────────────────
+
+function IntakeMeter() {
+  const [quarterLabel, setQuarterLabel] = useState("");
+
+  useEffect(() => {
+    const now = new Date();
+    const q = Math.ceil((now.getMonth() + 1) / 3);
+    setQuarterLabel(`Q${q} ${now.getFullYear()}`);
+  }, []);
+
+  return (
+    <div className="inline-flex items-center gap-3 px-4 py-2.5 rounded-full bg-orange-500/15 border border-orange-400/30 mb-7">
+      {/* Slot indicators: 2 claimed, 1 open */}
+      <div className="flex items-center gap-1.5" aria-label="2 of 3 spots claimed">
+        <span className="w-3 h-3 rounded-full bg-orange-400 shadow-[0_0_6px_rgba(251,146,60,0.5)]" />
+        <span className="w-3 h-3 rounded-full bg-orange-400 shadow-[0_0_6px_rgba(251,146,60,0.5)]" />
+        <span className="w-3 h-3 rounded-full border-2 border-orange-400/60 animate-pulse" />
+      </div>
+      <div className="flex items-center gap-2 text-xs font-semibold">
+        {quarterLabel && (
+          <span className="text-orange-400">{quarterLabel} Intake</span>
+        )}
+        <span className="text-orange-300/50">·</span>
+        <span className="text-orange-200">2 of 3 spots claimed</span>
+        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-orange-400/20 border border-orange-400/30 text-orange-300 font-bold">
+          <span className="w-1.5 h-1.5 rounded-full bg-orange-400 animate-pulse" />
+          1 open
+        </span>
+      </div>
+    </div>
+  );
+}
+
 // ─── Page Sections ─────────────────────────────────────────────────────────────
 
 function Hero() {
@@ -1068,10 +1102,7 @@ function Hero() {
         }}
       />
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-orange-500/20 border border-orange-400/30 text-orange-300 text-sm font-semibold mb-7">
-          <span className="w-2 h-2 rounded-full bg-orange-400 animate-pulse" />
-          Limited Availability — 1&ndash;2 Clients at a Time
-        </div>
+        <IntakeMeter />
 
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-6 max-w-4xl">
           The AI Consultant for Small Business
