@@ -531,6 +531,39 @@ function MultiStepForm() {
     );
   }
 
+  // AI Opportunity Score — gamified form progress
+  let opportunityScore = 0;
+  if (formData.companyName.trim()) opportunityScore += 5;
+  if (formData.industry) opportunityScore += 12;
+  if (formData.employeeCount === "1–10") opportunityScore += 10;
+  else if (formData.employeeCount === "11–50") opportunityScore += 14;
+  else if (formData.employeeCount === "51–200") opportunityScore += 16;
+  else if (formData.employeeCount === "200+") opportunityScore += 16;
+  if (formData.annualRevenue === "Under $500K") opportunityScore += 8;
+  else if (formData.annualRevenue === "$500K–$2M") opportunityScore += 12;
+  else if (formData.annualRevenue === "$2M–$10M") opportunityScore += 15;
+  else if (formData.annualRevenue === "$10M+") opportunityScore += 16;
+  else if (formData.annualRevenue === "Prefer not to say") opportunityScore += 10;
+  if (formData.currentAiUsage === "We use no AI tools") opportunityScore += 15;
+  else if (formData.currentAiUsage === "We've tried a few AI tools but haven't seen real ROI") opportunityScore += 14;
+  else if (formData.currentAiUsage === "We use AI in some areas but want to scale it") opportunityScore += 11;
+  else if (formData.currentAiUsage === "We have AI but need help with strategy") opportunityScore += 10;
+  opportunityScore += Math.min(formData.biggestChallenges.length * 3, 18);
+  if (formData.timeline === "ASAP — this quarter") opportunityScore += 12;
+  else if (formData.timeline === "Next 3–6 months") opportunityScore += 8;
+  else if (formData.timeline === "Just exploring") opportunityScore += 5;
+  opportunityScore = Math.min(opportunityScore, 100);
+
+  const scoreLabel = step === 4 && opportunityScore > 0
+    ? "Score locked — complete your details to claim your assessment"
+    : opportunityScore >= 81 ? "Exceptional match — you\u2019re exactly who Brandon works with"
+    : opportunityScore >= 61 ? "High AI opportunity — significant savings potential"
+    : opportunityScore >= 41 ? "Strong opportunity detected for your business"
+    : opportunityScore > 0 ? "Identifying your AI opportunities\u2026" : "";
+  const scoreBarColor = opportunityScore >= 81 ? "bg-gradient-to-r from-emerald-500 to-blue-500" :
+    opportunityScore >= 61 ? "bg-emerald-500" : "bg-blue-500";
+  const scoreTextColor = opportunityScore >= 61 ? "text-emerald-600" : "text-blue-600";
+
   return (
     <div>
       {/* Time estimate badge */}
@@ -587,6 +620,23 @@ function MultiStepForm() {
           ))}
         </div>
       </div>
+
+      {/* AI Opportunity Score */}
+      {opportunityScore > 0 && (
+        <div className="mb-6 px-4 py-3 rounded-xl bg-gradient-to-r from-blue-50/80 to-emerald-50/80 border border-blue-100/60">
+          <div className="flex items-center justify-between mb-1.5">
+            <div className="flex items-center gap-1.5">
+              <TrendingUp className="w-3.5 h-3.5 text-blue-500" />
+              <span className="text-[11px] font-bold text-gray-500 uppercase tracking-wide">AI Opportunity Score</span>
+            </div>
+            <span className={`text-sm font-extrabold tabular-nums ${scoreTextColor}`}>{opportunityScore}</span>
+          </div>
+          <div className="w-full bg-gray-200/70 rounded-full h-1.5 mb-1.5">
+            <div className={`h-1.5 rounded-full transition-all duration-700 ease-out ${scoreBarColor}`} style={{ width: `${opportunityScore}%` }} />
+          </div>
+          <p className="text-[11px] text-gray-500 leading-snug">{scoreLabel}</p>
+        </div>
+      )}
 
       {/* Step 1: About Your Business */}
       {step === 1 && (
