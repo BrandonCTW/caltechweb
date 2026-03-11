@@ -1047,21 +1047,21 @@ export default async function PortfolioDetailPage({
 
   const reviewJsonLd = {
     "@context": "https://schema.org",
-    "@type": "Review",
-    "reviewRating": {
-      "@type": "Rating",
-      "ratingValue": "5",
-      "bestRating": "5",
-    },
-    "author": {
-      "@type": "Person",
-      "name": cs.testimonialAuthor,
-    },
-    "reviewBody": cs.testimonial,
-    "itemReviewed": {
-      "@type": "Organization",
-      "name": "CalTech Web",
-      "url": "https://caltechweb.com",
+    "@type": "Organization",
+    "name": "CalTech Web",
+    "url": "https://caltechweb.com",
+    "review": {
+      "@type": "Review",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5",
+        "bestRating": "5",
+      },
+      "author": {
+        "@type": "Person",
+        "name": cs.testimonialAuthor,
+      },
+      "reviewBody": cs.testimonial,
     },
   };
 
