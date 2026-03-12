@@ -1394,6 +1394,7 @@ function Testimonials() {
       role: "Owner, Fuentes Concrete, Inc.",
       initials: "MF",
       color: "bg-orange-600",
+      image: "/testimonials/mike-fuentes.jpg",
     },
   ];
 
