@@ -630,6 +630,26 @@ function analyzeSeoBasics(html: string): WebsiteCheck[] {
       : 'No canonical URL tag found. Without it, Google may index duplicate versions of your pages, diluting your rankings.',
   })
 
+  // H1 keyword alignment — does the H1 contain a keyword from the title or meta description?
+  const seoH1Tags = matchAll(html, /<h1[^>]*>([\s\S]*?)<\/h1>/gi)
+  const seoH1Text = seoH1Tags.length > 0 ? stripTags(seoH1Tags[0]).trim().toLowerCase() : ''
+  const stopWords = new Set(['a','an','the','and','or','but','in','on','at','to','for','of','with','by','from','is','are','was','were','be','been','being','have','has','had','do','does','did','will','would','could','should','may','might','shall','can','it','its','this','that','these','those','i','we','you','he','she','they','my','our','your','his','her','their','not','no','so','if','then','than','very','just','about','up','out','how','what','when','where','who','why','all','each','every','both','few','more','most','other','some','such','only','own','same','too','also','into','over','after','before','between','under','above','below','get','make','go','know','take','see','come','us','me','him','them','new'])
+  const titleKeywords = title ? title.toLowerCase().split(/[\s\-|:,]+/).filter(w => w.length > 2 && !stopWords.has(w)) : []
+  const descKeywords = metaDesc ? metaDesc.toLowerCase().split(/[\s\-|:,]+/).filter(w => w.length > 2 && !stopWords.has(w)) : []
+  const allKeywords = [...new Set([...titleKeywords, ...descKeywords])]
+  if (seoH1Text && allKeywords.length > 0) {
+    const h1HasKeyword = allKeywords.some(kw => seoH1Text.includes(kw))
+    if (h1HasKeyword) {
+      checks.push({ label: 'H1 Keyword Alignment', status: 'pass', detail: `H1 contains a target keyword from the title/meta description. Search engines see consistent relevance.` })
+    } else {
+      checks.push({ label: 'H1 Keyword Alignment', status: 'fail', detail: `H1 "${seoH1Text.substring(0, 50)}${seoH1Text.length > 50 ? '...' : ''}" does not contain any keywords from the title tag. The H1 should reinforce your primary keyword for search engines.` })
+    }
+  } else if (seoH1Text && allKeywords.length === 0) {
+    checks.push({ label: 'H1 Keyword Alignment', status: 'warning', detail: 'Cannot verify H1 keyword alignment because no title tag or meta description was found to extract keywords from.' })
+  } else {
+    checks.push({ label: 'H1 Keyword Alignment', status: 'fail', detail: 'No H1 heading found. The page needs an H1 containing your primary keyword for search engines to understand the topic.' })
+  }
+
   // Social sharing tags (Open Graph)
   const ogTitle = getMetaContent(html, 'og:title')
   const ogDesc = getMetaContent(html, 'og:description')
