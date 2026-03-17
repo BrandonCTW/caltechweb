@@ -145,7 +145,7 @@ const blogPosts: BlogPost[] = [
     readTime: "5 min read",
     date: "February 18, 2026",
     intro:
-      "If you search for \"affordable web design company,\" you'll get thousands of results. Freelancers on Fiverr. Template mills in overseas markets. Local agencies quoting $5,000 for a basic site. They're all affordable in different ways, but most of them are affordable because they cut corners.\n\nI started CalTech Web because I saw the same problem over and over: small business owners who couldn't afford a $5,000 website were getting stuck with either cheap garbage or overpriced templates. Neither option actually helped their business grow.\n\nHere is what makes our approach different, and why $99/month gets you more than what most businesses pay thousands for.",
+      "If you search for \"affordable web design company,\" you'll get thousands of results. Freelancers on Fiverr. Template mills in overseas markets. Local agencies quoting $5,000 for a basic site. They're all affordable in different ways, but most of them are affordable because they cut corners.\n\nI started CalTech Web because I saw the same problem over and over: small business owners who couldn't afford a $5,000 website were getting stuck with either cheap garbage or overpriced templates. Neither web design service actually helped their business grow.\n\nHere is what makes our approach different, and why $99/month gets you more than what most businesses pay thousands for.",
     sections: [
       {
         heading: "What 'Affordable' Usually Means in Web Design",
@@ -158,7 +158,7 @@ const blogPosts: BlogPost[] = [
       {
         heading: "The CalTech Web Model: Why $99/Month Works",
         body: [
-          "Our model is simple: $99/month covers everything. Custom design, hosting, unlimited updates, support, and redesigns whenever you want a fresh look. No contracts. Cancel anytime.",
+          "Our model is simple: a complete web design service for $99/month that covers everything. Custom design, hosting, unlimited updates, support, and redesigns whenever you want a fresh look. No contracts. Cancel anytime.",
           "People ask me how this works financially. The answer is straightforward: we've built over 800 websites. We have systems and processes that let us build high-quality sites efficiently without cutting quality. We don't spend money on a fancy office, a sales team, or layers of management. It's lean, and the savings go directly to the client.",
           "Here's what's included in that $99/month:",
         ],
@@ -191,7 +191,7 @@ const blogPosts: BlogPost[] = [
         body: [
           "Here's the part that usually convinces people who are still on the fence: if you're not satisfied with your website, you get a full refund and you keep the website. That's it. No fine print, no arguing, no hoops to jump through.",
           "We can offer this because it almost never happens. When you build a site based on an actual conversation with the business owner, using proven design principles, and deliver it in 5-7 days with ongoing support, people are happy. Our retention rate speaks for itself.",
-          "The bottom line is this: affordable web design doesn't have to mean cheap web design. It means finding a partner who has figured out how to deliver professional results without the bloated overhead that most agencies pass on to their clients. That's what we do at CalTech Web, and we've been doing it for over 800 businesses.",
+          "The bottom line is this: an affordable web design service doesn't have to mean a cheap one. It means finding a partner who has figured out how to deliver professional results without the bloated overhead that most agencies pass on to their clients. That's what we do at CalTech Web, and we've been doing it for over 800 businesses.",
         ],
       },
     ],
