@@ -135,50 +135,60 @@ const blogPosts: BlogPost[] = [
     category: "Web Design",
     categoryColor: "bg-blue-100 text-blue-700",
     title:
-      "Why CalTech Web Is the Most Affordable Web Design Company That Doesn't Cut Corners",
+      "Affordable Web Design Company: Custom Websites for $99/Month, No Templates, No Contracts",
     metaTitle:
-      "Most Affordable Web Design Company | CalTech Web",
+      "Affordable Web Design Company | Custom Sites $99/Mo | CalTech Web",
     metaDescription:
-      "Looking for an affordable web design company? CalTech Web delivers custom websites at $99/mo. No templates, no contracts, no compromises.",
+      "Affordable web design services starting at $99/month. Custom design, hosting, SEO, and unlimited updates included. No contracts. 800+ websites built for small businesses.",
     excerpt:
-      "Budget web designers cut corners. We don't. Here's what makes CalTech Web the most affordable web design company that actually delivers results.",
-    readTime: "5 min read",
+      "Most affordable web design companies sell you a template and disappear. We build custom websites for $99/month with hosting, SEO, unlimited updates, and same-day support included.",
+    readTime: "7 min read",
     date: "February 18, 2026",
     intro:
-      "If you search for \"affordable web design company,\" you'll get thousands of results. Freelancers on Fiverr. Template mills in overseas markets. Local agencies quoting $5,000 for a basic site. They're all affordable in different ways, but most of them are affordable because they cut corners.\n\nI started CalTech Web because I saw the same problem over and over: small business owners who couldn't afford a $5,000 website were getting stuck with either cheap garbage or overpriced templates. Neither web design service actually helped their business grow.\n\nHere is what makes our approach different, and why $99/month gets you more than what most businesses pay thousands for.",
+      "Every small business owner reaches the same frustrating crossroads: you need a professional website, but the quotes are $5,000 to $10,000. So you look for a more affordable web design company, and the options get worse. Freelancers who ghost after launch. Template mills that give you the same site as your competitor. DIY builders that eat 80 hours of your time.\n\nI built CalTech Web to solve this problem. After building over 800 custom websites for small businesses, I can tell you that affordable web design does not require compromise. It requires a better business model.\n\nHere is exactly how we deliver custom web design services for $99/month, what that includes, and why thousands of dollars in upfront costs are completely unnecessary for most small businesses.",
     sections: [
       {
-        heading: "What 'Affordable' Usually Means in Web Design",
+        heading: "What 'Affordable Web Design' Actually Costs at Most Companies",
         body: [
-          "Let's be honest about what most affordable web design companies actually deliver. The typical budget web designer does one of three things: they buy a $59 template, slap your logo on it, and call it custom. They use a website builder like Wix or Squarespace and charge you a premium for what is essentially a DIY tool. Or they outsource the work overseas, where communication gaps and time zone differences lead to a site that technically works but doesn't reflect your business.",
-          "The result is predictable. You get a website that looks like a thousand other websites. It loads slowly because no one optimized it. The content is generic because no one took the time to understand your business. And six months later, when you need an update, the designer has moved on to the next client and doesn't return your calls.",
-          "I've rebuilt more websites from these situations than I can count. The business owner spent $1,500-$3,000, got something they were never quite happy with, and ended up starting over anyway. That's not affordable; that's expensive.",
+          "Search for \"cheap web design\" or \"low cost web design company\" and you will find three types of businesses. The first buys a $59 template, drops your logo on it, and charges $1,500 for \"custom\" work. The second uses Wix or Squarespace, charges a premium for what is essentially a DIY tool, and walks away. The third outsources everything overseas, where time zones and language barriers mean your site technically works but sounds nothing like your business.",
+          "The hidden cost is what happens next. The template site looks generic, so customers do not trust it. The DIY builder site loads slowly because nobody optimized it. The outsourced site has content that reads like it was written by someone who has never set foot in your city. Six months later, when you need changes, the designer has moved on. You are stuck paying someone new to fix what should have been done right the first time.",
+          "I have rebuilt hundreds of websites from exactly these situations. The business owner spent $1,500 to $3,000, never felt confident about the result, and eventually started over. That is not affordable web design. That is paying twice.",
         ],
       },
       {
-        heading: "The CalTech Web Model: Why $99/Month Works",
+        heading: "Custom Web Design Services for $99/Month, Everything Included",
         body: [
-          "Our model is simple: a complete web design service for $99/month that covers everything. Custom design, hosting, unlimited updates, support, and redesigns whenever you want a fresh look. No contracts. Cancel anytime.",
-          "People ask me how this works financially. The answer is straightforward: we've built over 800 websites. We have systems and processes that let us build high-quality sites efficiently without cutting quality. We don't spend money on a fancy office, a sales team, or layers of management. It's lean, and the savings go directly to the client.",
-          "Here's what's included in that $99/month:",
+          "Our affordable web design model works differently. You pay $99/month. That single payment covers your entire web presence: custom design, professional hosting, SSL security, unlimited updates, and ongoing support. No setup fees. No contracts. Cancel anytime.",
+          "People ask how we keep costs this low without cutting corners. The answer is simple: we have built over 800 websites. That volume created systems and processes that let us deliver high quality work efficiently. We do not pay for a downtown office, a sales team, or layers of project management. Every dollar we save on overhead goes directly into keeping your costs down.",
+          "Here is exactly what your $99/month includes:",
         ],
         list: [
-          "Custom design built around your business, not a template with your logo dropped in",
-          "Professional hosting on modern infrastructure with SSL certificates included",
-          "Unlimited content updates: text changes, new photos, additional pages, whatever you need",
-          "Free redesigns: when you want a fresh look, we rebuild it at no extra charge",
-          "93% of support requests completed in under 1 hour",
-          "SEO fundamentals built in: proper title tags, meta descriptions, schema markup, and fast load times",
-          "Mobile-first responsive design that works perfectly on every device",
+          "Custom website design built around your business, your industry, and your customers",
+          "Professional hosting on fast, modern infrastructure with SSL certificates",
+          "Unlimited content updates: new pages, text changes, photos, menus, team bios, anything you need",
+          "Free complete redesigns whenever you want a fresh look, at no extra charge",
+          "Same-day support with 93% of requests completed in under 1 hour",
+          "SEO fundamentals built in: title tags, meta descriptions, schema markup, image optimization, and fast load times",
+          "Mobile-first responsive design tested on every screen size",
+          "Contact forms, maps, click-to-call buttons, and lead capture built into every site",
         ],
-        tip: "Compare this to the typical web design agency model: $3,000-$10,000 upfront for the build, $50-$150/month for hosting, and $75-$150/hour for any updates or changes. Over two years, that's easily $5,000-$15,000. Our two-year total: $2,376.",
+        tip: "The typical web design agency charges $3,000 to $10,000 upfront, $50 to $150/month for hosting, and $75 to $150/hour for updates. Over two years, that adds up to $5,000 to $15,000 or more. Our two-year total: $2,376. You save thousands and get more included services.",
       },
       {
-        heading: "800+ Websites and Counting",
+        heading: "Affordable Web Design and SEO That Actually Drives Traffic",
         body: [
-          "We've built websites for doctors, lawyers, contractors, restaurants, churches, non-profits, real estate agents, and dozens of other industries. Every single one is custom. Every single one includes ongoing support.",
-          "The volume is actually part of why we can keep prices low. When you've built 800+ sites, you've solved virtually every problem a small business website can present. We don't spend hours researching how to integrate a booking widget or set up an online menu because we've done it hundreds of times. That efficiency translates directly into lower costs for you.",
-          "But volume doesn't mean assembly-line work. Every client gets a conversation about their business, their customers, and what they need the website to accomplish. The design is built around those answers, not around a template we've used for the last 50 clients.",
+          "A beautiful website that nobody finds is a waste of money. That is why every site we build includes SEO fundamentals from day one. Most affordable web design companies treat search engine optimization as an upsell. We treat it as a requirement.",
+          "Every CalTech Web site launches with proper title tags and meta descriptions written for your target keywords. We add structured data markup so Google understands your business type, location, hours, and services. We optimize images so your pages load fast on any connection. We build mobile-first because Google uses mobile performance as a ranking factor.",
+          "This is not a full SEO campaign with monthly link building and content strategy. It is the technical foundation that gives your site the best possible chance of ranking in local search results. For many small businesses, these fundamentals alone are enough to start appearing on page one for their core services, especially in local markets where competitors have outdated or poorly built websites.",
+          "If you need more aggressive SEO, we offer that too. But the point is this: you should not have to pay extra just to have a website that Google can properly read and index. That should be standard, and with us, it is.",
+        ],
+      },
+      {
+        heading: "Web Design Services for Small Business Owners Who Value Their Time",
+        body: [
+          "The real cost of a website is not just the price tag. It is the time you spend managing it. With a DIY builder, every small change falls on you. With a traditional agency, every update comes with a billable hour. With a cheap freelancer, you spend time chasing someone who may not respond for days.",
+          "Our affordable web development services are designed for business owners who would rather run their business than manage a website. Need to update your hours for the holidays? Send a text. Adding a new service? Shoot us an email. Want to swap out photos or rewrite your about page? Just ask. We handle it, usually the same day.",
+          "This is not a call center. You reach Brandon directly. There is no ticket queue, no automated response, and no waiting three business days for a simple text change. That direct access is what makes this a true web design service for small business owners, not just a product you are left to figure out on your own.",
         ],
         quote: {
           text: "I was skeptical that $99/month could get me a real website. Three years later, I've referred six other businesses to CalTech Web. The site looks professional, loads fast, and Brandon updates it the same day I ask.",
@@ -187,16 +197,24 @@ const blogPosts: BlogPost[] = [
         },
       },
       {
-        heading: "The Guarantee That Proves We Mean It",
+        heading: "800+ Custom Websites Built for Every Industry",
         body: [
-          "Here's the part that usually convinces people who are still on the fence: if you're not satisfied with your website, you get a full refund and you keep the website. That's it. No fine print, no arguing, no hoops to jump through.",
-          "We can offer this because it almost never happens. When you build a site based on an actual conversation with the business owner, using proven design principles, and deliver it in 5-7 days with ongoing support, people are happy. Our retention rate speaks for itself.",
-          "The bottom line is this: an affordable web design service doesn't have to mean a cheap one. It means finding a partner who has figured out how to deliver professional results without the bloated overhead that most agencies pass on to their clients. That's what we do at CalTech Web, and we've been doing it for over 800 businesses.",
+          "We have built custom websites for doctors, lawyers, contractors, restaurants, churches, nonprofits, real estate agents, accountants, fitness studios, auto shops, and dozens of other industries. Every one is designed from scratch. Every one includes ongoing support.",
+          "That experience is part of what makes us an affordable web design company that does not sacrifice quality. When you have built 800+ sites, you have already solved virtually every challenge a small business website can present. Booking integrations, online menus, patient portals, service galleries, review widgets, we have built them all multiple times. That efficiency means we deliver faster and charge less than a company figuring it out for the first time.",
+          "But efficiency does not mean cookie-cutter work. Every project starts with a conversation about your business, your customers, and what you need the website to accomplish. A local web design company that actually listens is rare. We make it the standard.",
+        ],
+      },
+      {
+        heading: "The Guarantee: Full Refund, You Keep the Website",
+        body: [
+          "If you are not satisfied with your website, you get a full refund. And you keep the site. No fine print, no arguing, no cancellation fee. That is the entire policy.",
+          "We can make this guarantee because it almost never gets used. When you build a custom site based on an actual conversation with the business owner, use proven design principles, and deliver it in 5 to 7 days with ongoing support afterward, people are happy with the result. Our retention rate across 800+ clients speaks louder than any promise.",
+          "This is what separates a genuinely affordable web design service from a cheap one. Cheap means low price and low quality. Affordable means professional results at a price that makes sense for a small business. We figured out how to deliver the second option by eliminating the overhead that most agencies pass along to you.",
         ],
       },
     ],
     conclusion:
-      "If you're looking for an affordable web design company, you have options. You can gamble on a freelancer, wrestle with a DIY builder, or pay an agency thousands of dollars. Or you can get a custom, professional website for $99/month with everything included and a guarantee that you'll be satisfied.\n\nCall or email us. We'll review your current site for free and tell you exactly what we'd do differently. No pressure, no pitch.",
+      "You have options when looking for an affordable web design company. You can gamble on a freelancer, spend 80 hours wrestling with a DIY builder, or hand an agency $5,000 and hope for the best. Or you can get a custom, professional website for $99/month with hosting, SEO, unlimited updates, and a guarantee that you will be satisfied.\n\nCall or email us. We will review your current site for free and tell you exactly what we would do differently. No pressure, no pitch, just a straightforward conversation about what your business needs.",
     related: [
       "affordable-web-design-for-small-businesses",
       "website-maintenance-requirements",
