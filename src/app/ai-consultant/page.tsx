@@ -2243,6 +2243,7 @@ function Pricing({ savings }: { savings?: { annualWaste: number; aiSavings: numb
                 </div>
               </div>
               <div className="mt-auto pt-6">
+              <p className="text-[11px] text-gray-400 text-center mb-3">Fee credited toward a retainer if you move forward</p>
               <a
                 href="https://calendly.com/brandonctw/30min" target="_blank" rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl bg-blue-600 text-white font-bold hover:bg-blue-700 transition-colors text-sm"
@@ -2250,7 +2251,6 @@ function Pricing({ savings }: { savings?: { annualWaste: number; aiSavings: numb
                 Book Your Audit
                 <ArrowRight className="w-4 h-4" />
               </a>
-              <p className="text-[11px] text-gray-400 text-center mt-2">Fee credited toward a retainer engagement if you move forward</p>
               </div>
             </div>
           </div>
@@ -2317,6 +2317,7 @@ function Pricing({ savings }: { savings?: { annualWaste: number; aiSavings: numb
                 </div>
               </div>
               <div className="mt-auto pt-6">
+              <p className="text-[11px] text-gray-400 text-center mb-3">Audit fee credited to your first month &middot; US clients only</p>
               <a
                 href="https://calendly.com/brandonctw/30min" target="_blank" rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl bg-orange-500 text-white font-bold hover:bg-orange-600 transition-colors text-sm shadow-lg"
@@ -2324,7 +2325,6 @@ function Pricing({ savings }: { savings?: { annualWaste: number; aiSavings: numb
                 Schedule a Call
                 <ArrowRight className="w-4 h-4" />
               </a>
-              <p className="text-[11px] text-gray-400 text-center mt-2">Audit fee credited to your first month &middot; US clients only</p>
               </div>
             </div>
           </div>
@@ -2385,6 +2385,7 @@ function Pricing({ savings }: { savings?: { annualWaste: number; aiSavings: numb
                 </div>
               </div>
               <div className="mt-auto pt-6">
+              <p className="text-[11px] text-gray-400 text-center mb-3">US clients only &middot; Limited availability</p>
               <a
                 href="https://calendly.com/brandonctw/30min" target="_blank" rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl bg-orange-500 text-white font-bold hover:bg-orange-600 transition-colors text-sm shadow-lg"
@@ -2392,7 +2393,6 @@ function Pricing({ savings }: { savings?: { annualWaste: number; aiSavings: numb
                 Schedule a Call
                 <ArrowRight className="w-4 h-4" />
               </a>
-              <p className="text-[11px] text-gray-400 text-center mt-2">US clients only &middot; Limited availability</p>
               </div>
             </div>
           </div>
