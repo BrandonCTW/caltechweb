@@ -94,13 +94,20 @@ const architecture = [
 ];
 
 const timeline = [
-  { period: "Weeks 1–2", phase: "Discovery & Access", desc: "Workflow audit with the AP team. Document all coding rules, PO structures, and ERP data profiles. Collect sample invoice sets. Provision AWS environment." },
-  { period: "Weeks 3–5", phase: "Build: Phase A Vendors", desc: "Build inbox monitor, OCR pipeline, GL coding engine, and PO matching for the top-volume vendors (70% of weekly invoice load). Configure ERP connector and exception routing." },
-  { period: "Weeks 6–8", phase: "Parallel Testing & Go-Live", desc: "Automated process runs alongside manual process using live invoices. AP team surfaces any errors. Buffer for edge cases and ERP integration adjustments." },
-  { period: "Weeks 9–11", phase: "Build: Remaining Vendors", desc: "Extend automation to remaining vendors. Build cross-reference logic for variable-price invoice matching. Test in parallel with Phase A running live." },
-  { period: "Week 12", phase: "Training & Full Go-Live", desc: "Full AP team training. Phase B go-live. Written SOPs and recorded walkthroughs delivered." },
-  { period: "Months 4–9", phase: "Optimize & Expand", desc: "Ongoing exception rule-building, new vendor templates, and ERP refinements. Additional automations added as capacity frees up." },
+  { period: "Weeks 1–2", phase: "Discovery & Access", tag: "Discovery", tagColor: "blue" as const, desc: "Workflow audit with the AP team. Document all coding rules, PO structures, and ERP data profiles. Collect sample invoice sets. Provision AWS environment." },
+  { period: "Weeks 3–5", phase: "Build: Phase A Vendors", tag: "Build", tagColor: "orange" as const, desc: "Build inbox monitor, OCR pipeline, GL coding engine, and PO matching for the top-volume vendors (70% of weekly invoice load). Configure ERP connector and exception routing." },
+  { period: "Weeks 6–8", phase: "Parallel Testing & Go-Live", tag: "Testing", tagColor: "green" as const, desc: "Automated process runs alongside manual process using live invoices. AP team surfaces any errors. Buffer for edge cases and ERP integration adjustments." },
+  { period: "Weeks 9–11", phase: "Build: Remaining Vendors", tag: "Build", tagColor: "orange" as const, desc: "Extend automation to remaining vendors. Build cross-reference logic for variable-price invoice matching. Test in parallel with Phase A running live." },
+  { period: "Week 12", phase: "Training & Full Go-Live", tag: "Go-Live", tagColor: "green" as const, desc: "Full AP team training. Phase B go-live. Written SOPs and recorded walkthroughs delivered." },
+  { period: "Months 4–9", phase: "Optimize & Expand", tag: "Ongoing", tagColor: "teal" as const, desc: "Ongoing exception rule-building, new vendor templates, and ERP refinements. Additional automations added as capacity frees up." },
 ];
+
+const phaseColorMap = {
+  blue:   { circle: "bg-blue-600",   border: "border-l-blue-500",   badge: "bg-blue-50 text-blue-700 border-blue-200",     period: "text-blue-600" },
+  orange: { circle: "bg-orange-500", border: "border-l-orange-400", badge: "bg-orange-50 text-orange-700 border-orange-200", period: "text-orange-600" },
+  green:  { circle: "bg-green-600",  border: "border-l-green-500",  badge: "bg-green-50 text-green-700 border-green-200",   period: "text-green-700" },
+  teal:   { circle: "bg-teal-600",   border: "border-l-teal-500",   badge: "bg-teal-50 text-teal-700 border-teal-200",     period: "text-teal-700" },
+};
 
 export default function APAutomationPage() {
   return (
@@ -126,9 +133,14 @@ export default function APAutomationPage() {
               <ChevronRight className="w-3 h-3" />
               <span className="text-blue-400">AP Automation</span>
             </nav>
-            <span className="inline-block text-xs font-bold uppercase tracking-widest text-blue-400 mb-5">
-              Case Study
-            </span>
+            <div className="flex flex-wrap items-center gap-2.5 mb-5">
+              <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-blue-500/20 border border-blue-500/30 text-xs font-bold uppercase tracking-widest text-blue-400">
+                Case Study
+              </span>
+              <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-xs font-bold uppercase tracking-widest text-gray-400">
+                Manufacturing
+              </span>
+            </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-6 max-w-4xl">
               AP Invoice Automation
               <span className="block text-blue-400 mt-1">700+ Invoices. Zero Manual Work.</span>
@@ -272,21 +284,60 @@ export default function APAutomationPage() {
                 Eight components built to cover every step of the invoice lifecycle, from inbox capture to ERP posting. Each piece operates independently and logs every action for a complete audit trail.
               </p>
             </div>
-            <div className="grid sm:grid-cols-2 gap-5">
-              {whatWeBuilt.map(({ icon: Icon, title, desc }, index) => (
-                <div key={title} className="bg-white rounded-2xl border border-gray-200 p-6 flex gap-4 relative overflow-hidden">
-                  <span className="absolute -bottom-3 right-3 text-8xl font-black text-gray-100 select-none leading-none pointer-events-none" aria-hidden="true">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                  <div className="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center shrink-0">
-                    <Icon className="w-5 h-5 text-white" />
+            <div className="space-y-8">
+              {/* Core Automation Pipeline */}
+              <div>
+                <div className="flex items-center gap-3 mb-5">
+                  <div className="flex items-center gap-2 shrink-0">
+                    <div className="w-2 h-2 rounded-full bg-blue-600" />
+                    <span className="text-xs font-bold uppercase tracking-widest text-blue-600">Core Automation Pipeline</span>
                   </div>
-                  <div className="relative">
-                    <h3 className="font-bold text-gray-900 mb-1.5">{title}</h3>
-                    <p className="text-sm text-gray-600 leading-relaxed">{desc}</p>
-                  </div>
+                  <div className="flex-1 h-px bg-blue-100" />
                 </div>
-              ))}
+                <div className="grid sm:grid-cols-2 gap-5">
+                  {whatWeBuilt.slice(0, 6).map(({ icon: Icon, title, desc }, index) => (
+                    <div key={title} className="bg-white rounded-2xl border border-gray-200 p-6 flex gap-4 relative overflow-hidden">
+                      <span className="absolute -bottom-3 right-3 text-8xl font-black text-gray-100 select-none leading-none pointer-events-none" aria-hidden="true">
+                        {String(index + 1).padStart(2, "0")}
+                      </span>
+                      <div className="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center shrink-0">
+                        <Icon className="w-5 h-5 text-white" />
+                      </div>
+                      <div className="relative">
+                        <h3 className="font-bold text-gray-900 mb-1.5">{title}</h3>
+                        <p className="text-sm text-gray-600 leading-relaxed">{desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Infrastructure & Enablement */}
+              <div>
+                <div className="flex items-center gap-3 mb-5">
+                  <div className="flex items-center gap-2 shrink-0">
+                    <div className="w-2 h-2 rounded-full bg-gray-400" />
+                    <span className="text-xs font-bold uppercase tracking-widest text-gray-500">Infrastructure &amp; Enablement</span>
+                  </div>
+                  <div className="flex-1 h-px bg-gray-200" />
+                </div>
+                <div className="grid sm:grid-cols-2 gap-5">
+                  {whatWeBuilt.slice(6).map(({ icon: Icon, title, desc }, index) => (
+                    <div key={title} className="bg-white rounded-2xl border border-gray-200 p-6 flex gap-4 relative overflow-hidden">
+                      <span className="absolute -bottom-3 right-3 text-8xl font-black text-gray-100 select-none leading-none pointer-events-none" aria-hidden="true">
+                        {String(index + 7).padStart(2, "0")}
+                      </span>
+                      <div className="w-10 h-10 rounded-xl bg-gray-500 flex items-center justify-center shrink-0">
+                        <Icon className="w-5 h-5 text-white" />
+                      </div>
+                      <div className="relative">
+                        <h3 className="font-bold text-gray-900 mb-1.5">{title}</h3>
+                        <p className="text-sm text-gray-600 leading-relaxed">{desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -331,6 +382,13 @@ export default function APAutomationPage() {
                   </div>
                 ))}
               </div>
+              <div className="mt-5 flex items-start gap-3 bg-orange-500/5 border border-orange-400/20 border-dashed rounded-xl px-4 py-3">
+                <AlertTriangle className="w-4 h-4 text-orange-400 shrink-0 mt-0.5" />
+                <div>
+                  <span className="text-xs font-bold text-orange-300">Exception Routing</span>
+                  <p className="text-[11px] text-gray-500 mt-0.5 leading-relaxed">Invoices that fail GL coding, PO matching, or amount verification are flagged and routed to the right team member for review. Repeated exceptions trigger new rule-building.</p>
+                </div>
+              </div>
             </div>
 
             <div className="space-y-3">
@@ -354,31 +412,66 @@ export default function APAutomationPage() {
         {/* Timeline */}
         <section className="py-16 sm:py-20 bg-white border-t border-gray-100">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
+            <div className="text-center mb-10">
               <span className="inline-block text-xs font-bold uppercase tracking-widest text-blue-600 mb-4">
                 Implementation
               </span>
               <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4">
                 12 Weeks from Kickoff to Full Go-Live
               </h2>
+              <p className="text-gray-600 max-w-2xl mx-auto leading-relaxed">
+                Built in three phases so the AP team runs their normal process in parallel before any cutover. Errors surface before go-live, not after.
+              </p>
             </div>
+
+            {/* Phase overview strip */}
+            <div className="grid grid-cols-3 gap-3 mb-10">
+              <div className="text-center rounded-xl border border-blue-100 bg-blue-50 p-4">
+                <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-2">
+                  <BookOpen className="w-5 h-5 text-blue-600" />
+                </div>
+                <div className="font-bold text-blue-900 text-sm">Discovery</div>
+                <div className="text-xs text-blue-600 mt-0.5">Weeks 1–2</div>
+              </div>
+              <div className="text-center rounded-xl border border-orange-100 bg-orange-50 p-4">
+                <div className="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center mx-auto mb-2">
+                  <Brain className="w-5 h-5 text-orange-500" />
+                </div>
+                <div className="font-bold text-orange-900 text-sm">Build &amp; Test</div>
+                <div className="text-xs text-orange-600 mt-0.5">Weeks 3–11</div>
+              </div>
+              <div className="text-center rounded-xl border border-green-100 bg-green-50 p-4">
+                <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-2">
+                  <CheckCircle className="w-5 h-5 text-green-600" />
+                </div>
+                <div className="font-bold text-green-900 text-sm">Go-Live</div>
+                <div className="text-xs text-green-600 mt-0.5">Week 12+</div>
+              </div>
+            </div>
+
             <div className="relative">
               <div className="absolute left-4 top-5 bottom-5 w-0.5 bg-blue-100" aria-hidden="true" />
               <div className="space-y-3">
-                {timeline.map(({ period, phase, desc }, index) => (
-                  <div key={period} className="flex gap-4 relative">
-                    <div className="shrink-0 pt-0.5 z-10">
-                      <div className="w-9 h-9 rounded-full bg-blue-600 text-white text-sm font-extrabold flex items-center justify-center leading-none ring-4 ring-white">
-                        {index + 1}
+                {timeline.map(({ period, phase, tag, tagColor, desc }, index) => {
+                  const colors = phaseColorMap[tagColor];
+                  return (
+                    <div key={period} className="flex gap-4 relative">
+                      <div className="shrink-0 pt-0.5 z-10">
+                        <div className={`w-9 h-9 rounded-full ${colors.circle} text-white text-sm font-extrabold flex items-center justify-center leading-none ring-4 ring-white`}>
+                          {index + 1}
+                        </div>
+                      </div>
+                      <div className={`flex-1 min-w-0 bg-gray-50 rounded-2xl border border-gray-200 border-l-4 ${colors.border} p-5`}>
+                        <div className="flex flex-wrap items-center gap-2 mb-1">
+                          <span className={`text-xs font-bold uppercase tracking-widest ${colors.period}`}>{period}</span>
+                          <span className={`inline-block px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider border ${colors.badge}`}>{tag}</span>
+                        </div>
+                        <div className="font-bold text-gray-900 mb-1">{phase}</div>
+                        <p className="text-sm text-gray-600 leading-relaxed">{desc}</p>
                       </div>
                     </div>
-                    <div className="flex-1 min-w-0 bg-gray-50 rounded-2xl border border-gray-200 p-5">
-                      <div className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-0.5">{period}</div>
-                      <div className="font-bold text-gray-900 mb-1">{phase}</div>
-                      <p className="text-sm text-gray-600 leading-relaxed">{desc}</p>
-                    </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
           </div>
