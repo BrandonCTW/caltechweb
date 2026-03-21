@@ -1,6 +1,7 @@
 import {
   ArrowRight,
   CheckCircle,
+  XCircle,
   Phone,
   Calendar,
   ChevronRight,
@@ -65,22 +66,27 @@ const whatWeBuilt = [
 
 const architecture = [
   {
+    icon: Server,
     layer: "Cloud Server",
     detail: "AWS EC2. All processing, logging, and temporary storage runs here. The client owns all admin credentials.",
   },
   {
+    icon: Clock,
     layer: "Processing Model",
     detail: "Cron-based job polling every 5 seconds. Each invoice spawns an independent agent session, allowing 100+ invoices to process simultaneously with no bottlenecks.",
   },
   {
+    icon: GitMerge,
     layer: "ERP Integration",
     detail: "Primary: EDI flat file via data profile architecture. Fallback: browser automation for post types not covered by the EDI profile.",
   },
   {
+    icon: Database,
     layer: "Scale System Connection",
     detail: "Automated extraction from the scale records system to cross-reference weights against commodity invoices, eliminating a manual lookup step.",
   },
   {
+    icon: Shield,
     layer: "Data Ownership",
     detail: "All invoice data, logs, and extracted files are stored in the client's AWS environment. No data transits third-party AP platforms.",
   },
@@ -186,7 +192,7 @@ export default function APAutomationPage() {
                       "Paper invoices required manual scanning and routing",
                     ].map((item) => (
                       <li key={item} className="flex items-start gap-2 text-sm text-red-800">
-                        <span className="text-red-400 mt-0.5 shrink-0">✕</span>
+                        <XCircle className="w-4 h-4 text-red-400 shrink-0 mt-0.5" />
                         {item}
                       </li>
                     ))}
@@ -270,12 +276,42 @@ export default function APAutomationPage() {
                 The system runs entirely in the cloud. The client owns all credentials, logins, and access. If CalTech Web is unavailable, the system continues operating independently.
               </p>
             </div>
+
+            {/* Pipeline flow diagram */}
+            <div className="bg-white/5 border border-white/10 rounded-2xl p-6 mb-8">
+              <p className="text-[10px] font-bold uppercase tracking-widest text-blue-400/60 text-center mb-5">Invoice Processing Pipeline</p>
+              <div className="flex items-start justify-center gap-1 sm:gap-2 flex-wrap sm:flex-nowrap">
+                {[
+                  { icon: Mail, label: "Invoice Arrives", sub: "AP email inbox" },
+                  { icon: Brain, label: "AI Extracts", sub: "OCR + data fields" },
+                  { icon: FileText, label: "GL Coded", sub: "Rules engine" },
+                  { icon: GitMerge, label: "PO Matched", sub: "3-way verify" },
+                  { icon: Database, label: "ERP Posted", sub: "EDI flat file" },
+                ].map(({ icon: Icon, label, sub }, i, arr) => (
+                  <div key={label} className="flex items-center gap-1 sm:gap-2">
+                    <div className="flex flex-col items-center gap-1.5 text-center w-20">
+                      <div className="w-11 h-11 rounded-full bg-blue-600/20 border border-blue-500/30 flex items-center justify-center">
+                        <Icon className="w-5 h-5 text-blue-400" />
+                      </div>
+                      <span className="text-[11px] font-bold text-white leading-tight">{label}</span>
+                      <span className="text-[10px] text-gray-500 leading-tight">{sub}</span>
+                    </div>
+                    {i < arr.length - 1 && (
+                      <ArrowRight className="w-4 h-4 text-blue-600/40 shrink-0 mb-5" />
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+
             <div className="space-y-3">
-              {architecture.map(({ layer, detail }) => (
+              {architecture.map(({ icon: Icon, layer, detail }) => (
                 <div key={layer} className="bg-white/5 border border-white/10 rounded-2xl p-5 flex flex-col sm:flex-row gap-4">
                   <div className="sm:w-48 shrink-0">
                     <div className="flex items-center gap-2">
-                      <Server className="w-3.5 h-3.5 text-blue-400 shrink-0" />
+                      <div className="w-6 h-6 rounded-md bg-blue-500/20 flex items-center justify-center shrink-0">
+                        <Icon className="w-3.5 h-3.5 text-blue-400" />
+                      </div>
                       <span className="font-bold text-white text-sm">{layer}</span>
                     </div>
                   </div>
@@ -297,18 +333,24 @@ export default function APAutomationPage() {
                 12 Weeks from Kickoff to Full Go-Live
               </h2>
             </div>
-            <div className="space-y-4">
-              {timeline.map(({ period, phase, desc }) => (
-                <div key={period} className="flex flex-col sm:flex-row gap-4 bg-gray-50 rounded-2xl border border-gray-200 p-5">
-                  <div className="sm:w-32 shrink-0">
-                    <div className="text-xs font-bold text-blue-600 uppercase tracking-widest">{period}</div>
+            <div className="relative">
+              <div className="absolute left-4 top-5 bottom-5 w-0.5 bg-blue-100" aria-hidden="true" />
+              <div className="space-y-3">
+                {timeline.map(({ period, phase, desc }, index) => (
+                  <div key={period} className="flex gap-4 relative">
+                    <div className="shrink-0 pt-0.5 z-10">
+                      <div className="w-9 h-9 rounded-full bg-blue-600 text-white text-sm font-extrabold flex items-center justify-center leading-none ring-4 ring-white">
+                        {index + 1}
+                      </div>
+                    </div>
+                    <div className="flex-1 min-w-0 bg-gray-50 rounded-2xl border border-gray-200 p-5">
+                      <div className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-0.5">{period}</div>
+                      <div className="font-bold text-gray-900 mb-1">{phase}</div>
+                      <p className="text-sm text-gray-600 leading-relaxed">{desc}</p>
+                    </div>
                   </div>
-                  <div>
-                    <div className="font-bold text-gray-900 mb-1">{phase}</div>
-                    <p className="text-sm text-gray-600 leading-relaxed">{desc}</p>
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </section>
@@ -357,6 +399,20 @@ export default function APAutomationPage() {
                     <span className="text-sm text-green-600 font-semibold">per year saved</span>
                   </div>
                   <div className="text-xs text-gray-500 mt-1">Net return in year one after build and retainer: <strong className="text-gray-700">~$207,000</strong></div>
+                  <div className="mt-4 pt-4 border-t border-green-200">
+                    <div className="flex items-center justify-between mb-1.5">
+                      <span className="text-xs font-bold text-green-700 uppercase tracking-widest">Break-even Point</span>
+                      <span className="text-sm font-extrabold text-green-700">~Month 2</span>
+                    </div>
+                    <div className="relative h-2 bg-green-100 rounded-full">
+                      <div className="absolute inset-y-0 left-0 bg-gradient-to-r from-green-500 to-green-400 rounded-l-full" style={{ width: "16.7%" }} />
+                      <div className="absolute top-1/2 -translate-y-1/2 w-3.5 h-3.5 bg-white border-2 border-green-600 rounded-full shadow-sm" style={{ left: "calc(16.7% - 7px)" }} />
+                    </div>
+                    <div className="flex justify-between text-[10px] text-gray-400 mt-1.5">
+                      <span>Project start</span>
+                      <span>Month 12</span>
+                    </div>
+                  </div>
                 </div>
                 <p className="text-xs text-gray-400 mt-4 leading-relaxed">
                   AWS infrastructure costs are included through the retainer period. Client receives all admin credentials and full system ownership at handoff.
