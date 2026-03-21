@@ -104,6 +104,10 @@ const nextConfig: NextConfig = {
       // Old WordPress sitemap redirect
       { source: "/sitemap_index.xml", destination: "/sitemap.xml", permanent: true },
 
+      // Renamed automation case studies
+      { source: "/ai/automation/diamond-links-email", destination: "/ai/automation/b2b-lead-enrichment/", permanent: true },
+      { source: "/ai/automation/diamond-links-email/", destination: "/ai/automation/b2b-lead-enrichment/", permanent: true },
+
       // Removed pages
       { source: "/video-website-audit", destination: "/contact-us/", permanent: true },
       { source: "/video-website-audit/", destination: "/contact-us/", permanent: true },

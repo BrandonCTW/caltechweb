@@ -39,7 +39,7 @@ const useCases = [
     title: "Email Triage & Enrichment",
     desc: "Turn a high-volume inbox into a ranked, enriched lead list. Sort, deduplicate against contact history, pull third-party data on every sender, score, and deliver a daily digest. Zero manual review.",
     tags: ["Classification", "Routing", "Draft Generation"],
-    link: "/ai/automation/diamond-links-email/",
+    link: "/ai/automation/b2b-lead-enrichment/",
     hasCase: true,
   },
   {
