@@ -185,29 +185,25 @@ export default function DiamondLinksEmailPage() {
         </section>
 
         {/* Before / After */}
-        <section className="py-16 sm:py-20 bg-white">
+        <section className="py-16 sm:py-20 bg-gray-950">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-10">
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-3">
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-3">
                 Every problem. Directly solved.
               </h2>
-              <p className="text-gray-500 max-w-xl mx-auto">
+              <p className="text-gray-400 max-w-xl mx-auto">
                 The team owned nothing, controlled nothing, and touched everything. Here&apos;s what changed.
               </p>
             </div>
 
             {/* Column headers */}
-            <div className="grid grid-cols-[1fr_40px_1fr] gap-0 mb-3 px-1">
-              <div className="flex items-center gap-2">
-                <span className="text-xs font-bold uppercase tracking-widest text-red-500">Before</span>
-              </div>
+            <div className="grid grid-cols-[1fr_52px_1fr] mb-3 px-1">
+              <span className="text-xs font-bold uppercase tracking-widest text-red-400">Before</span>
               <div />
-              <div className="flex items-center gap-2">
-                <span className="text-xs font-bold uppercase tracking-widest text-green-600">After</span>
-              </div>
+              <span className="text-xs font-bold uppercase tracking-widest text-green-400">After</span>
             </div>
 
-            <div className="space-y-3">
+            <div className="space-y-2">
               {[
                 {
                   before: "500 emails a day reviewed by hand",
@@ -219,10 +215,10 @@ export default function DiamondLinksEmailPage() {
                 },
                 {
                   before: "Same contacts reached out repeatedly, no one noticed",
-                  after: "Deduplication removes any domain already in the contact database",
+                  after: "Deduplication filters any domain already in the contact database",
                 },
                 {
-                  before: "No scoring system — high-value and low-value emails took the same time",
+                  before: "High-value and low-value emails took the same time",
                   after: "Every lead scored and ranked before the team sees it",
                 },
                 {
@@ -230,29 +226,29 @@ export default function DiamondLinksEmailPage() {
                   after: "Pipeline runs on a schedule regardless of team availability",
                 },
                 {
-                  before: "No searchable record of who was contacted or when",
+                  before: "No record of who was contacted or when",
                   after: "Full contact history and lead log, searchable at any time",
                 },
               ].map(({ before, after }) => (
-                <div key={before} className="grid grid-cols-[1fr_40px_1fr] items-center gap-0">
-                  <div className="bg-red-50 border border-red-100 rounded-xl px-4 py-3 flex items-start gap-2.5">
-                    <XCircle className="w-4 h-4 text-red-400 shrink-0 mt-0.5" />
-                    <span className="text-sm text-red-800 leading-snug">{before}</span>
+                <div key={before} className="grid grid-cols-[1fr_52px_1fr] items-stretch rounded-xl overflow-hidden border border-white/10">
+                  <div className="bg-red-950/60 px-4 py-4 flex items-center gap-3">
+                    <XCircle className="w-4 h-4 text-red-400 shrink-0" />
+                    <span className="text-sm text-red-200 leading-snug">{before}</span>
                   </div>
-                  <div className="flex items-center justify-center">
-                    <ArrowRight className="w-4 h-4 text-gray-300" />
+                  <div className="bg-white/5 flex items-center justify-center">
+                    <ArrowRight className="w-4 h-4 text-blue-400" />
                   </div>
-                  <div className="bg-green-50 border border-green-100 rounded-xl px-4 py-3 flex items-start gap-2.5">
-                    <CheckCircle className="w-4 h-4 text-green-500 shrink-0 mt-0.5" />
-                    <span className="text-sm text-green-800 leading-snug">{after}</span>
+                  <div className="bg-green-950/60 px-4 py-4 flex items-center gap-3">
+                    <CheckCircle className="w-4 h-4 text-green-400 shrink-0" />
+                    <span className="text-sm text-green-200 leading-snug">{after}</span>
                   </div>
                 </div>
               ))}
             </div>
 
-            <div className="mt-8 bg-blue-50 border border-blue-100 rounded-2xl px-6 py-5">
-              <p className="text-sm text-blue-900 font-medium leading-relaxed">
-                <span className="font-extrabold">The system runs on infrastructure the client owns.</span> All credentials, API keys, and data stay in their environment. No third-party automation platform in the middle. If we part ways, nothing stops working.
+            <div className="mt-6 bg-blue-500/10 border border-blue-500/20 rounded-2xl px-6 py-5">
+              <p className="text-sm text-blue-200 leading-relaxed">
+                <span className="font-extrabold text-white">The system runs on infrastructure the client owns.</span> All credentials, API keys, and data stay in their environment. No third-party automation platform in the middle. If we part ways, nothing stops working.
               </p>
             </div>
           </div>
