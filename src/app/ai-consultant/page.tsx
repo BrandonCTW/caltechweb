@@ -2200,7 +2200,7 @@ function Pricing({ savings }: { savings?: { annualWaste: number; aiSavings: numb
               <p className="text-blue-300 text-xs mt-1">One-time · Delivered within 10 business days</p>
             </div>
             <div className="p-7 flex flex-col flex-1">
-              <div className="space-y-5 flex-1">
+              <div className="space-y-5">
                 {/* Step 1 */}
                 <div>
                   <div className="flex items-center gap-2 mb-2">
@@ -2242,6 +2242,7 @@ function Pricing({ savings }: { savings?: { annualWaste: number; aiSavings: numb
                   <p className="text-sm text-gray-500 pl-7">We walk through every finding together so you leave with full clarity on what to do and in what order.</p>
                 </div>
               </div>
+              <div className="mt-auto pt-6">
               <a
                 href="https://calendly.com/brandonctw/30min" target="_blank" rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl bg-blue-600 text-white font-bold hover:bg-blue-700 transition-colors text-sm"
@@ -2250,6 +2251,7 @@ function Pricing({ savings }: { savings?: { annualWaste: number; aiSavings: numb
                 <ArrowRight className="w-4 h-4" />
               </a>
               <p className="text-[11px] text-gray-400 text-center mt-2">Fee credited toward a retainer engagement if you move forward</p>
+              </div>
             </div>
           </div>
 
@@ -2274,7 +2276,7 @@ function Pricing({ savings }: { savings?: { annualWaste: number; aiSavings: numb
               <p className="text-blue-300 text-xs mt-1">Scoped to your goals and timeline</p>
             </div>
             <div className="p-7 flex flex-col flex-1">
-              <div className="space-y-5 flex-1">
+              <div className="space-y-5">
                 {/* Step 1 */}
                 <div>
                   <div className="flex items-center gap-2 mb-2">
@@ -2314,6 +2316,7 @@ function Pricing({ savings }: { savings?: { annualWaste: number; aiSavings: numb
                   <p className="text-sm text-gray-500 pl-7">Every two weeks we review progress, clear blockers, and align on what gets built next.</p>
                 </div>
               </div>
+              <div className="mt-auto pt-6">
               <a
                 href="https://calendly.com/brandonctw/30min" target="_blank" rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl bg-orange-500 text-white font-bold hover:bg-orange-600 transition-colors text-sm shadow-lg"
@@ -2322,6 +2325,7 @@ function Pricing({ savings }: { savings?: { annualWaste: number; aiSavings: numb
                 <ArrowRight className="w-4 h-4" />
               </a>
               <p className="text-[11px] text-gray-400 text-center mt-2">Audit fee credited to your first month &middot; US clients only</p>
+              </div>
             </div>
           </div>
 
@@ -2340,7 +2344,7 @@ function Pricing({ savings }: { savings?: { annualWaste: number; aiSavings: numb
               <p className="text-blue-300 text-xs mt-1">Scoped to your organization&apos;s size and needs</p>
             </div>
             <div className="p-7 flex flex-col flex-1">
-              <div className="space-y-5 flex-1">
+              <div className="space-y-5">
                 {/* Step 1 */}
                 <div>
                   <div className="flex items-center gap-2 mb-2">
@@ -2380,6 +2384,7 @@ function Pricing({ savings }: { savings?: { annualWaste: number; aiSavings: numb
                   <p className="text-sm text-gray-500 pl-7">This role is intentionally temporary. When your team is ready to run AI independently, Brandon transitions out. That&apos;s the goal.</p>
                 </div>
               </div>
+              <div className="mt-auto pt-6">
               <a
                 href="https://calendly.com/brandonctw/30min" target="_blank" rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl bg-orange-500 text-white font-bold hover:bg-orange-600 transition-colors text-sm shadow-lg"
@@ -2388,6 +2393,7 @@ function Pricing({ savings }: { savings?: { annualWaste: number; aiSavings: numb
                 <ArrowRight className="w-4 h-4" />
               </a>
               <p className="text-[11px] text-gray-400 text-center mt-2">US clients only &middot; Limited availability</p>
+              </div>
             </div>
           </div>
         </div>
