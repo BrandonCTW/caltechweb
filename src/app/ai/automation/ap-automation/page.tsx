@@ -16,6 +16,7 @@ import {
   Clock,
   Server,
   TrendingUp,
+  Users,
 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -58,7 +59,7 @@ const whatWeBuilt = [
     desc: "Every invoice action is logged with a timestamp and a traceable record. The finance team can review the full history of any invoice at any time.",
   },
   {
-    icon: BookOpen,
+    icon: Users,
     title: "Team Training & SOPs",
     desc: "Written SOPs and live walkthroughs for the AP team covering daily operations, exception handling, and escalation procedures.",
   },
@@ -160,13 +161,35 @@ export default function APAutomationPage() {
               <Calendar className="w-5 h-5" />
               Book a 30-Min Call
             </a>
+            <div className="flex flex-wrap items-center gap-x-5 gap-y-2 mt-4">
+              <span className="flex items-center gap-1.5 text-sm text-blue-300/70">
+                <Clock className="w-4 h-4 shrink-0" />
+                30 minutes
+              </span>
+              <span className="flex items-center gap-1.5 text-sm text-blue-300/70">
+                <Shield className="w-4 h-4 shrink-0" />
+                No commitment
+              </span>
+              <span className="flex items-center gap-1.5 text-sm text-blue-300/70">
+                <CheckCircle className="w-4 h-4 shrink-0" />
+                Honest fit assessment
+              </span>
+            </div>
           </div>
         </section>
 
         {/* Before State */}
         <section className="py-16 sm:py-20 bg-white">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid md:grid-cols-2 gap-12 items-start">
+            <div className="grid md:grid-cols-2 gap-12 items-start relative">
+              {/* Visual VS separator — desktop only */}
+              <div className="hidden md:flex absolute left-1/2 top-4 bottom-4 -translate-x-1/2 flex-col items-center justify-center pointer-events-none z-10">
+                <div className="flex-1 w-px bg-gradient-to-b from-transparent via-gray-200 to-gray-200" />
+                <div className="w-10 h-10 rounded-full bg-white border-2 border-gray-200 shadow-md flex items-center justify-center my-3 shrink-0">
+                  <ArrowRight className="w-4 h-4 text-blue-500" />
+                </div>
+                <div className="flex-1 w-px bg-gradient-to-b from-gray-200 via-gray-200 to-transparent" />
+              </div>
               <div>
                 <span className="inline-block text-xs font-bold uppercase tracking-widest text-red-500 mb-4">
                   Before
@@ -245,14 +268,20 @@ export default function APAutomationPage() {
               <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4">
                 What We Built
               </h2>
+              <p className="text-gray-600 max-w-2xl mx-auto leading-relaxed">
+                Eight components built to cover every step of the invoice lifecycle, from inbox capture to ERP posting. Each piece operates independently and logs every action for a complete audit trail.
+              </p>
             </div>
             <div className="grid sm:grid-cols-2 gap-5">
-              {whatWeBuilt.map(({ icon: Icon, title, desc }) => (
-                <div key={title} className="bg-white rounded-2xl border border-gray-200 p-6 flex gap-4">
+              {whatWeBuilt.map(({ icon: Icon, title, desc }, index) => (
+                <div key={title} className="bg-white rounded-2xl border border-gray-200 p-6 flex gap-4 relative overflow-hidden">
+                  <span className="absolute -bottom-3 right-3 text-8xl font-black text-gray-100 select-none leading-none pointer-events-none" aria-hidden="true">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
                   <div className="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center shrink-0">
                     <Icon className="w-5 h-5 text-white" />
                   </div>
-                  <div>
+                  <div className="relative">
                     <h3 className="font-bold text-gray-900 mb-1.5">{title}</h3>
                     <p className="text-sm text-gray-600 leading-relaxed">{desc}</p>
                   </div>
@@ -449,8 +478,17 @@ export default function APAutomationPage() {
         </section>
 
         {/* CTA */}
-        <section className="py-16 sm:py-20 bg-blue-950 text-white">
-          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <section className="py-16 sm:py-20 bg-blue-950 text-white relative overflow-hidden">
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 opacity-5"
+            style={{
+              backgroundImage:
+                "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)",
+              backgroundSize: "60px 60px",
+            }}
+          />
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
             <h2 className="text-3xl sm:text-4xl font-extrabold mb-4">
               Want to Build Something Like This?
             </h2>
