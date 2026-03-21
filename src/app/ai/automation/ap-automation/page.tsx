@@ -16,54 +16,11 @@ import {
   Clock,
   Server,
   TrendingUp,
-  Users,
 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 
-const whatWeBuilt = [
-  {
-    icon: Mail,
-    title: "AP Inbox Monitoring",
-    desc: "Automated polling of the AP email inbox. New invoices are captured and queued without any manual download, sorting, or intervention.",
-  },
-  {
-    icon: Brain,
-    title: "OCR & AI Data Extraction",
-    desc: "AI-powered OCR processes each invoice, extracting vendor name, invoice number, date, line items, amounts, and PO references before ERP ingestion.",
-  },
-  {
-    icon: FileText,
-    title: "GL Coding Automation",
-    desc: "Vendor coding rules automatically assign GL accounts, cost centers, and categories to each line item based on vendor identity and invoice patterns.",
-  },
-  {
-    icon: GitMerge,
-    title: "3-Way PO Matching",
-    desc: "Each invoice is matched to the corresponding purchase order. For commodity vendors, quantities are cross-referenced against scale system records to verify weights.",
-  },
-  {
-    icon: AlertTriangle,
-    title: "Exception Routing",
-    desc: "Invoices that fail coding, PO matching, or amount verification are flagged and routed to the right team member for manual review. Repeated exceptions trigger rule-building.",
-  },
-  {
-    icon: Database,
-    title: "ERP Integration",
-    desc: "Processed invoices post directly to the ERP via EDI flat file ingestion. Browser automation handles post types not supported by the EDI profile.",
-  },
-  {
-    icon: BookOpen,
-    title: "Audit Trail & Logging",
-    desc: "Every invoice action is logged with a timestamp and a traceable record. The finance team can review the full history of any invoice at any time.",
-  },
-  {
-    icon: Users,
-    title: "Team Training & SOPs",
-    desc: "Written SOPs and live walkthroughs for the AP team covering daily operations, exception handling, and escalation procedures.",
-  },
-];
 
 const architecture = [
   {
@@ -264,78 +221,6 @@ export default function APAutomationPage() {
                       </li>
                     ))}
                   </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* What We Built */}
-        <section className="py-16 sm:py-20 bg-gray-50 border-t border-gray-100">
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <span className="inline-block text-xs font-bold uppercase tracking-widest text-blue-600 mb-4">
-                Scope of Work
-              </span>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4">
-                What We Built
-              </h2>
-              <p className="text-gray-600 max-w-2xl mx-auto leading-relaxed">
-                Eight components built to cover every step of the invoice lifecycle, from inbox capture to ERP posting. Each piece operates independently and logs every action for a complete audit trail.
-              </p>
-            </div>
-            <div className="space-y-8">
-              {/* Core Automation Pipeline */}
-              <div>
-                <div className="flex items-center gap-3 mb-5">
-                  <div className="flex items-center gap-2 shrink-0">
-                    <div className="w-2 h-2 rounded-full bg-blue-600" />
-                    <span className="text-xs font-bold uppercase tracking-widest text-blue-600">Core Automation Pipeline</span>
-                  </div>
-                  <div className="flex-1 h-px bg-blue-100" />
-                </div>
-                <div className="grid sm:grid-cols-2 gap-5">
-                  {whatWeBuilt.slice(0, 6).map(({ icon: Icon, title, desc }, index) => (
-                    <div key={title} className="bg-white rounded-2xl border border-gray-200 p-6 flex gap-4 relative overflow-hidden">
-                      <span className="absolute -bottom-3 right-3 text-8xl font-black text-gray-100 select-none leading-none pointer-events-none" aria-hidden="true">
-                        {String(index + 1).padStart(2, "0")}
-                      </span>
-                      <div className="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center shrink-0">
-                        <Icon className="w-5 h-5 text-white" />
-                      </div>
-                      <div className="relative">
-                        <h3 className="font-bold text-gray-900 mb-1.5">{title}</h3>
-                        <p className="text-sm text-gray-600 leading-relaxed">{desc}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Infrastructure & Enablement */}
-              <div>
-                <div className="flex items-center gap-3 mb-5">
-                  <div className="flex items-center gap-2 shrink-0">
-                    <div className="w-2 h-2 rounded-full bg-gray-400" />
-                    <span className="text-xs font-bold uppercase tracking-widest text-gray-500">Infrastructure &amp; Enablement</span>
-                  </div>
-                  <div className="flex-1 h-px bg-gray-200" />
-                </div>
-                <div className="grid sm:grid-cols-2 gap-5">
-                  {whatWeBuilt.slice(6).map(({ icon: Icon, title, desc }, index) => (
-                    <div key={title} className="bg-white rounded-2xl border border-gray-200 p-6 flex gap-4 relative overflow-hidden">
-                      <span className="absolute -bottom-3 right-3 text-8xl font-black text-gray-100 select-none leading-none pointer-events-none" aria-hidden="true">
-                        {String(index + 7).padStart(2, "0")}
-                      </span>
-                      <div className="w-10 h-10 rounded-xl bg-gray-500 flex items-center justify-center shrink-0">
-                        <Icon className="w-5 h-5 text-white" />
-                      </div>
-                      <div className="relative">
-                        <h3 className="font-bold text-gray-900 mb-1.5">{title}</h3>
-                        <p className="text-sm text-gray-600 leading-relaxed">{desc}</p>
-                      </div>
-                    </div>
-                  ))}
                 </div>
               </div>
             </div>
