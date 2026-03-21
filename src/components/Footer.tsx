@@ -5,15 +5,15 @@ export default function Footer() {
   return (
     <footer className="bg-gray-900 text-gray-400 py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-10">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
           {/* Brand */}
-          <div>
+          <div className="sm:col-span-2 lg:col-span-1">
             <div className="flex items-center gap-2 mb-3">
               <Image src="/logo.png" alt="CalTech Web" width={166} height={56} sizes="166px" className="h-7 w-auto" />
             </div>
             <p className="text-sm leading-relaxed mb-4">
-              Affordable website design for small businesses, churches, and
-              non-profits. $99/month all-inclusive.
+              Affordable website design and AI consulting for small businesses,
+              churches, and non-profits.
             </p>
             <div className="flex flex-col gap-1 text-sm">
               <a href="tel:5592823075" className="hover:text-white transition-colors">
@@ -33,15 +33,34 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Who We Serve */}
+          {/* Web Design */}
           <div>
-            <h4 className="text-white font-semibold mb-3 text-sm uppercase tracking-wider">Who We Serve</h4>
+            <h4 className="text-white font-semibold mb-3 text-sm uppercase tracking-wider">Web Design</h4>
             <ul className="space-y-2 text-sm">
               {[
                 { label: "Small Businesses", href: "/affordable-web-design-company/" },
                 { label: "Church Websites", href: "/affordable-church-websites/" },
                 { label: "Non-Profits", href: "/nonprofit-website-design/" },
                 { label: "Government & RFP", href: "/website-design-rfp-rfq/" },
+                { label: "Portfolio", href: "/web-design-portfolio/" },
+                { label: "Pricing", href: "/web-design-pricing/" },
+              ].map(({ label, href }) => (
+                <li key={label}>
+                  <Link href={href} className="hover:text-white transition-colors">{label}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* AI & Automation */}
+          <div>
+            <h4 className="text-white font-semibold mb-3 text-sm uppercase tracking-wider">AI & Automation</h4>
+            <ul className="space-y-2 text-sm">
+              {[
+                { label: "AI & Automation", href: "/ai/" },
+                { label: "AI Readiness Audit", href: "/ai-consultant/#pricing" },
+                { label: "AI Consulting Retainer", href: "/ai-consultant/#pricing" },
+                { label: "Fractional Chief AI Officer", href: "/ai-consultant/#pricing" },
               ].map(({ label, href }) => (
                 <li key={label}>
                   <Link href={href} className="hover:text-white transition-colors">{label}</Link>
@@ -56,9 +75,6 @@ export default function Footer() {
             <ul className="space-y-2 text-sm">
               {[
                 { label: "About", href: "/brandon-hopkins/" },
-                { label: "AI Consulting", href: "/ai-consultant/" },
-                { label: "Portfolio", href: "/web-design-portfolio/" },
-                { label: "Pricing", href: "/web-design-pricing/" },
                 { label: "Case Studies", href: "/case-studies/" },
                 { label: "Contact Us", href: "/contact-us/" },
                 { label: "Free Report Card", href: "/free-website-report-card/" },
