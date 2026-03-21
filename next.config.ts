@@ -107,6 +107,8 @@ const nextConfig: NextConfig = {
       // Renamed automation case studies
       { source: "/ai/automation/diamond-links-email", destination: "/ai/automation/b2b-lead-enrichment/", permanent: true },
       { source: "/ai/automation/diamond-links-email/", destination: "/ai/automation/b2b-lead-enrichment/", permanent: true },
+      { source: "/ai/automation/executive-dashboards", destination: "/ai/automation/automated-client-reporting/", permanent: true },
+      { source: "/ai/automation/executive-dashboards/", destination: "/ai/automation/automated-client-reporting/", permanent: true },
 
       // Removed pages
       { source: "/video-website-audit", destination: "/contact-us/", permanent: true },

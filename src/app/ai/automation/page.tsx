@@ -44,10 +44,10 @@ const useCases = [
   },
   {
     icon: LayoutDashboard,
-    title: "Executive Dashboards",
-    desc: "Custom-built dashboards that pull from any data source, look exactly the way you want, and cost nothing after the build. No Tableau. No Salesforce. No per-seat licensing.",
-    tags: ["No Licensing Fees", "Any Data Source", "Fully Custom"],
-    link: "/ai/automation/executive-dashboards/",
+    title: "Automated Client Reporting",
+    desc: "SEO and marketing agencies replace manual reporting headcount with a custom dashboard. Pulls from GSC, Ahrefs, GA4, and more. Clients see live data. Your team stops building reports.",
+    tags: ["SEO Agencies", "Live Data", "Zero Reporting Labor"],
+    link: "/ai/automation/automated-client-reporting/",
     hasCase: true,
   },
   {
