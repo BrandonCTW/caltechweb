@@ -2183,9 +2183,9 @@ function Pricing({ savings }: { savings?: { annualWaste: number; aiSavings: numb
           </div>
         )}
 
-        <div className="grid md:grid-cols-3 gap-6 mb-8">
+        <div className="grid md:grid-cols-3 gap-x-6 mb-8">
           {/* AI Audit */}
-          <div className="bg-white rounded-3xl border border-gray-200 shadow-sm overflow-hidden flex flex-col h-full">
+          <div className="bg-white rounded-3xl border border-gray-200 shadow-sm overflow-hidden md:row-span-4 md:grid md:[grid-template-rows:subgrid]">
             <div className="bg-gradient-to-br from-blue-950 to-blue-800 text-white p-7 flex flex-col justify-between md:min-h-[340px] xl:min-h-[295px]">
               <div>
                 <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/15 text-xs font-semibold mb-4">
@@ -2203,49 +2203,43 @@ function Pricing({ savings }: { savings?: { annualWaste: number; aiSavings: numb
                 <p className="text-blue-300 text-xs mt-1">One-time · Delivered within 10 business days</p>
               </div>
             </div>
-            <div className="p-7 flex flex-col flex-1">
-              <div className="space-y-5">
-                {/* Step 1 */}
-                <div>
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="w-5 h-5 rounded-full bg-blue-100 text-blue-700 text-xs font-bold flex items-center justify-center shrink-0">1</span>
-                    <span className="text-sm font-bold text-gray-900">Discovery Call</span>
-                  </div>
-                  <p className="text-sm text-gray-500 pl-7">We learn your business, goals, team, and current tools before any analysis begins.</p>
-                </div>
-                <div className="border-t border-gray-100" />
-                {/* Step 2 */}
-                <div>
-                  <div className="flex items-center gap-2 mb-2.5">
-                    <span className="w-5 h-5 rounded-full bg-blue-100 text-blue-700 text-xs font-bold flex items-center justify-center shrink-0">2</span>
-                    <span className="text-sm font-bold text-gray-900">The Audit</span>
-                  </div>
-                  <ul className="space-y-2 pl-7">
-                    {[
-                      "AI readiness assessment of your tools and workflows",
-                      "Bottleneck and opportunity mapping",
-                      "Prioritized implementation roadmap",
-                      "Tool and vendor recommendations with cost estimates",
-                      "Risk and governance checklist",
-                      "Written report you own and can act on immediately",
-                    ].map((item) => (
-                      <li key={item} className="flex items-start gap-2 text-sm text-gray-600">
-                        <CheckCircle className="w-3.5 h-3.5 text-green-500 mt-0.5 shrink-0" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="border-t border-gray-100" />
-                {/* Step 3 */}
-                <div>
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="w-5 h-5 rounded-full bg-blue-100 text-blue-700 text-xs font-bold flex items-center justify-center shrink-0">3</span>
-                    <span className="text-sm font-bold text-gray-900">Audit Review Call</span>
-                  </div>
-                  <p className="text-sm text-gray-500 pl-7">We walk through every finding together so you leave with full clarity on what to do and in what order.</p>
-                </div>
+            {/* Step 1 */}
+            <div className="p-7">
+              <div className="flex items-center gap-2 mb-2">
+                <span className="w-5 h-5 rounded-full bg-blue-100 text-blue-700 text-xs font-bold flex items-center justify-center shrink-0">1</span>
+                <span className="text-sm font-bold text-gray-900">Discovery Call</span>
               </div>
+              <p className="text-sm text-gray-500 pl-7">We learn your business, goals, team, and current tools before any analysis begins.</p>
+            </div>
+            {/* Step 2 */}
+            <div className="p-7 border-t border-gray-100">
+              <div className="flex items-center gap-2 mb-2.5">
+                <span className="w-5 h-5 rounded-full bg-blue-100 text-blue-700 text-xs font-bold flex items-center justify-center shrink-0">2</span>
+                <span className="text-sm font-bold text-gray-900">The Audit</span>
+              </div>
+              <ul className="space-y-2 pl-7">
+                {[
+                  "AI readiness assessment of your tools and workflows",
+                  "Bottleneck and opportunity mapping",
+                  "Prioritized implementation roadmap",
+                  "Tool and vendor recommendations with cost estimates",
+                  "Risk and governance checklist",
+                  "Written report you own and can act on immediately",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-2 text-sm text-gray-600">
+                    <CheckCircle className="w-3.5 h-3.5 text-green-500 mt-0.5 shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            {/* Step 3 + CTA */}
+            <div className="p-7 border-t border-gray-100 flex flex-col">
+              <div className="flex items-center gap-2 mb-2">
+                <span className="w-5 h-5 rounded-full bg-blue-100 text-blue-700 text-xs font-bold flex items-center justify-center shrink-0">3</span>
+                <span className="text-sm font-bold text-gray-900">Audit Review Call</span>
+              </div>
+              <p className="text-sm text-gray-500 pl-7">We walk through every finding together so you leave with full clarity on what to do and in what order.</p>
               <div className="mt-auto pt-6">
               <p className="text-[11px] text-gray-400 text-center mb-3">Fee credited toward a retainer if you move forward</p>
               <a
@@ -2260,7 +2254,7 @@ function Pricing({ savings }: { savings?: { annualWaste: number; aiSavings: numb
           </div>
 
           {/* Monthly Retainer */}
-          <div className="bg-white rounded-3xl border-2 border-blue-600 shadow-lg overflow-hidden relative flex flex-col h-full">
+          <div className="bg-white rounded-3xl border-2 border-blue-600 shadow-lg overflow-hidden relative md:row-span-4 md:grid md:[grid-template-rows:subgrid]">
             <div className="absolute top-4 right-4">
               <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-orange-500 text-white text-xs font-bold">
                 <Star className="w-3 h-3 fill-white" />
@@ -2283,47 +2277,41 @@ function Pricing({ savings }: { savings?: { annualWaste: number; aiSavings: numb
                 <p className="text-blue-300 text-xs mt-1">Scoped to your goals and timeline</p>
               </div>
             </div>
-            <div className="p-7 flex flex-col flex-1">
-              <div className="space-y-5">
-                {/* Step 1 */}
-                <div>
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="w-5 h-5 rounded-full bg-blue-100 text-blue-700 text-xs font-bold flex items-center justify-center shrink-0">1</span>
-                    <span className="text-sm font-bold text-gray-900">Discovery Call</span>
-                  </div>
-                  <p className="text-sm text-gray-500 pl-7">We learn your business, goals, and stack, then define your AI roadmap and identify the highest-impact use cases to tackle first.</p>
-                </div>
-                <div className="border-t border-gray-100" />
-                {/* Step 2 */}
-                <div>
-                  <div className="flex items-center gap-2 mb-2.5">
-                    <span className="w-5 h-5 rounded-full bg-blue-100 text-blue-700 text-xs font-bold flex items-center justify-center shrink-0">2</span>
-                    <span className="text-sm font-bold text-gray-900">Ongoing: Build and Deploy</span>
-                  </div>
-                  <ul className="space-y-2 pl-7">
-                    {[
-                      "AI tools built and shipped to your stack",
-                      "Async collaboration via Slack, email, and Loom",
-                      "Roadmap reprioritized as results come in",
-                      "Governance, training, and team enablement included",
-                    ].map((item) => (
-                      <li key={item} className="flex items-start gap-2 text-sm text-gray-600">
-                        <CheckCircle className="w-3.5 h-3.5 text-green-500 mt-0.5 shrink-0" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="border-t border-gray-100" />
-                {/* Step 3 */}
-                <div>
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="w-5 h-5 rounded-full bg-blue-100 text-blue-700 text-xs font-bold flex items-center justify-center shrink-0">3</span>
-                    <span className="text-sm font-bold text-gray-900">Bi-Weekly Strategy Call</span>
-                  </div>
-                  <p className="text-sm text-gray-500 pl-7">Every two weeks we review progress, clear blockers, and align on what gets built next.</p>
-                </div>
+            {/* Step 1 */}
+            <div className="p-7">
+              <div className="flex items-center gap-2 mb-2">
+                <span className="w-5 h-5 rounded-full bg-blue-100 text-blue-700 text-xs font-bold flex items-center justify-center shrink-0">1</span>
+                <span className="text-sm font-bold text-gray-900">Discovery Call</span>
               </div>
+              <p className="text-sm text-gray-500 pl-7">We learn your business, goals, and stack, then define your AI roadmap and identify the highest-impact use cases to tackle first.</p>
+            </div>
+            {/* Step 2 */}
+            <div className="p-7 border-t border-gray-100">
+              <div className="flex items-center gap-2 mb-2.5">
+                <span className="w-5 h-5 rounded-full bg-blue-100 text-blue-700 text-xs font-bold flex items-center justify-center shrink-0">2</span>
+                <span className="text-sm font-bold text-gray-900">Ongoing: Build and Deploy</span>
+              </div>
+              <ul className="space-y-2 pl-7">
+                {[
+                  "AI tools built and shipped to your stack",
+                  "Async collaboration via Slack, email, and Loom",
+                  "Roadmap reprioritized as results come in",
+                  "Governance, training, and team enablement included",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-2 text-sm text-gray-600">
+                    <CheckCircle className="w-3.5 h-3.5 text-green-500 mt-0.5 shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            {/* Step 3 + CTA */}
+            <div className="p-7 border-t border-gray-100 flex flex-col">
+              <div className="flex items-center gap-2 mb-2">
+                <span className="w-5 h-5 rounded-full bg-blue-100 text-blue-700 text-xs font-bold flex items-center justify-center shrink-0">3</span>
+                <span className="text-sm font-bold text-gray-900">Bi-Weekly Strategy Call</span>
+              </div>
+              <p className="text-sm text-gray-500 pl-7">Every two weeks we review progress, clear blockers, and align on what gets built next.</p>
               <div className="mt-auto pt-6">
               <p className="text-[11px] text-gray-400 text-center mb-3">Audit fee credited to your first month &middot; US clients only</p>
               <a
@@ -2338,7 +2326,7 @@ function Pricing({ savings }: { savings?: { annualWaste: number; aiSavings: numb
           </div>
 
           {/* Fractional CAO */}
-          <div className="bg-white rounded-3xl border border-gray-200 shadow-sm overflow-hidden relative flex flex-col h-full">
+          <div className="bg-white rounded-3xl border border-gray-200 shadow-sm overflow-hidden relative md:row-span-4 md:grid md:[grid-template-rows:subgrid]">
             <div className="bg-gradient-to-br from-gray-900 to-blue-950 text-white p-7 flex flex-col justify-between md:min-h-[340px] xl:min-h-[295px]">
               <div>
                 <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/15 text-xs font-semibold mb-4">
@@ -2355,47 +2343,41 @@ function Pricing({ savings }: { savings?: { annualWaste: number; aiSavings: numb
                 <p className="text-blue-300 text-xs mt-1">Scoped to your org&apos;s size and needs</p>
               </div>
             </div>
-            <div className="p-7 flex flex-col flex-1">
-              <div className="space-y-5">
-                {/* Step 1 */}
-                <div>
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="w-5 h-5 rounded-full bg-blue-100 text-blue-700 text-xs font-bold flex items-center justify-center shrink-0">1</span>
-                    <span className="text-sm font-bold text-gray-900">Assess and Lead</span>
-                  </div>
-                  <p className="text-sm text-gray-500 pl-7">Brandon leads strategy and governance, aligning your org around a clear AI direction.</p>
-                </div>
-                <div className="border-t border-gray-100" />
-                {/* Step 2 */}
-                <div>
-                  <div className="flex items-center gap-2 mb-2.5">
-                    <span className="w-5 h-5 rounded-full bg-blue-100 text-blue-700 text-xs font-bold flex items-center justify-center shrink-0">2</span>
-                    <span className="text-sm font-bold text-gray-900">Train and Develop</span>
-                  </div>
-                  <ul className="space-y-2 pl-7">
-                    {[
-                      "Hire, train, and develop your internal AI team",
-                      "Build processes and playbooks your team owns",
-                      "Upskill existing staff to operate AI tools confidently",
-                      "Establish vendor relationships and tool stack",
-                    ].map((item) => (
-                      <li key={item} className="flex items-start gap-2 text-sm text-gray-600">
-                        <CheckCircle className="w-3.5 h-3.5 text-green-500 mt-0.5 shrink-0" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="border-t border-gray-100" />
-                {/* Step 3 */}
-                <div>
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="w-5 h-5 rounded-full bg-blue-100 text-blue-700 text-xs font-bold flex items-center justify-center shrink-0">3</span>
-                    <span className="text-sm font-bold text-gray-900">Hand Off and Exit</span>
-                  </div>
-                  <p className="text-sm text-gray-500 pl-7">This is temporary by design. When your team can run AI independently, Brandon steps back. That&apos;s the goal.</p>
-                </div>
+            {/* Step 1 */}
+            <div className="p-7">
+              <div className="flex items-center gap-2 mb-2">
+                <span className="w-5 h-5 rounded-full bg-blue-100 text-blue-700 text-xs font-bold flex items-center justify-center shrink-0">1</span>
+                <span className="text-sm font-bold text-gray-900">Assess and Lead</span>
               </div>
+              <p className="text-sm text-gray-500 pl-7">Brandon leads strategy and governance, aligning your org around a clear AI direction.</p>
+            </div>
+            {/* Step 2 */}
+            <div className="p-7 border-t border-gray-100">
+              <div className="flex items-center gap-2 mb-2.5">
+                <span className="w-5 h-5 rounded-full bg-blue-100 text-blue-700 text-xs font-bold flex items-center justify-center shrink-0">2</span>
+                <span className="text-sm font-bold text-gray-900">Train and Develop</span>
+              </div>
+              <ul className="space-y-2 pl-7">
+                {[
+                  "Hire, train, and develop your internal AI team",
+                  "Build processes and playbooks your team owns",
+                  "Upskill existing staff to operate AI tools confidently",
+                  "Establish vendor relationships and tool stack",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-2 text-sm text-gray-600">
+                    <CheckCircle className="w-3.5 h-3.5 text-green-500 mt-0.5 shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            {/* Step 3 + CTA */}
+            <div className="p-7 border-t border-gray-100 flex flex-col">
+              <div className="flex items-center gap-2 mb-2">
+                <span className="w-5 h-5 rounded-full bg-blue-100 text-blue-700 text-xs font-bold flex items-center justify-center shrink-0">3</span>
+                <span className="text-sm font-bold text-gray-900">Hand Off and Exit</span>
+              </div>
+              <p className="text-sm text-gray-500 pl-7">This is temporary by design. When your team can run AI independently, Brandon steps back. That&apos;s the goal.</p>
               <div className="mt-auto pt-6">
               <p className="text-[11px] text-gray-400 text-center mb-3">US clients only &middot; Limited availability</p>
               <a
