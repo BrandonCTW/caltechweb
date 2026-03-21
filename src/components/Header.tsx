@@ -9,7 +9,7 @@ const navLinks = [
   { label: "Portfolio", href: "/web-design-portfolio/" },
   { label: "Pricing", href: "/web-design-pricing/" },
   { label: "Case Studies", href: "/case-studies/" },
-  { label: "AI & Automation", href: "/ai-consultant/" },
+  { label: "AI & Automation", href: "/ai/" },
   { label: "About", href: "/brandon-hopkins/" },
   { label: "Contact", href: "/contact-us/" },
 ];
