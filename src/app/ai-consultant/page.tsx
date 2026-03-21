@@ -2351,7 +2351,7 @@ function Pricing({ savings }: { savings?: { annualWaste: number; aiSavings: numb
                     <span className="w-5 h-5 rounded-full bg-blue-100 text-blue-700 text-xs font-bold flex items-center justify-center shrink-0">1</span>
                     <span className="text-sm font-bold text-gray-900">Assess and Lead</span>
                   </div>
-                  <p className="text-sm text-gray-500 pl-7">Brandon steps in as your AI leadership, sets the strategy, establishes governance, and aligns your organization around a clear AI direction.</p>
+                  <p className="text-sm text-gray-500 pl-7">Brandon leads strategy and governance, aligning your org around a clear AI direction.</p>
                 </div>
                 <div className="border-t border-gray-100" />
                 {/* Step 2 */}
@@ -2381,7 +2381,7 @@ function Pricing({ savings }: { savings?: { annualWaste: number; aiSavings: numb
                     <span className="w-5 h-5 rounded-full bg-blue-100 text-blue-700 text-xs font-bold flex items-center justify-center shrink-0">3</span>
                     <span className="text-sm font-bold text-gray-900">Hand Off and Exit</span>
                   </div>
-                  <p className="text-sm text-gray-500 pl-7">This role is intentionally temporary. When your team is ready to run AI independently, Brandon transitions out. That&apos;s the goal.</p>
+                  <p className="text-sm text-gray-500 pl-7">This is temporary by design. When your team can run AI independently, Brandon steps back. That&apos;s the goal.</p>
                 </div>
               </div>
               <div className="mt-auto pt-6">
