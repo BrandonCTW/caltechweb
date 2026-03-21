@@ -421,13 +421,13 @@ export default function APAutomationPage() {
                     <span className="text-xs font-bold uppercase tracking-widest text-green-700">Estimated Savings</span>
                   </div>
                   <p className="text-xs text-gray-500 mb-3 leading-relaxed">
-                    Based on Fresno, CA market data: 4 AP staff freed from manual processing at an average fully loaded cost of $61,000/yr each (base salary ~$47K plus benefits and payroll taxes).
+                    Based on California market data: 4 AP staff freed from manual processing at an average fully loaded cost of $75,000/yr each (base salary ~$58K plus benefits and payroll taxes).
                   </p>
                   <div className="flex items-baseline gap-1.5 mb-1">
-                    <span className="text-3xl font-extrabold text-green-700">$244,000</span>
+                    <span className="text-3xl font-extrabold text-green-700">$300,000</span>
                     <span className="text-sm text-green-600 font-semibold">per year saved</span>
                   </div>
-                  <div className="text-xs text-gray-500 mt-1">Net return in year one after build and retainer: <strong className="text-gray-700">~$207,000</strong></div>
+                  <div className="text-xs text-gray-500 mt-1">Net return in year one after build and retainer: <strong className="text-gray-700">~$263,000</strong></div>
                   <div className="mt-4 pt-4 border-t border-green-200">
                     <div className="flex items-center justify-between mb-1.5">
                       <span className="text-xs font-bold text-green-700 uppercase tracking-widest">Break-even Point</span>
