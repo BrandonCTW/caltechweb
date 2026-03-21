@@ -23,7 +23,7 @@ const useCases = [
     title: "AP & Invoice Processing",
     desc: "Replace manual invoice handling with an AI pipeline that monitors your inbox, extracts data via OCR, codes to GL, matches POs, and posts to your ERP. Finance teams go from processing to exception review.",
     tags: ["OCR / AI", "ERP Integration", "3-Way Match"],
-    link: "/ai/automation/ap-automation/",
+    link: "/ai/ap-automation/",
     hasCase: true,
   },
   {
@@ -39,7 +39,7 @@ const useCases = [
     title: "Email Triage & Enrichment",
     desc: "Turn a high-volume inbox into a ranked, enriched lead list. Sort, deduplicate against contact history, pull third-party data on every sender, score, and deliver a daily digest. Zero manual review.",
     tags: ["Classification", "Routing", "Draft Generation"],
-    link: "/ai/automation/b2b-lead-enrichment/",
+    link: "/ai/b2b-lead-enrichment/",
     hasCase: true,
   },
   {
@@ -47,7 +47,7 @@ const useCases = [
     title: "Automated Client Reporting",
     desc: "SEO and marketing agencies replace manual reporting headcount with a custom dashboard. Pulls from GSC, Ahrefs, GA4, and more. Clients see live data. Your team stops building reports.",
     tags: ["SEO Agencies", "Live Data", "Zero Reporting Labor"],
-    link: "/ai/automation/automated-client-reporting/",
+    link: "/ai/automated-client-reporting/",
     hasCase: true,
   },
   {
@@ -137,7 +137,7 @@ export default function AutomationPage() {
                 Book a 30-Min Call
               </a>
               <Link
-                href="/ai/automation/ap-automation/"
+                href="/ai/ap-automation/"
                 className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full border-2 border-white/20 text-white font-semibold hover:bg-white/10 transition-colors"
               >
                 See an Example Build
@@ -314,7 +314,7 @@ export default function AutomationPage() {
                   ))}
                 </div>
                 <Link
-                  href="/ai/automation/ap-automation/"
+                  href="/ai/ap-automation/"
                   className="flex items-center justify-center gap-2 w-full px-5 py-3 rounded-full border border-blue-500/40 text-blue-400 font-semibold text-sm hover:bg-blue-500/10 transition-colors"
                 >
                   Read the Full Case Study
