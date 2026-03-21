@@ -25,26 +25,31 @@ import Link from "next/link";
 const architecture = [
   {
     icon: Server,
+    color: "blue" as const,
     layer: "Cloud Server",
     detail: "AWS EC2. All processing, logging, and temporary storage runs here. The client owns all admin credentials.",
   },
   {
     icon: Clock,
+    color: "violet" as const,
     layer: "Processing Model",
     detail: "Cron-based job polling every 5 seconds. Each invoice spawns an independent agent session, allowing 100+ invoices to process simultaneously with no bottlenecks.",
   },
   {
     icon: GitMerge,
+    color: "indigo" as const,
     layer: "ERP Integration",
     detail: "Primary: EDI flat file via data profile architecture. Fallback: browser automation for post types not covered by the EDI profile.",
   },
   {
     icon: Database,
+    color: "teal" as const,
     layer: "Scale System Connection",
     detail: "Automated extraction from the scale records system to cross-reference weights against commodity invoices, eliminating a manual lookup step.",
   },
   {
     icon: Shield,
+    color: "green" as const,
     layer: "Data Ownership",
     detail: "All invoice data, logs, and extracted files are stored in the client's AWS environment. No data transits third-party AP platforms.",
   },
@@ -64,6 +69,14 @@ const phaseColorMap = {
   orange: { circle: "bg-orange-500", border: "border-l-orange-400", badge: "bg-orange-50 text-orange-700 border-orange-200", period: "text-orange-600" },
   green:  { circle: "bg-green-600",  border: "border-l-green-500",  badge: "bg-green-50 text-green-700 border-green-200",   period: "text-green-700" },
   teal:   { circle: "bg-teal-600",   border: "border-l-teal-500",   badge: "bg-teal-50 text-teal-700 border-teal-200",     period: "text-teal-700" },
+};
+
+const archColorMap = {
+  blue:   { border: "border-l-blue-500",   iconBg: "bg-blue-500/20",   iconText: "text-blue-400",   badge: "bg-blue-600" },
+  violet: { border: "border-l-violet-500", iconBg: "bg-violet-500/20", iconText: "text-violet-400", badge: "bg-violet-600" },
+  indigo: { border: "border-l-indigo-500", iconBg: "bg-indigo-500/20", iconText: "text-indigo-400", badge: "bg-indigo-600" },
+  teal:   { border: "border-l-teal-500",   iconBg: "bg-teal-500/20",   iconText: "text-teal-400",   badge: "bg-teal-600" },
+  green:  { border: "border-l-green-500",  iconBg: "bg-green-500/20",  iconText: "text-green-400",  badge: "bg-green-600" },
 };
 
 export default function APAutomationPage() {
@@ -150,6 +163,37 @@ export default function APAutomationPage() {
         {/* Before State */}
         <section className="py-16 sm:py-20 bg-white">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            {/* At-a-glance metrics comparison strip */}
+            <div className="grid grid-cols-2 rounded-2xl overflow-hidden border border-gray-200 mb-12 shadow-sm">
+              <div className="bg-red-50 px-6 py-5 border-r border-red-100">
+                <div className="text-[10px] font-bold uppercase tracking-widest text-red-500 mb-4">Before Automation</div>
+                <div className="space-y-3">
+                  <div>
+                    <div className="text-3xl font-extrabold text-red-700 leading-none">3,500+</div>
+                    <div className="text-xs text-red-600 mt-0.5">manual invoice touches per week</div>
+                  </div>
+                  <div>
+                    <div className="text-3xl font-extrabold text-red-700 leading-none">5–6</div>
+                    <div className="text-xs text-red-600 mt-0.5">people touching every invoice</div>
+                  </div>
+                </div>
+              </div>
+              <div className="bg-green-50 px-6 py-5">
+                <div className="text-[10px] font-bold uppercase tracking-widest text-green-600 mb-4">After Automation</div>
+                <div className="space-y-3">
+                  <div>
+                    <div className="text-3xl font-extrabold text-green-700 leading-none">Zero</div>
+                    <div className="text-xs text-green-600 mt-0.5">manual touches on standard invoices</div>
+                  </div>
+                  <div>
+                    <div className="text-3xl font-extrabold text-green-700 leading-none">Exceptions</div>
+                    <div className="text-xs text-green-600 mt-0.5">only invoices the team now handles</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <div className="grid md:grid-cols-2 gap-12 items-start relative">
               {/* Visual VS separator — desktop only */}
               <div className="hidden md:flex absolute left-1/2 top-4 bottom-4 -translate-x-1/2 flex-col items-center justify-center pointer-events-none z-10">
@@ -191,6 +235,16 @@ export default function APAutomationPage() {
                   </ul>
                 </div>
               </div>
+
+              {/* Mobile VS divider — visible only on small screens between stacked Before/After */}
+              <div className="flex md:hidden items-center gap-3 -mt-4">
+                <div className="flex-1 h-px bg-gray-200" />
+                <div className="w-10 h-10 rounded-full bg-white border-2 border-gray-200 shadow-md flex items-center justify-center shrink-0">
+                  <ArrowRight className="w-4 h-4 text-blue-500 rotate-90" />
+                </div>
+                <div className="flex-1 h-px bg-gray-200" />
+              </div>
+
               <div>
                 <span className="inline-block text-xs font-bold uppercase tracking-widest text-green-600 mb-4">
                   After
@@ -245,7 +299,7 @@ export default function APAutomationPage() {
             {/* Pipeline flow diagram */}
             <div className="bg-white/5 border border-white/10 rounded-2xl p-6 mb-8">
               <p className="text-[10px] font-bold uppercase tracking-widest text-blue-400/60 text-center mb-5">Invoice Processing Pipeline</p>
-              <div className="flex items-start justify-center gap-1 sm:gap-2 flex-wrap sm:flex-nowrap">
+              <div className="flex items-start justify-center gap-1 sm:gap-3 flex-wrap sm:flex-nowrap">
                 {[
                   { icon: Mail, label: "Invoice Arrives", sub: "AP email inbox" },
                   { icon: Brain, label: "AI Extracts", sub: "OCR + data fields" },
@@ -253,16 +307,19 @@ export default function APAutomationPage() {
                   { icon: GitMerge, label: "PO Matched", sub: "3-way verify" },
                   { icon: Database, label: "ERP Posted", sub: "EDI flat file" },
                 ].map(({ icon: Icon, label, sub }, i, arr) => (
-                  <div key={label} className="flex items-center gap-1 sm:gap-2">
-                    <div className="flex flex-col items-center gap-1.5 text-center w-20">
-                      <div className="w-11 h-11 rounded-full bg-blue-600/20 border border-blue-500/30 flex items-center justify-center">
-                        <Icon className="w-5 h-5 text-blue-400" />
+                  <div key={label} className="flex items-center gap-1 sm:gap-3">
+                    <div className="flex flex-col items-center gap-2 text-center w-20">
+                      <div className="relative">
+                        <div className="w-14 h-14 rounded-full bg-blue-600/20 border border-blue-500/40 flex items-center justify-center">
+                          <Icon className="w-6 h-6 text-blue-400" />
+                        </div>
+                        <span aria-hidden="true" className="absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-blue-600 text-white text-[9px] font-extrabold flex items-center justify-center leading-none shadow-sm">{i + 1}</span>
                       </div>
-                      <span className="text-[11px] font-bold text-white leading-tight">{label}</span>
-                      <span className="text-[10px] text-gray-500 leading-tight">{sub}</span>
+                      <span className="text-xs font-bold text-white leading-tight">{label}</span>
+                      <span className="text-[10px] text-gray-500 leading-tight -mt-1">{sub}</span>
                     </div>
                     {i < arr.length - 1 && (
-                      <ArrowRight className="w-4 h-4 text-blue-600/40 shrink-0 mb-5" />
+                      <ArrowRight className="w-4 h-4 text-blue-500/50 shrink-0 mb-8" />
                     )}
                   </div>
                 ))}
@@ -277,17 +334,94 @@ export default function APAutomationPage() {
             </div>
 
             <div className="space-y-3">
-              {architecture.map(({ icon: Icon, layer, detail }) => (
-                <div key={layer} className="bg-white/5 border border-white/10 rounded-2xl p-5 flex flex-col sm:flex-row gap-4">
-                  <div className="sm:w-48 shrink-0">
-                    <div className="flex items-center gap-2">
-                      <div className="w-6 h-6 rounded-md bg-blue-500/20 flex items-center justify-center shrink-0">
-                        <Icon className="w-3.5 h-3.5 text-blue-400" />
+              {architecture.map(({ icon: Icon, color, layer, detail }, index) => {
+                const colors = archColorMap[color];
+                return (
+                  <div key={layer} className={`bg-white/5 border border-white/10 border-l-4 ${colors.border} rounded-2xl p-5 flex flex-col sm:flex-row gap-4 items-start`}>
+                    <div className="sm:w-48 shrink-0">
+                      <div className="flex items-center gap-2.5">
+                        <div className="relative shrink-0">
+                          <div className={`w-8 h-8 rounded-lg ${colors.iconBg} flex items-center justify-center`}>
+                            <Icon className={`w-4 h-4 ${colors.iconText}`} />
+                          </div>
+                          <span className={`absolute -top-1.5 -right-1.5 w-4 h-4 rounded-full ${colors.badge} text-white text-[9px] font-extrabold flex items-center justify-center leading-none shadow-sm`}>{index + 1}</span>
+                        </div>
+                        <span className="font-bold text-white text-sm leading-tight">{layer}</span>
                       </div>
-                      <span className="font-bold text-white text-sm">{layer}</span>
                     </div>
+                    <p className="text-gray-400 text-sm leading-relaxed">{detail}</p>
                   </div>
-                  <p className="text-gray-400 text-sm leading-relaxed">{detail}</p>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* Custom vs Off-the-Shelf */}
+        <section className="py-14 sm:py-16 bg-gray-50 border-t border-gray-100">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-8">
+              <span className="inline-block text-xs font-bold uppercase tracking-widest text-blue-600 mb-3">
+                Why Custom
+              </span>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900 mb-2">
+                Custom Build vs. Off-the-Shelf AP Software
+              </h2>
+              <p className="text-sm text-gray-500 max-w-lg mx-auto">
+                Platforms like Tipalti, Bill.com, and Coupa solve parts of the problem. A custom build owns the whole workflow.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-gray-200 bg-white overflow-hidden shadow-sm">
+              {/* Column headers */}
+              <div className="grid grid-cols-3 border-b border-gray-200">
+                <div className="px-5 py-3 bg-gray-50 border-r border-gray-200">
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-gray-400">Comparison</span>
+                </div>
+                <div className="px-5 py-3 border-r border-gray-200 flex items-center gap-1.5">
+                  <XCircle className="w-3.5 h-3.5 text-red-400 shrink-0" />
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-red-500">SaaS AP Platforms</span>
+                </div>
+                <div className="px-5 py-3 bg-green-50 flex items-center gap-1.5">
+                  <CheckCircle className="w-3.5 h-3.5 text-green-500 shrink-0" />
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-green-700">This Custom Build</span>
+                </div>
+              </div>
+
+              {[
+                {
+                  aspect: "Data Ownership",
+                  saas: "Invoice data stored on the vendor's servers. Subject to their retention and access policies.",
+                  custom: "All invoice data, logs, and extracted files stay in your AWS environment. No third-party access.",
+                },
+                {
+                  aspect: "Pricing Model",
+                  saas: "Per-invoice fees or a percentage of spend. Costs scale indefinitely as volume grows.",
+                  custom: "One-time build fee. Flat monthly retainer. Costs are fixed regardless of invoice volume.",
+                },
+                {
+                  aspect: "GL Coding Rules",
+                  saas: "Coding logic lives inside the platform's rigid mapping interface. Limited to their data model.",
+                  custom: "Rules are built to match your exact GL structure, cost centers, and ERP posting logic.",
+                },
+                {
+                  aspect: "Vendor Lock-in",
+                  saas: "Switching platforms requires full re-onboarding, data migration, and re-training.",
+                  custom: "You own the code and credentials. The system runs independently of CalTech Web.",
+                },
+              ].map(({ aspect, saas, custom }, i, arr) => (
+                <div key={aspect} className={`grid grid-cols-3 ${i < arr.length - 1 ? "border-b border-gray-100" : ""}`}>
+                  <div className="px-5 py-4 bg-gray-50 border-r border-gray-200 flex items-start">
+                    <span className="text-xs font-bold text-gray-700 leading-snug">{aspect}</span>
+                  </div>
+                  <div className="px-5 py-4 border-r border-gray-200 flex items-start gap-2">
+                    <XCircle className="w-3.5 h-3.5 text-red-400 shrink-0 mt-0.5" />
+                    <p className="text-xs text-gray-500 leading-relaxed">{saas}</p>
+                  </div>
+                  <div className="px-5 py-4 bg-green-50/60 flex items-start gap-2">
+                    <CheckCircle className="w-3.5 h-3.5 text-green-500 shrink-0 mt-0.5" />
+                    <p className="text-xs text-green-800 leading-relaxed">{custom}</p>
+                  </div>
                 </div>
               ))}
             </div>
@@ -310,22 +444,24 @@ export default function APAutomationPage() {
             </div>
 
             {/* Phase overview strip */}
-            <div className="grid grid-cols-3 gap-3 mb-10">
-              <div className="text-center rounded-xl border border-blue-100 bg-blue-50 p-4">
+            <div className="flex items-center gap-2 mb-10">
+              <div className="flex-1 text-center rounded-xl border border-blue-100 bg-blue-50 p-4">
                 <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-2">
                   <BookOpen className="w-5 h-5 text-blue-600" />
                 </div>
                 <div className="font-bold text-blue-900 text-sm">Discovery</div>
                 <div className="text-xs text-blue-600 mt-0.5">Weeks 1–2</div>
               </div>
-              <div className="text-center rounded-xl border border-orange-100 bg-orange-50 p-4">
+              <ArrowRight className="w-5 h-5 text-gray-300 shrink-0" aria-hidden="true" />
+              <div className="flex-1 text-center rounded-xl border border-orange-100 bg-orange-50 p-4">
                 <div className="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center mx-auto mb-2">
                   <Brain className="w-5 h-5 text-orange-500" />
                 </div>
                 <div className="font-bold text-orange-900 text-sm">Build &amp; Test</div>
                 <div className="text-xs text-orange-600 mt-0.5">Weeks 3–11</div>
               </div>
-              <div className="text-center rounded-xl border border-green-100 bg-green-50 p-4">
+              <ArrowRight className="w-5 h-5 text-gray-300 shrink-0" aria-hidden="true" />
+              <div className="flex-1 text-center rounded-xl border border-green-100 bg-green-50 p-4">
                 <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-2">
                   <CheckCircle className="w-5 h-5 text-green-600" />
                 </div>
@@ -378,18 +514,52 @@ export default function APAutomationPage() {
                 </p>
                 <div className="space-y-4">
                   {[
-                    { icon: Clock, label: "Build Fee", value: "$22,000", sub: "Full system, discovery through go-live" },
-                    { icon: Shield, label: "Monthly Retainer", value: "$2,500/mo", sub: "6-month term, ongoing optimization" },
-                  ].map(({ icon: Icon, label, value, sub }) => (
-                    <div key={label} className="flex items-start gap-4 p-5 rounded-xl bg-white border border-gray-200">
-                      <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center shrink-0">
-                        <Icon className="w-5 h-5 text-blue-600" />
+                    {
+                      icon: Clock,
+                      label: "Build Fee",
+                      value: "$22,000",
+                      sub: "Full system, discovery through go-live",
+                      includes: [
+                        "Inbox monitor and OCR pipeline",
+                        "GL coding rules engine",
+                        "PO matching and 3-way verification",
+                        "ERP EDI connector and fallback automation",
+                        "Exception routing with full audit trail",
+                        "Training, SOPs, and handoff documentation",
+                      ],
+                    },
+                    {
+                      icon: Shield,
+                      label: "Monthly Retainer",
+                      value: "$2,500/mo",
+                      sub: "6-month term, ongoing optimization",
+                      includes: [
+                        "Exception rule-building as new patterns emerge",
+                        "New vendor template additions",
+                        "ERP configuration updates",
+                        "System monitoring and uptime oversight",
+                      ],
+                    },
+                  ].map(({ icon: Icon, label, value, sub, includes }) => (
+                    <div key={label} className="rounded-xl bg-white border border-gray-200 overflow-hidden">
+                      <div className="flex items-start gap-4 p-5 border-b border-gray-100">
+                        <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center shrink-0">
+                          <Icon className="w-5 h-5 text-blue-600" />
+                        </div>
+                        <div>
+                          <div className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-0.5">{label}</div>
+                          <div className="font-extrabold text-gray-900 text-2xl leading-tight">{value}</div>
+                          <div className="text-xs text-gray-500 mt-0.5">{sub}</div>
+                        </div>
                       </div>
-                      <div>
-                        <div className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-0.5">{label}</div>
-                        <div className="font-extrabold text-gray-900 text-2xl leading-tight">{value}</div>
-                        <div className="text-xs text-gray-500 mt-0.5">{sub}</div>
-                      </div>
+                      <ul className="px-5 py-4 space-y-1.5">
+                        {includes.map((item) => (
+                          <li key={item} className="flex items-start gap-2 text-xs text-gray-600">
+                            <CheckCircle className="w-3.5 h-3.5 text-blue-400 shrink-0 mt-0.5" />
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
                     </div>
                   ))}
                 </div>
@@ -401,23 +571,44 @@ export default function APAutomationPage() {
                   <p className="text-xs text-gray-500 mb-3 leading-relaxed">
                     Based on California market data: 4 AP staff freed from manual processing at an average fully loaded cost of $75,000/yr each (base salary ~$58K plus benefits and payroll taxes).
                   </p>
-                  <div className="flex items-baseline gap-1.5 mb-1">
+                  <div className="flex items-baseline gap-1.5 mb-3">
                     <span className="text-3xl font-extrabold text-green-700">$300,000</span>
                     <span className="text-sm text-green-600 font-semibold">per year saved</span>
                   </div>
-                  <div className="text-xs text-gray-500 mt-1">Net return in year one after build and retainer: <strong className="text-gray-700">~$263,000</strong></div>
+                  <div className="grid grid-cols-3 gap-2 mb-1">
+                    <div className="bg-white rounded-lg border border-green-200 p-2.5 text-center">
+                      <div className="text-base font-extrabold text-gray-800 leading-none">$37K</div>
+                      <div className="text-[10px] text-gray-500 mt-1 leading-snug">Year 1 cost</div>
+                    </div>
+                    <div className="bg-white rounded-lg border border-green-200 p-2.5 text-center">
+                      <div className="text-base font-extrabold text-green-700 leading-none">$263K</div>
+                      <div className="text-[10px] text-gray-500 mt-1 leading-snug">Net return Y1</div>
+                    </div>
+                    <div className="bg-green-600 rounded-lg p-2.5 text-center">
+                      <div className="text-base font-extrabold text-white leading-none">8×</div>
+                      <div className="text-[10px] text-green-100 mt-1 leading-snug">ROI multiple</div>
+                    </div>
+                  </div>
                   <div className="mt-4 pt-4 border-t border-green-200">
                     <div className="flex items-center justify-between mb-1.5">
                       <span className="text-xs font-bold text-green-700 uppercase tracking-widest">Break-even Point</span>
                       <span className="text-sm font-extrabold text-green-700">~Month 2</span>
                     </div>
-                    <div className="relative h-2 bg-green-100 rounded-full">
-                      <div className="absolute inset-y-0 left-0 bg-gradient-to-r from-green-500 to-green-400 rounded-l-full" style={{ width: "16.7%" }} />
-                      <div className="absolute top-1/2 -translate-y-1/2 w-3.5 h-3.5 bg-white border-2 border-green-600 rounded-full shadow-sm" style={{ left: "calc(16.7% - 7px)" }} />
-                    </div>
-                    <div className="flex justify-between text-[10px] text-gray-400 mt-1.5">
-                      <span>Project start</span>
-                      <span>Month 12</span>
+                    <div className="relative pt-5 mt-1">
+                      <div className="absolute top-0 flex flex-col items-center" style={{ left: "16.7%", transform: "translateX(-50%)" }}>
+                        <span className="text-[9px] font-extrabold text-green-700 bg-green-100 border border-green-300 rounded px-1.5 py-0.5 whitespace-nowrap leading-tight">Break-even</span>
+                        <span className="text-[9px] text-green-600 leading-none mt-0.5">↓</span>
+                      </div>
+                      <div className="relative h-4 bg-green-100 rounded-full">
+                        <div className="absolute inset-y-0 left-0 bg-gradient-to-r from-green-500 to-green-400 rounded-l-full" style={{ width: "16.7%" }} />
+                        <div className="absolute top-1/2 -translate-y-1/2 w-5 h-5 bg-white border-2 border-green-600 rounded-full shadow-md flex items-center justify-center" style={{ left: "calc(16.7% - 10px)" }}>
+                          <div className="w-2 h-2 rounded-full bg-green-600" />
+                        </div>
+                      </div>
+                      <div className="flex justify-between text-[10px] text-gray-400 mt-1.5">
+                        <span>Project start</span>
+                        <span>Month 12</span>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -473,6 +664,24 @@ export default function APAutomationPage() {
             <p className="text-lg text-blue-200/80 mb-8 max-w-xl mx-auto">
               Every build starts with a 30-minute scoping call. Tell us the workflow, we&apos;ll tell you if it&apos;s a fit.
             </p>
+
+            {/* What happens on the call */}
+            <div className="flex flex-col sm:flex-row items-stretch justify-center gap-4 mb-10 max-w-2xl mx-auto">
+              {[
+                { icon: FileText, step: "1", label: "Describe your workflow", sub: "Volume, vendors, how invoices arrive" },
+                { icon: Brain,    step: "2", label: "We assess the fit",      sub: "Honest answer — no pressure" },
+                { icon: TrendingUp, step: "3", label: "Get a ballpark scope", sub: "Timeline and investment range" },
+              ].map(({ icon: Icon, step, label, sub }) => (
+                <div key={step} className="flex-1 bg-white/5 border border-white/10 rounded-2xl px-4 py-4 text-center flex flex-col items-center gap-2">
+                  <div className="w-10 h-10 rounded-full bg-blue-500/20 border border-blue-500/30 flex items-center justify-center">
+                    <Icon className="w-5 h-5 text-blue-400" />
+                  </div>
+                  <div className="text-xs font-bold text-white leading-tight">{label}</div>
+                  <div className="text-[11px] text-blue-300/60 leading-snug">{sub}</div>
+                </div>
+              ))}
+            </div>
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="https://calendly.com/brandonctw/30min"
