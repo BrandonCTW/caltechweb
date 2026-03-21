@@ -268,16 +268,16 @@ export default function ExecutiveDashboardsPage() {
                 },
               ].map(({ before, after }) => (
                 <div key={before} className="grid grid-cols-[1fr_auto_1fr] items-center gap-3">
-                  <div className="flex items-center gap-3 bg-red-950/60 border border-red-900/50 rounded-xl px-4 py-3.5">
+                  <div className="flex items-center gap-3 bg-red-950/60 border border-red-900/50 border-l-4 border-l-red-700 rounded-xl px-5 py-4">
                     <XCircle className="w-5 h-5 text-red-500 shrink-0" />
-                    <span className="text-sm text-red-100 leading-snug">{before}</span>
+                    <span className="text-base text-red-100 leading-snug">{before}</span>
                   </div>
                   <div className="flex items-center justify-center w-10">
                     <ArrowRight className="w-4 h-4 text-blue-400" />
                   </div>
-                  <div className="flex items-center gap-3 bg-green-950/60 border border-green-900/50 rounded-xl px-4 py-3.5">
+                  <div className="flex items-center gap-3 bg-green-950/60 border border-green-900/50 border-l-4 border-l-green-700 rounded-xl px-5 py-4">
                     <CheckCircle className="w-5 h-5 text-green-400 shrink-0" />
-                    <span className="text-sm text-green-100 leading-snug">{after}</span>
+                    <span className="text-base text-green-100 leading-snug">{after}</span>
                   </div>
                 </div>
               ))}
