@@ -2185,7 +2185,7 @@ function Pricing({ savings }: { savings?: { annualWaste: number; aiSavings: numb
 
         <div className="grid md:grid-cols-3 gap-6 mb-8">
           {/* AI Audit */}
-          <div className="bg-white rounded-3xl border border-gray-200 shadow-sm overflow-hidden flex flex-col">
+          <div className="bg-white rounded-3xl border border-gray-200 shadow-sm overflow-hidden flex flex-col h-full">
             <div className="bg-gradient-to-br from-blue-950 to-blue-800 text-white p-7">
               <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/15 text-xs font-semibold mb-4">
                 <Target className="w-3 h-3" />
@@ -2256,7 +2256,7 @@ function Pricing({ savings }: { savings?: { annualWaste: number; aiSavings: numb
           </div>
 
           {/* Monthly Retainer */}
-          <div className="bg-white rounded-3xl border-2 border-blue-600 shadow-lg overflow-hidden relative flex flex-col">
+          <div className="bg-white rounded-3xl border-2 border-blue-600 shadow-lg overflow-hidden relative flex flex-col h-full">
             <div className="absolute top-4 right-4">
               <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-orange-500 text-white text-xs font-bold">
                 <Star className="w-3 h-3 fill-white" />
@@ -2330,7 +2330,7 @@ function Pricing({ savings }: { savings?: { annualWaste: number; aiSavings: numb
           </div>
 
           {/* Fractional CAO */}
-          <div className="bg-white rounded-3xl border border-gray-200 shadow-sm overflow-hidden relative flex flex-col">
+          <div className="bg-white rounded-3xl border border-gray-200 shadow-sm overflow-hidden relative flex flex-col h-full">
             <div className="bg-gradient-to-br from-gray-900 to-blue-950 text-white p-7">
               <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/15 text-xs font-semibold mb-4">
                 <Globe className="w-3 h-3" />
