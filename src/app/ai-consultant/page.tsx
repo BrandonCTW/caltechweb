@@ -2199,8 +2199,8 @@ function Pricing({ savings }: { savings?: { annualWaste: number; aiSavings: numb
               </div>
               <p className="text-blue-300 text-xs mt-1">One-time · Delivered within 10 business days</p>
             </div>
-            <div className="p-7">
-              <div className="space-y-5 mb-7">
+            <div className="p-7 flex flex-col flex-1">
+              <div className="space-y-5 flex-1">
                 {/* Step 1 */}
                 <div>
                   <div className="flex items-center gap-2 mb-2">
@@ -2254,7 +2254,7 @@ function Pricing({ savings }: { savings?: { annualWaste: number; aiSavings: numb
           </div>
 
           {/* Monthly Retainer */}
-          <div className="bg-white rounded-3xl border-2 border-blue-600 shadow-lg overflow-hidden relative">
+          <div className="bg-white rounded-3xl border-2 border-blue-600 shadow-lg overflow-hidden relative flex flex-col">
             <div className="absolute top-4 right-4">
               <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-orange-500 text-white text-xs font-bold">
                 <Star className="w-3 h-3 fill-white" />
@@ -2273,8 +2273,8 @@ function Pricing({ savings }: { savings?: { annualWaste: number; aiSavings: numb
               </div>
               <p className="text-blue-300 text-xs mt-1">Scoped to your goals and timeline</p>
             </div>
-            <div className="p-7">
-              <div className="space-y-5 mb-7">
+            <div className="p-7 flex flex-col flex-1">
+              <div className="space-y-5 flex-1">
                 {/* Step 1 */}
                 <div>
                   <div className="flex items-center gap-2 mb-2">
@@ -2326,7 +2326,7 @@ function Pricing({ savings }: { savings?: { annualWaste: number; aiSavings: numb
           </div>
 
           {/* Fractional CAO */}
-          <div className="bg-white rounded-3xl border border-gray-200 shadow-sm overflow-hidden relative">
+          <div className="bg-white rounded-3xl border border-gray-200 shadow-sm overflow-hidden relative flex flex-col">
             <div className="bg-gradient-to-br from-gray-900 to-blue-950 text-white p-7">
               <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/15 text-xs font-semibold mb-4">
                 <Globe className="w-3 h-3" />
@@ -2339,8 +2339,8 @@ function Pricing({ savings }: { savings?: { annualWaste: number; aiSavings: numb
               </div>
               <p className="text-blue-300 text-xs mt-1">Scoped to your organization&apos;s size and needs</p>
             </div>
-            <div className="p-7">
-              <div className="space-y-5 mb-7">
+            <div className="p-7 flex flex-col flex-1">
+              <div className="space-y-5 flex-1">
                 {/* Step 1 */}
                 <div>
                   <div className="flex items-center gap-2 mb-2">
@@ -3861,7 +3861,6 @@ export default function AIConsultantPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <Header />
       <ReturnVisitorBanner onApply={() => setDrawerOpen(true)} />
       <main className="pb-[76px] md:pb-0">
         <Hero />
