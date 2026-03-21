@@ -402,12 +402,12 @@ export default function DiamondLinksEmailPage() {
                   This Engagement
                 </h2>
                 <p className="text-gray-600 leading-relaxed mb-6">
-                  Email intelligence builds at this scope are priced as a one-time build fee plus a monthly retainer for scoring tuning, enrichment source updates, and pipeline expansion.
+                  One-time build fee to deploy the full pipeline, followed by a 3-month retainer for tuning, enrichment source updates, and expansion.
                 </p>
                 <div className="space-y-4">
                   {[
-                    { icon: Clock, label: "Build Fee", value: "$14,000", sub: "Full pipeline, discovery through go-live" },
-                    { icon: Shield, label: "Monthly Retainer", value: "$1,500/mo", sub: "Ongoing tuning and expansion" },
+                    { icon: Clock, label: "Build Fee", value: "$6,500", sub: "Full pipeline, discovery through go-live" },
+                    { icon: Shield, label: "Monthly Retainer", value: "$1,500/mo", sub: "3-month term — tuning, expansion, support" },
                   ].map(({ icon: Icon, label, value, sub }) => (
                     <div key={label} className="flex items-start gap-4 p-5 rounded-xl bg-white border border-gray-200">
                       <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center shrink-0">
@@ -424,16 +424,25 @@ export default function DiamondLinksEmailPage() {
                 <div className="mt-6 rounded-xl bg-green-50 border border-green-200 p-5">
                   <div className="flex items-center gap-2 mb-3">
                     <TrendingUp className="w-5 h-5 text-green-600" />
-                    <span className="text-xs font-bold uppercase tracking-widest text-green-700">Time Recovered</span>
+                    <span className="text-xs font-bold uppercase tracking-widest text-green-700">The Math</span>
                   </div>
-                  <p className="text-xs text-gray-500 mb-3 leading-relaxed">
-                    30 to 60 minutes of manual spam review eliminated per team member per day, redirected to actual outreach and client work.
+                  <p className="text-xs text-gray-500 mb-4 leading-relaxed">
+                    500 emails per day at 10 minutes each is <strong className="text-gray-700">83 hours of manual work eliminated every single day</strong>. At a conservative $25/hr, that&apos;s over $2,000 in labor recovered daily.
                   </p>
-                  <div className="flex items-baseline gap-1.5 mb-1">
-                    <span className="text-3xl font-extrabold text-green-700">5+ hrs</span>
-                    <span className="text-sm text-green-600 font-semibold">per week recovered per team member</span>
+                  <div className="grid grid-cols-2 gap-3 mb-4">
+                    {[
+                      { value: "83 hrs", label: "eliminated per day" },
+                      { value: "$2,000+", label: "labor saved per day" },
+                      { value: "$11,000", label: "total engagement cost" },
+                      { value: "~5 days", label: "to break even" },
+                    ].map(({ value, label }) => (
+                      <div key={label} className="bg-white border border-green-200 rounded-lg px-3 py-2.5 text-center">
+                        <div className="text-xl font-extrabold text-green-700 leading-tight">{value}</div>
+                        <div className="text-[11px] text-gray-500 mt-0.5">{label}</div>
+                      </div>
+                    ))}
                   </div>
-                  <div className="text-xs text-gray-500 mt-1">Consistent lead quality regardless of team availability or workload</div>
+                  <div className="text-xs text-gray-500">Based on $25/hr and 500 emails/day at 10 min each. Total cost: $6,500 build + $4,500 retainer.</div>
                 </div>
               </div>
               <div className="bg-gray-900 text-white rounded-3xl p-8">
