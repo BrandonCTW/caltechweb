@@ -272,8 +272,10 @@ export default function ExecutiveDashboardsPage() {
                     <XCircle className="w-5 h-5 text-red-500 shrink-0" />
                     <span className="text-base text-red-100 leading-snug">{before}</span>
                   </div>
-                  <div className="flex items-center justify-center w-10">
-                    <ArrowRight className="w-4 h-4 text-blue-400" />
+                  <div className="flex items-center justify-center">
+                    <div className="bg-blue-900/60 border border-blue-700/50 rounded-full w-9 h-9 flex items-center justify-center shrink-0">
+                      <ArrowRight className="w-4 h-4 text-blue-400" />
+                    </div>
                   </div>
                   <div className="flex items-center gap-3 bg-green-950/60 border border-green-900/50 border-l-4 border-l-green-700 rounded-xl px-5 py-4">
                     <CheckCircle className="w-5 h-5 text-green-400 shrink-0" />
