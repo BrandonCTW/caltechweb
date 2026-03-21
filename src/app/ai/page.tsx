@@ -152,7 +152,7 @@ export default function AIHubPage() {
                     ))}
                   </ul>
                   <div className="text-sm text-gray-500 mb-6">
-                    <span className="text-gray-900 font-semibold">Starting at:</span> $5,500/mo remote &nbsp;&middot;&nbsp; $8,000/mo local (Fresno / Central Valley)
+                    <span className="text-gray-900 font-semibold">Pricing:</span> AI Audit from $2,500 &nbsp;&middot;&nbsp; Retainer and Fractional CAO custom
                   </div>
                 </div>
                 <div className="px-8 pb-8">
