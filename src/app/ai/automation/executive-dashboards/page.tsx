@@ -225,9 +225,19 @@ export default function ExecutiveDashboardsPage() {
             </div>
 
             <div className="grid grid-cols-[1fr_auto_1fr] items-center mb-4 px-1">
-              <span className="text-xs font-extrabold uppercase tracking-widest text-red-500">Before</span>
+              <div>
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-red-950 border border-red-700/60 text-xs font-extrabold uppercase tracking-widest text-red-400">
+                  <XCircle className="w-3.5 h-3.5" />
+                  Before
+                </span>
+              </div>
               <span className="w-10" />
-              <span className="text-xs font-extrabold uppercase tracking-widest text-green-400">After</span>
+              <div>
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-green-950 border border-green-700/60 text-xs font-extrabold uppercase tracking-widest text-green-400">
+                  <CheckCircle className="w-3.5 h-3.5" />
+                  After
+                </span>
+              </div>
             </div>
 
             <div className="space-y-3">
