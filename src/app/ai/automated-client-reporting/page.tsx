@@ -343,15 +343,15 @@ export default function AutomatedClientReportingPage() {
                     <TrendingUp className="w-5 h-5 text-green-600" />
                     <span className="text-xs font-bold uppercase tracking-widest text-green-700">The Math</span>
                   </div>
-                  <p className="text-xs text-gray-500 mb-4 leading-relaxed">
-                    If one account manager spends 15 hours per week on reporting at $25/hr, that&apos;s <strong className="text-gray-700">$1,500/month in labor just to send reports</strong>. At $20,000 for the build, the dashboard pays for itself in just over a year and runs for free after that.
+                  <p className="text-sm text-gray-700 mb-4 leading-relaxed font-medium">
+                    Your team is spending <strong className="text-green-700">$1,500/month</strong> doing something a dashboard can do for free. Starting at $5K, this pays for itself in 4 months and puts <strong className="text-green-700">$18,000 a year</strong> back in your agency.
                   </p>
                   <div className="grid grid-cols-2 gap-3">
                     {[
-                      { value: "15 hrs/wk", label: "reporting labor eliminated" },
-                      { value: "$1,500/mo", label: "staff cost recovered" },
-                      { value: "$20K", label: "one-time build cost" },
-                      { value: "~13 mo", label: "to break even" },
+                      { value: "Starts at $5K", label: "one-time build" },
+                      { value: "~4 months", label: "to break even" },
+                      { value: "$18K/yr", label: "saved after year one" },
+                      { value: "15 hrs/wk", label: "back in your team's hands" },
                     ].map(({ value, label }) => (
                       <div key={label} className="bg-white border border-green-200 rounded-lg px-3 py-2.5 text-center">
                         <div className="text-xl font-extrabold text-green-700 leading-tight">{value}</div>
