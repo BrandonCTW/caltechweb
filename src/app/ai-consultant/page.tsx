@@ -3283,14 +3283,16 @@ function SectionNav() {
 // ─── Social Proof Toast ───────────────────────────────────────────────────────
 
 const SOCIAL_PROOF_ITEMS = [
-  { city: "Phoenix, AZ", industry: "Construction", action: "applied for a strategy session", timeAgo: "12 min ago" },
-  { city: "Denver, CO", industry: "Healthcare", action: "requested an AI Readiness Assessment", timeAgo: "34 min ago" },
-  { city: "Atlanta, GA", industry: "Professional Services", action: "submitted an application", timeAgo: "1 hour ago" },
-  { city: "Austin, TX", industry: "Retail", action: "applied for remote consulting", timeAgo: "2 hours ago" },
-  { city: "Chicago, IL", industry: "Manufacturing", action: "booked a fit call with Brandon", timeAgo: "3 hours ago" },
-  { city: "Nashville, TN", industry: "Legal", action: "applied for a strategy session", timeAgo: "5 hours ago" },
-  { city: "Charlotte, NC", industry: "Finance", action: "requested an AI Readiness Assessment", timeAgo: "yesterday" },
-  { city: "Portland, OR", industry: "Real Estate", action: "submitted an application", timeAgo: "yesterday" },
+  { city: "Phoenix, AZ", industry: "Construction", action: "started their AP automation project", timeAgo: "2 days ago" },
+  { city: "Denver, CO", industry: "Healthcare", action: "completed Phase 1 of their AI rollout", timeAgo: "4 days ago" },
+  { city: "Atlanta, GA", industry: "Professional Services", action: "submitted an application", timeAgo: "6 days ago" },
+  { city: "Austin, TX", industry: "Retail", action: "finished their workflow audit", timeAgo: "1 week ago" },
+  { city: "Chicago, IL", industry: "Manufacturing", action: "booked a fit call with Brandon", timeAgo: "9 days ago" },
+  { city: "Nashville, TN", industry: "Legal", action: "launched their document automation system", timeAgo: "2 weeks ago" },
+  { city: "Charlotte, NC", industry: "Finance", action: "completed their AI Readiness Assessment", timeAgo: "2 weeks ago" },
+  { city: "Portland, OR", industry: "Real Estate", action: "started their lead follow-up automation", timeAgo: "3 weeks ago" },
+  { city: "Dallas, TX", industry: "Logistics", action: "went live with Phase 2", timeAgo: "3 weeks ago" },
+  { city: "Tampa, FL", industry: "Healthcare", action: "submitted an application", timeAgo: "last month" },
 ];
 
 function SocialProofToast() {
