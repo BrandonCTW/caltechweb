@@ -2174,7 +2174,7 @@ function Pricing({ savings }: { savings?: { annualWaste: number; aiSavings: numb
           <div className="mb-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-gray-500">
             <span className="flex items-center gap-1.5">
               <DollarSign className="w-4 h-4 text-blue-500" />
-              <strong className="text-gray-700">~$275/business day</strong> (remote)
+              <strong className="text-gray-700">Start with an audit</strong> or jump into a full engagement
             </span>
             <span className="text-gray-300">|</span>
             <span>Less than half the cost of a junior AI hire</span>
@@ -2184,30 +2184,31 @@ function Pricing({ savings }: { savings?: { annualWaste: number; aiSavings: numb
         )}
 
         <div className="grid md:grid-cols-2 gap-6 mb-8">
-          {/* Local */}
+          {/* AI Audit */}
           <div className="bg-white rounded-3xl border border-gray-200 shadow-sm overflow-hidden">
             <div className="bg-gradient-to-br from-blue-950 to-blue-800 text-white p-7">
               <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/15 text-xs font-semibold mb-4">
-                <span className="w-1.5 h-1.5 rounded-full bg-orange-400" />
-                Fresno / Central Valley
+                <Target className="w-3 h-3" />
+                One-Time Engagement
               </div>
-              <h3 className="text-2xl font-extrabold mb-1">Local / On-Site</h3>
-              <p className="text-blue-200 text-sm mb-5">Bi-weekly or monthly on-site visits included</p>
+              <h3 className="text-2xl font-extrabold mb-1">AI Readiness Audit</h3>
+              <p className="text-blue-200 text-sm mb-5">A complete picture of where AI can move the needle in your business</p>
               <div className="flex items-end gap-1">
-                <span className="text-4xl font-extrabold">$8,000</span>
-                <span className="text-blue-300 mb-1.5">/month</span>
+                <span className="text-4xl font-extrabold">$2,500</span>
+                <span className="text-blue-300 mb-1.5"> flat</span>
               </div>
-              <p className="text-blue-300 text-xs mt-1">6&ndash;12 month contract · Starting rate</p>
+              <p className="text-blue-300 text-xs mt-1">One-time · Delivered within 10 business days</p>
             </div>
             <div className="p-7">
               <ul className="space-y-3 mb-7">
                 {[
-                  "On-site visits (bi-weekly or monthly)",
-                  "Workshop facilitation at your office",
-                  "Hands-on implementation alongside your team",
-                  "Weekly async collaboration",
-                  "Full strategy, governance & training",
-                  "Travel included within 60-mile radius of Madera, CA",
+                  "AI readiness assessment of your current tools and workflows",
+                  "Bottleneck and opportunity mapping across your operations",
+                  "Prioritized implementation roadmap with quick wins and long-term plays",
+                  "Tool and vendor recommendations with cost estimates",
+                  "Risk and governance checklist",
+                  "90-minute strategy debrief call",
+                  "Written report you own and can act on immediately",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-2.5 text-sm text-gray-700">
                     <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 shrink-0" />
@@ -2215,26 +2216,23 @@ function Pricing({ savings }: { savings?: { annualWaste: number; aiSavings: numb
                   </li>
                 ))}
               </ul>
-              <div className="text-xs text-gray-500 bg-gray-50 rounded-xl p-4 leading-relaxed mb-5">
-                <strong>Travel beyond 60 miles:</strong> Within CA: $0.67/mile billed at cost. Beyond CA: airfare + hotel + per diem at cost, always quoted in advance (e.g., SF visit &#8776; $400, NYC &#8776; $700).
-              </div>
               <a
                 href="#apply"
                 className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl bg-blue-600 text-white font-bold hover:bg-blue-700 transition-colors text-sm"
               >
-                Apply for On-Site Consulting
+                Get Your AI Audit
                 <ArrowRight className="w-4 h-4" />
               </a>
-              <p className="text-[11px] text-gray-400 text-center mt-2">$1,500 assessment credited to your first month</p>
+              <p className="text-[11px] text-gray-400 text-center mt-2">Fee credited toward a retainer engagement if you move forward</p>
             </div>
           </div>
 
-          {/* Remote */}
+          {/* Fractional CAO */}
           <div className="bg-white rounded-3xl border-2 border-blue-600 shadow-lg overflow-hidden relative">
             <div className="absolute top-4 right-4">
               <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-orange-500 text-white text-xs font-bold">
                 <Star className="w-3 h-3 fill-white" />
-                Most Popular
+                Enterprise
               </span>
             </div>
             <div className="bg-gradient-to-br from-gray-900 to-blue-950 text-white p-7">
@@ -2242,23 +2240,23 @@ function Pricing({ savings }: { savings?: { annualWaste: number; aiSavings: numb
                 <Globe className="w-3 h-3" />
                 US-Wide
               </div>
-              <h3 className="text-2xl font-extrabold mb-1">Remote / Off-Site</h3>
-              <p className="text-blue-200 text-sm mb-5">Full consulting engagement, 100% remote</p>
+              <h3 className="text-2xl font-extrabold mb-1">Fractional Chief AI Officer</h3>
+              <p className="text-blue-200 text-sm mb-5">Executive-level AI leadership without the full-time hire</p>
               <div className="flex items-end gap-1">
-                <span className="text-4xl font-extrabold">$5,500</span>
-                <span className="text-blue-300 mb-1.5">/month</span>
+                <span className="text-2xl font-extrabold">Custom Pricing</span>
               </div>
-              <p className="text-blue-300 text-xs mt-1">6&ndash;12 month contract · Starting rate</p>
+              <p className="text-blue-300 text-xs mt-1">Scoped to your organization&apos;s size and needs</p>
             </div>
             <div className="p-7">
               <ul className="space-y-3 mb-7">
                 {[
-                  "Weekly video strategy calls",
-                  "Async collaboration (Slack, email, Loom)",
-                  "Full remote implementation support",
-                  "AI tools built and deployed to your stack",
-                  "Full strategy, governance & training",
-                  "No travel costs",
+                  "Executive-level AI strategy and ongoing oversight",
+                  "Board and leadership reporting and communication",
+                  "AI vendor and tool evaluation",
+                  "Governance policy and data-handling framework design",
+                  "Team training and AI culture programs",
+                  "Roadmap ownership across departments",
+                  "Embedded strategic partner, not a one-time advisor",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-2.5 text-sm text-gray-700">
                     <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 shrink-0" />
@@ -2267,16 +2265,16 @@ function Pricing({ savings }: { savings?: { annualWaste: number; aiSavings: numb
                 ))}
               </ul>
               <div className="text-xs text-gray-500 bg-gray-50 rounded-xl p-4 leading-relaxed mb-5">
-                <strong>Note:</strong> Remote-only engagement. US clients only. No international clients at this time.
+                <strong>Who this is for:</strong> Mid-market and enterprise organizations ready to embed AI at the leadership level across teams and functions.
               </div>
               <a
                 href="#apply"
                 className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl bg-orange-500 text-white font-bold hover:bg-orange-600 transition-colors text-sm shadow-lg"
               >
-                Apply for Remote Consulting
+                Apply to Work Together
                 <ArrowRight className="w-4 h-4" />
               </a>
-              <p className="text-[11px] text-gray-400 text-center mt-2">$1,500 assessment credited to your first month</p>
+              <p className="text-[11px] text-gray-400 text-center mt-2">US clients only &middot; Limited availability</p>
             </div>
           </div>
         </div>
@@ -2290,8 +2288,8 @@ function Pricing({ savings }: { savings?: { annualWaste: number; aiSavings: numb
             <h4 className="font-bold text-white mb-1">Limited Availability Notice</h4>
             <p className="text-blue-200 text-sm leading-relaxed">
               Due to our limited capacity, we currently have availability for <strong className="text-white">1&ndash;2 new clients</strong>.
-              All engagements begin with a paid <strong className="text-white">AI Readiness Assessment ($1,500)</strong>, which is
-              applied toward your first month if you move forward.
+              Not sure where to start? The <strong className="text-white">AI Readiness Audit ($2,500)</strong> gives you a complete roadmap
+              and is credited toward your retainer if you move forward.
             </p>
           </div>
           <a
@@ -2722,8 +2720,8 @@ function FAQ() {
       a: "No. We handle the technical implementation and train your existing team to use the tools we build. Most of our clients are non-technical business owners who want AI results without hiring developers.",
     },
     {
-      q: "What\u2019s the difference between on-site and remote?",
-      a: "Both engagements include the full 6-step process: assessment, strategy, governance, implementation, training, and optimization. On-site ($8,000/mo) adds bi-weekly or monthly in-person visits at your office. Remote ($5,500/mo) is fully virtual with weekly video calls and async collaboration. Both deliver the same depth of work.",
+      q: "What\u2019s the difference between the AI Audit and the Fractional CAO?",
+      a: "The AI Readiness Audit is a one-time, flat-fee engagement that delivers a complete picture of where AI can help your business, a prioritized roadmap, tool recommendations, and a strategy debrief. It\u2019s a great starting point if you\u2019re not ready for a long-term commitment. The Fractional Chief AI Officer is an ongoing executive-level role embedded in your organization, providing board-level reporting, cross-department roadmap ownership, governance design, and strategic oversight at scale.",
     },
     {
       q: "How long before I see results?",
