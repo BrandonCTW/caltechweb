@@ -2183,7 +2183,7 @@ function Pricing({ savings }: { savings?: { annualWaste: number; aiSavings: numb
           </div>
         )}
 
-        <div className="grid md:grid-cols-2 gap-6 mb-8">
+        <div className="grid md:grid-cols-3 gap-6 mb-8">
           {/* AI Audit */}
           <div className="bg-white rounded-3xl border border-gray-200 shadow-sm overflow-hidden">
             <div className="bg-gradient-to-br from-blue-950 to-blue-800 text-white p-7">
@@ -2227,14 +2227,59 @@ function Pricing({ savings }: { savings?: { annualWaste: number; aiSavings: numb
             </div>
           </div>
 
-          {/* Fractional CAO */}
+          {/* Monthly Retainer */}
           <div className="bg-white rounded-3xl border-2 border-blue-600 shadow-lg overflow-hidden relative">
             <div className="absolute top-4 right-4">
               <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-orange-500 text-white text-xs font-bold">
                 <Star className="w-3 h-3 fill-white" />
-                Enterprise
+                Most Popular
               </span>
             </div>
+            <div className="bg-gradient-to-br from-gray-900 to-blue-950 text-white p-7">
+              <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/15 text-xs font-semibold mb-4">
+                <Globe className="w-3 h-3" />
+                US-Wide
+              </div>
+              <h3 className="text-2xl font-extrabold mb-1">AI Consulting Retainer</h3>
+              <p className="text-blue-200 text-sm mb-5">Hands-on implementation and strategy, month to month</p>
+              <div className="flex items-end gap-1">
+                <span className="text-4xl font-extrabold">$5,500</span>
+                <span className="text-blue-300 mb-1.5">/month</span>
+              </div>
+              <p className="text-blue-300 text-xs mt-1">6&ndash;12 month contract &middot; Starting rate</p>
+            </div>
+            <div className="p-7">
+              <ul className="space-y-3 mb-7">
+                {[
+                  "Weekly video strategy calls",
+                  "Async collaboration (Slack, email, Loom)",
+                  "AI tools built and deployed to your stack",
+                  "Full strategy, governance, and training",
+                  "Prioritized roadmap updated each month",
+                  "Implementation support from day one",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-2.5 text-sm text-gray-700">
+                    <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <div className="text-xs text-gray-500 bg-gray-50 rounded-xl p-4 leading-relaxed mb-5">
+                <strong>Note:</strong> Remote-only engagement. US clients only.
+              </div>
+              <a
+                href="#apply"
+                className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl bg-orange-500 text-white font-bold hover:bg-orange-600 transition-colors text-sm shadow-lg"
+              >
+                Apply for Consulting
+                <ArrowRight className="w-4 h-4" />
+              </a>
+              <p className="text-[11px] text-gray-400 text-center mt-2">Audit fee credited to your first month</p>
+            </div>
+          </div>
+
+          {/* Fractional CAO */}
+          <div className="bg-white rounded-3xl border border-gray-200 shadow-sm overflow-hidden relative">
             <div className="bg-gradient-to-br from-gray-900 to-blue-950 text-white p-7">
               <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/15 text-xs font-semibold mb-4">
                 <Globe className="w-3 h-3" />
@@ -2720,8 +2765,8 @@ function FAQ() {
       a: "No. We handle the technical implementation and train your existing team to use the tools we build. Most of our clients are non-technical business owners who want AI results without hiring developers.",
     },
     {
-      q: "What\u2019s the difference between the AI Audit and the Fractional CAO?",
-      a: "The AI Readiness Audit is a one-time, flat-fee engagement that delivers a complete picture of where AI can help your business, a prioritized roadmap, tool recommendations, and a strategy debrief. It\u2019s a great starting point if you\u2019re not ready for a long-term commitment. The Fractional Chief AI Officer is an ongoing executive-level role embedded in your organization, providing board-level reporting, cross-department roadmap ownership, governance design, and strategic oversight at scale.",
+      q: "How do the three engagement options differ?",
+      a: "The AI Readiness Audit ($2,500 flat) is a one-time deep dive that delivers a prioritized roadmap, tool recommendations, and a strategy debrief. It\u2019s the best starting point if you\u2019re not ready for a long-term commitment. The AI Consulting Retainer ($5,500/mo) is a hands-on monthly engagement where we build and deploy AI tools directly into your stack with weekly calls and ongoing implementation support. The Fractional Chief AI Officer is an executive-level role embedded in your leadership team, handling board reporting, cross-department roadmap ownership, and governance at scale. Custom pricing based on scope.",
     },
     {
       q: "How long before I see results?",
