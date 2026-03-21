@@ -1,4 +1,4 @@
-import { ArrowRight, Bot, Brain, CheckCircle, Phone, Zap, BarChart3, Clock } from "lucide-react";
+import { ArrowRight, Bot, Brain, CheckCircle, Calendar, Zap, BarChart3, Clock } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
@@ -32,11 +32,13 @@ export default function AIHubPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a
-                href="tel:5592823075"
+                href="https://calendly.com/brandonctw/30min"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-orange-500 text-white font-bold text-lg hover:bg-orange-600 transition-all shadow-lg hover:-translate-y-0.5"
               >
-                <Phone className="w-5 h-5" />
-                Schedule a Call
+                <Calendar className="w-5 h-5" />
+                Book a 30-Min Call
               </a>
               <Link
                 href="/ai/automation/"
@@ -220,11 +222,13 @@ export default function AIHubPage() {
               A 30-minute call is enough to point you in the right direction. No sales pitch.
             </p>
             <a
-              href="tel:5592823075"
+              href="https://calendly.com/brandonctw/30min"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2.5 px-10 py-4 rounded-full bg-orange-500 text-white font-bold text-lg hover:bg-orange-600 transition-all shadow-lg hover:-translate-y-0.5"
             >
-              <Phone className="w-5 h-5" />
-              (559) 282-3075
+              <Calendar className="w-5 h-5" />
+              Book a 30-Min Call
             </a>
           </div>
         </section>

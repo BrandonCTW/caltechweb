@@ -1,7 +1,7 @@
 import {
   ArrowRight,
   CheckCircle,
-  Phone,
+  Calendar,
   Zap,
   FileText,
   Mail,
@@ -119,11 +119,13 @@ export default function AutomationPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a
-                href="tel:5592823075"
+                href="https://calendly.com/brandonctw/30min"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-orange-500 text-white font-bold text-lg hover:bg-orange-600 transition-all shadow-lg hover:-translate-y-0.5"
               >
-                <Phone className="w-5 h-5" />
-                Schedule a Call
+                <Calendar className="w-5 h-5" />
+                Book a 30-Min Call
               </a>
               <Link
                 href="/ai/automation/ap-automation/"
@@ -325,11 +327,13 @@ export default function AutomationPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="tel:5592823075"
+                href="https://calendly.com/brandonctw/30min"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2.5 px-10 py-4 rounded-full bg-orange-500 text-white font-bold text-lg hover:bg-orange-600 transition-all shadow-lg hover:-translate-y-0.5"
               >
-                <Phone className="w-5 h-5" />
-                (559) 282-3075
+                <Calendar className="w-5 h-5" />
+                Book a 30-Min Call
               </a>
               <Link
                 href="/contact-us/"

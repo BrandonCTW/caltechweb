@@ -2,6 +2,7 @@ import {
   ArrowRight,
   CheckCircle,
   Phone,
+  Calendar,
   ChevronRight,
   FileText,
   Mail,
@@ -143,13 +144,15 @@ export default function APAutomationPage() {
               ))}
             </div>
 
-            <Link
-              href="/contact-us/"
+            <a
+              href="https://calendly.com/brandonctw/30min"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-7 py-4 rounded-full bg-orange-500 text-white font-bold text-lg hover:bg-orange-600 transition-all shadow-lg hover:-translate-y-0.5"
             >
-              Build Something Similar
-              <ArrowRight className="w-4 h-4" />
-            </Link>
+              <Calendar className="w-5 h-5" />
+              Book a 30-Min Call
+            </a>
           </div>
         </section>
 
@@ -364,11 +367,13 @@ export default function APAutomationPage() {
                   ))}
                 </ul>
                 <a
-                  href="tel:5592823075"
+                  href="https://calendly.com/brandonctw/30min"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 w-full px-6 py-3.5 rounded-full bg-orange-500 text-white font-bold hover:bg-orange-600 transition-colors shadow-md"
                 >
-                  <Phone className="w-4 h-4" />
-                  Talk to Us
+                  <Calendar className="w-4 h-4" />
+                  Book a 30-Min Call
                 </a>
               </div>
             </div>
@@ -386,11 +391,13 @@ export default function APAutomationPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="tel:5592823075"
+                href="https://calendly.com/brandonctw/30min"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2.5 px-10 py-4 rounded-full bg-orange-500 text-white font-bold text-lg hover:bg-orange-600 transition-all shadow-lg hover:-translate-y-0.5"
               >
-                <Phone className="w-5 h-5" />
-                (559) 282-3075
+                <Calendar className="w-5 h-5" />
+                Book a 30-Min Call
               </a>
               <Link
                 href="/ai/automation/"
