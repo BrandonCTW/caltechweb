@@ -9,6 +9,7 @@ const navLinks = [
   { label: "Portfolio", href: "/web-design-portfolio/" },
   { label: "Pricing", href: "/web-design-pricing/" },
   { label: "Case Studies", href: "/case-studies/" },
+  { label: "AI & Automation", href: "/ai-consultant/" },
   { label: "About", href: "/brandon-hopkins/" },
   { label: "Contact", href: "/contact-us/" },
 ];
@@ -47,7 +48,7 @@ export default function Header() {
               />
             </Link>
 
-            <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-gray-600">
+            <nav className="hidden md:flex items-center gap-4 text-sm font-medium text-gray-600">
               {navLinks.map(({ label, href }) => (
                 <NavLink key={label} href={href} label={label} />
               ))}
