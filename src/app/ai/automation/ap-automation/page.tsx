@@ -414,9 +414,6 @@ export default function APAutomationPage() {
                     </div>
                   </div>
                 </div>
-                <p className="text-xs text-gray-400 mt-4 leading-relaxed">
-                  AWS infrastructure costs are included through the retainer period. Client receives all admin credentials and full system ownership at handoff.
-                </p>
               </div>
               <div className="bg-gray-900 text-white rounded-3xl p-8">
                 <h3 className="font-extrabold text-xl mb-2">Is AP Automation Right for You?</h3>
