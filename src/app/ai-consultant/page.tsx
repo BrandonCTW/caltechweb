@@ -2186,18 +2186,22 @@ function Pricing({ savings }: { savings?: { annualWaste: number; aiSavings: numb
         <div className="grid md:grid-cols-3 gap-6 mb-8">
           {/* AI Audit */}
           <div className="bg-white rounded-3xl border border-gray-200 shadow-sm overflow-hidden flex flex-col h-full">
-            <div className="bg-gradient-to-br from-blue-950 to-blue-800 text-white p-7">
-              <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/15 text-xs font-semibold mb-4">
-                <Target className="w-3 h-3" />
-                One-Time Engagement
+            <div className="bg-gradient-to-br from-blue-950 to-blue-800 text-white p-7 flex flex-col justify-between md:min-h-[340px] xl:min-h-[295px]">
+              <div>
+                <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/15 text-xs font-semibold mb-4">
+                  <Target className="w-3 h-3" />
+                  One-Time Engagement
+                </div>
+                <h3 className="text-2xl font-extrabold mb-1">AI Readiness Audit</h3>
+                <p className="text-blue-200 text-sm">A complete picture of where AI can move the needle in your business</p>
               </div>
-              <h3 className="text-2xl font-extrabold mb-1">AI Readiness Audit</h3>
-              <p className="text-blue-200 text-sm mb-5">A complete picture of where AI can move the needle in your business</p>
-              <div className="flex items-end gap-1">
-                <span className="text-4xl font-extrabold">$2,500</span>
-                <span className="text-blue-300 mb-1.5"> flat</span>
+              <div className="mt-5">
+                <div className="flex items-end gap-1">
+                  <span className="text-4xl font-extrabold">$2,500</span>
+                  <span className="text-blue-300 mb-1.5"> flat</span>
+                </div>
+                <p className="text-blue-300 text-xs mt-1">One-time · Delivered within 10 business days</p>
               </div>
-              <p className="text-blue-300 text-xs mt-1">One-time · Delivered within 10 business days</p>
             </div>
             <div className="p-7 flex flex-col flex-1">
               <div className="space-y-5">
@@ -2263,17 +2267,21 @@ function Pricing({ savings }: { savings?: { annualWaste: number; aiSavings: numb
                 Most Popular
               </span>
             </div>
-            <div className="bg-gradient-to-br from-gray-900 to-blue-950 text-white p-7">
-              <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/15 text-xs font-semibold mb-4">
-                <Globe className="w-3 h-3" />
-                US-Wide
+            <div className="bg-gradient-to-br from-gray-900 to-blue-950 text-white p-7 flex flex-col justify-between md:min-h-[340px] xl:min-h-[295px]">
+              <div>
+                <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/15 text-xs font-semibold mb-4">
+                  <Globe className="w-3 h-3" />
+                  US-Wide
+                </div>
+                <h3 className="text-2xl font-extrabold mb-1">AI Consulting Retainer</h3>
+                <p className="text-blue-200 text-sm">Hands-on implementation and strategy, month to month</p>
               </div>
-              <h3 className="text-2xl font-extrabold mb-1">AI Consulting Retainer</h3>
-              <p className="text-blue-200 text-sm mb-5">Hands-on implementation and strategy, month to month</p>
-              <div className="flex items-end gap-1">
-                <span className="text-2xl font-extrabold">Custom Pricing</span>
+              <div className="mt-5">
+                <div className="flex items-end gap-1">
+                  <span className="text-2xl font-extrabold">Custom Pricing</span>
+                </div>
+                <p className="text-blue-300 text-xs mt-1">Scoped to your goals and timeline</p>
               </div>
-              <p className="text-blue-300 text-xs mt-1">Scoped to your goals and timeline</p>
             </div>
             <div className="p-7 flex flex-col flex-1">
               <div className="space-y-5">
@@ -2331,17 +2339,21 @@ function Pricing({ savings }: { savings?: { annualWaste: number; aiSavings: numb
 
           {/* Fractional CAO */}
           <div className="bg-white rounded-3xl border border-gray-200 shadow-sm overflow-hidden relative flex flex-col h-full">
-            <div className="bg-gradient-to-br from-gray-900 to-blue-950 text-white p-7">
-              <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/15 text-xs font-semibold mb-4">
-                <Globe className="w-3 h-3" />
-                US-Wide
+            <div className="bg-gradient-to-br from-gray-900 to-blue-950 text-white p-7 flex flex-col justify-between md:min-h-[340px] xl:min-h-[295px]">
+              <div>
+                <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/15 text-xs font-semibold mb-4">
+                  <Globe className="w-3 h-3" />
+                  US-Wide
+                </div>
+                <h3 className="text-2xl font-extrabold mb-1">Fractional Chief AI Officer</h3>
+                <p className="text-blue-200 text-sm">We come in, build the team, and hand off the keys</p>
               </div>
-              <h3 className="text-2xl font-extrabold mb-1">Fractional Chief AI Officer</h3>
-              <p className="text-blue-200 text-sm mb-5">We come in, build the team, and hand off the keys</p>
-              <div className="flex items-end gap-1">
-                <span className="text-2xl font-extrabold">Custom Pricing</span>
+              <div className="mt-5">
+                <div className="flex items-end gap-1">
+                  <span className="text-2xl font-extrabold">Custom Pricing</span>
+                </div>
+                <p className="text-blue-300 text-xs mt-1">Scoped to your org&apos;s size and needs</p>
               </div>
-              <p className="text-blue-300 text-xs mt-1">Scoped to your organization&apos;s size and needs</p>
             </div>
             <div className="p-7 flex flex-col flex-1">
               <div className="space-y-5">
