@@ -11,6 +11,7 @@ import {
   ChevronRight,
   Clock,
   Shield,
+  LayoutDashboard,
 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -38,8 +39,16 @@ const useCases = [
     title: "Email Triage & Response",
     desc: "Classify, route, and draft responses for high-volume inboxes. Handles 70%+ of routine messages automatically and escalates exceptions with full context to the right person.",
     tags: ["Classification", "Routing", "Draft Generation"],
-    link: null,
-    hasCase: false,
+    link: "/ai/automation/diamond-links-email/",
+    hasCase: true,
+  },
+  {
+    icon: LayoutDashboard,
+    title: "Executive Dashboards",
+    desc: "Custom-built dashboards that pull from any data source, look exactly the way you want, and cost nothing after the build. No Tableau. No Salesforce. No per-seat licensing.",
+    tags: ["No Licensing Fees", "Any Data Source", "Fully Custom"],
+    link: "/ai/automation/executive-dashboards/",
+    hasCase: true,
   },
   {
     icon: BarChart3,
