@@ -2280,9 +2280,9 @@ function Pricing({ savings }: { savings?: { annualWaste: number; aiSavings: numb
                 <div>
                   <div className="flex items-center gap-2 mb-2">
                     <span className="w-5 h-5 rounded-full bg-blue-100 text-blue-700 text-xs font-bold flex items-center justify-center shrink-0">1</span>
-                    <span className="text-sm font-bold text-gray-900">Month 1: Foundation</span>
+                    <span className="text-sm font-bold text-gray-900">Discovery Call</span>
                   </div>
-                  <p className="text-sm text-gray-500 pl-7">We assess your stack, define your AI roadmap, and identify the highest-impact use cases to attack first.</p>
+                  <p className="text-sm text-gray-500 pl-7">We learn your business, goals, and stack, then define your AI roadmap and identify the highest-impact use cases to tackle first.</p>
                 </div>
                 <div className="border-t border-gray-100" />
                 {/* Step 2 */}
