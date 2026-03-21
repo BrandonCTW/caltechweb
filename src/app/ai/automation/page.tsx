@@ -36,8 +36,8 @@ const useCases = [
   },
   {
     icon: Mail,
-    title: "Email Triage & Response",
-    desc: "Classify, route, and enrich high-volume inboxes. Deduplicates against contact history, pulls domain metrics and contact data, scores each lead, and delivers a ranked digest daily.",
+    title: "Email Triage & Enrichment",
+    desc: "Turn a high-volume inbox into a ranked, enriched lead list. Sort, deduplicate against contact history, pull third-party data on every sender, score, and deliver a daily digest. Zero manual review.",
     tags: ["Classification", "Routing", "Draft Generation"],
     link: "/ai/automation/diamond-links-email/",
     hasCase: true,

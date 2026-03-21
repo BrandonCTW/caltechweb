@@ -30,7 +30,7 @@ const whatWeBuilt = [
   {
     icon: Filter,
     title: "Email Parser & Classifier",
-    desc: "Extracts sender name, domain, subject line, and message body. Classifies each email by type: link exchange, guest post offer, partnership pitch, or noise.",
+    desc: "Extracts sender name, domain, subject line, and message body. Classifies each email by type and intent so only relevant records move through the enrichment pipeline.",
   },
   {
     icon: Copy,
@@ -132,23 +132,23 @@ export default function DiamondLinksEmailPage() {
                 Case Study
               </span>
               <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-xs font-bold uppercase tracking-widest text-gray-400">
-                SEO &amp; Link Building
+                Digital Agency
               </span>
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-6 max-w-4xl">
-              Spam Folder to Qualified Leads.
-              <span className="block text-blue-400 mt-1">Automatically.</span>
+              500 Emails a Day.
+              <span className="block text-blue-400 mt-1">Zero Manual Review.</span>
             </h1>
             <p className="text-lg sm:text-xl text-blue-100/80 leading-relaxed max-w-2xl mb-8">
-              A Texas-based SEO and link building agency was spending hours each week manually reviewing spam for inbound partnership and link exchange opportunities. We built a pipeline that monitors their inbox, deduplicates against their contact history, enriches every domain with Ahrefs and contact data, scores each lead, and delivers a ranked list to their team every morning.
+              A digital agency receiving 500 inbound emails per day was sorting, researching, and triaging them by hand. We built a pipeline that reads the inbox, deduplicates against their contact history, enriches every sender with third-party data, scores each lead, and delivers a ranked list every morning. The team stopped touching the inbox.
             </p>
 
             {/* Stats bar */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-10">
               {[
-                { metric: "200+", label: "emails processed per week" },
+                { metric: "500/day", label: "emails processed automatically" },
                 { metric: "6 wks", label: "discovery to go-live" },
-                { metric: "0", label: "hours of manual spam review" },
+                { metric: "0", label: "manual inbox reviews" },
                 { metric: "100%", label: "client-owned infrastructure" },
               ].map(({ metric, label }) => (
                 <div key={label} className="bg-white/5 border border-white/10 rounded-2xl px-4 py-4 text-center">
@@ -187,78 +187,73 @@ export default function DiamondLinksEmailPage() {
         {/* Before / After */}
         <section className="py-16 sm:py-20 bg-white">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid md:grid-cols-2 gap-12 items-start relative">
-              <div className="hidden md:flex absolute left-1/2 top-4 bottom-4 -translate-x-1/2 flex-col items-center justify-center pointer-events-none z-10">
-                <div className="flex-1 w-px bg-gradient-to-b from-transparent via-gray-200 to-gray-200" />
-                <div className="w-10 h-10 rounded-full bg-white border-2 border-gray-200 shadow-md flex items-center justify-center my-3 shrink-0">
-                  <ArrowRight className="w-4 h-4 text-blue-500" />
-                </div>
-                <div className="flex-1 w-px bg-gradient-to-b from-gray-200 via-gray-200 to-transparent" />
+            <div className="text-center mb-10">
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-3">
+                Every problem. Directly solved.
+              </h2>
+              <p className="text-gray-500 max-w-xl mx-auto">
+                The team owned nothing, controlled nothing, and touched everything. Here&apos;s what changed.
+              </p>
+            </div>
+
+            {/* Column headers */}
+            <div className="grid grid-cols-[1fr_40px_1fr] gap-0 mb-3 px-1">
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-bold uppercase tracking-widest text-red-500">Before</span>
               </div>
-              <div>
-                <span className="inline-block text-xs font-bold uppercase tracking-widest text-red-500 mb-4">
-                  Before
-                </span>
-                <h2 className="text-3xl font-extrabold text-gray-900 mb-4">
-                  The Problem
-                </h2>
-                <p className="text-gray-600 leading-relaxed mb-6">
-                  The agency receives hundreds of inbound emails each week from site owners, agencies, and brokers pitching link exchanges and partnerships. Most of these land in spam. The team was manually opening their spam folder, scanning subject lines, copy-pasting domains into Ahrefs, and cross-checking against their own database to see if they had already engaged with a site.
-                </p>
-                <p className="text-gray-600 leading-relaxed mb-6">
-                  The work was repetitive, slow, and inconsistent. Valuable opportunities were missed when someone was busy. Low-quality domains consumed time that could have gone to actual outreach.
-                </p>
-                <div className="bg-red-50 border border-red-100 rounded-2xl p-5">
-                  <div className="text-sm font-bold text-red-800 mb-3">Current State at Intake</div>
-                  <ul className="space-y-2">
-                    {[
-                      "Spam folder reviewed manually, 30 to 60 minutes per day",
-                      "Domains hand-checked in Ahrefs one at a time",
-                      "No deduplication against existing contact history",
-                      "No consistent scoring or prioritization method",
-                      "Opportunities missed when team members were out",
-                      "Low-value emails consuming the same time as high-value ones",
-                    ].map((item) => (
-                      <li key={item} className="flex items-start gap-2 text-sm text-red-800">
-                        <XCircle className="w-4 h-4 text-red-400 shrink-0 mt-0.5" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+              <div />
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-bold uppercase tracking-widest text-green-600">After</span>
               </div>
-              <div>
-                <span className="inline-block text-xs font-bold uppercase tracking-widest text-green-600 mb-4">
-                  After
-                </span>
-                <h2 className="text-3xl font-extrabold text-gray-900 mb-4">
-                  The Result
-                </h2>
-                <p className="text-gray-600 leading-relaxed mb-6">
-                  The system runs continuously in the background. New spam emails are parsed, deduped against the contact database, enriched with Ahrefs domain metrics and contact data, and scored automatically. Every morning, the team receives a ranked digest of the day&apos;s qualified opportunities.
-                </p>
-                <p className="text-gray-600 leading-relaxed mb-6">
-                  The team no longer opens their spam folder. They review a short, prioritized list and respond directly. The pipeline runs on infrastructure Diamond Links owns.
-                </p>
-                <div className="bg-green-50 border border-green-100 rounded-2xl p-5">
-                  <div className="text-sm font-bold text-green-800 mb-3">After Deployment</div>
-                  <ul className="space-y-2">
-                    {[
-                      "Spam folder monitored automatically via Gmail API",
-                      "Duplicate domains filtered before enrichment runs",
-                      "Every domain enriched with DR, traffic, and contact data",
-                      "Leads scored and ranked without manual input",
-                      "Daily digest delivered to Slack and email each morning",
-                      "Full contact history and lead log searchable at any time",
-                    ].map((item) => (
-                      <li key={item} className="flex items-start gap-2 text-sm text-green-800">
-                        <CheckCircle className="w-4 h-4 text-green-500 shrink-0 mt-0.5" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
+            </div>
+
+            <div className="space-y-3">
+              {[
+                {
+                  before: "500 emails a day reviewed by hand",
+                  after: "Inbox monitored and processed automatically",
+                },
+                {
+                  before: "Every sender looked up manually in third-party tools",
+                  after: "Every sender enriched with domain metrics and contact data automatically",
+                },
+                {
+                  before: "Same contacts reached out repeatedly, no one noticed",
+                  after: "Deduplication removes any domain already in the contact database",
+                },
+                {
+                  before: "No scoring system — high-value and low-value emails took the same time",
+                  after: "Every lead scored and ranked before the team sees it",
+                },
+                {
+                  before: "Opportunities missed when someone was out or busy",
+                  after: "Pipeline runs on a schedule regardless of team availability",
+                },
+                {
+                  before: "No searchable record of who was contacted or when",
+                  after: "Full contact history and lead log, searchable at any time",
+                },
+              ].map(({ before, after }) => (
+                <div key={before} className="grid grid-cols-[1fr_40px_1fr] items-center gap-0">
+                  <div className="bg-red-50 border border-red-100 rounded-xl px-4 py-3 flex items-start gap-2.5">
+                    <XCircle className="w-4 h-4 text-red-400 shrink-0 mt-0.5" />
+                    <span className="text-sm text-red-800 leading-snug">{before}</span>
+                  </div>
+                  <div className="flex items-center justify-center">
+                    <ArrowRight className="w-4 h-4 text-gray-300" />
+                  </div>
+                  <div className="bg-green-50 border border-green-100 rounded-xl px-4 py-3 flex items-start gap-2.5">
+                    <CheckCircle className="w-4 h-4 text-green-500 shrink-0 mt-0.5" />
+                    <span className="text-sm text-green-800 leading-snug">{after}</span>
+                  </div>
                 </div>
-              </div>
+              ))}
+            </div>
+
+            <div className="mt-8 bg-blue-50 border border-blue-100 rounded-2xl px-6 py-5">
+              <p className="text-sm text-blue-900 font-medium leading-relaxed">
+                <span className="font-extrabold">The system runs on infrastructure the client owns.</span> All credentials, API keys, and data stay in their environment. No third-party automation platform in the middle. If we part ways, nothing stops working.
+              </p>
             </div>
           </div>
         </section>
