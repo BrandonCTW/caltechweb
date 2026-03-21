@@ -5,7 +5,7 @@ import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import {
-  Phone,
+  Calendar,
   ArrowRight,
   CheckCircle,
   Clock,
@@ -593,11 +593,11 @@ function MultiStepForm() {
             Can&apos;t wait? Talk to Brandon right now.
           </p>
           <a
-            href="tel:5592823075"
+            href="https://calendly.com/brandonctw/30min" target="_blank" rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-orange-500 text-white font-bold hover:bg-orange-600 transition-all shadow-md text-sm"
           >
-            <Phone className="w-4 h-4" />
-            Call (559) 282-3075
+            <Calendar className="w-4 h-4" />
+            Schedule a Call
           </a>
         </div>
       </div>
@@ -1124,14 +1124,14 @@ function Hero() {
 
         <div className="flex flex-col sm:flex-row gap-4">
           <a
-            href="tel:5592823075"
+            href="https://calendly.com/brandonctw/30min" target="_blank" rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-orange-500 text-white font-bold text-lg hover:bg-orange-600 transition-all shadow-lg hover:shadow-orange-500/30 hover:-translate-y-0.5"
           >
-            <Phone className="w-5 h-5" />
+            <Calendar className="w-5 h-5" />
             Schedule a Strategy Call
           </a>
           <a
-            href="#apply"
+            href="https://calendly.com/brandonctw/30min" target="_blank" rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full border-2 border-white/20 text-white font-semibold hover:bg-white/10 transition-colors"
           >
             See If You Qualify
@@ -1277,7 +1277,7 @@ function PainSection() {
             the first time, or waste 18 months and thousands of dollars figuring it out alone.
           </p>
           <a
-            href="#apply"
+            href="https://calendly.com/brandonctw/30min" target="_blank" rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-blue-600 text-white font-semibold hover:bg-blue-700 transition-colors text-sm"
           >
             Let&apos;s Build Your AI Strategy
@@ -1460,7 +1460,7 @@ function SavingsCalculator({ onResultsChange }: { onResultsChange?: (data: { ann
                     </div>
                     <div className="shrink-0 text-center">
                       <a
-                        href="#apply"
+                        href="https://calendly.com/brandonctw/30min" target="_blank" rel="noopener noreferrer"
                         className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-orange-500 text-white font-bold hover:bg-orange-600 transition-all shadow-lg text-sm whitespace-nowrap"
                       >
                         Claim These Savings
@@ -1570,11 +1570,11 @@ function AboutBrandon() {
 
             <div className="mt-8">
               <a
-                href="tel:5592823075"
+                href="https://calendly.com/brandonctw/30min" target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-orange-500 text-white font-bold hover:bg-orange-600 transition-all shadow-md"
               >
-                <Phone className="w-4 h-4" />
-                Talk to Brandon Directly
+                <Calendar className="w-4 h-4" />
+                Schedule a Call
               </a>
             </div>
           </div>
@@ -1692,18 +1692,18 @@ function ClientTestimonials() {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
-              href="#apply"
+              href="https://calendly.com/brandonctw/30min" target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-blue-600 text-white font-bold hover:bg-blue-700 transition-all shadow-md"
             >
               Work With Brandon
               <ArrowRight className="w-4 h-4" />
             </a>
             <a
-              href="tel:5592823075"
+              href="https://calendly.com/brandonctw/30min" target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-full border-2 border-gray-200 text-gray-700 font-semibold hover:bg-gray-50 transition-colors"
             >
-              <Phone className="w-4 h-4" />
-              Call (559) 282-3075
+              <Calendar className="w-4 h-4" />
+              Schedule a Call
             </a>
           </div>
           <p className="text-xs text-gray-400 mt-3">24-hour personal response to every application</p>
@@ -1855,18 +1855,18 @@ function WhoThisIsFor() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="#apply"
+              href="https://calendly.com/brandonctw/30min" target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-orange-500 text-white font-bold hover:bg-orange-600 transition-all shadow-md text-sm"
             >
               Yes, This Is for Me
               <ArrowRight className="w-4 h-4" />
             </a>
             <a
-              href="tel:5592823075"
+              href="https://calendly.com/brandonctw/30min" target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full border-2 border-gray-300 text-gray-700 font-semibold hover:bg-gray-50 transition-colors text-sm"
             >
-              <Phone className="w-4 h-4" />
-              Call to Discuss Fit
+              <Calendar className="w-4 h-4" />
+              Schedule a Call
             </a>
           </div>
           <p className="text-xs text-gray-400 mt-3">2-minute application · No obligation · No credit card</p>
@@ -1959,18 +1959,18 @@ function Process() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="#apply"
+              href="https://calendly.com/brandonctw/30min" target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-orange-500 text-white font-bold hover:bg-orange-600 transition-all shadow-md text-sm"
             >
               Start at Step 1
               <ArrowRight className="w-4 h-4" />
             </a>
             <a
-              href="tel:5592823075"
+              href="https://calendly.com/brandonctw/30min" target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full border-2 border-gray-300 text-gray-700 font-semibold hover:bg-gray-50 transition-colors text-sm"
             >
-              <Phone className="w-4 h-4" />
-              Call (559) 282-3075
+              <Calendar className="w-4 h-4" />
+              Schedule a Call
             </a>
           </div>
           <p className="text-xs text-gray-400 mt-3">Every engagement begins with your AI Readiness Assessment</p>
@@ -2099,18 +2099,18 @@ function CompareAlternatives() {
             </div>
             <div className="shrink-0 flex flex-col gap-3 sm:mt-6">
               <a
-                href="#apply"
+                href="https://calendly.com/brandonctw/30min" target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-orange-500 text-white font-bold hover:bg-orange-600 transition-all shadow-lg text-sm whitespace-nowrap"
               >
                 Choose the Better Path
                 <ArrowRight className="w-4 h-4" />
               </a>
               <a
-                href="tel:5592823075"
+                href="https://calendly.com/brandonctw/30min" target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full border border-white/20 text-white font-semibold hover:bg-white/10 transition-colors text-sm whitespace-nowrap"
               >
-                <Phone className="w-4 h-4" />
-                Call Brandon
+                <Calendar className="w-4 h-4" />
+                Schedule a Call
               </a>
               <p className="text-[11px] text-blue-300 text-center">No long-term risk — start with a $1,500 assessment</p>
             </div>
@@ -2162,7 +2162,7 @@ function Pricing({ savings }: { savings?: { annualWaste: number; aiSavings: numb
                 </p>
               </div>
               <a
-                href="#apply"
+                href="https://calendly.com/brandonctw/30min" target="_blank" rel="noopener noreferrer"
                 className="shrink-0 inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-green-600 text-white font-bold hover:bg-green-700 transition-colors text-sm whitespace-nowrap"
               >
                 Claim Your ROI
@@ -2185,7 +2185,7 @@ function Pricing({ savings }: { savings?: { annualWaste: number; aiSavings: numb
 
         <div className="grid md:grid-cols-3 gap-6 mb-8">
           {/* AI Audit */}
-          <div className="bg-white rounded-3xl border border-gray-200 shadow-sm overflow-hidden">
+          <div className="bg-white rounded-3xl border border-gray-200 shadow-sm overflow-hidden flex flex-col">
             <div className="bg-gradient-to-br from-blue-950 to-blue-800 text-white p-7">
               <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/15 text-xs font-semibold mb-4">
                 <Target className="w-3 h-3" />
@@ -2243,10 +2243,10 @@ function Pricing({ savings }: { savings?: { annualWaste: number; aiSavings: numb
                 </div>
               </div>
               <a
-                href="#apply"
+                href="https://calendly.com/brandonctw/30min" target="_blank" rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl bg-blue-600 text-white font-bold hover:bg-blue-700 transition-colors text-sm"
               >
-                Get Your AI Audit
+                Book Your Audit
                 <ArrowRight className="w-4 h-4" />
               </a>
               <p className="text-[11px] text-gray-400 text-center mt-2">Fee credited toward a retainer engagement if you move forward</p>
@@ -2315,10 +2315,10 @@ function Pricing({ savings }: { savings?: { annualWaste: number; aiSavings: numb
                 </div>
               </div>
               <a
-                href="#apply"
+                href="https://calendly.com/brandonctw/30min" target="_blank" rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl bg-orange-500 text-white font-bold hover:bg-orange-600 transition-colors text-sm shadow-lg"
               >
-                Apply for Consulting
+                Schedule a Call
                 <ArrowRight className="w-4 h-4" />
               </a>
               <p className="text-[11px] text-gray-400 text-center mt-2">Audit fee credited to your first month &middot; US clients only</p>
@@ -2381,10 +2381,10 @@ function Pricing({ savings }: { savings?: { annualWaste: number; aiSavings: numb
                 </div>
               </div>
               <a
-                href="#apply"
+                href="https://calendly.com/brandonctw/30min" target="_blank" rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl bg-orange-500 text-white font-bold hover:bg-orange-600 transition-colors text-sm shadow-lg"
               >
-                Apply to Work Together
+                Schedule a Call
                 <ArrowRight className="w-4 h-4" />
               </a>
               <p className="text-[11px] text-gray-400 text-center mt-2">US clients only &middot; Limited availability</p>
@@ -2406,10 +2406,10 @@ function Pricing({ savings }: { savings?: { annualWaste: number; aiSavings: numb
             </p>
           </div>
           <a
-            href="#apply"
+            href="https://calendly.com/brandonctw/30min" target="_blank" rel="noopener noreferrer"
             className="shrink-0 inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-orange-500 text-white font-bold hover:bg-orange-600 transition-colors text-sm whitespace-nowrap"
           >
-            Apply Now
+            Schedule a Call
             <ArrowRight className="w-4 h-4" />
           </a>
         </div>
@@ -2567,18 +2567,18 @@ function Results() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="#apply"
+              href="https://calendly.com/brandonctw/30min" target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-orange-500 text-white font-bold hover:bg-orange-600 transition-all shadow-md text-sm"
             >
               Get Results Like These
               <ArrowRight className="w-4 h-4" />
             </a>
             <a
-              href="tel:5592823075"
+              href="https://calendly.com/brandonctw/30min" target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full border-2 border-gray-300 text-gray-700 font-semibold hover:bg-gray-50 transition-colors text-sm"
             >
-              <Phone className="w-4 h-4" />
-              Call (559) 282-3075
+              <Calendar className="w-4 h-4" />
+              Schedule a Call
             </a>
           </div>
           <p className="text-xs text-gray-400 mt-3">Start with a $1,500 assessment — yours to keep no matter what</p>
@@ -2783,19 +2783,21 @@ function ReadinessQuiz({ onApply }: { onApply: () => void }) {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 justify-center mb-5">
-              <button
-                onClick={onApply}
+              <a
+                href="https://calendly.com/brandonctw/30min"
+                target="_blank"
+                rel="noopener noreferrer"
                 className={`inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full text-white font-bold transition-all shadow-md text-sm ${c.btn}`}
               >
-                Claim Your Spot — Apply Now
+                Schedule a Call
                 <ArrowRight className="w-4 h-4" />
-              </button>
+              </a>
               <a
-                href="tel:5592823075"
+                href="https://calendly.com/brandonctw/30min" target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border-2 border-gray-200 text-gray-700 font-semibold hover:bg-gray-50 transition-colors text-sm"
               >
-                <Phone className="w-4 h-4" />
-                Call (559) 282-3075
+                <Calendar className="w-4 h-4" />
+                Schedule a Call
               </a>
             </div>
 
@@ -2892,11 +2894,11 @@ function FAQ() {
             Still have questions? Talk to Brandon directly.
           </p>
           <a
-            href="tel:5592823075"
+            href="https://calendly.com/brandonctw/30min" target="_blank" rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-orange-500 text-white font-bold hover:bg-orange-600 transition-all shadow-md text-sm"
           >
-            <Phone className="w-4 h-4" />
-            Call (559) 282-3075
+            <Calendar className="w-4 h-4" />
+            Schedule a Call
           </a>
         </div>
       </div>
@@ -2970,18 +2972,18 @@ function Guarantee() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="#apply"
+              href="https://calendly.com/brandonctw/30min" target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-orange-500 text-white font-bold hover:bg-orange-600 transition-all shadow-lg text-sm"
             >
               Start With Your Assessment
               <ArrowRight className="w-4 h-4" />
             </a>
             <a
-              href="tel:5592823075"
+              href="https://calendly.com/brandonctw/30min" target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full border border-white/20 text-white font-semibold hover:bg-white/10 transition-colors text-sm"
             >
-              <Phone className="w-4 h-4" />
-              Call to Learn More
+              <Calendar className="w-4 h-4" />
+              Schedule a Call
             </a>
           </div>
         </div>
@@ -3049,18 +3051,18 @@ function PersonalNote() {
 
           <div className="mt-8 flex flex-col sm:flex-row gap-4">
             <a
-              href="#apply"
+              href="https://calendly.com/brandonctw/30min" target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-orange-500 text-white font-bold hover:bg-orange-600 transition-all shadow-md text-sm"
             >
               Submit Your Application
               <ArrowRight className="w-4 h-4" />
             </a>
             <a
-              href="tel:5592823075"
+              href="https://calendly.com/brandonctw/30min" target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full border-2 border-gray-300 text-gray-700 font-semibold hover:bg-gray-50 transition-colors text-sm"
             >
-              <Phone className="w-4 h-4" />
-              Or Call Me Directly
+              <Calendar className="w-4 h-4" />
+              Schedule a Call
             </a>
           </div>
         </div>
@@ -3085,7 +3087,7 @@ function ApplyForm() {
             </div>
 
             <h2 className="text-3xl font-extrabold leading-tight mb-3">
-              Apply for Your AI Strategy Session
+              Schedule a Strategy Call
             </h2>
             <p className="text-blue-200 text-sm leading-relaxed mb-7">
               Only <strong className="text-white">1 spot remaining</strong> for new engagements. We review every application personally.
@@ -3186,11 +3188,11 @@ function ApplyForm() {
             </div>
 
             <a
-              href="tel:5592823075"
+              href="https://calendly.com/brandonctw/30min" target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-sm text-blue-200 hover:text-white transition-colors"
             >
-              <Phone className="w-4 h-4" />
-              Prefer to call? (559) 282-3075
+              <Calendar className="w-4 h-4" />
+              Schedule a Call
             </a>
           </div>
 
@@ -3254,17 +3256,11 @@ function StickyDesktopCTA() {
           </div>
           <div className="flex items-center gap-3">
             <a
-              href="tel:5592823075"
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-gray-300 text-gray-700 font-semibold hover:bg-gray-50 transition-colors text-sm"
-            >
-              <Phone className="w-3.5 h-3.5" />
-              (559) 282-3075
-            </a>
-            <a
-              href="#apply"
+              href="https://calendly.com/brandonctw/30min" target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 px-5 py-2 rounded-full bg-orange-500 text-white font-bold hover:bg-orange-600 transition-colors text-sm shadow-sm"
             >
-              Apply Now
+              <Calendar className="w-3.5 h-3.5" />
+              Schedule a Call
               <ArrowRight className="w-3.5 h-3.5" />
             </a>
           </div>
@@ -3290,17 +3286,11 @@ function StickyMobileCTA() {
       >
         <div className="flex gap-3">
           <a
-            href="tel:5592823075"
-            className="flex-1 flex items-center justify-center gap-2 py-3 rounded-full border-2 border-blue-600 text-blue-600 font-bold text-sm hover:bg-blue-50 transition-colors"
-          >
-            <Phone className="w-4 h-4" />
-            Call Brandon
-          </a>
-          <a
-            href="#apply"
+            href="https://calendly.com/brandonctw/30min" target="_blank" rel="noopener noreferrer"
             className="flex-1 flex items-center justify-center gap-2 py-3 rounded-full bg-orange-500 text-white font-bold text-sm hover:bg-orange-600 transition-colors"
           >
-            Apply Now
+            <Calendar className="w-4 h-4" />
+            Schedule a Call
           </a>
         </div>
       </div>
@@ -3619,7 +3609,7 @@ function ExitIntentPopup({ savings }: { savings?: { annualWaste: number; aiSavin
               {/* CTAs */}
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <a
-                  href="#apply"
+                  href="https://calendly.com/brandonctw/30min" target="_blank" rel="noopener noreferrer"
                   onClick={dismiss}
                   className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-orange-500 text-white font-bold hover:bg-orange-600 transition-all shadow-lg hover:shadow-orange-500/30 text-sm"
                 >
@@ -3627,12 +3617,12 @@ function ExitIntentPopup({ savings }: { savings?: { annualWaste: number; aiSavin
                   <ArrowRight className="w-4 h-4" />
                 </a>
                 <a
-                  href="tel:5592823075"
+                  href="https://calendly.com/brandonctw/30min" target="_blank" rel="noopener noreferrer"
                   onClick={dismiss}
                   className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full border-2 border-gray-300 text-gray-700 font-semibold hover:bg-gray-50 transition-colors text-sm"
                 >
-                  <Phone className="w-4 h-4" />
-                  Talk to Brandon First
+                  <Calendar className="w-4 h-4" />
+                  Schedule a Call
                 </a>
               </div>
 
@@ -3676,20 +3666,12 @@ function ExitIntentPopup({ savings }: { savings?: { annualWaste: number; aiSavin
               {/* CTAs */}
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <a
-                  href="tel:5592823075"
+                  href="https://calendly.com/brandonctw/30min" target="_blank" rel="noopener noreferrer"
                   onClick={dismiss}
                   className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-orange-500 text-white font-bold hover:bg-orange-600 transition-all shadow-lg hover:shadow-orange-500/30 text-sm"
                 >
-                  <Phone className="w-4 h-4" />
-                  Call Brandon Now
-                </a>
-                <a
-                  href="#apply"
-                  onClick={dismiss}
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full border-2 border-gray-300 text-gray-700 font-semibold hover:bg-gray-50 transition-colors text-sm"
-                >
-                  Apply Instead
-                  <ArrowRight className="w-4 h-4" />
+                  <Calendar className="w-4 h-4" />
+                  Schedule a Call
                 </a>
               </div>
 
@@ -3720,10 +3702,8 @@ function ExitIntentPopup({ savings }: { savings?: { annualWaste: number; aiSavin
 
 function StickySavingsBanner({
   savings,
-  onApply,
 }: {
   savings: { annualWaste: number; aiSavings: number; monthlySavings: number; roiMultiple: number } | null;
-  onApply: () => void;
 }) {
   const [visible, setVisible] = useState(false);
 
@@ -3778,13 +3758,15 @@ function StickySavingsBanner({
               {savings.roiMultiple}x ROI
             </span>
           </div>
-          <button
-            onClick={onApply}
+          <a
+            href="https://calendly.com/brandonctw/30min"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-orange-500 text-white font-bold hover:bg-orange-600 transition-colors text-xs shadow-sm"
           >
             Stop Losing {fmt(savings.monthlySavings)}/mo
             <ArrowRight className="w-3 h-3" />
-          </button>
+          </a>
         </div>
       </div>
     </div>
@@ -3836,7 +3818,7 @@ function FormDrawer({ open, onClose }: { open: boolean; onClose: () => void }) {
         <div className="shrink-0 border-b border-gray-100 px-6 py-4 flex items-center justify-between bg-white">
           <div>
             <div className="flex items-center gap-2">
-              <h3 className="font-bold text-gray-900 text-sm">Apply for AI Consulting</h3>
+              <h3 className="font-bold text-gray-900 text-sm">Schedule a Discovery Call</h3>
               <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-orange-50 border border-orange-200 text-orange-700 text-[10px] font-bold">
                 <span className="w-1.5 h-1.5 rounded-full bg-orange-400 animate-pulse" />
                 1 spot left
@@ -3873,20 +3855,6 @@ export default function AIConsultantPage() {
     setCalcSavings(data);
   }, []);
 
-  // Intercept all "Apply" CTA clicks to open the drawer instead of scrolling
-  useEffect(() => {
-    function handleApplyClick(e: MouseEvent) {
-      if (e.defaultPrevented) return;
-      const link = (e.target as HTMLElement).closest('a[href="#apply"]');
-      if (link) {
-        e.preventDefault();
-        setDrawerOpen(true);
-      }
-    }
-    document.addEventListener("click", handleApplyClick);
-    return () => document.removeEventListener("click", handleApplyClick);
-  }, []);
-
   return (
     <>
       <script
@@ -3916,7 +3884,7 @@ export default function AIConsultantPage() {
       </main>
       <Footer />
       <StickyDesktopCTA />
-      <StickySavingsBanner savings={calcSavings} onApply={() => setDrawerOpen(true)} />
+      <StickySavingsBanner savings={calcSavings} />
       <StickyMobileCTA />
       <SectionNav />
       <SocialProofToast />
