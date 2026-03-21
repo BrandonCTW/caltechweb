@@ -140,7 +140,7 @@ export default function DiamondLinksEmailPage() {
               <span className="block text-blue-400 mt-1">Automatically.</span>
             </h1>
             <p className="text-lg sm:text-xl text-blue-100/80 leading-relaxed max-w-2xl mb-8">
-              Diamond Links, an SEO and link building agency, was spending hours each week manually reviewing spam for inbound partnership and link exchange opportunities. We built a pipeline that monitors their inbox, deduplicates against their contact history, enriches every domain with Ahrefs and contact data, scores each lead, and delivers a ranked list to their team every morning.
+              A Texas-based SEO and link building agency was spending hours each week manually reviewing spam for inbound partnership and link exchange opportunities. We built a pipeline that monitors their inbox, deduplicates against their contact history, enriches every domain with Ahrefs and contact data, scores each lead, and delivers a ranked list to their team every morning.
             </p>
 
             {/* Stats bar */}
@@ -203,7 +203,7 @@ export default function DiamondLinksEmailPage() {
                   The Problem
                 </h2>
                 <p className="text-gray-600 leading-relaxed mb-6">
-                  Diamond Links receives hundreds of inbound emails each week from site owners, agencies, and brokers pitching link exchanges and partnerships. Most of these land in spam. The team was manually opening their spam folder, scanning subject lines, copy-pasting domains into Ahrefs, and cross-checking against their own database to see if they had already engaged with a site.
+                  The agency receives hundreds of inbound emails each week from site owners, agencies, and brokers pitching link exchanges and partnerships. Most of these land in spam. The team was manually opening their spam folder, scanning subject lines, copy-pasting domains into Ahrefs, and cross-checking against their own database to see if they had already engaged with a site.
                 </p>
                 <p className="text-gray-600 leading-relaxed mb-6">
                   The work was repetitive, slow, and inconsistent. Valuable opportunities were missed when someone was busy. Low-quality domains consumed time that could have gone to actual outreach.

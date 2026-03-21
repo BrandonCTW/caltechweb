@@ -37,7 +37,7 @@ const useCases = [
   {
     icon: Mail,
     title: "Email Triage & Response",
-    desc: "Classify, route, and draft responses for high-volume inboxes. Handles 70%+ of routine messages automatically and escalates exceptions with full context to the right person.",
+    desc: "Classify, route, and enrich high-volume inboxes. Deduplicates against contact history, pulls domain metrics and contact data, scores each lead, and delivers a ranked digest daily.",
     tags: ["Classification", "Routing", "Draft Generation"],
     link: "/ai/automation/diamond-links-email/",
     hasCase: true,
