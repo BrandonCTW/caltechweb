@@ -2275,23 +2275,45 @@ function Pricing({ savings }: { savings?: { annualWaste: number; aiSavings: numb
               <p className="text-blue-300 text-xs mt-1">6&ndash;12 month contract &middot; Starting rate</p>
             </div>
             <div className="p-7">
-              <ul className="space-y-3 mb-7">
-                {[
-                  "Weekly video strategy calls",
-                  "Async collaboration (Slack, email, Loom)",
-                  "AI tools built and deployed to your stack",
-                  "Full strategy, governance, and training",
-                  "Prioritized roadmap updated each month",
-                  "Implementation support from day one",
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-2.5 text-sm text-gray-700">
-                    <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 shrink-0" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <div className="text-xs text-gray-500 bg-gray-50 rounded-xl p-4 leading-relaxed mb-5">
-                <strong>Note:</strong> Remote-only engagement. US clients only.
+              <div className="space-y-5 mb-7">
+                {/* Step 1 */}
+                <div>
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="w-5 h-5 rounded-full bg-blue-100 text-blue-700 text-xs font-bold flex items-center justify-center shrink-0">1</span>
+                    <span className="text-sm font-bold text-gray-900">Month 1: Foundation</span>
+                  </div>
+                  <p className="text-sm text-gray-500 pl-7">We assess your stack, define your AI roadmap, and identify the highest-impact use cases to attack first.</p>
+                </div>
+                <div className="border-t border-gray-100" />
+                {/* Step 2 */}
+                <div>
+                  <div className="flex items-center gap-2 mb-2.5">
+                    <span className="w-5 h-5 rounded-full bg-blue-100 text-blue-700 text-xs font-bold flex items-center justify-center shrink-0">2</span>
+                    <span className="text-sm font-bold text-gray-900">Ongoing: Build and Deploy</span>
+                  </div>
+                  <ul className="space-y-2 pl-7">
+                    {[
+                      "AI tools built and shipped to your stack each month",
+                      "Async collaboration via Slack, email, and Loom",
+                      "Roadmap reprioritized as results come in",
+                      "Governance, training, and team enablement included",
+                    ].map((item) => (
+                      <li key={item} className="flex items-start gap-2 text-sm text-gray-600">
+                        <CheckCircle className="w-3.5 h-3.5 text-green-500 mt-0.5 shrink-0" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="border-t border-gray-100" />
+                {/* Step 3 */}
+                <div>
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="w-5 h-5 rounded-full bg-blue-100 text-blue-700 text-xs font-bold flex items-center justify-center shrink-0">3</span>
+                    <span className="text-sm font-bold text-gray-900">Bi-Weekly Strategy Call</span>
+                  </div>
+                  <p className="text-sm text-gray-500 pl-7">Every two weeks we review progress, clear blockers, and align on what gets built next.</p>
+                </div>
               </div>
               <a
                 href="#apply"
@@ -2300,7 +2322,7 @@ function Pricing({ savings }: { savings?: { annualWaste: number; aiSavings: numb
                 Apply for Consulting
                 <ArrowRight className="w-4 h-4" />
               </a>
-              <p className="text-[11px] text-gray-400 text-center mt-2">Audit fee credited to your first month</p>
+              <p className="text-[11px] text-gray-400 text-center mt-2">Audit fee credited to your first month &middot; US clients only</p>
             </div>
           </div>
 
