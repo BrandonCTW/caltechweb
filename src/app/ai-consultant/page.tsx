@@ -2269,10 +2269,9 @@ function Pricing({ savings }: { savings?: { annualWaste: number; aiSavings: numb
               <h3 className="text-2xl font-extrabold mb-1">AI Consulting Retainer</h3>
               <p className="text-blue-200 text-sm mb-5">Hands-on implementation and strategy, month to month</p>
               <div className="flex items-end gap-1">
-                <span className="text-4xl font-extrabold">$5,500</span>
-                <span className="text-blue-300 mb-1.5">/month</span>
+                <span className="text-2xl font-extrabold">Custom Pricing</span>
               </div>
-              <p className="text-blue-300 text-xs mt-1">6&ndash;12 month contract &middot; Starting rate</p>
+              <p className="text-blue-300 text-xs mt-1">Scoped to your goals and timeline</p>
             </div>
             <div className="p-7">
               <div className="space-y-5 mb-7">
@@ -2334,31 +2333,52 @@ function Pricing({ savings }: { savings?: { annualWaste: number; aiSavings: numb
                 US-Wide
               </div>
               <h3 className="text-2xl font-extrabold mb-1">Fractional Chief AI Officer</h3>
-              <p className="text-blue-200 text-sm mb-5">Executive-level AI leadership without the full-time hire</p>
+              <p className="text-blue-200 text-sm mb-5">We come in, build the team, and hand off the keys</p>
               <div className="flex items-end gap-1">
                 <span className="text-2xl font-extrabold">Custom Pricing</span>
               </div>
               <p className="text-blue-300 text-xs mt-1">Scoped to your organization&apos;s size and needs</p>
             </div>
             <div className="p-7">
-              <ul className="space-y-3 mb-7">
-                {[
-                  "Executive-level AI strategy and ongoing oversight",
-                  "Board and leadership reporting and communication",
-                  "AI vendor and tool evaluation",
-                  "Governance policy and data-handling framework design",
-                  "Team training and AI culture programs",
-                  "Roadmap ownership across departments",
-                  "Embedded strategic partner, not a one-time advisor",
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-2.5 text-sm text-gray-700">
-                    <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 shrink-0" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <div className="text-xs text-gray-500 bg-gray-50 rounded-xl p-4 leading-relaxed mb-5">
-                <strong>Who this is for:</strong> Mid-market and enterprise organizations ready to embed AI at the leadership level across teams and functions.
+              <div className="space-y-5 mb-7">
+                {/* Step 1 */}
+                <div>
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="w-5 h-5 rounded-full bg-blue-100 text-blue-700 text-xs font-bold flex items-center justify-center shrink-0">1</span>
+                    <span className="text-sm font-bold text-gray-900">Assess and Lead</span>
+                  </div>
+                  <p className="text-sm text-gray-500 pl-7">We step in as your AI leadership, set the strategy, establish governance, and align your organization around a clear AI direction.</p>
+                </div>
+                <div className="border-t border-gray-100" />
+                {/* Step 2 */}
+                <div>
+                  <div className="flex items-center gap-2 mb-2.5">
+                    <span className="w-5 h-5 rounded-full bg-blue-100 text-blue-700 text-xs font-bold flex items-center justify-center shrink-0">2</span>
+                    <span className="text-sm font-bold text-gray-900">Train and Develop</span>
+                  </div>
+                  <ul className="space-y-2 pl-7">
+                    {[
+                      "Hire, train, and develop your internal AI team",
+                      "Build processes and playbooks your team owns",
+                      "Upskill existing staff to operate AI tools confidently",
+                      "Establish vendor relationships and tool stack",
+                    ].map((item) => (
+                      <li key={item} className="flex items-start gap-2 text-sm text-gray-600">
+                        <CheckCircle className="w-3.5 h-3.5 text-green-500 mt-0.5 shrink-0" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="border-t border-gray-100" />
+                {/* Step 3 */}
+                <div>
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="w-5 h-5 rounded-full bg-blue-100 text-blue-700 text-xs font-bold flex items-center justify-center shrink-0">3</span>
+                    <span className="text-sm font-bold text-gray-900">Hand Off and Exit</span>
+                  </div>
+                  <p className="text-sm text-gray-500 pl-7">This role is intentionally temporary. When your team is ready to run AI independently, we transition out. That&apos;s the goal.</p>
+                </div>
               </div>
               <a
                 href="#apply"
