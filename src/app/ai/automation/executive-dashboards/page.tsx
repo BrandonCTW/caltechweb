@@ -213,80 +213,71 @@ export default function ExecutiveDashboardsPage() {
         </section>
 
         {/* Before / After */}
-        <section className="py-16 sm:py-20 bg-white">
+        <section className="py-16 sm:py-24 bg-gray-950">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid md:grid-cols-2 gap-12 items-start relative">
-              <div className="hidden md:flex absolute left-1/2 top-4 bottom-4 -translate-x-1/2 flex-col items-center justify-center pointer-events-none z-10">
-                <div className="flex-1 w-px bg-gradient-to-b from-transparent via-gray-200 to-gray-200" />
-                <div className="w-10 h-10 rounded-full bg-white border-2 border-gray-200 shadow-md flex items-center justify-center my-3 shrink-0">
-                  <ArrowRight className="w-4 h-4 text-blue-500" />
+            <div className="text-center mb-12">
+              <h2 className="text-3xl sm:text-5xl font-extrabold text-white mb-4 tracking-tight">
+                Every problem. Directly solved.
+              </h2>
+              <p className="text-gray-400 text-lg max-w-xl mx-auto">
+                The team paid monthly for tools they didn&apos;t own and couldn&apos;t customize. Here&apos;s what changed.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-[1fr_auto_1fr] items-center mb-4 px-1">
+              <span className="text-xs font-extrabold uppercase tracking-widest text-red-500">Before</span>
+              <span className="w-10" />
+              <span className="text-xs font-extrabold uppercase tracking-widest text-green-400">After</span>
+            </div>
+
+            <div className="space-y-3">
+              {[
+                {
+                  before: "Paying $75+ per seat per month for tools that still look generic",
+                  after: "Dashboard built once with no monthly licensing fee",
+                },
+                {
+                  before: "Layout locked to what the vendor ships, no real customization",
+                  after: "Full visual control, designed exactly to your spec",
+                },
+                {
+                  before: "Adding a user means adding a license and another monthly charge",
+                  after: "Unlimited users, no per-seat fee, ever",
+                },
+                {
+                  before: "Data scattered across tools that don't connect to each other",
+                  after: "Pulls from any source into one unified view automatically",
+                },
+                {
+                  before: "Vendor raises prices and you have no leverage or alternative",
+                  after: "You own the code and hosting, vendor decisions change nothing",
+                },
+                {
+                  before: "Dashboard disappears if the platform shuts down or sunsets",
+                  after: "Runs on your own infrastructure forever, independent of any vendor",
+                },
+              ].map(({ before, after }) => (
+                <div key={before} className="grid grid-cols-[1fr_auto_1fr] items-center gap-3">
+                  <div className="flex items-center gap-3 bg-red-950/60 border border-red-900/50 rounded-xl px-4 py-3.5">
+                    <XCircle className="w-5 h-5 text-red-500 shrink-0" />
+                    <span className="text-sm text-red-100 leading-snug">{before}</span>
+                  </div>
+                  <div className="flex items-center justify-center w-10">
+                    <ArrowRight className="w-4 h-4 text-blue-400" />
+                  </div>
+                  <div className="flex items-center gap-3 bg-green-950/60 border border-green-900/50 rounded-xl px-4 py-3.5">
+                    <CheckCircle className="w-5 h-5 text-green-400 shrink-0" />
+                    <span className="text-sm text-green-100 leading-snug">{after}</span>
+                  </div>
                 </div>
-                <div className="flex-1 w-px bg-gradient-to-b from-gray-200 via-gray-200 to-transparent" />
-              </div>
-              <div>
-                <span className="inline-block text-xs font-bold uppercase tracking-widest text-red-500 mb-4">
-                  The Problem
-                </span>
-                <h2 className="text-3xl font-extrabold text-gray-900 mb-4">
-                  You&apos;re Renting Your Own Data
-                </h2>
-                <p className="text-gray-600 leading-relaxed mb-6">
-                  Tableau, Salesforce, and Power BI are not dashboard tools. They are subscription businesses that happen to show charts. Every seat you add is another monthly fee. Every layout change requires working around their design system. When the vendor raises prices or shuts down, your visibility into your own business disappears with it.
-                </p>
-                <p className="text-gray-600 leading-relaxed mb-6">
-                  Worse, they all have the same look. Generic. Dense. Designed to showcase the vendor&apos;s platform, not your data.
-                </p>
-                <div className="bg-red-50 border border-red-100 rounded-2xl p-5">
-                  <div className="text-sm font-bold text-red-800 mb-3">The Status Quo</div>
-                  <ul className="space-y-2">
-                    {[
-                      "Tableau: $75+ per user per month, every month",
-                      "Salesforce dashboards: $25 to $300 per user per month",
-                      "Power BI: $10 to $20 per user per month, limited connectors",
-                      "All of them: you can't make it look the way you want",
-                      "All of them: you don't own the code or the infrastructure",
-                      "All of them: price goes up, you have no alternative",
-                    ].map((item) => (
-                      <li key={item} className="flex items-start gap-2 text-sm text-red-800">
-                        <XCircle className="w-4 h-4 text-red-400 shrink-0 mt-0.5" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-              <div>
-                <span className="inline-block text-xs font-bold uppercase tracking-widest text-green-600 mb-4">
-                  The Alternative
-                </span>
-                <h2 className="text-3xl font-extrabold text-gray-900 mb-4">
-                  Built Once. Yours Forever.
-                </h2>
-                <p className="text-gray-600 leading-relaxed mb-6">
-                  A custom dashboard built to your exact spec. Your data sources, your layout, your brand. Hosted on infrastructure you own with zero monthly licensing fees. No vendor between you and your numbers.
-                </p>
-                <p className="text-gray-600 leading-relaxed mb-6">
-                  You pay once to build it. After that, it runs. If you need to add a metric or change a chart, we can update it on retainer or hand you the code and you can change it yourself.
-                </p>
-                <div className="bg-green-50 border border-green-100 rounded-2xl p-5">
-                  <div className="text-sm font-bold text-green-800 mb-3">What You Get</div>
-                  <ul className="space-y-2">
-                    {[
-                      "Dashboard designed exactly to your spec",
-                      "Pulls from any data source: sheets, databases, APIs",
-                      "Looks better than anything Tableau ships by default",
-                      "No monthly licensing fee after the build",
-                      "You own all code, hosting, and credentials",
-                      "Price never goes up because there's no subscription",
-                    ].map((item) => (
-                      <li key={item} className="flex items-start gap-2 text-sm text-green-800">
-                        <CheckCircle className="w-4 h-4 text-green-500 shrink-0 mt-0.5" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
+              ))}
+            </div>
+
+            <div className="mt-8 rounded-2xl border border-white/10 bg-white/5 px-6 py-5">
+              <p className="text-sm text-gray-300 leading-relaxed">
+                <span className="font-bold text-white">The dashboard runs on infrastructure the client owns.</span>{" "}
+                All credentials, API keys, and data stay in their environment. No SaaS platform sitting between your data and your screen. If we part ways, nothing stops working.
+              </p>
             </div>
           </div>
         </section>
