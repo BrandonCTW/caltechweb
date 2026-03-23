@@ -39,7 +39,7 @@ const architecture = [
     icon: GitMerge,
     color: "indigo" as const,
     layer: "ERP Integration",
-    detail: "Primary: EDI flat file via data profile architecture. Fallback: browser automation for post types not covered by the EDI profile.",
+    detail: "Primary: EDI flat file via data profile architecture. Fallback: browser automation for post types not covered by the EDI profile. Built to automate Deacom posting, though the connector pattern works across most manufacturing ERPs.",
   },
   {
     icon: Database,
@@ -253,7 +253,7 @@ export default function APAutomationPage() {
                   The Result
                 </h2>
                 <p className="text-gray-600 leading-relaxed mb-6">
-                  The AP pipeline monitors the inbox continuously and processes each invoice automatically. GL codes are applied by rule, POs are matched, quantities are verified, and the invoice posts to the ERP without any manual work. Exceptions are the only invoices the team touches.
+                  The AP pipeline monitors the inbox continuously and processes each invoice automatically. GL codes are applied by rule, POs are matched, quantities are verified, and the invoice posts directly to Deacom without any manual work. Exceptions are the only invoices the team touches.
                 </p>
                 <p className="text-gray-600 leading-relaxed mb-6">
                   The system runs on the client&apos;s own AWS infrastructure. They own all credentials, code, and configurations. It operates independently regardless of CalTech Web&apos;s involvement.
