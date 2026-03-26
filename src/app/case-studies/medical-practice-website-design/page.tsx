@@ -22,6 +22,7 @@ import {
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Medical Practice Website Design | $99/month | CalTech Web",
@@ -276,8 +277,15 @@ function CaseStudy() {
               <p className="text-blue-800 font-medium italic">
                 &ldquo;I had patients tell me they almost didn&apos;t come in because the website looked old. That&apos;s when I knew something had to change.&rdquo;
               </p>
-              <footer className="mt-2 text-sm text-blue-600 font-semibold">
-                — Dr. Arjun Kanuri, MD, MBA
+              <footer className="mt-3 flex items-center gap-3">
+                <Image
+                  src="/testimonials/arjun-kanuri.jpg"
+                  alt="Dr. Arjun Kanuri"
+                  width={40}
+                  height={40}
+                  className="w-10 h-10 rounded-full object-cover shrink-0"
+                />
+                <span className="text-sm text-blue-600 font-semibold">Dr. Arjun Kanuri, MD, MBA</span>
               </footer>
             </blockquote>
 
@@ -358,9 +366,13 @@ function CaseStudy() {
                 &ldquo;Brandon&apos;s expertise and genuine care for my success have been game-changers. Thanks to CalTech Web, my professional image has never looked better, and my business is thriving like never before.&rdquo;
               </p>
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-white font-bold text-sm shrink-0">
-                  AK
-                </div>
+                <Image
+                  src="/testimonials/arjun-kanuri.jpg"
+                  alt="Dr. Arjun Kanuri"
+                  width={40}
+                  height={40}
+                  className="w-10 h-10 rounded-full object-cover shrink-0"
+                />
                 <div>
                   <div className="font-semibold text-white text-sm">Dr. Arjun Kanuri, MD, MBA</div>
                   <div className="text-blue-200 text-xs">Plastic &amp; Reconstructive Surgery, DC/MD/VA</div>
@@ -431,9 +443,16 @@ function CaseStudy() {
               <p className="text-sm text-gray-700 leading-relaxed italic mb-3">
                 &ldquo;Brandon&apos;s expertise and genuine care for my success have been game-changers.&rdquo;
               </p>
-              <p className="text-xs text-gray-500 font-semibold">
-                Dr. Arjun Kanuri, MD, MBA
-              </p>
+              <div className="flex items-center gap-2">
+                <Image
+                  src="/testimonials/arjun-kanuri.jpg"
+                  alt="Dr. Arjun Kanuri"
+                  width={32}
+                  height={32}
+                  className="w-8 h-8 rounded-full object-cover shrink-0"
+                />
+                <p className="text-xs text-gray-500 font-semibold">Dr. Arjun Kanuri, MD, MBA</p>
+              </div>
             </div>
 
             {/* Stats */}
