@@ -254,9 +254,9 @@ function CaseStudy() {
   return (
     <section className="py-16 sm:py-24 bg-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-3 gap-10">
+        <div className="lg:flex gap-10">
           {/* Article */}
-          <article className="lg:col-span-2 space-y-10">
+          <article className="min-w-0 flex-1 space-y-10">
             <div>
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-100 text-green-700 text-xs font-semibold mb-4">
                 Case Study
@@ -393,7 +393,7 @@ function CaseStudy() {
           </article>
 
           {/* Sidebar */}
-          <aside>
+          <aside className="lg:w-80 lg:shrink-0">
           <div className="space-y-6 lg:sticky lg:top-[4.5rem]">
             {/* Pricing card */}
             <div className="bg-blue-950 text-white rounded-2xl p-6 shadow-xl">
