@@ -393,7 +393,8 @@ function CaseStudy() {
           </article>
 
           {/* Sidebar */}
-          <aside className="space-y-6 lg:sticky lg:top-8 lg:self-start">
+          <aside>
+          <div className="space-y-6 lg:sticky lg:top-[4.5rem]">
             {/* Pricing card */}
             <div className="bg-blue-950 text-white rounded-2xl p-6 shadow-xl">
               <div className="flex items-baseline gap-1 mb-1">
@@ -480,6 +481,7 @@ function CaseStudy() {
                 Not satisfied? Get a full refund and keep your website. No fine print.
               </p>
             </div>
+          </div>
           </aside>
         </div>
       </div>
