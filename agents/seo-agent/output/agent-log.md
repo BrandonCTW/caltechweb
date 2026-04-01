@@ -1,3 +1,59 @@
+[2026-04-01] === SEO AGENT RUN #11 ===
+
+## Run Order #5: Image Alt Text + Internal Linking
+
+### Problems Identified
+
+**1. Two images with non-optimal alt text**
+
+- `case-studies/madera-county-farm-bureau/page.tsx` — related case study card images used `alt="${cs.name} website"`, missing the "designed by CalTech Web" keyword phrase that every other portfolio image across the site uses. Consistent alt text patterns help Google image search understand the portfolio context.
+- `[slug]/page.tsx` — the author bio photo used `alt="Brandon Hopkins"` (a bare name), while the same photo on other pages uses the more descriptive `alt="Brandon Hopkins, Founder of CalTech Web"`. Descriptive alt text provides stronger signals for branded image searches.
+
+**2. Service pages with zero links to their topic cluster blog posts**
+
+The `affordable-church-websites` service page (the site's pillar page for church website design) had no link to the `best-church-website-builder` blog post — the site's only comparison/informational article for that exact keyword cluster. Google's topical authority model rewards pillar pages that link to their cluster content; this gap meant the blog post received no PageRank from the most topically relevant page on the site.
+
+The `web-design-pricing` page had an audience card for "Small Businesses" with `href: null` — a missed opportunity to pass PageRank to the `/affordable-web-design-for-small-businesses/` blog post, which targets the same audience with informational intent.
+
+The `brandon-hopkins` About page described "800+ websites" and real client results in plain text but had no links to the case studies or portfolio that substantiate those claims. Visitors interested in the results had no path from the About page to specific proof.
+
+### What Was Changed
+
+**`src/app/affordable-church-websites/page.tsx`**
+- Added `ChurchResources` component between `<ChurchFAQ />` and `<CTASection />`
+- Contains a card linking to `/best-church-website-builder/` with descriptive anchor text: "Best Church Website Builder in 2026: Honest Comparison"
+- Includes the post's excerpt so users understand the content before clicking
+- `TrendingUp` already imported; `Globe` and `ArrowRight` were already in scope
+
+**`src/app/web-design-pricing/page.tsx`**
+- Changed `href: null` → `href: "/affordable-web-design-for-small-businesses/"` on the "Small Businesses" audience card
+- The card already had a "Learn more →" link rendered when `href` is set — no additional code needed
+- PageRank now flows from the high-authority pricing page to the small business blog post
+
+**`src/app/brandon-hopkins/page.tsx`**
+- Added `TrendingUp` to lucide-react imports
+- Added `FeaturedResults` component between `<MeetTheTeam />` and `<BrandonFAQ />`
+- Two cards: one linking to `/case-studies/medical-practice-website-design/` ("+40% organic traffic, 2× conversions in 90 days") and one linking to `/web-design-portfolio/` ("800+ websites built across every industry")
+- Provides Google descriptive anchor text ("Medical Practice Case Study", "Full Portfolio") for both key destination pages
+
+**`src/app/case-studies/madera-county-farm-bureau/page.tsx`**
+- `alt={`${cs.name} website`}` → `alt={`${cs.name} website designed by CalTech Web`}`
+- Consistent with the alt text pattern used on all other portfolio images across the site
+
+**`src/app/[slug]/page.tsx`**
+- Author bio photo: `alt="Brandon Hopkins"` → `alt="Brandon Hopkins, Founder of CalTech Web"`
+- Matches the more descriptive alt text used for the same photo on other pages
+
+### Why It Matters
+
+Internal links pass PageRank and provide Google anchor text signals — both documented ranking factors. The church page → blog post link completes the topic cluster for "church website builder" queries, one of the site's highest-opportunity keyword targets (29,000 monthly searches, difficulty 34). The pricing page → small business blog post and About page → case study links extend the internal PageRank distribution to informational pages that support conversion decisions.
+
+Alt text improvements align with Google's image search guidelines: descriptive, consistent alt text that includes business name and service type improves visibility in Google Images and provides additional on-page keyword signals.
+
+TypeScript check: no source-file errors (only pre-existing stale .next cache errors).
+
+---
+
 [2026-03-04] === SEO AGENT RUN #9 ===
 
 ## Fix: New Blog Post Targeting "best church website builder" (29,000 vol, difficulty 34)
@@ -2173,3 +2229,28 @@ Full audit of semantic HTML across 10 key pages revealed the following issues:
 - `src/app/web-design-competitor-comparison/page.tsx` — feature card div→`<h3>`; image dimensions fixed
 
 TypeScript check: only pre-existing stale `.next` cache errors, no new errors in edited files.
+Run #10 complete. Here's what was done:
+
+**Run Order #4 — Heading Hierarchy + Semantic HTML**
+
+8 issues fixed across 5 files:
+
+| File | Fix |
+|---|---|
+| `web-design-portfolio/page.tsx` | Added `<main>`; portfolio card h3→h2 (was skipping h1→h3) |
+| `portfolio/[slug]/page.tsx` | Added `<main>` and `<article>` wrapping case study content |
+| `[slug]/page.tsx` (blog) | Article header div→`<header>`; nonprofit callout h2→h3; img→`<Image>` |
+| `page.tsx` (homepage) | IndustriesTicker + ClientWinsTicker div→`<section aria-label>` |
+| `web-design-competitor-comparison/page.tsx` | Feature card div→`<h3>`; Brandon photo dimensions fixed (2400×1600→44×44) |
+
+The two most impactful fixes were the missing `<main>` elements on the portfolio and case study pages — both lacked the primary content landmark that Google uses to identify page content boundaries.
+[2026-04-01 09:20:21] Run #1 finished
+[2026-04-01 09:20:21] Reached max loops (1). Stopping.
+[2026-04-01 13:06:37] ==========================================
+[2026-04-01 13:06:37] Agent: Seo Agent
+[2026-04-01 13:06:37] Model: sonnet
+[2026-04-01 13:06:37] Workspace: /Users/brandonhopkins/Projects/caltechweb/agents/seo-agent
+[2026-04-01 13:06:37] Stop on complete: false
+[2026-04-01 13:06:37] Max loops: 1 (0=infinite)
+[2026-04-01 13:06:37] ==========================================
+[2026-04-01 13:06:37] Run #1 starting (model: sonnet)
