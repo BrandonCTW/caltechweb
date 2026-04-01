@@ -659,6 +659,38 @@ function ChurchFAQ() {
   );
 }
 
+// --- Church Resources ---
+
+function ChurchResources() {
+  return (
+    <section className="py-12 sm:py-16 bg-white border-t border-gray-100">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 className="text-xl font-bold text-gray-900 mb-2">Church Website Resources</h2>
+        <p className="text-sm text-gray-500 mb-6">
+          Not sure which platform is right for your church? Read our in-depth comparison.
+        </p>
+        <Link
+          href="/best-church-website-builder/"
+          className="flex items-start gap-5 p-5 rounded-2xl border border-gray-100 bg-gray-50 hover:bg-blue-50 hover:border-blue-100 transition-colors group"
+        >
+          <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-purple-100 flex items-center justify-center">
+            <Globe className="w-5 h-5 text-purple-600" />
+          </div>
+          <div className="min-w-0">
+            <h3 className="font-bold text-gray-900 group-hover:text-blue-700 transition-colors leading-snug mb-1">
+              Best Church Website Builder in 2026: Honest Comparison
+            </h3>
+            <p className="text-sm text-gray-500 leading-relaxed">
+              Squarespace, Wix, Faithlife, Ministry Designs, Ekklesia360, and CalTech Web — pricing, features, and which platform fits your congregation.
+            </p>
+          </div>
+          <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-blue-600 shrink-0 mt-0.5 transition-colors" />
+        </Link>
+      </div>
+    </section>
+  );
+}
+
 // --- CTA Section ---
 
 function CTASection() {
@@ -754,6 +786,7 @@ export default function AffordableChurchWebsitesPage() {
         <HowItWorks />
         <Testimonials />
         <ChurchFAQ />
+        <ChurchResources />
         <CTASection />
       </main>
       <Footer />

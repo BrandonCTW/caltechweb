@@ -737,7 +737,7 @@ const audiences = [
     title: "Small Businesses",
     examples: "HVAC, plumbing, landscaping, auto repair, cleaning services",
     pain: "Tired of paying agencies $500+/mo for a website that never gets updated",
-    href: null,
+    href: "/affordable-web-design-for-small-businesses/",
   },
   {
     icon: "⛪",

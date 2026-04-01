@@ -555,7 +555,7 @@ function MoreCaseStudies() {
               <div className="relative overflow-hidden">
                 <Image
                   src={cs.image}
-                  alt={`${cs.name} website`}
+                  alt={`${cs.name} website designed by CalTech Web`}
                   width={600}
                   height={375}
                   className="w-full h-48 object-cover object-top group-hover:scale-105 transition-transform duration-300"

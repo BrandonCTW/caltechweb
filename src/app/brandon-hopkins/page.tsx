@@ -12,6 +12,7 @@ import {
   Users,
   MessageSquare,
   Zap,
+  TrendingUp,
 } from "lucide-react";
 import Image from "next/image";
 import Header from "@/components/Header";
@@ -502,6 +503,58 @@ function MeetTheTeam() {
   );
 }
 
+// ─── Featured Results ─────────────────────────────────────────────────────────
+
+function FeaturedResults() {
+  const results = [
+    {
+      href: "/case-studies/medical-practice-website-design/",
+      label: "Medical Practice Case Study",
+      stat: "+40% organic traffic, 2× conversions in 90 days",
+      desc: "How Dr. Arjun Kanuri went from a slow, outdated site to 12+ new patient inquiries per month.",
+    },
+    {
+      href: "/web-design-portfolio/",
+      label: "Full Portfolio",
+      stat: "800+ websites built across every industry",
+      desc: "Churches, contractors, medical practices, restaurants, law firms, and more.",
+    },
+  ];
+
+  return (
+    <section className="py-14 sm:py-18 bg-white border-t border-gray-100">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 className="text-2xl font-extrabold text-gray-900 mb-2">See the Work</h2>
+        <p className="text-sm text-gray-500 mb-8">Real results from real businesses.</p>
+        <div className="grid sm:grid-cols-2 gap-5">
+          {results.map(({ href, label, stat, desc }) => (
+            <Link
+              key={href}
+              href={href}
+              className="group flex flex-col gap-3 p-5 rounded-2xl border border-gray-100 bg-gray-50 hover:bg-blue-50 hover:border-blue-100 transition-colors"
+            >
+              <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-green-100 text-green-700 text-xs font-semibold self-start">
+                <TrendingUp className="w-3 h-3" />
+                {stat}
+              </div>
+              <div>
+                <h3 className="font-bold text-gray-900 group-hover:text-blue-700 transition-colors leading-snug mb-1">
+                  {label}
+                </h3>
+                <p className="text-sm text-gray-500 leading-relaxed">{desc}</p>
+              </div>
+              <div className="flex items-center gap-1.5 text-xs font-semibold text-blue-600 group-hover:text-blue-700 mt-auto pt-1">
+                View details
+                <ArrowRight className="w-3.5 h-3.5" />
+              </div>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 // ─── Guarantee ────────────────────────────────────────────────────────────────
 
 function Guarantee() {
@@ -616,6 +669,7 @@ export default function AboutPage() {
         <Values />
         <Testimonials />
         <MeetTheTeam />
+        <FeaturedResults />
         <BrandonFAQ />
         <Guarantee />
       </main>

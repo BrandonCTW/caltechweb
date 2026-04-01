@@ -1010,7 +1010,7 @@ function ArticleContent({ post }: { post: BlogPost }) {
 
       {/* Author bio */}
       <div className="mt-10 flex gap-4 p-5 rounded-2xl bg-gray-50 border border-gray-100">
-        <Image src="/brandon-hopkins.jpg" alt="Brandon Hopkins" width={112} height={112} sizes="56px" className="w-14 h-14 rounded-full object-cover shrink-0" />
+        <Image src="/brandon-hopkins.jpg" alt="Brandon Hopkins, Founder of CalTech Web" width={112} height={112} sizes="56px" className="w-14 h-14 rounded-full object-cover shrink-0" />
         <div>
           <div className="font-bold text-gray-900">Brandon Hopkins</div>
           <div className="text-sm text-gray-500 mb-2">
