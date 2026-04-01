@@ -24,8 +24,6 @@ import {
   TrendingUp,
   Sparkles,
 } from "lucide-react";
-import { useFormProtection } from "@/hooks/useFormProtection";
-import HoneypotField from "@/components/HoneypotField";
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
@@ -450,12 +448,6 @@ function ReportContactForm({ websiteUrl, score }: { websiteUrl: string; score: n
     email: "",
     phone: "",
   });
-  const {
-    honeypot,
-    setHoneypot,
-    getProtectionPayload,
-  } = useFormProtection();
-
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     setFields((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   }
@@ -465,7 +457,6 @@ function ReportContactForm({ websiteUrl, score }: { websiteUrl: string; score: n
     setSending(true);
 
     try {
-      const protection = await getProtectionPayload("report_card");
       const res = await fetch("https://forms.caltechweb.com/api/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -476,7 +467,6 @@ function ReportContactForm({ websiteUrl, score }: { websiteUrl: string; score: n
           website: website,
           message: `Phone: ${fields.phone || "Not provided"}\nWebsite: ${website}\nReport Card Score: ${score}/100\n\nSubmitted from Free Website Report Card after scanning their site.`,
           source: "report-card",
-          ...protection,
           turnstileToken: document.querySelector<HTMLInputElement>("[name=cf-turnstile-response]")?.value || "",
         }),
       });
@@ -542,7 +532,6 @@ function ReportContactForm({ websiteUrl, score }: { websiteUrl: string; score: n
       </div>
 
       <form onSubmit={handleSubmit} className="max-w-2xl mx-auto space-y-4 relative">
-        <HoneypotField value={honeypot} onChange={setHoneypot} />
         <div className="grid sm:grid-cols-2 gap-3">
           <div>
             <label htmlFor="rc-name" className="block text-xs font-semibold text-blue-200 mb-1.5">

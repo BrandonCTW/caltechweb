@@ -2,18 +2,11 @@
 
 import { useState, type FormEvent } from "react";
 import { ArrowRight, Check, Zap, Users } from "lucide-react";
-import { useFormProtection } from "@/hooks/useFormProtection";
-import HoneypotField from "@/components/HoneypotField";
 
 export default function InlineQuoteForm() {
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
   const [fields, setFields] = useState({ name: "", contact: "" });
-  const {
-    honeypot,
-    setHoneypot,
-    getProtectionPayload,
-  } = useFormProtection();
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     setFields((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -24,7 +17,6 @@ export default function InlineQuoteForm() {
     setSending(true);
 
     try {
-      const protection = await getProtectionPayload("homepage_quote");
       await fetch("https://forms.caltechweb.com/api/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -35,7 +27,6 @@ export default function InlineQuoteForm() {
           website: "",
           message: `Contact: ${fields.contact}`,
           source: "homepage-quote",
-          ...protection,
           turnstileToken: document.querySelector<HTMLInputElement>("[name=cf-turnstile-response]")?.value || "",
         }),
       });
@@ -102,7 +93,6 @@ export default function InlineQuoteForm() {
           onSubmit={handleSubmit}
           className="bg-white rounded-3xl p-8 sm:p-10 shadow-2xl relative"
         >
-          <HoneypotField value={honeypot} onChange={setHoneypot} />
           <div className="space-y-4 mb-6">
             <div>
               <label

@@ -15,8 +15,6 @@ import {
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useState, useEffect, type FormEvent } from "react";
-import { useFormProtection } from "@/hooks/useFormProtection";
-import HoneypotField from "@/components/HoneypotField";
 
 // --- Support Form ---
 
@@ -24,11 +22,6 @@ function SupportForm() {
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState(false);
   const [sending, setSending] = useState(false);
-  const {
-    honeypot,
-    setHoneypot,
-    getProtectionPayload,
-  } = useFormProtection();
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -40,11 +33,10 @@ function SupportForm() {
 
     try {
       const data = Object.fromEntries(formData);
-      const protection = await getProtectionPayload("support");
       const response = await fetch("https://forms.caltechweb.com/api/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...data, site: "caltechweb.com", source: "support", ...protection, turnstileToken: document.querySelector<HTMLInputElement>("[name=cf-turnstile-response]")?.value || "" }),
+        body: JSON.stringify({ ...data, site: "caltechweb.com", source: "support", turnstileToken: document.querySelector<HTMLInputElement>("[name=cf-turnstile-response]")?.value || "" }),
       });
 
       if (response.ok) {
@@ -85,7 +77,6 @@ function SupportForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5 relative">
-      <HoneypotField value={honeypot} onChange={setHoneypot} />
       {error && (
         <div className="flex items-start gap-3 bg-red-50 border border-red-200 rounded-2xl p-4">
           <div className="w-9 h-9 rounded-lg bg-red-100 flex items-center justify-center shrink-0 mt-0.5">

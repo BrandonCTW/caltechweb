@@ -2,18 +2,11 @@
 
 import { useState, type FormEvent } from "react";
 import { ArrowRight, Check } from "lucide-react";
-import { useFormProtection } from "@/hooks/useFormProtection";
-import HoneypotField from "@/components/HoneypotField";
 
 export default function CompactLeadForm() {
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
   const [fields, setFields] = useState({ name: "", contact: "" });
-  const {
-    honeypot,
-    setHoneypot,
-    getProtectionPayload,
-  } = useFormProtection();
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     setFields((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -24,7 +17,6 @@ export default function CompactLeadForm() {
     setSending(true);
 
     try {
-      const protection = await getProtectionPayload("homepage_cta");
       await fetch("https://forms.caltechweb.com/api/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -35,7 +27,6 @@ export default function CompactLeadForm() {
           website: "",
           message: `Contact: ${fields.contact}`,
           source: "homepage-final-cta",
-          ...protection,
           turnstileToken: document.querySelector<HTMLInputElement>("[name=cf-turnstile-response]")?.value || "",
         }),
       });
@@ -69,7 +60,6 @@ export default function CompactLeadForm() {
 
   return (
     <form onSubmit={handleSubmit} className="max-w-lg mx-auto relative">
-      <HoneypotField value={honeypot} onChange={setHoneypot} />
       <div className="flex flex-col sm:flex-row gap-3 mb-3">
         <input
           name="name"
