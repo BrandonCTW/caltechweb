@@ -205,6 +205,15 @@ const blogPosts: BlogPost[] = [
         ],
       },
       {
+        heading: "Frequently Asked Questions: Affordable Web Design Company",
+        body: [
+          "What is the difference between cheap web design and affordable web design? Cheap web design means low price and low quality: a template dropped on your domain, no support after launch, and no consideration for how your customers will actually use the site. Affordable web design means professional quality at a price that makes sense for a small business. At CalTech Web, affordable means $99/month, custom design, unlimited updates, and ongoing support, not a one-time transaction with a freelancer who disappears.",
+          "What affordable web design services are included in the $99/month plan? Every plan includes custom website design, professional hosting, SSL security, unlimited content updates, free complete redesigns, same-day support, and SEO fundamentals. There are no add-ons for the basics. Everything a small business needs from a web presence is covered in that single monthly price.",
+          "Can I really get affordable website development services without templates? Yes. We build every site from scratch. No Squarespace, no Wix, no WordPress themes. Custom code means faster load times, a cleaner design, and a site that actually looks like your business rather than a slightly modified version of what a competitor is already using.",
+          "How does an affordable web design company keep costs this low without cutting quality? Volume and process. Building 800+ websites means we have solved every common small business web problem many times over. That efficiency lets us deliver high-quality work without the overhead of a traditional agency: no downtown office, no sales team, no project management layers. Every dollar saved on overhead goes directly toward keeping your costs down.",
+        ],
+      },
+      {
         heading: "The Guarantee: Full Refund, You Keep the Website",
         body: [
           "If you are not satisfied with your website, you get a full refund. And you keep the site. No fine print, no arguing, no cancellation fee. That is the entire policy.",
