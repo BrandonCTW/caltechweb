@@ -98,3 +98,21 @@ Done. Here's what was changed:
 **Files modified:** `src/app/[slug]/page.tsx`
 Deployed: https://caltechweb-le1d53bzr-brandon-7928s-projects.vercel.app — Ready
 [2026-04-01 09:38:49] Run #2 finished
+Done. Here's what was changed:
+
+**Change:** Section 2 heading `"How This Compares to DIY Website Builders"` → `"Small Business Web Design vs. DIY Website Builders"`
+
+- **Keyword targeted:** `small business web design` (secondary) — first appearance in any H2 on the page
+- **Why this heading:** All four secondary keywords had zero presence in the body content; adding one to an existing H2 is the highest-value placement. The rewrite is natural and doesn't change the section's meaning.
+- **Deployed:** `https://caltechweb-le1d53bzr-brandon-7928s-projects.vercel.app` — Ready
+[2026-04-01 09:40:01] Run #2 finished
+[2026-04-01 09:40:06] Run #3 starting (model: sonnet)
+
+---
+
+## 2026-04-01 (Run #3 — Session 2)
+
+**Change:** Updated section 3 heading from "How This Compares to Hiring an Agency" to "Small Business Web Designer vs. Traditional Agency: The Real Cost" — first H2 on the page to include the secondary keyword "small business web designer".
+**Keywords targeted:** small business web designer (secondary)
+**Files modified:** `src/app/[slug]/page.tsx`
+Deployed: https://caltechweb-b7snjgvdg-brandon-7928s-projects.vercel.app — Ready
