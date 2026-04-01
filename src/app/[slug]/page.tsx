@@ -1018,7 +1018,7 @@ function StickyMobileCTA({ post }: { post: BlogPost }) {
             className="flex-1 flex items-center justify-center gap-2 py-3 rounded-full border-2 border-blue-600 text-blue-600 font-bold text-sm hover:bg-blue-50 transition-colors"
           >
             <Phone className="w-4 h-4" />
-            Call Now
+            {isAffordable ? "Free Site Review" : "Call Now"}
           </a>
           <Link
             href="/web-design-pricing/"
