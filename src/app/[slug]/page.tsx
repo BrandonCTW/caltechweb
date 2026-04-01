@@ -553,7 +553,7 @@ function Sidebar({ post }: { post: BlogPost }) {
             Only $99/month
           </div>
           <h3 className="text-lg font-extrabold text-gray-900 leading-tight mb-2">
-            Ready to put this into practice?
+            {isAffordable ? "Custom website. No templates. No contracts." : "Ready to put this into practice?"}
           </h3>
           <p className="text-sm text-gray-600 mb-5 leading-relaxed">
             Get a professionally designed website with hosting, updates, and
