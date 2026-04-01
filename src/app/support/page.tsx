@@ -52,7 +52,7 @@ function SupportForm() {
       const response = await fetch("https://forms.caltechweb.com/api/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...data, site: "caltechweb.com", source: "support", ...protection }),
+        body: JSON.stringify({ ...data, site: "caltechweb.com", source: "support", ...protection, turnstileToken: document.querySelector<HTMLInputElement>("[name=cf-turnstile-response]")?.value || "" }),
       });
 
       if (response.ok) {
@@ -228,7 +228,6 @@ function SupportForm() {
 const supportFaqs = [
   {
     q: "What kinds of updates can I request?",
-          turnstileToken: document.querySelector<HTMLInputElement>("[name=cf-turnstile-response]")?.value || "",
     a: "Anything on your website. Text changes, new photos, adding or removing pages, layout tweaks, new blog posts, menu updates, hours changes, staff bios, you name it. If it's on your site, we can update it.",
   },
   {
