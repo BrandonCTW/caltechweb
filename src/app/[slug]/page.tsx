@@ -947,6 +947,8 @@ function CTAStrip({ post }: { post: BlogPost }) {
         <h2 className="text-3xl sm:text-4xl font-extrabold mb-4">
           {isNonprofit ? (
             <>Your nonprofit deserves a professional website{" "}<span className="text-orange-300">for $99/month.</span></>
+          ) : isAffordable ? (
+            <>Custom website, no templates, no contracts,{" "}<span className="text-orange-300">for $99/month.</span></>
           ) : (
             <>Get a website that already does all of this{" "}<span className="text-orange-300">for $99/month.</span></>
           )}
