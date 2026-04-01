@@ -942,7 +942,7 @@ function CTAStrip({ post }: { post: BlogPost }) {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-sm font-medium text-blue-100 mb-6">
           <Zap className="w-4 h-4 text-yellow-400" />
-          {isNonprofit ? "Built for nonprofits. Priced for nonprofits." : "Ready to put this into practice?"}
+          {isNonprofit ? "Built for nonprofits. Priced for nonprofits." : isAffordable ? "No setup fee. Cancel anytime." : "Ready to put this into practice?"}
         </div>
         <h2 className="text-3xl sm:text-4xl font-extrabold mb-4">
           {isNonprofit ? (
