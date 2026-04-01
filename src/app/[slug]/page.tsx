@@ -581,7 +581,7 @@ function Sidebar({ post }: { post: BlogPost }) {
             className="flex items-center justify-center gap-2 w-full py-2.5 mt-3 rounded-full border border-blue-200 text-blue-600 text-sm font-semibold hover:bg-blue-50 transition-colors"
           >
             <Phone className="w-4 h-4" />
-            {isAffordable ? "Call for a Free Site Review" : "(559) 282-3075"}
+            {(isAffordable || isSmallBiz) ? "Call for a Free Site Review" : "(559) 282-3075"}
           </a>
         </div>
 
