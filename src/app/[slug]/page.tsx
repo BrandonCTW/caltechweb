@@ -844,6 +844,32 @@ function ArticleContent({ post }: { post: BlogPost }) {
         ))}
       </div>
 
+      {/* Inline contact CTA — affordable-web-design-company only */}
+      {post.slug === "affordable-web-design-company" && (
+        <div className="mt-6 p-5 rounded-2xl bg-orange-50 border border-orange-100">
+          <p className="font-bold text-gray-900 mb-1">Get your free site review</p>
+          <p className="text-sm text-gray-600 mb-4">
+            Share your URL. We will review your current site and tell you exactly what we would change — no pitch, no obligation.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3">
+            <a
+              href="tel:5592823075"
+              className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-orange-500 text-white text-sm font-bold hover:bg-orange-600 transition-colors"
+            >
+              <Phone className="w-4 h-4" />
+              Call (559) 282-3075
+            </a>
+            <Link
+              href="/contact-us/"
+              className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full border border-orange-200 text-orange-700 text-sm font-semibold hover:bg-orange-100 transition-colors"
+            >
+              Send a Message
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      )}
+
       {/* Author bio */}
       <div className="mt-10 flex gap-4 p-5 rounded-2xl bg-gray-50 border border-gray-100">
         <Image src="/brandon-hopkins.jpg" alt="Brandon Hopkins" width={112} height={112} sizes="56px" className="w-14 h-14 rounded-full object-cover shrink-0" />
