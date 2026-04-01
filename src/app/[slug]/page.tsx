@@ -187,7 +187,7 @@ const blogPosts: BlogPost[] = [
         heading: "Affordable Web Design Services for Small Business Owners Who Value Their Time",
         body: [
           "The real cost of a website is not just the price tag. It is the time you spend managing it. With a DIY builder, every small change falls on you. With a traditional agency, every update comes with a billable hour. With a cheap freelancer, you spend time chasing someone who may not respond for days.",
-          "Our affordable web development services are designed for business owners who would rather run their business than manage a website. Need to update your hours for the holidays? Send a text. Adding a new service? Shoot us an email. Want to swap out photos or rewrite your about page? Just ask. We handle it, usually the same day.",
+          "Our affordable website development services are designed for business owners who would rather run their business than manage a website. Need to update your hours for the holidays? Send a text. Adding a new service? Shoot us an email. Want to swap out photos or rewrite your about page? Just ask. We handle it, usually the same day.",
           "This is not a call center. You reach Brandon directly. There is no ticket queue, no automated response, and no waiting three business days for a simple text change. That direct access is what makes this a true web design service for small business owners, not just a product you are left to figure out on your own.",
         ],
         quote: {
