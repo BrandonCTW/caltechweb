@@ -994,7 +994,7 @@ function CTAStrip({ post }: { post: BlogPost }) {
           </a>
         </div>
         <div className="mt-6 flex flex-wrap justify-center gap-4 text-sm text-blue-200">
-          {(isAffordable
+          {(isAffordable || isSmallBiz
             ? [
                 "800+ websites built",
                 "93% updates done in <1 hour",
