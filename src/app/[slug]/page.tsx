@@ -972,6 +972,8 @@ function CTAStrip({ post }: { post: BlogPost }) {
             ? "Donation integration, volunteer forms, mobile-first design, SEO, and unlimited updates, every item on this list is already built into your $99/month site. No setup fees. No surprises. Launching in 5–7 days."
             : isAffordable
             ? "Custom design, hosting, SEO, unlimited updates, and same-day support, all for $99/month. No setup fees. No contracts. Cancel anytime."
+            : isSmallBiz
+            ? "Design, hosting, unlimited updates, same-day support, and free redesigns, all included for $99/month. No setup fee. No contract. Live in 5–7 days."
             : "Everything you just read about (speed, mobile-first design, clear CTAs, local SEO) is built into every CalTech Web site. Launching in 5–7 days."}
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
