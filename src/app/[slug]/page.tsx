@@ -573,7 +573,7 @@ function Sidebar({ post }: { post: BlogPost }) {
             href="/web-design-pricing/"
             className="flex items-center justify-center gap-2 w-full py-3 rounded-full bg-orange-500 text-white text-sm font-bold hover:bg-orange-600 transition-colors"
           >
-            {isAffordable ? "See My $99/Month Plan" : "Get My Website"}
+            {isAffordable ? "See My $99/Month Plan" : isSmallBiz ? "Get Everything for $99/Month" : "Get My Website"}
             <ArrowRight className="w-4 h-4" />
           </Link>
           <a
