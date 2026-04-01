@@ -1227,3 +1227,78 @@ The site is at its practical performance ceiling for a Next.js App Router site o
 The site remains at its practical ceiling (94–99). All remaining issues are unscored diagnostics — render-blocking CSS, legacy JS polyfills, framework chunks, and 1 React hydration task — none fixable without changing frameworks.
 [2026-03-05 11:32:50] Run #10 finished
 [2026-03-05 11:32:50] Reached max loops (10). Stopping.
+[2026-04-01 09:20:21] ==========================================
+[2026-04-01 09:20:21] Agent: Pagespeed Agent
+[2026-04-01 09:20:21] Model: sonnet
+[2026-04-01 09:20:21] Workspace: /Users/brandonhopkins/Projects/caltechweb/agents/pagespeed-agent
+[2026-04-01 09:20:21] Stop on complete: false
+[2026-04-01 09:20:21] Max loops: 1 (0=infinite)
+[2026-04-01 09:20:21] ==========================================
+[2026-04-01 09:20:21] Run #1 starting (model: sonnet)
+
+---
+
+## 2026-04-01 — Run #1: Defer Cloudflare Turnstile to lazyOnload
+
+**Site URL:** https://caltechweb.vercel.app
+**Before Score:** 78 (Mobile)
+**After Score:** 93 (Mobile)
+**Net Change:** +15 points
+
+### Before Metrics
+| Metric | Value |
+|---|---|
+| Performance | 78 |
+| FCP | 2.7s (2,660ms) |
+| LCP | 4.4s (4,426ms) |
+| TBT | 50ms |
+| CLS | 0 |
+| Speed Index | 4.8s |
+| TTI | 4.4s |
+
+### Root Cause Analysis
+
+The score had regressed from the March 5 ceiling of 94-99 down to 78. The culprit was the Cloudflare Turnstile script added on April 1 with `strategy="afterInteractive"` in `src/app/layout.tsx`.
+
+In Next.js App Router, `strategy="afterInteractive"` emits a `<link rel="preload" as="script">` for the external script URL in the initial HTML. The Turnstile `api.js` is 51 KB. This preload competed for bandwidth with the render-blocking CSS (19.4 KB compressed) and the preloaded Geist font (28.4 KB) on the simulated slow 4G connection (1.6 Mbps = ~200 KB/s). On slow 4G, having 51 KB of extra preload contention on the critical path delays CSS and font delivery, directly worsening FCP.
+
+### Fix Applied
+
+Changed `strategy="afterInteractive"` to `strategy="lazyOnload"` for the Turnstile script in `src/app/layout.tsx`:
+
+```tsx
+// Before
+<Script src="https://challenges.cloudflare.com/turnstile/v0/api.js" strategy="afterInteractive" />
+
+// After
+<Script src="https://challenges.cloudflare.com/turnstile/v0/api.js" strategy="lazyOnload" />
+```
+
+With `lazyOnload`, Next.js does NOT emit a preload link — the script loads after the window `load` event via `requestIdleCallback`. Turnstile still loads well before a user can realistically fill out and submit a form.
+
+**Commit:** `d7b5e8b`
+
+### After Metrics
+| Metric | Value |
+|---|---|
+| Performance | 93 |
+| FCP | 1.5s (1,546ms) |
+| LCP | 2.9s (2,851ms) |
+| TBT | 0ms |
+| CLS | 0 |
+| Speed Index | 4.0s (3,951ms) |
+| TTI | 2.9s (2,851ms) |
+
+### Result
+
+Score improved +15 points, back in the green zone (90+). All metrics improved significantly:
+- FCP: 2.7s → 1.5s (-1.1s, 42% faster)
+- LCP: 4.4s → 2.9s (-1.5s, 34% faster)
+- TBT: 50ms → 0ms (-50ms, eliminated)
+- SI: 4.8s → 4.0s (-0.8s, 17% faster)
+- TTI: 4.4s → 2.9s (-1.5s, 34% faster)
+
+### Key Finding
+
+`strategy="afterInteractive"` on any external script adds a `<link rel="preload" as="script">` to the HTML, which causes early bandwidth contention on slow connections. All third-party scripts should use `lazyOnload` (or the custom interaction-based approach already used for GA and Zendesk) unless there is a compelling reason for earlier loading. Turnstile is fully functional with `lazyOnload`.
+
