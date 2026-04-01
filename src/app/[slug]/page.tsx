@@ -989,7 +989,9 @@ function CTAStrip({ post }: { post: BlogPost }) {
 
 // ─── Sticky Mobile CTA ────────────────────────────────────────────────────────
 
-function StickyMobileCTA() {
+function StickyMobileCTA({ post }: { post: BlogPost }) {
+  const isAffordable = post.slug === "affordable-web-design-company";
+
   return (
     <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden">
       <div
@@ -1008,7 +1010,7 @@ function StickyMobileCTA() {
             href="/web-design-pricing/"
             className="flex-1 flex items-center justify-center gap-2 py-3 rounded-full bg-orange-500 text-white font-bold text-sm hover:bg-orange-600 transition-colors"
           >
-            Get My Website
+            {isAffordable ? "See My $99/Month Plan" : "Get My Website"}
           </Link>
         </div>
       </div>
@@ -1153,7 +1155,7 @@ export default async function BlogPostPage({
         <CTAStrip post={post} />
       </main>
       <Footer />
-      <StickyMobileCTA />
+      <StickyMobileCTA post={post} />
     </>
   );
 }
