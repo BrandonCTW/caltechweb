@@ -20,7 +20,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/case-studies/medical-practice-website-design/",
     "/case-studies/sutoer-solutions/",
     "/nonprofit-website-design/",
+    "/ai/",
+    "/ai/automation/",
+    "/ai/ap-automation/",
+    "/ai/automated-client-reporting/",
+    "/ai/b2b-lead-enrichment/",
     "/ai-consultant/",
+    "/portfolio/",
     "/support/",
     "/privacy-policy/",
     "/terms-and-conditions/",
@@ -62,7 +68,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/case-studies/": 0.8,
     "/affordable-church-websites/": 0.8,
     "/nonprofit-website-design/": 0.8,
+    "/ai/": 0.9,
+    "/ai/automation/": 0.8,
+    "/ai/ap-automation/": 0.7,
+    "/ai/automated-client-reporting/": 0.7,
+    "/ai/b2b-lead-enrichment/": 0.7,
     "/ai-consultant/": 0.9,
+    "/portfolio/": 0.7,
     "/brandon-hopkins/": 0.7,
     "/blog/": 0.7,
     "/web-design-competitor-comparison/": 0.7,
@@ -71,7 +83,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/terms-and-conditions/": 0.3,
   };
 
-  const lastUpdated = new Date("2026-03-07");
+  const lastUpdated = new Date("2026-04-01");
   const blogLastUpdated = new Date("2026-02-25");
 
   return [
