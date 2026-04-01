@@ -872,6 +872,33 @@ function ArticleContent({ post }: { post: BlogPost }) {
                 </footer>
               </div>
             )}
+
+            {/* CTA after Guarantee section — affordable-web-design-company only */}
+            {post.slug === "affordable-web-design-company" &&
+              section.heading === "The Guarantee: Full Refund, You Keep the Website" && (
+              <div className="mt-6 p-5 rounded-2xl bg-green-50 border border-green-200 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                <div>
+                  <p className="font-bold text-gray-900 leading-snug">Zero risk. Start for $99/month.</p>
+                  <p className="text-sm text-gray-600 mt-0.5">Full refund if not satisfied, and you keep the site.</p>
+                </div>
+                <div className="flex flex-col sm:flex-row gap-2 shrink-0">
+                  <Link
+                    href="/web-design-pricing/"
+                    className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-orange-500 text-white text-sm font-bold hover:bg-orange-600 transition-colors whitespace-nowrap"
+                  >
+                    See My $99/Month Plan
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                  <a
+                    href="tel:5592823075"
+                    className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full border border-green-300 text-green-800 text-sm font-semibold hover:bg-green-100 transition-colors whitespace-nowrap"
+                  >
+                    <Phone className="w-4 h-4" />
+                    Call for a Free Review
+                  </a>
+                </div>
+              </div>
+            )}
           </section>
         ))}
       </div>
