@@ -1017,6 +1017,7 @@ function CTAStrip({ post }: { post: BlogPost }) {
 
 function StickyMobileCTA({ post }: { post: BlogPost }) {
   const isAffordable = post.slug === "affordable-web-design-company";
+  const isSmallBiz = post.slug === "affordable-web-design-for-small-businesses";
 
   return (
     <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden">
@@ -1030,13 +1031,13 @@ function StickyMobileCTA({ post }: { post: BlogPost }) {
             className="flex-1 flex items-center justify-center gap-2 py-3 rounded-full border-2 border-blue-600 text-blue-600 font-bold text-sm hover:bg-blue-50 transition-colors"
           >
             <Phone className="w-4 h-4" />
-            {isAffordable ? "Free Site Review" : "Call Now"}
+            {isAffordable || isSmallBiz ? "Free Site Review" : "Call Now"}
           </a>
           <Link
             href="/web-design-pricing/"
             className="flex-1 flex items-center justify-center gap-2 py-3 rounded-full bg-orange-500 text-white font-bold text-sm hover:bg-orange-600 transition-colors"
           >
-            {isAffordable ? "See My $99/Month Plan" : "Get My Website"}
+            {isAffordable ? "See My $99/Month Plan" : isSmallBiz ? "Get Everything for $99/Month" : "Get My Website"}
           </Link>
         </div>
       </div>
