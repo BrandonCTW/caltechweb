@@ -143,7 +143,7 @@ const blogPosts: BlogPost[] = [
     excerpt:
       "Most affordable web design companies sell you a template and disappear. We build custom websites for $99/month with hosting, SEO, unlimited updates, and same-day support included.",
     readTime: "7 min read",
-    date: "February 18, 2026",
+    date: "April 1, 2026",
     intro:
       "Every small business owner reaches the same frustrating crossroads: you need a professional website, but the quotes are $5,000 to $10,000. So you look for a more affordable web design company, and the options get worse. Freelancers who ghost after launch. Template mills that give you the same site as your competitor. DIY builders that eat 80 hours of your time.\n\nI built CalTech Web to solve this problem. After building over 800 custom websites for small businesses, I can tell you that affordable web design does not require compromise. It requires a better business model.\n\nHere is exactly how we deliver custom web design services for $99/month, what that includes, and why thousands of dollars in upfront costs are completely unnecessary for most small businesses.",
     sections: [
