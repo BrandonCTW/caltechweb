@@ -835,8 +835,48 @@ function ArticleContent({ post }: { post: BlogPost }) {
               </div>
             )}
 
+            {/* Price comparison table — affordable-web-design-company pricing section only */}
+            {post.slug === "affordable-web-design-company" &&
+              section.heading === "Custom Web Design Services for $99/Month, Everything Included" && (
+              <div className="mt-4 overflow-x-auto rounded-xl border border-gray-200 shadow-sm">
+                <table className="w-full text-sm border-collapse">
+                  <thead>
+                    <tr>
+                      <th className="text-left p-3 bg-gray-50 text-gray-500 font-semibold text-xs uppercase tracking-wide border-b border-gray-200 w-1/4"></th>
+                      <th className="p-3 bg-blue-600 text-white font-bold text-center border-b border-blue-600 w-1/4">
+                        <div className="text-sm font-extrabold">CalTech Web</div>
+                        <div className="text-xs text-blue-200 font-normal mt-0.5">$99/month</div>
+                      </th>
+                      <th className="p-3 bg-gray-50 text-gray-700 font-semibold text-center border-b border-l border-gray-200 w-1/4 text-xs uppercase tracking-wide">
+                        Agency
+                      </th>
+                      <th className="p-3 bg-gray-50 text-gray-700 font-semibold text-center border-b border-l border-gray-200 w-1/4 text-xs uppercase tracking-wide">
+                        DIY Builder
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {[
+                      { label: "Setup cost", caltechWeb: "$0", agency: "$3,000–$10,000", diy: "40–80 hrs of your time" },
+                      { label: "Monthly fee", caltechWeb: "$99", agency: "$50–$150 hosting", diy: "$17–$33" },
+                      { label: "Updates", caltechWeb: "Unlimited, same-day", agency: "$75–$150/hr", diy: "You do it yourself" },
+                      { label: "Support", caltechWeb: "Direct to Brandon", agency: "Ticket queue", diy: "None" },
+                      { label: "2-year total", caltechWeb: "$2,376", agency: "$5,000–$15,000+", diy: "$408+ your time" },
+                    ].map(({ label, caltechWeb, agency, diy }, i) => (
+                      <tr key={label} className={i % 2 === 0 ? "bg-white" : "bg-gray-50"}>
+                        <td className="p-3 font-medium text-gray-700 border-t border-gray-100">{label}</td>
+                        <td className="p-3 text-center font-semibold text-blue-700 bg-blue-50 border-t border-x border-blue-100">{caltechWeb}</td>
+                        <td className="p-3 text-center text-gray-500 border-t border-l border-gray-100">{agency}</td>
+                        <td className="p-3 text-center text-gray-500 border-t border-l border-gray-100">{diy}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
+
             {/* Tip callout */}
-            {section.tip && (
+            {section.tip && !(post.slug === "affordable-web-design-company" && section.heading === "Custom Web Design Services for $99/Month, Everything Included") && (
               <div className="flex gap-3 p-4 rounded-xl bg-amber-50 border border-amber-100 mt-4">
                 <Lightbulb className="w-5 h-5 text-amber-500 shrink-0 mt-0.5" />
                 <p className="text-sm text-amber-900 leading-relaxed">
