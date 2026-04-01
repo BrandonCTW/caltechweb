@@ -1293,6 +1293,26 @@ export default async function BlogPostPage({
               <span>{post.date}</span>
               <span>by Brandon Hopkins</span>
             </div>
+
+            {/* Hero CTA — affordable-web-design-company only */}
+            {post.slug === "affordable-web-design-company" && (
+              <div className="mt-8 flex flex-col sm:flex-row gap-3">
+                <Link
+                  href="/web-design-pricing/"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-orange-500 text-white text-sm font-bold hover:bg-orange-600 transition-colors shadow-lg"
+                >
+                  See My $99/Month Plan
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+                <a
+                  href="tel:5592823075"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full border border-white/30 text-white text-sm font-semibold hover:bg-white/10 transition-colors"
+                >
+                  <Phone className="w-4 h-4" />
+                  Free Site Review
+                </a>
+              </div>
+            )}
           </div>
         </header>
 
