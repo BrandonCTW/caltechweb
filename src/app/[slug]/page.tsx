@@ -540,7 +540,9 @@ export async function generateMetadata({
 
 // ─── Sidebar ─────────────────────────────────────────────────────────────────
 
-function Sidebar() {
+function Sidebar({ post }: { post: BlogPost }) {
+  const isAffordable = post.slug === "affordable-web-design-company";
+
   return (
     <aside className="hidden lg:block w-80 shrink-0">
       <div className="sticky top-24 space-y-5">
@@ -561,7 +563,7 @@ function Sidebar() {
             href="/web-design-pricing/"
             className="flex items-center justify-center gap-2 w-full py-3 rounded-full bg-orange-500 text-white text-sm font-bold hover:bg-orange-600 transition-colors"
           >
-            Get My Website
+            {isAffordable ? "See My $99/Month Plan" : "Get My Website"}
             <ArrowRight className="w-4 h-4" />
           </Link>
           <a
@@ -1152,7 +1154,7 @@ export default async function BlogPostPage({
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
           <div className="flex gap-12">
             <ArticleContent post={post} />
-            <Sidebar />
+            <Sidebar post={post} />
           </div>
         </div>
 
