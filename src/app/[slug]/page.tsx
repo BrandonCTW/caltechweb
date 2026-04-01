@@ -961,6 +961,8 @@ function CTAStrip({ post }: { post: BlogPost }) {
             <>Your nonprofit deserves a professional website{" "}<span className="text-orange-300">for $99/month.</span></>
           ) : isAffordable ? (
             <>Custom website, no templates, no contracts,{" "}<span className="text-orange-300">for $99/month.</span></>
+          ) : isSmallBiz ? (
+            <>A custom small business website with everything included,{" "}<span className="text-orange-300">for $99/month.</span></>
           ) : (
             <>Get a website that already does all of this{" "}<span className="text-orange-300">for $99/month.</span></>
           )}
