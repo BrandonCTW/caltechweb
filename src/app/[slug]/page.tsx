@@ -954,6 +954,8 @@ function CTAStrip({ post }: { post: BlogPost }) {
         <p className="text-blue-100 text-lg max-w-2xl mx-auto mb-8 leading-relaxed">
           {isNonprofit
             ? "Donation integration, volunteer forms, mobile-first design, SEO, and unlimited updates, every item on this list is already built into your $99/month site. No setup fees. No surprises. Launching in 5–7 days."
+            : isAffordable
+            ? "Custom design, hosting, SEO, unlimited updates, and same-day support, all for $99/month. No setup fees. No contracts. Cancel anytime."
             : "Everything you just read about (speed, mobile-first design, clear CTAs, local SEO) is built into every CalTech Web site. Launching in 5–7 days."}
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
