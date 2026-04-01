@@ -29,7 +29,6 @@ import Link from "next/link";
 import { useState, FormEvent } from "react";
 import { rfpFaqs } from "./faq-data";
 import { useFormProtection } from "@/hooks/useFormProtection";
-import MathCaptcha from "@/components/MathCaptcha";
 import HoneypotField from "@/components/HoneypotField";
 
 // ─── Hero ─────────────────────────────────────────────────────────────────────
@@ -378,18 +377,11 @@ function RFPForm() {
   const {
     honeypot,
     setHoneypot,
-    mathChallenge,
-    mathAnswer,
-    setMathAnswer,
-    mathError,
-    setMathError,
     getProtectionPayload,
-    validateMath,
   } = useFormProtection();
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
-    if (!validateMath()) return;
     setSending(true);
     setError("");
 
@@ -610,16 +602,6 @@ function RFPForm() {
               />
             </div>
           </div>
-
-          <MathCaptcha
-            question={mathChallenge?.question ?? null}
-            answer={mathAnswer}
-            onChange={(v) => {
-              setMathAnswer(v);
-              if (mathError) setMathError("");
-            }}
-            error={mathError}
-          />
 
           {error && (
             <div className="rounded-xl bg-red-50 border border-red-200 px-4 py-3 text-sm text-red-700">

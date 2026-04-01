@@ -12,7 +12,6 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { useFormProtection } from "@/hooks/useFormProtection";
-import MathCaptcha from "@/components/MathCaptcha";
 import HoneypotField from "@/components/HoneypotField";
 
 // ─── Contact Form ─────────────────────────────────────────────────────────────
@@ -30,13 +29,7 @@ function ContactForm() {
   const {
     honeypot,
     setHoneypot,
-    mathChallenge,
-    mathAnswer,
-    setMathAnswer,
-    mathError,
-    setMathError,
     getProtectionPayload,
-    validateMath,
   } = useFormProtection();
 
   function handleChange(
@@ -49,7 +42,6 @@ function ContactForm() {
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    if (!validateMath()) return;
     setSending(true);
 
     try {
@@ -212,16 +204,6 @@ function ContactForm() {
           className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition resize-none"
         />
       </div>
-
-      <MathCaptcha
-        question={mathChallenge?.question ?? null}
-        answer={mathAnswer}
-        onChange={(v) => {
-          setMathAnswer(v);
-          if (mathError) setMathError("");
-        }}
-        error={mathError}
-      />
 
       <div className="cf-turnstile" data-sitekey="0x4AAAAAACyyvaAYDtMSgOUI"></div>
 

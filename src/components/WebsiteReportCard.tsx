@@ -25,7 +25,6 @@ import {
   Sparkles,
 } from "lucide-react";
 import { useFormProtection } from "@/hooks/useFormProtection";
-import MathCaptcha from "@/components/MathCaptcha";
 import HoneypotField from "@/components/HoneypotField";
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
@@ -454,13 +453,7 @@ function ReportContactForm({ websiteUrl, score }: { websiteUrl: string; score: n
   const {
     honeypot,
     setHoneypot,
-    mathChallenge,
-    mathAnswer,
-    setMathAnswer,
-    mathError,
-    setMathError,
     getProtectionPayload,
-    validateMath,
   } = useFormProtection();
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -469,7 +462,6 @@ function ReportContactForm({ websiteUrl, score }: { websiteUrl: string; score: n
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    if (!validateMath()) return;
     setSending(true);
 
     try {
@@ -610,17 +602,6 @@ function ReportContactForm({ websiteUrl, score }: { websiteUrl: string; score: n
             />
           </div>
         </div>
-
-        <MathCaptcha
-          question={mathChallenge?.question ?? null}
-          answer={mathAnswer}
-          onChange={(v) => {
-            setMathAnswer(v);
-            if (mathError) setMathError("");
-          }}
-          error={mathError}
-          variant="dark"
-        />
 
         <div className="flex flex-col sm:flex-row items-center gap-3 pt-2">
           <div className="cf-turnstile" data-sitekey="0x4AAAAAACyyvaAYDtMSgOUI"></div>

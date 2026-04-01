@@ -16,7 +16,6 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useState, useEffect, type FormEvent } from "react";
 import { useFormProtection } from "@/hooks/useFormProtection";
-import MathCaptcha from "@/components/MathCaptcha";
 import HoneypotField from "@/components/HoneypotField";
 
 // --- Support Form ---
@@ -28,18 +27,11 @@ function SupportForm() {
   const {
     honeypot,
     setHoneypot,
-    mathChallenge,
-    mathAnswer,
-    setMathAnswer,
-    mathError,
-    setMathError,
     getProtectionPayload,
-    validateMath,
   } = useFormProtection();
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    if (!validateMath()) return;
     setSending(true);
     setError(false);
 
@@ -192,16 +184,6 @@ function SupportForm() {
           className="w-full px-4 py-3 rounded-xl border border-gray-200 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-shadow resize-none"
         />
       </div>
-
-      <MathCaptcha
-        question={mathChallenge?.question ?? null}
-        answer={mathAnswer}
-        onChange={(v) => {
-          setMathAnswer(v);
-          if (mathError) setMathError("");
-        }}
-        error={mathError}
-      />
 
       <div className="cf-turnstile" data-sitekey="0x4AAAAAACyyvaAYDtMSgOUI"></div>
 

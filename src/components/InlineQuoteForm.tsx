@@ -3,7 +3,6 @@
 import { useState, type FormEvent } from "react";
 import { ArrowRight, Check, Zap, Users } from "lucide-react";
 import { useFormProtection } from "@/hooks/useFormProtection";
-import MathCaptcha from "@/components/MathCaptcha";
 import HoneypotField from "@/components/HoneypotField";
 
 export default function InlineQuoteForm() {
@@ -13,13 +12,7 @@ export default function InlineQuoteForm() {
   const {
     honeypot,
     setHoneypot,
-    mathChallenge,
-    mathAnswer,
-    setMathAnswer,
-    mathError,
-    setMathError,
     getProtectionPayload,
-    validateMath,
   } = useFormProtection();
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -28,7 +21,6 @@ export default function InlineQuoteForm() {
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    if (!validateMath()) return;
     setSending(true);
 
     try {
@@ -148,15 +140,6 @@ export default function InlineQuoteForm() {
                 className="w-full px-4 py-3.5 rounded-xl border border-gray-200 text-gray-900 placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all text-base"
               />
             </div>
-            <MathCaptcha
-              question={mathChallenge?.question ?? null}
-              answer={mathAnswer}
-              onChange={(v) => {
-                setMathAnswer(v);
-                if (mathError) setMathError("");
-              }}
-              error={mathError}
-            />
           </div>
 
           <div className="cf-turnstile" data-sitekey="0x4AAAAAACyyvaAYDtMSgOUI"></div>

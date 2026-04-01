@@ -3,7 +3,6 @@
 import { useState, type FormEvent } from "react";
 import { ArrowRight, Check } from "lucide-react";
 import { useFormProtection } from "@/hooks/useFormProtection";
-import MathCaptcha from "@/components/MathCaptcha";
 import HoneypotField from "@/components/HoneypotField";
 
 export default function CompactLeadForm() {
@@ -13,14 +12,7 @@ export default function CompactLeadForm() {
   const {
     honeypot,
     setHoneypot,
-    mathChallenge,
-    mathAnswer,
-    setMathAnswer,
-    mathError,
-    setMathError,
     getProtectionPayload,
-    validateMath,
-    refreshChallenge,
   } = useFormProtection();
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -29,7 +21,6 @@ export default function CompactLeadForm() {
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    if (!validateMath()) return;
     setSending(true);
 
     try {
@@ -97,17 +88,6 @@ export default function CompactLeadForm() {
           value={fields.contact}
           onChange={handleChange}
           className="flex-1 px-4 py-3.5 rounded-xl border border-gray-200 text-gray-900 placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all text-base bg-white"
-        />
-      </div>
-      <div className="mb-3">
-        <MathCaptcha
-          question={mathChallenge?.question ?? null}
-          answer={mathAnswer}
-          onChange={(v) => {
-            setMathAnswer(v);
-            if (mathError) setMathError("");
-          }}
-          error={mathError}
         />
       </div>
       <div className="cf-turnstile" data-sitekey="0x4AAAAAACyyvaAYDtMSgOUI"></div>
