@@ -45,6 +45,7 @@ export default function CompactLeadForm() {
           message: `Contact: ${fields.contact}`,
           source: "homepage-final-cta",
           ...protection,
+          turnstileToken: document.querySelector<HTMLInputElement>("[name=cf-turnstile-response]")?.value || "",
         }),
       });
     } catch {
@@ -109,6 +110,8 @@ export default function CompactLeadForm() {
           error={mathError}
         />
       </div>
+      <div className="cf-turnstile" data-sitekey="0x4AAAAAACyyvaAYDtMSgOUI"></div>
+
       <button
         type="submit"
         disabled={sending}

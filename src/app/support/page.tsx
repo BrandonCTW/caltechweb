@@ -203,6 +203,8 @@ function SupportForm() {
         error={mathError}
       />
 
+      <div className="cf-turnstile" data-sitekey="0x4AAAAAACyyvaAYDtMSgOUI"></div>
+
       <button
         type="submit"
         disabled={sending}
@@ -226,6 +228,7 @@ function SupportForm() {
 const supportFaqs = [
   {
     q: "What kinds of updates can I request?",
+          turnstileToken: document.querySelector<HTMLInputElement>("[name=cf-turnstile-response]")?.value || "",
     a: "Anything on your website. Text changes, new photos, adding or removing pages, layout tweaks, new blog posts, menu updates, hours changes, staff bios, you name it. If it's on your site, we can update it.",
   },
   {

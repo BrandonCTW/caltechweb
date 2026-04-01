@@ -86,6 +86,7 @@ export default function RootLayout({
         <Script id="ze-lazy" strategy="lazyOnload">
           {`(function(){var d=false;function l(){if(d)return;d=true;var s=document.createElement('script');s.id='ze-snippet';s.src='https://static.zdassets.com/ekr/snippet.js?key=20e06cbb-5338-45fc-93ba-6e1621dc8d52';document.body.appendChild(s);}['click','scroll','touchstart','mouseover'].forEach(function(e){window.addEventListener(e,l,{once:true,passive:true});});setTimeout(l,12000);})();`}
         </Script>
+        <Script src="https://challenges.cloudflare.com/turnstile/v0/api.js" strategy="afterInteractive" />
       </body>
     </html>
   );

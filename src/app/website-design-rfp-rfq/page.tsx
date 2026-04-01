@@ -414,6 +414,7 @@ function RFPForm() {
           message: `${organization ? `Organization: ${organization}\n` : ""}${orgType ? `Type: ${orgType}\n\n` : ""}${details}`,
           source: "rfp-rfq",
           ...protection,
+          turnstileToken: document.querySelector<HTMLInputElement>("[name=cf-turnstile-response]")?.value || "",
         }),
       });
       if (res.ok) {
@@ -625,6 +626,8 @@ function RFPForm() {
               {error}
             </div>
           )}
+
+          <div className="cf-turnstile" data-sitekey="0x4AAAAAACyyvaAYDtMSgOUI"></div>
 
           <button
             type="submit"

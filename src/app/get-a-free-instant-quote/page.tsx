@@ -104,6 +104,7 @@ function ContactForm() {
           message: `${phone ? `Phone: ${phone}\n` : ""}${projectType ? `Project Type: ${projectType}\n\n` : "\n"}${data.message || ""}`,
           source: "free-quote",
           ...protection,
+          turnstileToken: document.querySelector<HTMLInputElement>("[name=cf-turnstile-response]")?.value || "",
         }),
       });
 
@@ -362,6 +363,8 @@ function ContactForm() {
             }}
             error={mathError}
           />
+
+          <div className="cf-turnstile" data-sitekey="0x4AAAAAACyyvaAYDtMSgOUI"></div>
 
           <button
             type="submit"

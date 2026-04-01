@@ -65,6 +65,7 @@ function ContactForm() {
           message: `${fields.phone ? `Phone: ${fields.phone}\n` : ""}${fields.businessType ? `Business Type: ${fields.businessType}\n` : ""}${fields.website ? `Website: ${fields.website}\n\n` : "\n"}${fields.message}`,
           source: "contact-page",
           ...protection,
+          turnstileToken: document.querySelector<HTMLInputElement>("[name=cf-turnstile-response]")?.value || "",
         }),
       });
       if (res.ok) {
@@ -221,6 +222,8 @@ function ContactForm() {
         }}
         error={mathError}
       />
+
+      <div className="cf-turnstile" data-sitekey="0x4AAAAAACyyvaAYDtMSgOUI"></div>
 
       <button
         type="submit"

@@ -485,6 +485,7 @@ function ReportContactForm({ websiteUrl, score }: { websiteUrl: string; score: n
           message: `Phone: ${fields.phone || "Not provided"}\nWebsite: ${website}\nReport Card Score: ${score}/100\n\nSubmitted from Free Website Report Card after scanning their site.`,
           source: "report-card",
           ...protection,
+          turnstileToken: document.querySelector<HTMLInputElement>("[name=cf-turnstile-response]")?.value || "",
         }),
       });
       if (res.ok) {
@@ -622,6 +623,8 @@ function ReportContactForm({ websiteUrl, score }: { websiteUrl: string; score: n
         />
 
         <div className="flex flex-col sm:flex-row items-center gap-3 pt-2">
+          <div className="cf-turnstile" data-sitekey="0x4AAAAAACyyvaAYDtMSgOUI"></div>
+
           <button
             type="submit"
             disabled={sending}
@@ -720,6 +723,8 @@ export default function WebsiteReportCard() {
           className="flex-1 px-5 py-4 rounded-xl border border-gray-200 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent bg-white"
           disabled={scanning}
         />
+        <div className="cf-turnstile" data-sitekey="0x4AAAAAACyyvaAYDtMSgOUI"></div>
+
         <button
           type="submit"
           disabled={scanning || !url.trim()}
