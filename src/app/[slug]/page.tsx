@@ -285,7 +285,7 @@ const blogPosts: BlogPost[] = [
         },
       },
       {
-        heading: "Who This Is For (And Who It's Not For)",
+        heading: "Affordable Web Design for Small Businesses: Is It Right for You?",
         body: [
           "The $99/month model works best for small businesses that need a professional web presence but don't have the budget or desire to manage a website themselves. That includes local service businesses, medical practices, law firms, restaurants, churches, non-profits, contractors, real estate agents, and really any small business that relies on local customers.",
           "Who is it not for? If you need a complex web application, an e-commerce store with thousands of products, or a site with custom software integrations, you'll likely need a more specialized solution. For 90% of small businesses, though, a well-designed informational and lead-generation website is exactly what they need, and that's what we build.",
