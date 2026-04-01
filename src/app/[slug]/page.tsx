@@ -969,7 +969,7 @@ function CTAStrip({ post }: { post: BlogPost }) {
             className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full border-2 border-white/30 text-white font-semibold hover:bg-white/10 transition-colors"
           >
             <Phone className="w-5 h-5" />
-            (559) 282-3075
+            {isAffordable ? "Call for a Free Site Review" : "(559) 282-3075"}
           </a>
         </div>
         <div className="mt-6 flex flex-wrap justify-center gap-4 text-sm text-blue-200">
