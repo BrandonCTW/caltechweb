@@ -551,6 +551,7 @@ export async function generateMetadata({
 
 function Sidebar({ post }: { post: BlogPost }) {
   const isAffordable = post.slug === "affordable-web-design-company";
+  const isSmallBiz = post.slug === "affordable-web-design-for-small-businesses";
 
   return (
     <aside className="hidden lg:block w-80 shrink-0">
@@ -562,7 +563,7 @@ function Sidebar({ post }: { post: BlogPost }) {
             Only $99/month
           </div>
           <h3 className="text-lg font-extrabold text-gray-900 leading-tight mb-2">
-            {isAffordable ? "Custom website. No templates. No contracts." : "Ready to put this into practice?"}
+            {isAffordable ? "Custom website. No templates. No contracts." : isSmallBiz ? "Custom website. Everything included. $99/month." : "Ready to put this into practice?"}
           </h3>
           <p className="text-sm text-gray-600 mb-5 leading-relaxed">
             Get a professionally designed website with hosting, updates, and
