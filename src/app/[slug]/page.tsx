@@ -873,6 +873,33 @@ function ArticleContent({ post }: { post: BlogPost }) {
               </div>
             )}
 
+            {/* CTA after FAQ section — affordable-web-design-company only */}
+            {post.slug === "affordable-web-design-company" &&
+              section.heading === "Frequently Asked Questions: Affordable Web Design Company" && (
+              <div className="mt-6 p-5 rounded-2xl bg-blue-600 text-white flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                <div>
+                  <p className="font-bold text-white leading-snug">Questions answered. Ready to start?</p>
+                  <p className="text-sm text-blue-100 mt-0.5">$99/month, no contracts, full refund guarantee.</p>
+                </div>
+                <div className="flex flex-col sm:flex-row gap-2 shrink-0">
+                  <Link
+                    href="/web-design-pricing/"
+                    className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-orange-500 text-white text-sm font-bold hover:bg-orange-600 transition-colors whitespace-nowrap"
+                  >
+                    See My $99/Month Plan
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                  <a
+                    href="tel:5592823075"
+                    className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full border border-blue-400 text-white text-sm font-semibold hover:bg-blue-500 transition-colors whitespace-nowrap"
+                  >
+                    <Phone className="w-4 h-4" />
+                    Call for a Free Review
+                  </a>
+                </div>
+              </div>
+            )}
+
             {/* CTA after Guarantee section — affordable-web-design-company only */}
             {post.slug === "affordable-web-design-company" &&
               section.heading === "The Guarantee: Full Refund, You Keep the Website" && (
