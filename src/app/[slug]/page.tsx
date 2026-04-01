@@ -971,11 +971,19 @@ function CTAStrip({ post }: { post: BlogPost }) {
           </a>
         </div>
         <div className="mt-6 flex flex-wrap justify-center gap-4 text-sm text-blue-200">
-          {[
-            "800+ websites built",
-            "93% updates done in <1 hour",
-            "5–7 day launch",
-          ].map((item) => (
+          {(isAffordable
+            ? [
+                "800+ websites built",
+                "93% updates done in <1 hour",
+                "5–7 day launch",
+                "Full refund — you keep the site",
+              ]
+            : [
+                "800+ websites built",
+                "93% updates done in <1 hour",
+                "5–7 day launch",
+              ]
+          ).map((item) => (
             <span key={item} className="flex items-center gap-1.5">
               <TrendingUp className="w-3.5 h-3.5 text-blue-300" />
               {item}
