@@ -2119,3 +2119,57 @@ Done. Here's what was done and why:
 **Secondary keyword upside**: "church website builder" (1,200 vol, difficulty 21), "church website design" (700 vol, difficulty 30), "how to create a church website" (200 vol, difficulty 3).
 [2026-03-04 17:51:37] Run #3 finished
 [2026-03-04 17:51:37] Reached max loops (3). Stopping.
+[2026-04-01 09:12:14] ==========================================
+[2026-04-01 09:12:14] Agent: Seo Agent
+[2026-04-01 09:12:14] Model: sonnet
+[2026-04-01 09:12:14] Workspace: /Users/brandonhopkins/Projects/caltechweb/agents/seo-agent
+[2026-04-01 09:12:14] Stop on complete: false
+[2026-04-01 09:12:14] Max loops: 1 (0=infinite)
+[2026-04-01 09:12:14] ==========================================
+[2026-04-01 09:12:14] Run #1 starting (model: sonnet)
+
+[2026-04-01] === SEO AGENT RUN #10 ===
+
+## Fix: Heading Hierarchy + Semantic HTML (Run Order #4)
+
+### Problems Identified
+
+Full audit of semantic HTML across 10 key pages revealed the following issues:
+
+**1. Two pages missing `<main>` element**
+- `web-design-portfolio/page.tsx` — no `<main>` wrapping any content
+- `portfolio/[slug]/page.tsx` — no `<main>` on any case study page
+
+`<main>` is a required ARIA landmark. Screen readers and Google use it to identify the primary content of the page. Google's documentation on accessibility and structured pages recommends proper landmark usage. Pages without `<main>` have no programmatic content boundary.
+
+**2. Portfolio case study pages missing `<article>` wrapper**
+`portfolio/[slug]/page.tsx` — TheStory, ProjectTimeline, Results, WhatWeBuilt, and Testimonial sections collectively describe a single subject (a client case study). The `<article>` element semantically declares self-contained content. Google uses this signal to understand what constitutes a discrete piece of content on the page.
+
+**3. Portfolio listing page: h1 → h3 heading skip**
+`web-design-portfolio/page.tsx` — Each `PortfolioCard` component is a `<section>` whose only heading was an `<h3>` for the project name. The page `<h1>` was the only higher-level heading, creating a skip from h1 to h3 with no h2. W3C and Google both document that heading hierarchy should not skip levels — it disrupts both SEO understanding and screen reader navigation.
+
+**Fix:** Changed `<h3>` to `<h2>` in `PortfolioCard` — each portfolio section now correctly starts at h2.
+
+**4. Blog post article header: `<div>` → `<header>`**
+`[slug]/page.tsx` — The article header band (containing the h1, breadcrumb, and byline) was a bare `<div>`. The `<header>` element semantically declares introductory content for its nearest `<article>` or `<body>` ancestor, providing Google additional context that this block is the article's header.
+
+**5. Nonprofit pricing callout: `<h2>` demoted to `<h3>`**
+`[slug]/page.tsx` — The promotional callout block inside `ArticleContent` used an `<h2>` ("No setup fees. No per-update charges. No surprises.") for a non-section heading within article body text. An `<h2>` at the same level as section headings for a promotional block creates a false structural signal. Corrected to `<h3>`.
+
+**6. Homepage ticker components: `<div>` → `<section aria-label>`**
+`page.tsx` — `IndustriesTicker` and `ClientWinsTicker` were bare `<div>` elements. Both are distinct thematic bands on the homepage (one lists industry types served, one shows live client activity). Wrapping in `<section aria-label="Industries we serve">` and `<section aria-label="Recent client wins">` adds ARIA landmark labels, making each a named region that screen readers can navigate to and that Google can identify as a distinct content area.
+
+**7. Competitor comparison feature cards: `<div>` → `<h3>`**
+`web-design-competitor-comparison/page.tsx` — The `WhyCalTechWins` section has an `<h2>` and contains a grid of feature cards. Each card's title was a styled `<div>` instead of an `<h3>`. Semantic headings at the correct level give Google explicit signals about what each card describes within the section.
+
+**8. Brandon Hopkins image: fixed intrinsic dimensions**
+`web-design-competitor-comparison/page.tsx` — The founder photo in FinalCTA declared `width={2400} height={1600}` (the full OG image resolution) but rendered at `w-11 h-11` (44px). Corrected to `width={44} height={44}` — browsers use intrinsic dimensions to calculate aspect ratio and srcset selection; oversized dimensions cause the browser to request an unnecessarily large image variant from the Next.js image optimizer.
+
+### Files Changed
+- `src/app/web-design-portfolio/page.tsx` — `<main>` added; h3→h2 in PortfolioCard
+- `src/app/portfolio/[slug]/page.tsx` — `<main>` and `<article>` added
+- `src/app/[slug]/page.tsx` — article header div→`<header>`; nonprofit h2→h3; img→`<Image>`
+- `src/app/page.tsx` — IndustriesTicker and ClientWinsTicker div→`<section aria-label>`
+- `src/app/web-design-competitor-comparison/page.tsx` — feature card div→`<h3>`; image dimensions fixed
+
+TypeScript check: only pre-existing stale `.next` cache errors, no new errors in edited files.
