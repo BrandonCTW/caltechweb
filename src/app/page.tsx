@@ -464,7 +464,7 @@ function IndustriesTicker() {
   const doubled = [...industries, ...industries];
 
   return (
-    <div className="bg-gray-50 border-y border-gray-100 py-3 overflow-hidden">
+    <section aria-label="Industries we serve" className="bg-gray-50 border-y border-gray-100 py-3 overflow-hidden">
       <div
         className="flex gap-10 whitespace-nowrap"
         style={{
@@ -482,7 +482,7 @@ function IndustriesTicker() {
           </span>
         ))}
       </div>
-    </div>
+    </section>
   );
 }
 
@@ -1690,7 +1690,7 @@ function ClientWinsTicker() {
   } as const;
 
   return (
-    <div className="bg-gray-950 py-3.5 overflow-hidden border-y border-gray-800">
+    <section aria-label="Recent client wins" className="bg-gray-950 py-3.5 overflow-hidden border-y border-gray-800">
       <div
         className="flex gap-12 whitespace-nowrap"
         style={{
@@ -1711,7 +1711,7 @@ function ClientWinsTicker() {
           </span>
         ))}
       </div>
-    </div>
+    </section>
   );
 }
 

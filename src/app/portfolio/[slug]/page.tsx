@@ -1076,14 +1076,18 @@ export default async function PortfolioDetailPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewJsonLd) }}
       />
       <Header />
-      <Hero cs={cs} />
-      <TheStory cs={cs} />
-      <ProjectTimeline cs={cs} />
-      <Results cs={cs} />
-      <WhatWeBuilt cs={cs} />
-      <Testimonial cs={cs} />
-      <RelatedProjects cs={cs} />
-      <FinalCTA cs={cs} />
+      <main>
+        <Hero cs={cs} />
+        <article>
+          <TheStory cs={cs} />
+          <ProjectTimeline cs={cs} />
+          <Results cs={cs} />
+          <WhatWeBuilt cs={cs} />
+          <Testimonial cs={cs} />
+        </article>
+        <RelatedProjects cs={cs} />
+        <FinalCTA cs={cs} />
+      </main>
       <Footer />
     </>
   );

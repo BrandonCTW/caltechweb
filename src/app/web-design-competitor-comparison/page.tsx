@@ -960,9 +960,9 @@ function WhyCalTechWins() {
                 <Icon className="w-5 h-5" />
               </div>
               <div>
-                <div className="font-semibold text-gray-900 text-sm mb-1">
+                <h3 className="font-semibold text-gray-900 text-sm mb-1">
                   {title}
-                </div>
+                </h3>
                 <div className="text-sm text-gray-500 leading-relaxed">
                   {body}
                 </div>
@@ -1207,8 +1207,8 @@ function FinalCTA() {
           <Image
             src="/brandon-hopkins.jpg"
             alt="Brandon Hopkins"
-            width={2400}
-            height={1600}
+            width={44}
+            height={44}
             className="w-11 h-11 rounded-full object-cover shrink-0"
           />
           <div className="text-left">

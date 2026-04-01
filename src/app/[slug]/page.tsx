@@ -701,9 +701,9 @@ function ArticleContent({ post }: { post: BlogPost }) {
             <Zap className="w-3 h-3" />
             $99/month, everything included
           </div>
-          <h2 className="text-xl font-extrabold text-gray-900 mb-2 leading-snug">
+          <h3 className="text-xl font-extrabold text-gray-900 mb-2 leading-snug">
             No setup fees. No per-update charges. No surprises.
-          </h2>
+          </h3>
           <p className="text-gray-600 text-sm leading-relaxed mb-5">
             Every item on this list is built into CalTech Web&apos;s $99/month plan. Not as an add-on. Not as an upgrade. Just included.
           </p>
@@ -810,10 +810,12 @@ function ArticleContent({ post }: { post: BlogPost }) {
                 </blockquote>
                 <footer className="flex items-center gap-3">
                   {section.quote.photo && (
-                    <img
+                    <Image
                       src={section.quote.photo}
                       alt={section.quote.author}
-                      className="w-10 h-10 rounded-full object-cover object-top flex-shrink-0"
+                      width={40}
+                      height={40}
+                      className="rounded-full object-cover object-top flex-shrink-0"
                     />
                   )}
                   <div className="text-sm text-gray-500">
@@ -1131,7 +1133,7 @@ export default async function BlogPostPage({
       <Header />
       <main className="pb-[76px] md:pb-0">
         {/* Article Header */}
-        <div className="bg-gradient-to-br from-blue-950 via-blue-900 to-blue-800 text-white py-12 sm:py-16">
+        <header className="bg-gradient-to-br from-blue-950 via-blue-900 to-blue-800 text-white py-12 sm:py-16">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Breadcrumb */}
             <nav className="flex items-center gap-2 text-sm text-blue-300 mb-6">
@@ -1161,7 +1163,7 @@ export default async function BlogPostPage({
               <span>by Brandon Hopkins</span>
             </div>
           </div>
-        </div>
+        </header>
 
         {/* Article Body */}
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">

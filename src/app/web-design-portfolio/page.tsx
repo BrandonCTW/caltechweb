@@ -403,9 +403,9 @@ function PortfolioCard({ item, dark }: { item: PortfolioItem; dark: boolean }) {
               {item.category}
             </div>
 
-            <h3 className="text-2xl font-extrabold text-white mb-3">
+            <h2 className="text-2xl font-extrabold text-white mb-3">
               {item.name}
-            </h3>
+            </h2>
 
             <p className="text-gray-400 leading-relaxed mb-6">
               {item.description}
@@ -752,11 +752,13 @@ export default function PortfolioPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(portfolioBreadcrumbJsonLd) }}
       />
       <Header />
-      <Hero />
-      <PortfolioGrid />
-      <CaseStudy />
-      <WhatsIncluded />
-      <FinalCTA />
+      <main>
+        <Hero />
+        <PortfolioGrid />
+        <CaseStudy />
+        <WhatsIncluded />
+        <FinalCTA />
+      </main>
       <Footer />
     </>
   );
