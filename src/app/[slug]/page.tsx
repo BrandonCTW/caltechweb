@@ -272,7 +272,7 @@ const blogPosts: BlogPost[] = [
         ],
       },
       {
-        heading: "How This Compares to Hiring an Agency",
+        heading: "Small Business Web Designer vs. Traditional Agency: The Real Cost",
         body: [
           "Traditional web design agencies charge $3,000-$10,000 for a small business website. Then they charge $50-$150/month for hosting. Then they charge $75-$150/hour for any updates or changes you need.",
           "Over two years, a basic agency relationship easily costs $7,000-$15,000. The CalTech Web equivalent over two years: $2,376. And you get more updates, faster support, and free redesigns, things agencies charge extra for.",
