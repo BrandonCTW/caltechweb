@@ -263,7 +263,7 @@ const blogPosts: BlogPost[] = [
         tip: "There's no setup fee, no contract, and no cancellation penalty. If you decide to leave, you can cancel anytime. And if you're not satisfied, you get a full refund and keep the website.",
       },
       {
-        heading: "How This Compares to DIY Website Builders",
+        heading: "Small Business Web Design vs. DIY Website Builders",
         body: [
           "The appeal of Wix, Squarespace, and GoDaddy is obvious: they're cheap upfront and you can do it yourself. But let's look at the real numbers.",
           "A Squarespace Business plan runs $33/month. But that doesn't include your time. First-time users typically spend 40-80 hours building a site. If your time is worth $50/hour, that's $2,000-$4,000 in labor before the site even launches. Then there's the ongoing time: every update, every change, every troubleshooting session is on you.",
