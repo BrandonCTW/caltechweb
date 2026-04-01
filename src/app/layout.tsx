@@ -75,6 +75,11 @@ export default function RootLayout({
     <html lang="en" style={{ scrollBehavior: "smooth" }}>
       <body className={`${geist.className} antialiased bg-background text-foreground min-h-screen`}>
         {children}
+        <Script
+          id="recaptcha-v3"
+          src="https://www.google.com/recaptcha/api.js?render=6LcE5l0mAAAAADc3vZerPMYboBxlnmlG7u1zeQtg"
+          strategy="lazyOnload"
+        />
         <Script id="ga-lazy" strategy="lazyOnload">
           {`(function(){var d=false;function l(){if(d)return;d=true;var s=document.createElement('script');s.src='https://www.googletagmanager.com/gtag/js?id=G-16KYJVW780';s.async=true;document.head.appendChild(s);window.dataLayer=window.dataLayer||[];function g(){dataLayer.push(arguments);}g('js',new Date());g('config','G-16KYJVW780');}['click','scroll','touchstart','mouseover'].forEach(function(e){window.addEventListener(e,l,{once:true,passive:true});});setTimeout(l,12000);})();`}
         </Script>

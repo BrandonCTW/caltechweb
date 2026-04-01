@@ -11,6 +11,9 @@ import {
   ArrowUpRight,
 } from "lucide-react";
 import Link from "next/link";
+import { useFormProtection } from "@/hooks/useFormProtection";
+import MathCaptcha from "@/components/MathCaptcha";
+import HoneypotField from "@/components/HoneypotField";
 
 // ─── Contact Form ─────────────────────────────────────────────────────────────
 
@@ -24,6 +27,17 @@ function ContactForm() {
     website: "",
     message: "",
   });
+  const {
+    honeypot,
+    setHoneypot,
+    mathChallenge,
+    mathAnswer,
+    setMathAnswer,
+    mathError,
+    setMathError,
+    getProtectionPayload,
+    validateMath,
+  } = useFormProtection();
 
   function handleChange(
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -35,9 +49,11 @@ function ContactForm() {
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+    if (!validateMath()) return;
     setSending(true);
 
     try {
+      const protection = await getProtectionPayload("contact");
       const res = await fetch("https://forms.caltechweb.com/api/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -48,6 +64,7 @@ function ContactForm() {
           website: fields.website,
           message: `${fields.phone ? `Phone: ${fields.phone}\n` : ""}${fields.businessType ? `Business Type: ${fields.businessType}\n` : ""}${fields.website ? `Website: ${fields.website}\n\n` : "\n"}${fields.message}`,
           source: "contact-page",
+          ...protection,
         }),
       });
       if (res.ok) {
@@ -91,7 +108,8 @@ function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 sm:p-8 space-y-5">
+    <form onSubmit={handleSubmit} className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 sm:p-8 space-y-5 relative">
+      <HoneypotField value={honeypot} onChange={setHoneypot} />
       <div className="grid sm:grid-cols-2 gap-5">
         <div>
           <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-1.5">
@@ -193,6 +211,16 @@ function ContactForm() {
           className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition resize-none"
         />
       </div>
+
+      <MathCaptcha
+        question={mathChallenge?.question ?? null}
+        answer={mathAnswer}
+        onChange={(v) => {
+          setMathAnswer(v);
+          if (mathError) setMathError("");
+        }}
+        error={mathError}
+      />
 
       <button
         type="submit"

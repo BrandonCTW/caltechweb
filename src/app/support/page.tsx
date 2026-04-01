@@ -15,6 +15,9 @@ import {
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useState, useEffect, type FormEvent } from "react";
+import { useFormProtection } from "@/hooks/useFormProtection";
+import MathCaptcha from "@/components/MathCaptcha";
+import HoneypotField from "@/components/HoneypotField";
 
 // --- Support Form ---
 
@@ -22,9 +25,21 @@ function SupportForm() {
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState(false);
   const [sending, setSending] = useState(false);
+  const {
+    honeypot,
+    setHoneypot,
+    mathChallenge,
+    mathAnswer,
+    setMathAnswer,
+    mathError,
+    setMathError,
+    getProtectionPayload,
+    validateMath,
+  } = useFormProtection();
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    if (!validateMath()) return;
     setSending(true);
     setError(false);
 
@@ -33,10 +48,11 @@ function SupportForm() {
 
     try {
       const data = Object.fromEntries(formData);
+      const protection = await getProtectionPayload("support");
       const response = await fetch("https://forms.caltechweb.com/api/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...data, site: "caltechweb.com", source: "support" }),
+        body: JSON.stringify({ ...data, site: "caltechweb.com", source: "support", ...protection }),
       });
 
       if (response.ok) {
@@ -76,7 +92,8 @@ function SupportForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-5">
+    <form onSubmit={handleSubmit} className="space-y-5 relative">
+      <HoneypotField value={honeypot} onChange={setHoneypot} />
       {error && (
         <div className="flex items-start gap-3 bg-red-50 border border-red-200 rounded-2xl p-4">
           <div className="w-9 h-9 rounded-lg bg-red-100 flex items-center justify-center shrink-0 mt-0.5">
@@ -175,6 +192,16 @@ function SupportForm() {
           className="w-full px-4 py-3 rounded-xl border border-gray-200 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-shadow resize-none"
         />
       </div>
+
+      <MathCaptcha
+        question={mathChallenge?.question ?? null}
+        answer={mathAnswer}
+        onChange={(v) => {
+          setMathAnswer(v);
+          if (mathError) setMathError("");
+        }}
+        error={mathError}
+      />
 
       <button
         type="submit"

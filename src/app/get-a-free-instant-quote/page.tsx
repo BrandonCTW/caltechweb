@@ -22,6 +22,9 @@ import {
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useState, type FormEvent } from "react";
+import { useFormProtection } from "@/hooks/useFormProtection";
+import MathCaptcha from "@/components/MathCaptcha";
+import HoneypotField from "@/components/HoneypotField";
 
 // NOTE: Metadata is handled by layout.tsx (server component) since this
 // page uses "use client" for the quote form.
@@ -63,9 +66,21 @@ function ContactForm() {
   const [sending, setSending] = useState(false);
   const [selectedType, setSelectedType] = useState<string | null>(null);
   const [formError, setFormError] = useState<string | null>(null);
+  const {
+    honeypot,
+    setHoneypot,
+    mathChallenge,
+    mathAnswer,
+    setMathAnswer,
+    mathError,
+    setMathError,
+    getProtectionPayload,
+    validateMath,
+  } = useFormProtection();
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    if (!validateMath()) return;
     setSending(true);
     setFormError(null);
 
@@ -77,6 +92,7 @@ function ContactForm() {
       const data = Object.fromEntries(formData) as Record<string, string>;
       const phone = data.phone || "";
       const projectType = data.projectType || "";
+      const protection = await getProtectionPayload("free_quote");
       const response = await fetch("https://forms.caltechweb.com/api/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -87,6 +103,7 @@ function ContactForm() {
           website: data.website,
           message: `${phone ? `Phone: ${phone}\n` : ""}${projectType ? `Project Type: ${projectType}\n\n` : "\n"}${data.message || ""}`,
           source: "free-quote",
+          ...protection,
         }),
       });
 
@@ -239,7 +256,8 @@ function ContactForm() {
 
       {/* Step 2: Contact Details */}
       {step === 2 && (
-        <form onSubmit={handleSubmit} className="space-y-5">
+        <form onSubmit={handleSubmit} className="space-y-5 relative">
+          <HoneypotField value={honeypot} onChange={setHoneypot} />
           <button
             type="button"
             onClick={() => setStep(1)}
@@ -334,6 +352,16 @@ function ContactForm() {
               className="w-full px-4 py-3 rounded-xl border border-gray-200 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-shadow resize-none"
             />
           </div>
+
+          <MathCaptcha
+            question={mathChallenge?.question ?? null}
+            answer={mathAnswer}
+            onChange={(v) => {
+              setMathAnswer(v);
+              if (mathError) setMathError("");
+            }}
+            error={mathError}
+          />
 
           <button
             type="submit"

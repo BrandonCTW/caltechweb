@@ -2,11 +2,25 @@
 
 import { useState, type FormEvent } from "react";
 import { ArrowRight, Check, Zap, Users } from "lucide-react";
+import { useFormProtection } from "@/hooks/useFormProtection";
+import MathCaptcha from "@/components/MathCaptcha";
+import HoneypotField from "@/components/HoneypotField";
 
 export default function InlineQuoteForm() {
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
   const [fields, setFields] = useState({ name: "", contact: "" });
+  const {
+    honeypot,
+    setHoneypot,
+    mathChallenge,
+    mathAnswer,
+    setMathAnswer,
+    mathError,
+    setMathError,
+    getProtectionPayload,
+    validateMath,
+  } = useFormProtection();
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     setFields((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -14,9 +28,11 @@ export default function InlineQuoteForm() {
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    if (!validateMath()) return;
     setSending(true);
 
     try {
+      const protection = await getProtectionPayload("homepage_quote");
       await fetch("https://forms.caltechweb.com/api/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -27,6 +43,7 @@ export default function InlineQuoteForm() {
           website: "",
           message: `Contact: ${fields.contact}`,
           source: "homepage-quote",
+          ...protection,
         }),
       });
     } catch {
@@ -90,8 +107,9 @@ export default function InlineQuoteForm() {
 
         <form
           onSubmit={handleSubmit}
-          className="bg-white rounded-3xl p-8 sm:p-10 shadow-2xl"
+          className="bg-white rounded-3xl p-8 sm:p-10 shadow-2xl relative"
         >
+          <HoneypotField value={honeypot} onChange={setHoneypot} />
           <div className="space-y-4 mb-6">
             <div>
               <label
@@ -129,6 +147,15 @@ export default function InlineQuoteForm() {
                 className="w-full px-4 py-3.5 rounded-xl border border-gray-200 text-gray-900 placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all text-base"
               />
             </div>
+            <MathCaptcha
+              question={mathChallenge?.question ?? null}
+              answer={mathAnswer}
+              onChange={(v) => {
+                setMathAnswer(v);
+                if (mathError) setMathError("");
+              }}
+              error={mathError}
+            />
           </div>
 
           <button

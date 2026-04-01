@@ -28,6 +28,9 @@ import Footer from "@/components/Footer";
 import Link from "next/link";
 import { useState, FormEvent } from "react";
 import { rfpFaqs } from "./faq-data";
+import { useFormProtection } from "@/hooks/useFormProtection";
+import MathCaptcha from "@/components/MathCaptcha";
+import HoneypotField from "@/components/HoneypotField";
 
 // ─── Hero ─────────────────────────────────────────────────────────────────────
 
@@ -372,9 +375,21 @@ function RFPForm() {
   const [orgType, setOrgType] = useState("");
   const [website, setWebsite] = useState("");
   const [details, setDetails] = useState("");
+  const {
+    honeypot,
+    setHoneypot,
+    mathChallenge,
+    mathAnswer,
+    setMathAnswer,
+    mathError,
+    setMathError,
+    getProtectionPayload,
+    validateMath,
+  } = useFormProtection();
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
+    if (!validateMath()) return;
     setSending(true);
     setError("");
 
@@ -386,6 +401,7 @@ function RFPForm() {
     );
 
     try {
+      const protection = await getProtectionPayload("rfp");
       // Attempt API submission first
       const res = await fetch("https://forms.caltechweb.com/api/submit", {
         method: "POST",
@@ -397,6 +413,7 @@ function RFPForm() {
           website,
           message: `${organization ? `Organization: ${organization}\n` : ""}${orgType ? `Type: ${orgType}\n\n` : ""}${details}`,
           source: "rfp-rfq",
+          ...protection,
         }),
       });
       if (res.ok) {
@@ -454,8 +471,9 @@ function RFPForm() {
 
         <form
           onSubmit={handleSubmit}
-          className="bg-white border border-gray-200 rounded-2xl shadow-lg p-8 space-y-6"
+          className="bg-white border border-gray-200 rounded-2xl shadow-lg p-8 space-y-6 relative"
         >
+          <HoneypotField value={honeypot} onChange={setHoneypot} />
           <div className="grid sm:grid-cols-2 gap-6">
             <div>
               <label
@@ -591,6 +609,16 @@ function RFPForm() {
               />
             </div>
           </div>
+
+          <MathCaptcha
+            question={mathChallenge?.question ?? null}
+            answer={mathAnswer}
+            onChange={(v) => {
+              setMathAnswer(v);
+              if (mathError) setMathError("");
+            }}
+            error={mathError}
+          />
 
           {error && (
             <div className="rounded-xl bg-red-50 border border-red-200 px-4 py-3 text-sm text-red-700">
