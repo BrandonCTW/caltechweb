@@ -933,6 +933,7 @@ function RelatedPosts({ posts }: { posts: BlogPost[] }) {
 
 function CTAStrip({ post }: { post: BlogPost }) {
   const isNonprofit = post.slug === "nonprofit-website-design";
+  const isAffordable = post.slug === "affordable-web-design-company";
 
   return (
     <section className="py-14 sm:py-20 bg-gradient-to-br from-blue-600 to-blue-700 text-white">
@@ -958,7 +959,7 @@ function CTAStrip({ post }: { post: BlogPost }) {
             href="/web-design-pricing/"
             className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-orange-500 text-white text-lg font-bold hover:bg-orange-600 transition-all shadow-lg hover:-translate-y-0.5"
           >
-            {isNonprofit ? "Get My Nonprofit Website" : "Get My Website"}
+            {isNonprofit ? "Get My Nonprofit Website" : isAffordable ? "See My $99/Month Plan" : "Get My Website"}
             <ArrowRight className="w-5 h-5" />
           </Link>
           <a
